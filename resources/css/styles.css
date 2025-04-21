@@ -1,0 +1,255 @@
+/* Estilos globales para la aplicación MiraCar */
+
+body {
+    font-family: 'Instrument Sans', sans-serif;
+    color: #333333;
+    background-color: #f5f7fa;
+    /* Añadir padding-top para compensar la barra de navegación fija */
+    padding-top: 56px;
+}
+
+/* Estilos para la barra de navegación del taller - Marrón chocolate con leche */
+.taller-navbar {
+    background-color: #C4A484; /* Color marrón chocolate con leche */
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 56px;
+    width: 100%;
+}
+
+.taller-navbar .container-fluid {
+    padding: 0;
+    width: 100%;
+}
+
+.navbar-brand {
+    padding: 0;
+    margin: 0;
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    background-color: #A67B5B; /* Marrón más oscuro para el logo */
+    height: 56px;
+    width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.taller-logo {
+    max-height: 40px;
+    max-width: 40px;
+}
+
+.navbar-nav {
+    height: 56px;
+}
+
+.navbar-nav .nav-item {
+    height: 100%;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 500;
+    padding: 0 20px !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-nav .nav-link.active {
+    background-color: #A67B5B; /* Marrón más oscuro para el elemento activo */
+}
+
+/* Estilos para el menú desplegable de usuario */
+.user-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    padding-right: 15px !important;
+}
+
+.dropdown-menu {
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    min-width: 200px;
+}
+
+.dropdown-item {
+    padding: 0.6rem 1.2rem;
+    color: #333;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f2ee; /* Un tono más claro del marrón */
+    color: #A67B5B;
+}
+
+.dropdown-item i {
+    color: #A67B5B;
+}
+
+.dropdown-divider {
+    margin: 0.3rem 0;
+    border-top: 1px solid #f0e6e0;
+}
+
+/* Estilos para el botón de hamburguesa en móviles */
+.navbar-toggler {
+    border: none;
+    color: white;
+    margin-right: 15px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.navbar-toggler i {
+    color: white;
+}
+
+/* Estilos para tarjetas */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    overflow: hidden;
+}
+
+.card-title {
+    color: #A67B5B; /* Actualizado para coincidir con el tema marrón */
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Estilos para botones */
+.btn {
+    border-radius: 4px;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #C4A484; /* Marrón chocolate con leche */
+    border-color: #C4A484;
+}
+
+.btn-primary:hover {
+    background-color: #A67B5B; /* Marrón más oscuro */
+    border-color: #A67B5B;
+}
+
+/* Estilos para tablas */
+.table-header {
+    background-color: #C4A484; /* Marrón chocolate con leche */
+    color: white;
+}
+
+/* Estilos para formularios */
+.form-control:focus {
+    border-color: #C4A484; /* Marrón chocolate con leche */
+    box-shadow: 0 0 0 0.25rem rgba(196, 164, 132, 0.25);
+}
+
+/* Estilos para alertas */
+.alert {
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.alert-success {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+}
+
+/* Estilos para paginación */
+.page-item.active .page-link {
+    background-color: #C4A484; /* Marrón chocolate con leche */
+    border-color: #C4A484;
+}
+
+.page-link {
+    color: #C4A484; /* Marrón chocolate con leche */
+}
+
+.page-link:hover {
+    color: #A67B5B; /* Marrón más oscuro */
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: #C4A484; /* Marrón chocolate con leche */
+        padding: 1rem;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    
+    .navbar-nav {
+        height: auto;
+    }
+    
+    .navbar-nav .nav-item {
+        height: auto;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 10px 20px !important;
+    }
+    
+    /* Ajustes para el menú desplegable en móviles */
+    .dropdown-menu {
+        position: static !important;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+        color: white;
+    }
+    
+    .dropdown-item {
+        color: white;
+        padding: 10px 20px 10px 35px;
+    }
+    
+    .dropdown-item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+    
+    .dropdown-item i {
+        color: white;
+    }
+    
+    .dropdown-divider {
+        border-top-color: rgba(255, 255, 255, 0.2);
+    }
+}

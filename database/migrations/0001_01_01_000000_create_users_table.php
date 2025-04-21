@@ -14,8 +14,17 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('lastname')->nullable();
+            $table->string('dni')->nullable()->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('avatar')->nullable();
+            $table->enum('role', ['user', 'taller', 'admin'])->default('user');
+            // Campos específicos para talleres
+            $table->string('company_name')->nullable();
+            $table->string('company_nif')->nullable()->unique();
+            $table->string('logo')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
@@ -42,8 +51,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('users');
     }
 };

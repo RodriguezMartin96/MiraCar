@@ -19,7 +19,15 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'lastname',
+        'dni',
         'email',
+        'phone',
+        'avatar',
+        'role',
+        'company_name',
+        'company_nif',
+        'logo',
         'password',
     ];
 
@@ -44,5 +52,29 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    
+    /**
+     * Check if the user is a taller.
+     */
+    public function isTaller()
+    {
+        return $this->role === 'taller';
+    }
+    
+    /**
+     * Check if the user is a normal user.
+     */
+    public function isUser()
+    {
+        return $this->role === 'user';
+    }
+    
+    /**
+     * Check if the user is an admin.
+     */
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
     }
 }
