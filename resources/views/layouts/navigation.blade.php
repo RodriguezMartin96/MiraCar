@@ -1,3 +1,92 @@
+<style>
+    .taller-navbar {
+        background: linear-gradient(90deg, #4f8cff 0%, #235390 100%);
+        box-shadow: 0 2px 12px rgba(79,140,255,0.08);
+        padding: 0.7rem 2rem;
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+        margin-bottom: 32px; /* Añadido para separar la barra del contenido */
+    }
+    .taller-logo {
+        height: 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(79,140,255,0.10);
+        background: #fff;
+        padding: 2px;
+    }
+    .navbar-nav .nav-link {
+        color: #fff !important;
+        font-weight: 500;
+        font-size: 1.08rem;
+        padding: 10px 22px;
+        margin: 0 4px;
+        border-radius: 8px;
+        transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+        position: relative;
+    }
+    .navbar-nav .nav-link.active, .navbar-nav .nav-link:hover {
+        background: #fff;
+        color: #235390 !important;
+        box-shadow: 0 2px 10px rgba(79,140,255,0.10);
+        text-shadow: 0 1px 2px #e3ecff;
+    }
+    .navbar-toggler {
+        border: none;
+        color: #fff;
+        font-size: 1.6rem;
+        background: rgba(255,255,255,0.10);
+        border-radius: 8px;
+        transition: background 0.18s;
+    }
+    .navbar-toggler:focus {
+        outline: none;
+        background: #e3ecff;
+        color: #235390;
+    }
+    .user-dropdown-toggle {
+        color: #fff !important;
+        font-weight: 500;
+        border-radius: 8px;
+        padding: 10px 18px;
+        transition: background 0.18s, color 0.18s;
+    }
+    .user-dropdown-toggle:hover, .user-dropdown-toggle:focus {
+        background: #fff;
+        color: #235390 !important;
+    }
+    .dropdown-menu {
+        border-radius: 10px;
+        box-shadow: 0 4px 18px rgba(79,140,255,0.13);
+        min-width: 180px;
+    }
+    .dropdown-item {
+        font-weight: 500;
+        color: #235390;
+        border-radius: 6px;
+        transition: background 0.15s, color 0.15s;
+    }
+    .dropdown-item:hover, .dropdown-item:focus {
+        background: #e3ecff;
+        color: #4f8cff;
+    }
+    @media (max-width: 991px) {
+        .taller-navbar {
+            padding: 0.7rem 0.7rem;
+        }
+        .navbar-nav .nav-link {
+            padding: 10px 12px;
+            font-size: 1rem;
+        }
+        .user-dropdown-toggle {
+            padding: 10px 12px;
+        }
+    }
+    /* Espacio superior para el contenido principal */
+    main, .main-content, .container, .dashboard-content {
+        margin-top: 80px !important;
+    }
+</style>
+
 <nav class="navbar navbar-expand-lg fixed-top taller-navbar">
     <div class="container-fluid">
         <!-- Logo del taller -->

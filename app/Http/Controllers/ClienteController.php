@@ -10,9 +10,26 @@ class ClienteController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clientes = Cliente::all();
+        $search = $request->input('search');
+        
+        $query = Cliente::query();
+        
+        // Si hay un término de búsqueda, filtramos los resultados
+        if ($search) {
+            $query->where(function($q) use ($search) {
+                $q->where('nombre', 'LIKE', "%{$search}%")
+                  ->orWhere('apellidos', 'LIKE', "%{$search}%")
+                  ->orWhere('email', 'LIKE', "%{$search}%")
+                  ->orWhere('telefono', 'LIKE', "%{$search}%")
+                  ->orWhere('dni', 'LIKE', "%{$search}%");
+            });
+        }
+        
+        // Ordenamos por nombre por defecto y paginamos los resultados
+        $clientes = $query->orderBy('nombre')->paginate(10);
+        
         return view('clientes.index', compact('clientes'));
     }
 

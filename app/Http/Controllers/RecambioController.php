@@ -10,9 +10,24 @@ class RecambioController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $recambios = Recambio::all();
+        $search = $request->input('search');
+        
+        $query = Recambio::query();
+        
+        // Si hay un término de búsqueda, filtramos los resultados
+        if ($search) {
+            $query->where(function($q) use ($search) {
+                $q->where('producto', 'LIKE', "%{$search}%")
+                  ->orWhere('referencia', 'LIKE', "%{$search}%")
+                  ->orWhere('descripcion', 'LIKE', "%{$search}%");
+            });
+        }
+        
+        // Ordenamos por producto por defecto y paginamos los resultados
+        $recambios = $query->orderBy('producto')->paginate(10);
+        
         return view('recambios.index', compact('recambios'));
     }
 

@@ -11,9 +11,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Verifica que la ruta '/dashboard' esté correctamente configurada y que el middleware 'auth' esté funcionando
+// Quitar el middleware 'verified' para permitir acceso después del registro
 Route::get('/dashboard', function () {
-    return view('dashboard'); // Página principal del usuario autenticado
+    return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
