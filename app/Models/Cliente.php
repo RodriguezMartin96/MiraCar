@@ -13,20 +13,25 @@ class Cliente extends Model
         'nombre',
         'apellidos',
         'dni',
-        'direccion',
-        'telefono',
         'email',
-        'cif',
-        'direccion_juridica',
+        'telefono',
+        'direccion',
+        'user_id', // Añadido para la relación con el usuario
     ];
 
+    /**
+     * Obtener el usuario (taller) al que pertenece este cliente.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Obtener los vehículos asociados a este cliente.
+     */
     public function vehiculos()
     {
         return $this->hasMany(Vehiculo::class);
-    }
-
-    public function siniestros()
-    {
-        return $this->hasMany(Siniestro::class);
     }
 }

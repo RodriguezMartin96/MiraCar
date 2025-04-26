@@ -5,37 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Vehiculo;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class VehiculoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $search = $request->input('search');
-        
-        $query = Vehiculo::with('cliente');
-        
-        // Si hay un término de búsqueda, filtramos los resultados
-        if ($search) {
-            $query->where(function($q) use ($search) {
-                $q->where('marca', 'LIKE', "%{$search}%")
-                  ->orWhere('modelo', 'LIKE', "%{$search}%")
-                  ->orWhere('matricula', 'LIKE', "%{$search}%")
-                  ->orWhere('bastidor', 'LIKE', "%{$search}%")
-                  ->orWhere('color', 'LIKE', "%{$search}%")
-                  ->orWhereHas('cliente', function($q) use ($search) {
-                      $q->where('nombre', 'LIKE', "%{$search}%")
-                        ->orWhere('apellidos', 'LIKE', "%{$search}%")
-                        ->orWhere('dni', 'LIKE', "%{$search}%");
-                  });
-            });
-        }
-        
-        // Ordenamos por marca y modelo y paginamos los resultados
-        $vehiculos = $query->orderBy('marca')->orderBy('modelo')->paginate(10);
-        
+        // Solo mostrar vehículos del usuario autenticado
+        $vehiculos = Vehiculo::where('user_id', Auth::id())->with('cliente')->paginate(10);
         return view('vehiculos.index', compact('vehiculos'));
     }
 
@@ -44,7 +25,8 @@ class VehiculoController extends Controller
      */
     public function create()
     {
-        $clientes = Cliente::all();
+        // Solo mostrar clientes del usuario autenticado
+        $clientes = Cliente::where('user_id', Auth::id())->get();
         return view('vehiculos.create', compact('clientes'));
     }
 
@@ -57,16 +39,33 @@ class VehiculoController extends Controller
             'marca' => 'required|string|max:255',
             'modelo' => 'required|string|max:255',
             'matricula' => 'required|string|max:20|unique:vehiculos',
-            'bastidor' => 'nullable|string|max:50',
-            'fecha_matriculacion' => 'nullable|date',
-            'color' => 'nullable|string|max:50',
+            'color' => 'required|string|max:50',
+            'año' => 'required|integer|min:1900|max:' . (date('Y') + 1),
             'cliente_id' => 'required|exists:clientes,id',
         ]);
 
-        Vehiculo::create($request->all());
+        try {
+            // Verificar que el cliente pertenece al usuario autenticado
+            $cliente = Cliente::findOrFail($request->cliente_id);
+            if ($cliente->user_id !== Auth::id()) {
+                return back()->withErrors(['cliente_id' => 'El cliente seleccionado no es válido.'])->withInput();
+            }
 
-        return redirect()->route('vehiculos.index')
-            ->with('success', 'Vehículo creado correctamente.');
+            // Asociar el vehículo al usuario autenticado
+            $vehiculo = new Vehiculo($request->all());
+            $vehiculo->user_id = Auth::id();
+            $vehiculo->save();
+
+            Log::info('Vehículo creado correctamente', ['vehiculo_id' => $vehiculo->id, 'user_id' => Auth::id()]);
+            return redirect()->route('vehiculos.index')->with('success', 'Vehículo creado correctamente.');
+        } catch (\Exception $e) {
+            Log::error('Error al crear vehículo: ' . $e->getMessage(), [
+                'exception' => get_class($e),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return back()->withErrors(['error' => 'Ha ocurrido un error al crear el vehículo.'])->withInput();
+        }
     }
 
     /**
@@ -74,7 +73,11 @@ class VehiculoController extends Controller
      */
     public function show(Vehiculo $vehiculo)
     {
-        $vehiculo->load('cliente');
+        // Verificar que el vehículo pertenece al usuario autenticado
+        if ($vehiculo->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para ver este vehículo.');
+        }
+
         return view('vehiculos.show', compact('vehiculo'));
     }
 
@@ -83,7 +86,13 @@ class VehiculoController extends Controller
      */
     public function edit(Vehiculo $vehiculo)
     {
-        $clientes = Cliente::all();
+        // Verificar que el vehículo pertenece al usuario autenticado
+        if ($vehiculo->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para editar este vehículo.');
+        }
+
+        // Solo mostrar clientes del usuario autenticado
+        $clientes = Cliente::where('user_id', Auth::id())->get();
         return view('vehiculos.edit', compact('vehiculo', 'clientes'));
     }
 
@@ -92,20 +101,39 @@ class VehiculoController extends Controller
      */
     public function update(Request $request, Vehiculo $vehiculo)
     {
+        // Verificar que el vehículo pertenece al usuario autenticado
+        if ($vehiculo->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para actualizar este vehículo.');
+        }
+
         $request->validate([
             'marca' => 'required|string|max:255',
             'modelo' => 'required|string|max:255',
-            'matricula' => 'required|string|max:20|unique:vehiculos,matricula,'.$vehiculo->id,
-            'bastidor' => 'nullable|string|max:50',
-            'fecha_matriculacion' => 'nullable|date',
-            'color' => 'nullable|string|max:50',
+            'matricula' => 'required|string|max:20|unique:vehiculos,matricula,' . $vehiculo->id,
+            'color' => 'required|string|max:50',
+            'año' => 'required|integer|min:1900|max:' . (date('Y') + 1),
             'cliente_id' => 'required|exists:clientes,id',
         ]);
 
-        $vehiculo->update($request->all());
+        try {
+            // Verificar que el cliente pertenece al usuario autenticado
+            $cliente = Cliente::findOrFail($request->cliente_id);
+            if ($cliente->user_id !== Auth::id()) {
+                return back()->withErrors(['cliente_id' => 'El cliente seleccionado no es válido.'])->withInput();
+            }
 
-        return redirect()->route('vehiculos.index')
-            ->with('success', 'Vehículo actualizado correctamente.');
+            $vehiculo->update($request->all());
+            
+            Log::info('Vehículo actualizado correctamente', ['vehiculo_id' => $vehiculo->id, 'user_id' => Auth::id()]);
+            return redirect()->route('vehiculos.index')->with('success', 'Vehículo actualizado correctamente.');
+        } catch (\Exception $e) {
+            Log::error('Error al actualizar vehículo: ' . $e->getMessage(), [
+                'exception' => get_class($e),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return back()->withErrors(['error' => 'Ha ocurrido un error al actualizar el vehículo.'])->withInput();
+        }
     }
 
     /**
@@ -113,9 +141,23 @@ class VehiculoController extends Controller
      */
     public function destroy(Vehiculo $vehiculo)
     {
-        $vehiculo->delete();
+        // Verificar que el vehículo pertenece al usuario autenticado
+        if ($vehiculo->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para eliminar este vehículo.');
+        }
 
-        return redirect()->route('vehiculos.index')
-            ->with('success', 'Vehículo eliminado correctamente.');
+        try {
+            $vehiculo->delete();
+            
+            Log::info('Vehículo eliminado correctamente', ['vehiculo_id' => $vehiculo->id, 'user_id' => Auth::id()]);
+            return redirect()->route('vehiculos.index')->with('success', 'Vehículo eliminado correctamente.');
+        } catch (\Exception $e) {
+            Log::error('Error al eliminar vehículo: ' . $e->getMessage(), [
+                'exception' => get_class($e),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return back()->withErrors(['error' => 'Ha ocurrido un error al eliminar el vehículo.']);
+        }
     }
 }

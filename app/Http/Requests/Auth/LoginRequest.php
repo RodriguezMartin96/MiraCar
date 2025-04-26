@@ -56,27 +56,10 @@ class LoginRequest extends FormRequest
         ];
 
         if (!Auth::attempt($credentials, $this->boolean('remember'))) {
-            // Registrar fallo para depuración
-            Log::warning("Fallo de autenticación para {$loginType}: {$login}");
-            
-            // Si falla con el primer tipo, intentar con el otro tipo
-            $alternativeType = ($loginType === 'email') ? 'dni' : 'email';
-            $alternativeCredentials = [
-                $alternativeType => $login,
-                'password' => $this->input('password')
-            ];
-            
-            Log::info("Intentando autenticación alternativa con {$alternativeType}: {$login}");
-            
-            if (!Auth::attempt($alternativeCredentials, $this->boolean('remember'))) {
-                Log::warning("Fallo de autenticación alternativa para {$alternativeType}: {$login}");
-                
-                RateLimiter::hit($this->throttleKey());
-                
-                throw ValidationException::withMessages([
-                    'login' => trans('auth.failed'),
-                ]);
-            }
+            RateLimiter::hit($this->throttleKey());
+            throw ValidationException::withMessages([
+                'login' => trans('auth.failed'),
+            ]);
         }
 
         // Registrar éxito para depuración

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
+use Illuminate\Validation\ValidationException;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -42,6 +43,8 @@ class AuthenticatedSessionController extends Controller
             
             // Usar RouteServiceProvider::HOME para mantener consistencia
             return redirect()->intended(RouteServiceProvider::HOME);
+        } catch (ValidationException $e) {
+            throw $e; // Manejar errores de validación normalmente
         } catch (\Exception $e) {
             // Registrar el error para depuración
             Log::error('Error de autenticación: ' . $e->getMessage(), [
@@ -51,7 +54,7 @@ class AuthenticatedSessionController extends Controller
             ]);
             
             return back()->withErrors([
-                'login' => trans('auth.failed'),
+                'login' => 'Error inesperado. Inténtalo de nuevo.',
             ])->withInput();
         }
     }

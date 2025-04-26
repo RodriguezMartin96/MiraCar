@@ -12,16 +12,16 @@ class Soporte extends Model
     protected $table = 'soportes';
 
     protected $fillable = [
-        'email',
         'asunto',
-        'descripcion',
+        'mensaje',
+        'email_from',
+        'email_to',
         'estado',
-        'respuesta',
-        'user_id'
+        'user_id', // Añadido para la relación con el usuario
     ];
 
     /**
-     * Obtener el usuario que creó la solicitud de soporte.
+     * Obtener el usuario (taller) al que pertenece este soporte.
      */
     public function user()
     {

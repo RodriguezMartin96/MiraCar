@@ -136,7 +136,7 @@
                                     <input id="password" type="password" class="form-control py-2 @error('password') is-invalid @enderror" 
                                         name="password" required autocomplete="current-password"
                                         placeholder="Introduce tu contraseña">
-                                    <button type="button" class="password-toggle" onclick="togglePassword()">
+                                    <button type="button" class="password-toggle" onclick="togglePassword('password', 'toggleIcon')">
                                         <i class="bi bi-eye-fill" id="toggleIcon"></i>
                                     </button>
                                     @error('password')
@@ -182,9 +182,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Función para mostrar/ocultar contraseña
-        function togglePassword() {
-            const passwordInput = document.getElementById('password');
-            const toggleIcon = document.getElementById('toggleIcon');
+        function togglePassword(inputId, iconId) {
+            const passwordInput = document.getElementById(inputId);
+            const toggleIcon = document.getElementById(iconId);
             
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';

@@ -3,35 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Soporte;
-use App\Mail\SoporteMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SoporteMail;
 
 class SoporteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $search = $request->input('search');
-        
-        $query = Soporte::query();
-        
-        // Si hay un término de búsqueda, filtramos los resultados
-        if ($search) {
-            $query->where(function($q) use ($search) {
-                $q->where('email', 'LIKE', "%{$search}%")
-                  ->orWhere('asunto', 'LIKE', "%{$search}%")
-                  ->orWhere('descripcion', 'LIKE', "%{$search}%");
-            });
-        }
-        
-        // Obtenemos todas las solicitudes
-        $soportes = $query->orderBy('created_at', 'desc')->paginate(10);
-        
+        // Solo mostrar solicitudes de soporte del usuario autenticado
+        $soportes = Soporte::where('user_id', Auth::id())->paginate(10);
         return view('soporte.index', compact('soportes'));
     }
 
@@ -50,52 +36,33 @@ class SoporteController extends Controller
     {
         $request->validate([
             'asunto' => 'required|string|max:255',
-            'descripcion' => 'required|string',
+            'mensaje' => 'required|string',
         ]);
 
-        // Obtener el email del usuario autenticado o usar el valor del formulario
-        $fromEmail = Auth::check() ? Auth::user()->email : $request->from_email;
-        $toEmail = $request->to_email ?? 'adm.96.rrm@gmail.com';
-
-        // Guardar la solicitud en la base de datos
-        $solicitud = new Soporte();
-        $solicitud->email = $fromEmail;
-        $solicitud->asunto = $request->asunto;
-        $solicitud->descripcion = $request->descripcion;
-        $solicitud->estado = 'Pendiente';
-        
-        if (Auth::check()) {
-            $solicitud->user_id = Auth::id();
-        }
-        
-        $solicitud->save();
-
-        // Enviar el correo electrónico
         try {
-            $tallerName = null;
-            if (Auth::check() && method_exists(Auth::user(), 'taller') && Auth::user()->taller) {
-                $tallerName = Auth::user()->taller->nombre;
-            }
-            
-            Mail::to($toEmail)
-                ->send(new SoporteMail(
-                    $fromEmail,
-                    $request->asunto,
-                    $request->descripcion,
-                    $tallerName
-                ));
-            
-            // Limpiar el formulario y mostrar mensaje de éxito
-            return redirect()->route('soporte.create')
-                ->with('success', 'Solicitud de soporte enviada correctamente. Nos pondremos en contacto contigo pronto.');
+            // Asociar la solicitud de soporte al usuario autenticado
+            $soporte = new Soporte([
+                'asunto' => $request->asunto,
+                'mensaje' => $request->mensaje,
+                'email_from' => Auth::user()->email,
+                'email_to' => 'soporte@miracar.com',
+                'estado' => 'pendiente',
+                'user_id' => Auth::id(),
+            ]);
+            $soporte->save();
+
+            // Enviar correo electrónico
+            Mail::to('soporte@miracar.com')->send(new SoporteMail($soporte));
+
+            Log::info('Solicitud de soporte creada correctamente', ['soporte_id' => $soporte->id, 'user_id' => Auth::id()]);
+            return redirect()->route('soporte.create')->with('success', 'Solicitud de soporte enviada correctamente.');
         } catch (\Exception $e) {
-            // Registrar el error con más detalles
-            Log::error('Error al enviar correo de soporte: ' . $e->getMessage());
-            Log::error($e->getTraceAsString());
+            Log::error('Error al crear solicitud de soporte: ' . $e->getMessage(), [
+                'exception' => get_class($e),
+                'trace' => $e->getTraceAsString()
+            ]);
             
-            return redirect()->back()
-                ->with('error', 'No se pudo enviar el correo electrónico. La solicitud se ha guardado en el sistema.')
-                ->withInput();
+            return back()->withErrors(['error' => 'Ha ocurrido un error al enviar la solicitud de soporte.'])->withInput();
         }
     }
 
@@ -104,6 +71,11 @@ class SoporteController extends Controller
      */
     public function show(Soporte $soporte)
     {
+        // Verificar que la solicitud de soporte pertenece al usuario autenticado
+        if ($soporte->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para ver esta solicitud de soporte.');
+        }
+
         return view('soporte.show', compact('soporte'));
     }
 
@@ -112,6 +84,11 @@ class SoporteController extends Controller
      */
     public function edit(Soporte $soporte)
     {
+        // Verificar que la solicitud de soporte pertenece al usuario autenticado
+        if ($soporte->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para editar esta solicitud de soporte.');
+        }
+
         return view('soporte.edit', compact('soporte'));
     }
 
@@ -120,26 +97,31 @@ class SoporteController extends Controller
      */
     public function update(Request $request, Soporte $soporte)
     {
+        // Verificar que la solicitud de soporte pertenece al usuario autenticado
+        if ($soporte->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para actualizar esta solicitud de soporte.');
+        }
+
         $request->validate([
-            'email' => 'required|email|max:255',
             'asunto' => 'required|string|max:255',
-            'descripcion' => 'required|string',
-            'estado' => 'required|string|in:Pendiente,En proceso,Resuelto,Cerrado',
+            'mensaje' => 'required|string',
         ]);
 
-        $soporte->email = $request->email;
-        $soporte->asunto = $request->asunto;
-        $soporte->descripcion = $request->descripcion;
-        $soporte->estado = $request->estado;
-        
-        if ($request->has('respuesta')) {
-            $soporte->respuesta = $request->respuesta;
+        try {
+            $soporte->asunto = $request->asunto;
+            $soporte->mensaje = $request->mensaje;
+            $soporte->save();
+            
+            Log::info('Solicitud de soporte actualizada correctamente', ['soporte_id' => $soporte->id, 'user_id' => Auth::id()]);
+            return redirect()->route('soporte.index')->with('success', 'Solicitud de soporte actualizada correctamente.');
+        } catch (\Exception $e) {
+            Log::error('Error al actualizar solicitud de soporte: ' . $e->getMessage(), [
+                'exception' => get_class($e),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return back()->withErrors(['error' => 'Ha ocurrido un error al actualizar la solicitud de soporte.'])->withInput();
         }
-        
-        $soporte->save();
-
-        return redirect()->route('soporte.index')
-            ->with('success', 'Solicitud de soporte actualizada correctamente.');
     }
 
     /**
@@ -147,9 +129,23 @@ class SoporteController extends Controller
      */
     public function destroy(Soporte $soporte)
     {
-        $soporte->delete();
+        // Verificar que la solicitud de soporte pertenece al usuario autenticado
+        if ($soporte->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para eliminar esta solicitud de soporte.');
+        }
 
-        return redirect()->route('soporte.index')
-            ->with('success', 'Solicitud de soporte eliminada correctamente.');
+        try {
+            $soporte->delete();
+            
+            Log::info('Solicitud de soporte eliminada correctamente', ['soporte_id' => $soporte->id, 'user_id' => Auth::id()]);
+            return redirect()->route('soporte.index')->with('success', 'Solicitud de soporte eliminada correctamente.');
+        } catch (\Exception $e) {
+            Log::error('Error al eliminar solicitud de soporte: ' . $e->getMessage(), [
+                'exception' => get_class($e),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return back()->withErrors(['error' => 'Ha ocurrido un error al eliminar la solicitud de soporte.']);
+        }
     }
 }

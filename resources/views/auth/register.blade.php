@@ -107,15 +107,15 @@
         .alert {
             border-radius: 0.75rem;
         }
-        #logo_container, #avatar_container {
+        .logo-container, .avatar-container {
             border: 2px dashed #b6d0ff;
             background: #fafdff;
             transition: border-color 0.18s, box-shadow 0.18s;
         }
-        #logo_container img, #avatar_container img {
+        .logo-container img, .avatar-container img {
             border-radius: 50%;
         }
-        #logo_container:focus-within, #avatar_container:focus-within {
+        .logo-container:focus-within, .avatar-container:focus-within {
             border-color: #4f8cff;
         }
         @media (max-width: 600px) {
@@ -172,7 +172,7 @@
             <!-- Formulario para Taller -->
             <div id="taller_section" class="row g-3 {{ old('user_type') == 'taller' ? '' : 'd-none' }}">
                 <div class="col-12 col-md-4 text-center">
-                    <div id="logo_container" class="mx-auto mb-3 rounded-circle d-flex justify-content-center align-items-center bg-info bg-opacity-10" style="width: 120px; height: 120px; overflow: hidden;">
+                    <div class="logo-container mx-auto mb-3 rounded-circle d-flex justify-content-center align-items-center bg-info bg-opacity-10" style="width: 120px; height: 120px; overflow: hidden;">
                         <i class="bi bi-person text-info" style="font-size: 48px;"></i>
                     </div>
                     <label for="logo" class="btn btn-outline-secondary btn-sm w-100">
@@ -232,7 +232,7 @@
             <!-- Formulario para Usuario -->
             <div id="user_section" class="row g-3 {{ old('user_type') == 'user' ? '' : 'd-none' }}">
                 <div class="col-12 col-md-4 text-center">
-                    <div id="avatar_container" class="mx-auto mb-3 rounded-circle d-flex justify-content-center align-items-center bg-info bg-opacity-10" style="width: 120px; height: 120px; overflow: hidden;">
+                    <div class="avatar-container mx-auto mb-3 rounded-circle d-flex justify-content-center align-items-center bg-info bg-opacity-10" style="width: 120px; height: 120px; overflow: hidden;">
                         <i class="bi bi-person text-info" style="font-size: 48px;"></i>
                     </div>
                     <label for="avatar" class="btn btn-outline-secondary btn-sm w-100">
@@ -318,9 +318,9 @@
             const tallerSection = document.getElementById('taller_section');
             const userSection = document.getElementById('user_section');
             const logoInput = document.getElementById('logo');
-            const logoContainer = document.getElementById('logo_container');
+            const logoContainer = document.querySelector('.logo-container');
             const avatarInput = document.getElementById('avatar');
-            const avatarContainer = document.getElementById('avatar_container');
+            const avatarContainer = document.querySelector('.avatar-container');
             userTypeSelect.addEventListener('change', function() {
                 if (this.value === 'taller') {
                     tallerSection.classList.remove('d-none');

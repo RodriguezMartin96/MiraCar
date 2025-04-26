@@ -13,21 +13,31 @@ class Vehiculo extends Model
         'marca',
         'modelo',
         'matricula',
-        'bastidor',
-        'fecha_matriculacion',
         'color',
+        'año',
         'cliente_id',
+        'user_id', // Añadido para la relación con el usuario
     ];
 
-    protected $casts = [
-        'fecha_matriculacion' => 'date',
-    ];
+    /**
+     * Obtener el usuario (taller) al que pertenece este vehículo.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
+    /**
+     * Obtener el cliente al que pertenece este vehículo.
+     */
     public function cliente()
     {
         return $this->belongsTo(Cliente::class);
     }
 
+    /**
+     * Obtener los siniestros asociados a este vehículo.
+     */
     public function siniestros()
     {
         return $this->hasMany(Siniestro::class);

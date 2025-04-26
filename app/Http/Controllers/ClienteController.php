@@ -4,32 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $search = $request->input('search');
-        
-        $query = Cliente::query();
-        
-        // Si hay un término de búsqueda, filtramos los resultados
-        if ($search) {
-            $query->where(function($q) use ($search) {
-                $q->where('nombre', 'LIKE', "%{$search}%")
-                  ->orWhere('apellidos', 'LIKE', "%{$search}%")
-                  ->orWhere('email', 'LIKE', "%{$search}%")
-                  ->orWhere('telefono', 'LIKE', "%{$search}%")
-                  ->orWhere('dni', 'LIKE', "%{$search}%");
-            });
-        }
-        
-        // Ordenamos por nombre por defecto y paginamos los resultados
-        $clientes = $query->orderBy('nombre')->paginate(10);
-        
+        // Solo mostrar clientes del usuario autenticado
+        $clientes = Cliente::where('user_id', Auth::id())->paginate(10);
         return view('clientes.index', compact('clientes'));
     }
 
@@ -49,18 +35,28 @@ class ClienteController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'apellidos' => 'required|string|max:255',
-            'dni' => 'nullable|string|max:20',
-            'direccion' => 'nullable|string|max:255',
+            'dni' => 'required|string|max:20|unique:clientes',
+            'email' => 'required|string|email|max:255',
             'telefono' => 'required|string|max:20',
-            'email' => 'required|string|email|max:255|unique:clientes',
-            'cif' => 'nullable|string|max:20',
-            'direccion_juridica' => 'nullable|string|max:255',
+            'direccion' => 'required|string|max:255',
         ]);
 
-        Cliente::create($request->all());
+        try {
+            // Asociar el cliente al usuario autenticado
+            $cliente = new Cliente($request->all());
+            $cliente->user_id = Auth::id();
+            $cliente->save();
 
-        return redirect()->route('clientes.index')
-            ->with('success', 'Cliente creado correctamente.');
+            Log::info('Cliente creado correctamente', ['cliente_id' => $cliente->id, 'user_id' => Auth::id()]);
+            return redirect()->route('clientes.index')->with('success', 'Cliente creado correctamente.');
+        } catch (\Exception $e) {
+            Log::error('Error al crear cliente: ' . $e->getMessage(), [
+                'exception' => get_class($e),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return back()->withErrors(['error' => 'Ha ocurrido un error al crear el cliente.'])->withInput();
+        }
     }
 
     /**
@@ -68,6 +64,11 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
+        // Verificar que el cliente pertenece al usuario autenticado
+        if ($cliente->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para ver este cliente.');
+        }
+
         return view('clientes.show', compact('cliente'));
     }
 
@@ -76,6 +77,11 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
+        // Verificar que el cliente pertenece al usuario autenticado
+        if ($cliente->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para editar este cliente.');
+        }
+
         return view('clientes.edit', compact('cliente'));
     }
 
@@ -84,21 +90,33 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
+        // Verificar que el cliente pertenece al usuario autenticado
+        if ($cliente->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para actualizar este cliente.');
+        }
+
         $request->validate([
             'nombre' => 'required|string|max:255',
             'apellidos' => 'required|string|max:255',
-            'dni' => 'nullable|string|max:20',
-            'direccion' => 'nullable|string|max:255',
+            'dni' => 'required|string|max:20|unique:clientes,dni,' . $cliente->id,
+            'email' => 'required|string|email|max:255',
             'telefono' => 'required|string|max:20',
-            'email' => 'required|string|email|max:255|unique:clientes,email,'.$cliente->id,
-            'cif' => 'nullable|string|max:20',
-            'direccion_juridica' => 'nullable|string|max:255',
+            'direccion' => 'required|string|max:255',
         ]);
 
-        $cliente->update($request->all());
-
-        return redirect()->route('clientes.index')
-            ->with('success', 'Cliente actualizado correctamente.');
+        try {
+            $cliente->update($request->all());
+            
+            Log::info('Cliente actualizado correctamente', ['cliente_id' => $cliente->id, 'user_id' => Auth::id()]);
+            return redirect()->route('clientes.index')->with('success', 'Cliente actualizado correctamente.');
+        } catch (\Exception $e) {
+            Log::error('Error al actualizar cliente: ' . $e->getMessage(), [
+                'exception' => get_class($e),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return back()->withErrors(['error' => 'Ha ocurrido un error al actualizar el cliente.'])->withInput();
+        }
     }
 
     /**
@@ -106,9 +124,23 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        $cliente->delete();
+        // Verificar que el cliente pertenece al usuario autenticado
+        if ($cliente->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para eliminar este cliente.');
+        }
 
-        return redirect()->route('clientes.index')
-            ->with('success', 'Cliente eliminado correctamente.');
+        try {
+            $cliente->delete();
+            
+            Log::info('Cliente eliminado correctamente', ['cliente_id' => $cliente->id, 'user_id' => Auth::id()]);
+            return redirect()->route('clientes.index')->with('success', 'Cliente eliminado correctamente.');
+        } catch (\Exception $e) {
+            Log::error('Error al eliminar cliente: ' . $e->getMessage(), [
+                'exception' => get_class($e),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return back()->withErrors(['error' => 'Ha ocurrido un error al eliminar el cliente.']);
+        }
     }
 }

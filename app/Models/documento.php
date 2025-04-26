@@ -9,34 +9,19 @@ class Documento extends Model
 {
     use HasFactory;
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'documentos';
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'nombre',
         'descripcion',
-        'formato',
-        'ruta_archivo',
-        'otro_nombre',
-        'otra_descripcion',
+        'ruta',
+        'tipo',
+        'user_id', // Añadido para la relación con el usuario
     ];
 
     /**
-     * The attributes that should be cast.
-     *
-     * @var array
+     * Obtener el usuario (taller) al que pertenece este documento.
      */
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

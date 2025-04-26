@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,17 +41,14 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * The attributes that should be cast.
      *
-     * @return array<string, string>
+     * @var array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
     
     /**
      * Check if the user is a taller.
@@ -76,5 +72,53 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->role === 'admin';
+    }
+
+    /**
+     * Obtener los clientes asociados a este usuario.
+     */
+    public function clientes()
+    {
+        return $this->hasMany(Cliente::class);
+    }
+
+    /**
+     * Obtener los vehículos asociados a este usuario.
+     */
+    public function vehiculos()
+    {
+        return $this->hasMany(Vehiculo::class);
+    }
+
+    /**
+     * Obtener los siniestros asociados a este usuario.
+     */
+    public function siniestros()
+    {
+        return $this->hasMany(Siniestro::class);
+    }
+
+    /**
+     * Obtener los recambios asociados a este usuario.
+     */
+    public function recambios()
+    {
+        return $this->hasMany(Recambio::class);
+    }
+
+    /**
+     * Obtener los documentos asociados a este usuario.
+     */
+    public function documentos()
+    {
+        return $this->hasMany(Documento::class);
+    }
+
+    /**
+     * Obtener los soportes asociados a este usuario.
+     */
+    public function soportes()
+    {
+        return $this->hasMany(Soporte::class);
     }
 }
