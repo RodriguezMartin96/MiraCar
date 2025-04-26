@@ -9,10 +9,26 @@
     }
     .taller-logo {
         height: 40px;
+        width: auto;
+        max-width: 100px;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(79,140,255,0.10);
         background: #fff;
         padding: 2px;
+        object-fit: contain;
+    }
+    .logo-container {
+        display: inline-block;
+        background: white;
+        border-radius: 8px;
+        padding: 2px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
     }
     .navbar-nav .nav-link {
         color: #fff !important;
@@ -92,10 +108,11 @@
         <!-- Logo del taller -->
         <a class="navbar-brand" href="{{ route('dashboard') }}">
             <div class="logo-container">
-                @if(Auth::user() && Auth::user()->taller && Auth::user()->taller->logo_path)
-                    <img src="{{ asset('storage/' . Auth::user()->taller->logo_path) }}" alt="Logo Taller" class="taller-logo">
+                @if(Auth::check() && Auth::user()->isTaller() && Auth::user()->logo)
+                    <img src="{{ asset('storage/' . Auth::user()->logo) }}" alt="{{ Auth::user()->name }} Logo" class="taller-logo" 
+                         onerror="this.onerror=null; this.src='{{ asset('galeria/logo.png') }}'; console.log('Error cargando logo personalizado');">
                 @else
-                    <img src="{{ asset('galeria/logo.png') }}" alt="Logo MiraCar" class="taller-logo">
+                    <img src="{{ asset('galeria/logo.png') }}" alt="MiraCar Logo" class="taller-logo">
                 @endif
             </div>
         </a>
@@ -176,3 +193,44 @@
         </div>
     </div>
 </nav>
+
+<!-- Código de depuración temporal para verificar el logo -->
+@if(Auth::check())
+<div style="position: fixed; bottom: 10px; right: 10px; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 9999; max-width: 300px; font-size: 12px; display: none;" id="logoDebug">
+    <h5>Información del Logo</h5>
+    <p>Usuario: {{ Auth::user()->name }}</p>
+    <p>Rol: {{ Auth::user()->role }}</p>
+    <p>Es taller: {{ Auth::user()->isTaller() ? 'Sí' : 'No' }}</p>
+    <p>Ruta del logo: {{ Auth::user()->logo ?? 'No hay logo' }}</p>
+    <p>URL completa: {{ Auth::user()->logo ? asset('storage/' . Auth::user()->logo) : 'No hay logo' }}</p>
+    <button onclick="document.getElementById('logoDebug').style.display='none'" style="background: #4f8cff; color: white; border: none; padding: 5px 10px; border-radius: 3px;">Cerrar</button>
+</div>
+
+<script>
+    // Mostrar información de depuración al presionar Ctrl+Shift+L
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.shiftKey && e.key === 'L') {
+            const debugElement = document.getElementById('logoDebug');
+            debugElement.style.display = debugElement.style.display === 'none' ? 'block' : 'none';
+        }
+    });
+    
+    // Verificar si la imagen del logo existe
+    document.addEventListener('DOMContentLoaded', function() {
+        const logoImg = document.querySelector('.taller-logo');
+        if (logoImg) {
+            console.log('Logo src:', logoImg.src);
+            
+            // Crear una nueva imagen para probar si la URL es válida
+            const testImg = new Image();
+            testImg.onload = function() {
+                console.log('Logo cargado correctamente');
+            };
+            testImg.onerror = function() {
+                console.error('Error al cargar el logo desde:', logoImg.src);
+            };
+            testImg.src = logoImg.src;
+        }
+    });
+</script>
+@endif

@@ -39,6 +39,7 @@ class RegisteredUserController extends Controller
                     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                     'phone' => ['nullable', 'string', 'max:20'],
                     'password' => ['required', 'confirmed', Rules\Password::defaults()],
+                    'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
                 ]);
 
                 $user = User::create([
@@ -51,12 +52,13 @@ class RegisteredUserController extends Controller
                     'password' => Hash::make($request->password),
                 ]);
 
-                // Si se subió un avatar, procesarlo aquí
-                if ($request->hasFile('avatar')) {
-                    // Procesar y guardar el avatar
-                    // $avatarPath = $request->file('avatar')->store('avatars', 'public');
-                    // $user->avatar = $avatarPath;
-                    // $user->save();
+                // Si se subió un avatar, procesarlo
+                if ($request->hasFile('avatar') && $request->file('avatar')->isValid()) {
+                    $avatarPath = $request->file('avatar')->store('avatars', 'public');
+                    $user->avatar = $avatarPath;
+                    $user->save();
+                    
+                    Log::info('Avatar guardado: ' . $avatarPath);
                 }
             } elseif ($request->user_type === 'taller') {
                 $request->validate([
@@ -65,6 +67,7 @@ class RegisteredUserController extends Controller
                     'company_email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
                     'company_phone' => ['nullable', 'string', 'max:20'],
                     'company_password' => ['required', 'confirmed', Rules\Password::defaults()],
+                    'logo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
                 ]);
 
                 $user = User::create([
@@ -77,12 +80,13 @@ class RegisteredUserController extends Controller
                     'password' => Hash::make($request->company_password),
                 ]);
 
-                // Si se subió un logo, procesarlo aquí
-                if ($request->hasFile('logo')) {
-                    // Procesar y guardar el logo
-                    // $logoPath = $request->file('logo')->store('logos', 'public');
-                    // $user->logo = $logoPath;
-                    // $user->save();
+                // Si se subió un logo, procesarlo
+                if ($request->hasFile('logo') && $request->file('logo')->isValid()) {
+                    $logoPath = $request->file('logo')->store('logos', 'public');
+                    $user->logo = $logoPath;
+                    $user->save();
+                    
+                    Log::info('Logo guardado: ' . $logoPath);
                 }
             } else {
                 return back()->withErrors(['user_type' => 'Tipo de usuario no válido'])->withInput();
