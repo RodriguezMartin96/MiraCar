@@ -11,9 +11,31 @@ class VehiculoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $vehiculos = Vehiculo::with('cliente')->get();
+        $search = $request->input('search');
+        
+        $query = Vehiculo::with('cliente');
+        
+        // Si hay un término de búsqueda, filtramos los resultados
+        if ($search) {
+            $query->where(function($q) use ($search) {
+                $q->where('marca', 'LIKE', "%{$search}%")
+                  ->orWhere('modelo', 'LIKE', "%{$search}%")
+                  ->orWhere('matricula', 'LIKE', "%{$search}%")
+                  ->orWhere('bastidor', 'LIKE', "%{$search}%")
+                  ->orWhere('color', 'LIKE', "%{$search}%")
+                  ->orWhereHas('cliente', function($q) use ($search) {
+                      $q->where('nombre', 'LIKE', "%{$search}%")
+                        ->orWhere('apellidos', 'LIKE', "%{$search}%")
+                        ->orWhere('dni', 'LIKE', "%{$search}%");
+                  });
+            });
+        }
+        
+        // Ordenamos por marca y modelo y paginamos los resultados
+        $vehiculos = $query->orderBy('marca')->orderBy('modelo')->paginate(10);
+        
         return view('vehiculos.index', compact('vehiculos'));
     }
 

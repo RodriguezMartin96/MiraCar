@@ -92,7 +92,11 @@
         <!-- Logo del taller -->
         <a class="navbar-brand" href="{{ route('dashboard') }}">
             <div class="logo-container">
-                <img src="{{ asset('images/logo-taller.png') }}" alt="Logo MiraCar" class="taller-logo">
+                @if(Auth::user() && Auth::user()->taller && Auth::user()->taller->logo_path)
+                    <img src="{{ asset('storage/' . Auth::user()->taller->logo_path) }}" alt="Logo Taller" class="taller-logo">
+                @else
+                    <img src="{{ asset('galeria/logo.png') }}" alt="Logo MiraCar" class="taller-logo">
+                @endif
             </div>
         </a>
         
@@ -122,16 +126,21 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('siniestros.*') ? 'active' : '' }}" href="{{ route('siniestros.index') }}">
-                        Siniestros Vehículos
+                        Siniestro
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('recambios.*') ? 'active' : '' }}" href="{{ route('recambios.index') }}">
-                        Recambios Stock
+                        Recambio
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('soporte.*') ? 'active' : '' }}" href="{{ route('soporte.index') }}">
+                    <a class="nav-link {{ request()->routeIs('documentos.*') ? 'active' : '' }}" href="{{ route('documentos.index') }}">
+                        Documentación
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('soporte.*') ? 'active' : '' }}" href="{{ route('soporte.create') }}">
                         Soporte
                     </a>
                 </li>

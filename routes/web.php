@@ -5,6 +5,8 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\SiniestroController;
 use App\Http\Controllers\RecambioController;
+use App\Http\Controllers\DocumentoController;
+use App\Http\Controllers\SoporteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -33,15 +35,17 @@ Route::middleware('auth')->group(function () {
     // Rutas para recambios
     Route::resource('recambios', RecambioController::class);
     
-    // Rutas para documentación
-    Route::get('/documentacion', function () {
-        return view('documentacion.index');
-    })->name('documentacion.index');
-    
     // Rutas para soporte
-    Route::get('/soporte', function () {
-        return view('soporte.index');
-    })->name('soporte.index');
+    Route::resource('soporte', SoporteController::class);
+    
+    Route::get('/home', function () {
+        return redirect()->route('dashboard');
+    })->name('home');
+    
+    // Rutas para documentos
+    Route::resource('documentos', DocumentoController::class);
+    Route::get('/documentos/{documento}/download', [DocumentoController::class, 'download'])->name('documentos.download');
+    Route::get('/documentos/{documento}/view', [DocumentoController::class, 'view'])->name('documentos.view');
 });
 
 require __DIR__.'/auth.php';
