@@ -10,11 +10,25 @@ class Siniestro extends Model
     use HasFactory;
 
     protected $fillable = [
-        'fecha',
-        'descripcion',
-        'estado',
+        'numero',
+        'cliente_id',
         'vehiculo_id',
-        'user_id', // Añadido para la relación con el usuario
+        'fecha_entrada',
+        'fecha_salida',
+        'estado',
+        'descripcion',
+        'daños',
+        'user_id',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'fecha_entrada' => 'date',
+        'fecha_salida' => 'date',
     ];
 
     /**
@@ -31,6 +45,14 @@ class Siniestro extends Model
     public function vehiculo()
     {
         return $this->belongsTo(Vehiculo::class);
+    }
+
+    /**
+     * Obtener el cliente asociado a este siniestro.
+     */
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class);
     }
 
     /**

@@ -7,14 +7,20 @@ use App\Http\Controllers\SiniestroController;
 use App\Http\Controllers\RecambioController;
 use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\SoporteController;
-use App\Http\Middleware\CheckTallerRole;  // Importar la clase del middleware directamente
+use App\Http\Controllers\UserDashboardController;
+use App\Http\Middleware\CheckTallerRole;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
+    // Redirigir a los usuarios normales a su dashboard específico
+    if (Auth::check() && Auth::user()->isUser()) {
+        return redirect()->route('user.dashboard');
+    }
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
@@ -25,7 +31,11 @@ Route::middleware('auth')->group(function () {
     
     Route::patch('/profile/logo', [ProfileController::class, 'updateLogo'])->name('profile.logo.update');
     
-    // Usar la clase del middleware directamente
+    // Rutas específicas para usuarios normales
+    Route::get('/user/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
+    Route::get('/user/siniestro/{id}', [UserDashboardController::class, 'showSiniestro'])->name('user.siniestro');
+    
+    // Rutas protegidas para talleres
     Route::middleware([CheckTallerRole::class])->group(function () {
         // Rutas para clientes
         Route::resource('clientes', ClienteController::class);

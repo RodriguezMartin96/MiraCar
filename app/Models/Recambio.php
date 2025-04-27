@@ -10,12 +10,22 @@ class Recambio extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nombre',
-        'descripcion',
-        'precio',
+        'producto',
         'cantidad',
+        'referencia',
+        'precio',
+        'descripcion',
         'siniestro_id',
-        'user_id', // Añadido para la relación con el usuario
+        'user_id',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'precio' => 'decimal:2',
     ];
 
     /**

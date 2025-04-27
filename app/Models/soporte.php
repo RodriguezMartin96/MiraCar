@@ -12,12 +12,12 @@ class Soporte extends Model
     protected $table = 'soportes';
 
     protected $fillable = [
+        'email',
         'asunto',
-        'mensaje',
-        'email_from',
-        'email_to',
+        'descripcion',
         'estado',
-        'user_id', // Añadido para la relación con el usuario
+        'respuesta',
+        'user_id',
     ];
 
     /**

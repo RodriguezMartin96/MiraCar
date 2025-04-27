@@ -18,16 +18,18 @@ class SoporteMail extends Mailable
     public $asunto;
     public $descripcion;
     public $tallerName;
+    public $toEmail;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($fromEmail, $asunto, $descripcion, $tallerName = null)
+    public function __construct($data)
     {
-        $this->fromEmail = $fromEmail;
-        $this->asunto = $asunto;
-        $this->descripcion = $descripcion;
-        $this->tallerName = $tallerName;
+        $this->fromEmail = $data['fromEmail'];
+        $this->asunto = $data['asunto'];
+        $this->descripcion = $data['descripcion'];
+        $this->tallerName = $data['tallerName'] ?? null;
+        $this->toEmail = $data['toEmail'] ?? 'adm.96.rrm@gmail.com';
     }
 
     /**
@@ -37,8 +39,9 @@ class SoporteMail extends Mailable
     {
         return new Envelope(
             subject: 'Soporte MiraCar: ' . $this->asunto,
-            from: new Address($this->fromEmail, 'Sistema MiraCar'),
-            replyTo: [new Address($this->fromEmail)]
+            // Usamos una dirección de correo del sistema como remitente para evitar problemas de SPF/DKIM
+            from: new Address('soporte@miracar.com', 'Soporte MiraCar'),
+            replyTo: [new Address($this->fromEmail, $this->tallerName ?? 'Usuario MiraCar')]
         );
     }
 
@@ -49,6 +52,13 @@ class SoporteMail extends Mailable
     {
         return new Content(
             view: 'emails.soporte',
+            with: [
+                'fromEmail' => $this->fromEmail,
+                'tallerName' => $this->tallerName,
+                'asunto' => $this->asunto,
+                'descripcion' => $this->descripcion,
+                'toEmail' => $this->toEmail
+            ]
         );
     }
 

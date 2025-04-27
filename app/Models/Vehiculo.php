@@ -13,10 +13,20 @@ class Vehiculo extends Model
         'marca',
         'modelo',
         'matricula',
+        'bastidor',
         'color',
-        'año',
+        'fecha_matriculacion',
         'cliente_id',
-        'user_id', // Añadido para la relación con el usuario
+        'user_id',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'fecha_matriculacion' => 'date',
     ];
 
     /**

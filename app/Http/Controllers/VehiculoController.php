@@ -13,10 +13,27 @@ class VehiculoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         // Solo mostrar vehículos del usuario autenticado
-        $vehiculos = Vehiculo::where('user_id', Auth::id())->with('cliente')->paginate(10);
+        $query = Vehiculo::where('user_id', Auth::id())->with('cliente');
+        
+        // Búsqueda
+        if ($request->has('search') && $request->search) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('marca', 'like', "%{$search}%")
+                  ->orWhere('modelo', 'like', "%{$search}%")
+                  ->orWhere('matricula', 'like', "%{$search}%")
+                  ->orWhereHas('cliente', function($q) use ($search) {
+                      $q->where('nombre', 'like', "%{$search}%")
+                        ->orWhere('apellidos', 'like', "%{$search}%")
+                        ->orWhere('dni', 'like', "%{$search}%");
+                  });
+            });
+        }
+        
+        $vehiculos = $query->paginate(10);
         return view('vehiculos.index', compact('vehiculos'));
     }
 
@@ -40,8 +57,9 @@ class VehiculoController extends Controller
             'modelo' => 'required|string|max:255',
             'matricula' => 'required|string|max:20|unique:vehiculos',
             'color' => 'required|string|max:50',
-            'año' => 'required|integer|min:1900|max:' . (date('Y') + 1),
             'cliente_id' => 'required|exists:clientes,id',
+            'bastidor' => 'nullable|string|max:255',
+            'fecha_matriculacion' => 'nullable|date',
         ]);
 
         try {
@@ -111,8 +129,9 @@ class VehiculoController extends Controller
             'modelo' => 'required|string|max:255',
             'matricula' => 'required|string|max:20|unique:vehiculos,matricula,' . $vehiculo->id,
             'color' => 'required|string|max:50',
-            'año' => 'required|integer|min:1900|max:' . (date('Y') + 1),
             'cliente_id' => 'required|exists:clientes,id',
+            'bastidor' => 'nullable|string|max:255',
+            'fecha_matriculacion' => 'nullable|date',
         ]);
 
         try {

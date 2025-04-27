@@ -13,10 +13,22 @@ class RecambioController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         // Solo mostrar recambios del usuario autenticado
-        $recambios = Recambio::where('user_id', Auth::id())->with('siniestro')->paginate(10);
+        $query = Recambio::where('user_id', Auth::id());
+        
+        // Búsqueda
+        if ($request->has('search') && $request->search) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('producto', 'like', "%{$search}%")
+                  ->orWhere('referencia', 'like', "%{$search}%")
+                  ->orWhere('descripcion', 'like', "%{$search}%");
+            });
+        }
+        
+        $recambios = $query->paginate(10);
         return view('recambios.index', compact('recambios'));
     }
 
@@ -25,9 +37,7 @@ class RecambioController extends Controller
      */
     public function create()
     {
-        // Solo mostrar siniestros del usuario autenticado
-        $siniestros = Siniestro::where('user_id', Auth::id())->with('vehiculo')->get();
-        return view('recambios.create', compact('siniestros'));
+        return view('recambios.create');
     }
 
     /**
@@ -36,23 +46,24 @@ class RecambioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required|string|max:255',
-            'descripcion' => 'required|string',
-            'precio' => 'required|numeric|min:0',
+            'producto' => 'required|string|max:255',
             'cantidad' => 'required|integer|min:1',
-            'siniestro_id' => 'required|exists:siniestros,id',
+            'referencia' => 'nullable|string|max:255',
+            'precio' => 'nullable|numeric|min:0',
+            'descripcion' => 'nullable|string',
         ]);
 
         try {
-            // Verificar que el siniestro pertenece al usuario autenticado
-            $siniestro = Siniestro::findOrFail($request->siniestro_id);
-            if ($siniestro->user_id !== Auth::id()) {
-                return back()->withErrors(['siniestro_id' => 'El siniestro seleccionado no es válido.'])->withInput();
-            }
-
-            // Asociar el recambio al usuario autenticado
-            $recambio = new Recambio($request->all());
-            $recambio->user_id = Auth::id();
+            // Crear el recambio
+            $recambio = new Recambio([
+                'producto' => $request->producto,
+                'cantidad' => $request->cantidad,
+                'referencia' => $request->referencia,
+                'precio' => $request->precio,
+                'descripcion' => $request->descripcion,
+                'user_id' => Auth::id(),
+            ]);
+            
             $recambio->save();
 
             Log::info('Recambio creado correctamente', ['recambio_id' => $recambio->id, 'user_id' => Auth::id()]);
@@ -106,21 +117,32 @@ class RecambioController extends Controller
         }
 
         $request->validate([
-            'nombre' => 'required|string|max:255',
-            'descripcion' => 'required|string',
-            'precio' => 'required|numeric|min:0',
+            'producto' => 'required|string|max:255',
             'cantidad' => 'required|integer|min:1',
-            'siniestro_id' => 'required|exists:siniestros,id',
+            'referencia' => 'nullable|string|max:255',
+            'precio' => 'nullable|numeric|min:0',
+            'descripcion' => 'nullable|string',
+            'siniestro_id' => 'nullable|exists:siniestros,id',
         ]);
 
         try {
-            // Verificar que el siniestro pertenece al usuario autenticado
-            $siniestro = Siniestro::findOrFail($request->siniestro_id);
-            if ($siniestro->user_id !== Auth::id()) {
-                return back()->withErrors(['siniestro_id' => 'El siniestro seleccionado no es válido.'])->withInput();
+            // Verificar que el siniestro pertenece al usuario autenticado si se proporciona
+            if ($request->has('siniestro_id') && $request->siniestro_id) {
+                $siniestro = Siniestro::findOrFail($request->siniestro_id);
+                if ($siniestro->user_id !== Auth::id()) {
+                    return back()->withErrors(['siniestro_id' => 'El siniestro seleccionado no es válido.'])->withInput();
+                }
             }
 
-            $recambio->update($request->all());
+            // Actualizar el recambio
+            $recambio->update([
+                'producto' => $request->producto,
+                'cantidad' => $request->cantidad,
+                'referencia' => $request->referencia,
+                'precio' => $request->precio,
+                'descripcion' => $request->descripcion,
+                'siniestro_id' => $request->siniestro_id,
+            ]);
             
             Log::info('Recambio actualizado correctamente', ['recambio_id' => $recambio->id, 'user_id' => Auth::id()]);
             return redirect()->route('recambios.index')->with('success', 'Recambio actualizado correctamente.');

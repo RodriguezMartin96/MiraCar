@@ -12,9 +12,11 @@ class Documento extends Model
     protected $fillable = [
         'nombre',
         'descripcion',
-        'ruta',
-        'tipo',
-        'user_id', // Añadido para la relación con el usuario
+        'formato',
+        'ruta_archivo',
+        'otro_nombre',
+        'otra_descripcion',
+        'user_id',
     ];
 
     /**

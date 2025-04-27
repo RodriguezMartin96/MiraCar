@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('ruta_archivo');
             $table->string('otro_nombre')->nullable(); // Campo para almacenar el nombre personalizado
             $table->string('otra_descripcion')->nullable(); // Campo para almacenar la descripción personalizada
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

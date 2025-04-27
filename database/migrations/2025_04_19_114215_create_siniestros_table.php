@@ -16,10 +16,12 @@ return new class extends Migration
             $table->string('numero')->unique();
             $table->foreignId('cliente_id')->constrained()->onDelete('cascade');
             $table->foreignId('vehiculo_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade'); // Añadido para la relación con el usuario (taller)
             $table->date('fecha_entrada');
             $table->date('fecha_salida')->nullable();
             $table->string('estado')->default('Pendiente');
             $table->text('descripcion')->nullable();
+            $table->text('daños')->nullable(); // Añadido para almacenar los daños detectados
             $table->timestamps();
         });
     }

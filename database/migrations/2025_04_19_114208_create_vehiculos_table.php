@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('fecha_matriculacion')->nullable();
             $table->string('color')->nullable();
             $table->foreignId('cliente_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade'); // Añadido para la relación con el usuario (taller)
             $table->timestamps();
         });
     }

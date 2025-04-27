@@ -148,7 +148,7 @@
             </div>
             <div class="modal-body pt-0">
                 <div class="ratio ratio-16x9 rounded-4 overflow-hidden">
-                    <iframe id="videoFrame" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                    <iframe id="videoFrame" src="/placeholder.svg" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

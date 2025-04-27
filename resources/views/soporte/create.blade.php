@@ -23,10 +23,6 @@
             <form action="{{ route('soporte.store') }}" method="POST">
                 @csrf
                 
-                <!-- Campos ocultos para email -->
-                <input type="hidden" name="from_email" value="{{ Auth::user()->email ?? '' }}">
-                <input type="hidden" name="to_email" value="adm.96.rrm@gmail.com">
-                
                 <div class="mb-3">
                     <label for="asunto" class="form-label">Asunto:</label>
                     <input type="text" class="form-control @error('asunto') is-invalid @enderror" id="asunto" name="asunto" value="{{ old('asunto') }}" required>

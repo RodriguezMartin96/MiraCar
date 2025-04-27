@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('referencia')->nullable();
             $table->decimal('precio', 8, 2)->nullable();
             $table->text('descripcion')->nullable();
+            $table->foreignId('siniestro_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

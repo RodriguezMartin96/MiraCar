@@ -4,19 +4,43 @@ namespace App\Http\Controllers;
 
 use App\Models\Siniestro;
 use App\Models\Vehiculo;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class SiniestroController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         // Solo mostrar siniestros del usuario autenticado
-        $siniestros = Siniestro::where('user_id', Auth::id())->with('vehiculo')->paginate(10);
+        $query = Siniestro::where('user_id', Auth::id())
+            ->with(['vehiculo', 'cliente']);
+        
+        // Búsqueda
+        if ($request->has('search') && $request->search) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('numero', 'like', "%{$search}%")
+                  ->orWhere('estado', 'like', "%{$search}%")
+                  ->orWhereHas('vehiculo', function($q) use ($search) {
+                      $q->where('matricula', 'like', "%{$search}%")
+                        ->orWhere('marca', 'like', "%{$search}%")
+                        ->orWhere('modelo', 'like', "%{$search}%");
+                  })
+                  ->orWhereHas('cliente', function($q) use ($search) {
+                      $q->where('nombre', 'like', "%{$search}%")
+                        ->orWhere('apellidos', 'like', "%{$search}%")
+                        ->orWhere('dni', 'like', "%{$search}%");
+                  });
+            });
+        }
+        
+        $siniestros = $query->paginate(10);
         return view('siniestros.index', compact('siniestros'));
     }
 
@@ -25,9 +49,10 @@ class SiniestroController extends Controller
      */
     public function create()
     {
-        // Solo mostrar vehículos del usuario autenticado
+        // Solo mostrar vehículos y clientes del usuario autenticado
         $vehiculos = Vehiculo::where('user_id', Auth::id())->with('cliente')->get();
-        return view('siniestros.create', compact('vehiculos'));
+        $clientes = Cliente::where('user_id', Auth::id())->get();
+        return view('siniestros.create', compact('vehiculos', 'clientes'));
     }
 
     /**
@@ -36,22 +61,38 @@ class SiniestroController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'fecha' => 'required|date',
-            'descripcion' => 'required|string',
-            'estado' => 'required|string|in:pendiente,en_proceso,finalizado',
+            'cliente_id' => 'required|exists:clientes,id',
             'vehiculo_id' => 'required|exists:vehiculos,id',
+            'fecha_entrada' => 'required|date',
+            'fecha_salida' => 'nullable|date|after_or_equal:fecha_entrada',
+            'estado' => 'required|in:Pendiente,En proceso,Finalizado',
+            'descripcion' => 'nullable|string',
         ]);
 
         try {
-            // Verificar que el vehículo pertenece al usuario autenticado
+            // Verificar que el vehículo y cliente pertenecen al usuario autenticado
             $vehiculo = Vehiculo::findOrFail($request->vehiculo_id);
-            if ($vehiculo->user_id !== Auth::id()) {
-                return back()->withErrors(['vehiculo_id' => 'El vehículo seleccionado no es válido.'])->withInput();
+            $cliente = Cliente::findOrFail($request->cliente_id);
+            
+            if ($vehiculo->user_id !== Auth::id() || $cliente->user_id !== Auth::id()) {
+                return back()->withErrors(['error' => 'El vehículo o cliente seleccionado no es válido.'])->withInput();
             }
 
-            // Asociar el siniestro al usuario autenticado
-            $siniestro = new Siniestro($request->all());
-            $siniestro->user_id = Auth::id();
+            // Generar número de siniestro único
+            $numero = 'S-' . date('Ymd') . '-' . strtoupper(Str::random(5));
+            
+            // Crear el siniestro
+            $siniestro = new Siniestro([
+                'numero' => $numero,
+                'cliente_id' => $request->cliente_id,
+                'vehiculo_id' => $request->vehiculo_id,
+                'fecha_entrada' => $request->fecha_entrada,
+                'fecha_salida' => $request->fecha_salida,
+                'estado' => $request->estado,
+                'descripcion' => $request->descripcion,
+                'user_id' => Auth::id(),
+            ]);
+            
             $siniestro->save();
 
             Log::info('Siniestro creado correctamente', ['siniestro_id' => $siniestro->id, 'user_id' => Auth::id()]);
@@ -76,6 +117,9 @@ class SiniestroController extends Controller
             abort(403, 'No tienes permiso para ver este siniestro.');
         }
 
+        // Cargar relaciones
+        $siniestro->load(['vehiculo', 'cliente']);
+        
         return view('siniestros.show', compact('siniestro'));
     }
 
@@ -89,9 +133,11 @@ class SiniestroController extends Controller
             abort(403, 'No tienes permiso para editar este siniestro.');
         }
 
-        // Solo mostrar vehículos del usuario autenticado
+        // Solo mostrar vehículos y clientes del usuario autenticado
         $vehiculos = Vehiculo::where('user_id', Auth::id())->with('cliente')->get();
-        return view('siniestros.edit', compact('siniestro', 'vehiculos'));
+        $clientes = Cliente::where('user_id', Auth::id())->get();
+        
+        return view('siniestros.edit', compact('siniestro', 'vehiculos', 'clientes'));
     }
 
     /**
@@ -105,20 +151,32 @@ class SiniestroController extends Controller
         }
 
         $request->validate([
-            'fecha' => 'required|date',
-            'descripcion' => 'required|string',
-            'estado' => 'required|string|in:pendiente,en_proceso,finalizado',
+            'cliente_id' => 'required|exists:clientes,id',
             'vehiculo_id' => 'required|exists:vehiculos,id',
+            'fecha_entrada' => 'required|date',
+            'fecha_salida' => 'nullable|date|after_or_equal:fecha_entrada',
+            'estado' => 'required|in:Pendiente,En proceso,Finalizado',
+            'descripcion' => 'nullable|string',
         ]);
 
         try {
-            // Verificar que el vehículo pertenece al usuario autenticado
+            // Verificar que el vehículo y cliente pertenecen al usuario autenticado
             $vehiculo = Vehiculo::findOrFail($request->vehiculo_id);
-            if ($vehiculo->user_id !== Auth::id()) {
-                return back()->withErrors(['vehiculo_id' => 'El vehículo seleccionado no es válido.'])->withInput();
+            $cliente = Cliente::findOrFail($request->cliente_id);
+            
+            if ($vehiculo->user_id !== Auth::id() || $cliente->user_id !== Auth::id()) {
+                return back()->withErrors(['error' => 'El vehículo o cliente seleccionado no es válido.'])->withInput();
             }
 
-            $siniestro->update($request->all());
+            // Actualizar el siniestro
+            $siniestro->update([
+                'cliente_id' => $request->cliente_id,
+                'vehiculo_id' => $request->vehiculo_id,
+                'fecha_entrada' => $request->fecha_entrada,
+                'fecha_salida' => $request->fecha_salida,
+                'estado' => $request->estado,
+                'descripcion' => $request->descripcion,
+            ]);
             
             Log::info('Siniestro actualizado correctamente', ['siniestro_id' => $siniestro->id, 'user_id' => Auth::id()]);
             return redirect()->route('siniestros.index')->with('success', 'Siniestro actualizado correctamente.');

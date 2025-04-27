@@ -40,11 +40,25 @@
             background-color: #f9f9f9;
             border-radius: 3px;
         }
+        .email-info {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 12px;
+            color: #666;
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <h2>Solicitud de Soporte - MiraCar</h2>
+    </div>
+    
+    <div class="email-info">
+        <strong>De:</strong> {{ $fromEmail }} {{ $tallerName ? '(' . $tallerName . ')' : '' }}<br>
+        <strong>Para:</strong> soporte@miracar.com<br>
+        <strong>Asunto:</strong> Soporte MiraCar: {{ $asunto }}
     </div>
     
     <div class="content">
@@ -62,6 +76,7 @@
     
     <div class="footer">
         <p>Este correo fue enviado automáticamente desde la plataforma MiraCar.</p>
+        <p>Por favor no responda directamente a este correo. Para responder, inicie sesión en el sistema.</p>
     </div>
 </body>
 </html>

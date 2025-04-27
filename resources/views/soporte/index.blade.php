@@ -69,6 +69,10 @@
                     </tbody>
                 </table>
             </div>
+            
+            <div class="mt-4">
+                {{ $soportes->links() }}
+            </div>
         </div>
     </div>
 </div>

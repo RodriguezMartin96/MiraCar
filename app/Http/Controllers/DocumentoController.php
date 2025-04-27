@@ -13,11 +13,24 @@ class DocumentoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         // Solo mostrar documentos del usuario autenticado
-        $documentos = Documento::where('user_id', Auth::id())->paginate(10);
-        return view('documentos.index', compact('documentos'));
+        $query = Documento::where('user_id', Auth::id());
+        
+        // Búsqueda
+        if ($request->has('search') && $request->search) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('nombre', 'like', "%{$search}%")
+                  ->orWhere('descripcion', 'like', "%{$search}%")
+                  ->orWhere('otro_nombre', 'like', "%{$search}%")
+                  ->orWhere('otra_descripcion', 'like', "%{$search}%");
+            });
+        }
+        
+        $documentos = $query->paginate(10);
+        return view('documentacion.index', compact('documentos'));
     }
 
     /**
@@ -25,7 +38,31 @@ class DocumentoController extends Controller
      */
     public function create()
     {
-        return view('documentos.create');
+        $categorias = [
+            'Factura',
+            'Presupuesto',
+            'Informe técnico',
+            'Peritaje',
+            'Contrato',
+            'Seguro',
+            'Garantía',
+            'Manual',
+            'Certificado',
+            'otro'
+        ];
+        
+        $descripciones = [
+            'Documento de cliente',
+            'Documento de vehículo',
+            'Documento de siniestro',
+            'Documento de recambio',
+            'Documento de taller',
+            'Documento administrativo',
+            'Documento legal',
+            'otro'
+        ];
+        
+        return view('documentacion.create', compact('categorias', 'descripciones'));
     }
 
     /**
@@ -35,23 +72,28 @@ class DocumentoController extends Controller
     {
         $request->validate([
             'nombre' => 'required|string|max:255',
-            'descripcion' => 'required|string',
+            'descripcion' => 'required|string|max:255',
+            'formato' => 'required|string|max:50',
             'archivo' => 'required|file|max:10240', // 10MB máximo
+            'otroNombre' => 'required_if:nombre,otro|nullable|string|max:255',
+            'otraDescripcion' => 'required_if:descripcion,otro|nullable|string|max:255',
         ]);
 
         try {
             // Guardar el archivo
-            $ruta = $request->file('archivo')->store('documentos/' . Auth::id(), 'public');
-            $tipo = $request->file('archivo')->getClientOriginalExtension();
-
-            // Asociar el documento al usuario autenticado
+            $rutaArchivo = $request->file('archivo')->store('documentos/' . Auth::id(), 'public');
+            
+            // Crear el documento
             $documento = new Documento([
                 'nombre' => $request->nombre,
                 'descripcion' => $request->descripcion,
-                'ruta' => $ruta,
-                'tipo' => $tipo,
+                'formato' => $request->formato,
+                'ruta_archivo' => $rutaArchivo,
+                'otro_nombre' => $request->nombre === 'otro' ? $request->otroNombre : null,
+                'otra_descripcion' => $request->descripcion === 'otro' ? $request->otraDescripcion : null,
                 'user_id' => Auth::id(),
             ]);
+            
             $documento->save();
 
             Log::info('Documento creado correctamente', ['documento_id' => $documento->id, 'user_id' => Auth::id()]);
@@ -76,7 +118,7 @@ class DocumentoController extends Controller
             abort(403, 'No tienes permiso para ver este documento.');
         }
 
-        return view('documentos.show', compact('documento'));
+        return view('documentacion.show', compact('documento'));
     }
 
     /**
@@ -88,8 +130,32 @@ class DocumentoController extends Controller
         if ($documento->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para editar este documento.');
         }
+        
+        $categorias = [
+            'Factura',
+            'Presupuesto',
+            'Informe técnico',
+            'Peritaje',
+            'Contrato',
+            'Seguro',
+            'Garantía',
+            'Manual',
+            'Certificado',
+            'otro'
+        ];
+        
+        $descripciones = [
+            'Documento de cliente',
+            'Documento de vehículo',
+            'Documento de siniestro',
+            'Documento de recambio',
+            'Documento de taller',
+            'Documento administrativo',
+            'Documento legal',
+            'otro'
+        ];
 
-        return view('documentos.edit', compact('documento'));
+        return view('documentacion.edit', compact('documento', 'categorias', 'descripciones'));
     }
 
     /**
@@ -104,27 +170,31 @@ class DocumentoController extends Controller
 
         $request->validate([
             'nombre' => 'required|string|max:255',
-            'descripcion' => 'required|string',
+            'descripcion' => 'required|string|max:255',
+            'formato' => 'required|string|max:50',
             'archivo' => 'nullable|file|max:10240', // 10MB máximo
+            'otroNombre' => 'required_if:nombre,otro|nullable|string|max:255',
+            'otraDescripcion' => 'required_if:descripcion,otro|nullable|string|max:255',
         ]);
 
         try {
+            // Actualizar datos del documento
             $documento->nombre = $request->nombre;
             $documento->descripcion = $request->descripcion;
+            $documento->formato = $request->formato;
+            $documento->otro_nombre = $request->nombre === 'otro' ? $request->otroNombre : null;
+            $documento->otra_descripcion = $request->descripcion === 'otro' ? $request->otraDescripcion : null;
 
             // Si se ha subido un nuevo archivo
             if ($request->hasFile('archivo') && $request->file('archivo')->isValid()) {
                 // Eliminar el archivo anterior
-                if (Storage::disk('public')->exists($documento->ruta)) {
-                    Storage::disk('public')->delete($documento->ruta);
+                if (Storage::disk('public')->exists($documento->ruta_archivo)) {
+                    Storage::disk('public')->delete($documento->ruta_archivo);
                 }
 
                 // Guardar el nuevo archivo
-                $ruta = $request->file('archivo')->store('documentos/' . Auth::id(), 'public');
-                $tipo = $request->file('archivo')->getClientOriginalExtension();
-
-                $documento->ruta = $ruta;
-                $documento->tipo = $tipo;
+                $rutaArchivo = $request->file('archivo')->store('documentos/' . Auth::id(), 'public');
+                $documento->ruta_archivo = $rutaArchivo;
             }
 
             $documento->save();
@@ -153,8 +223,8 @@ class DocumentoController extends Controller
 
         try {
             // Eliminar el archivo
-            if (Storage::disk('public')->exists($documento->ruta)) {
-                Storage::disk('public')->delete($documento->ruta);
+            if (Storage::disk('public')->exists($documento->ruta_archivo)) {
+                Storage::disk('public')->delete($documento->ruta_archivo);
             }
 
             $documento->delete();
@@ -181,8 +251,9 @@ class DocumentoController extends Controller
             abort(403, 'No tienes permiso para descargar este documento.');
         }
 
-        if (Storage::disk('public')->exists($documento->ruta)) {
-            return Storage::disk('public')->download($documento->ruta, $documento->nombre . '.' . $documento->tipo);
+        if (Storage::disk('public')->exists($documento->ruta_archivo)) {
+            $nombreArchivo = ($documento->nombre === 'otro' ? $documento->otro_nombre : $documento->nombre) . '.' . $documento->formato;
+            return Storage::disk('public')->download($documento->ruta_archivo, $nombreArchivo);
         }
 
         return back()->withErrors(['error' => 'El archivo no existe.']);
@@ -198,8 +269,8 @@ class DocumentoController extends Controller
             abort(403, 'No tienes permiso para ver este documento.');
         }
 
-        if (Storage::disk('public')->exists($documento->ruta)) {
-            return response()->file(Storage::disk('public')->path($documento->ruta));
+        if (Storage::disk('public')->exists($documento->ruta_archivo)) {
+            return response()->file(Storage::disk('public')->path($documento->ruta_archivo));
         }
 
         return back()->withErrors(['error' => 'El archivo no existe.']);
