@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Recambio;
-use App\Models\Siniestro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -101,9 +100,7 @@ class RecambioController extends Controller
             abort(403, 'No tienes permiso para editar este recambio.');
         }
 
-        // Solo mostrar siniestros del usuario autenticado
-        $siniestros = Siniestro::where('user_id', Auth::id())->with('vehiculo')->get();
-        return view('recambios.edit', compact('recambio', 'siniestros'));
+        return view('recambios.edit', compact('recambio'));
     }
 
     /**
@@ -122,18 +119,9 @@ class RecambioController extends Controller
             'referencia' => 'nullable|string|max:255',
             'precio' => 'nullable|numeric|min:0',
             'descripcion' => 'nullable|string',
-            'siniestro_id' => 'nullable|exists:siniestros,id',
         ]);
 
         try {
-            // Verificar que el siniestro pertenece al usuario autenticado si se proporciona
-            if ($request->has('siniestro_id') && $request->siniestro_id) {
-                $siniestro = Siniestro::findOrFail($request->siniestro_id);
-                if ($siniestro->user_id !== Auth::id()) {
-                    return back()->withErrors(['siniestro_id' => 'El siniestro seleccionado no es válido.'])->withInput();
-                }
-            }
-
             // Actualizar el recambio
             $recambio->update([
                 'producto' => $request->producto,
@@ -141,7 +129,6 @@ class RecambioController extends Controller
                 'referencia' => $request->referencia,
                 'precio' => $request->precio,
                 'descripcion' => $request->descripcion,
-                'siniestro_id' => $request->siniestro_id,
             ]);
             
             Log::info('Recambio actualizado correctamente', ['recambio_id' => $recambio->id, 'user_id' => Auth::id()]);

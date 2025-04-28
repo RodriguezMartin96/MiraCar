@@ -8,8 +8,8 @@
     <title>Clientes - {{ config('app.name', 'MiraCar') }}</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
-    <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     
@@ -154,7 +154,7 @@
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover">
                                 <thead>
-                                    <tr class="table-header">
+                                    <tr class="table-header text-center">
                                         <th scope="col" width="120">Acciones</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Apellidos</th>
@@ -165,8 +165,8 @@
                                 </thead>
                                 <tbody>
                                     @forelse($clientes as $cliente)
-                                        <tr>
-                                            <td class="action-icons text-center">
+                                        <tr class="text-center">
+                                            <td class="action-icons">
                                                 <a href="{{ route('clientes.edit', $cliente) }}" title="Editar" class="me-2"><i class="bi bi-pencil"></i></a>
                                                 <a href="{{ route('clientes.show', $cliente) }}" title="Ver detalles" class="me-2"><i class="bi bi-eye"></i></a>
                                                 <form action="{{ route('clientes.destroy', $cliente) }}" method="POST" class="d-inline">

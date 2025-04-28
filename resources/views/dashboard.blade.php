@@ -1,3 +1,9 @@
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
+
 @extends('layouts.app')
 
 @section('styles')

@@ -1,26 +1,172 @@
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
+
 @extends('layouts.app')
 
-@section('styles')
+@section('content')
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-12">
+            <a href="{{ route('user.dashboard') }}" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-left"></i> Volver al dashboard
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">Detalles del Siniestro</h4>
+                    <span class="badge bg-light text-primary">
+                        @switch($siniestro->estado)
+                            @case('pendiente')
+                                Pendiente
+                                @break
+                            @case('en_proceso')
+                                En proceso
+                                @break
+                            @case('completado')
+                                Completado
+                                @break
+                            @default
+                                {{ ucfirst($siniestro->estado) }}
+                        @endswitch
+                    </span>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h5 class="section-title">Información General</h5>
+                            <div class="mb-2">
+                                <strong>Fecha de entrada:</strong> 
+                                {{ \Carbon\Carbon::parse($siniestro->fecha_entrada ?? $siniestro->fecha)->format('d/m/Y') }}
+                            </div>
+                            <div class="mb-2">
+                                <strong>Fecha estimada de salida:</strong> 
+                                {{ $siniestro->fecha_salida ? \Carbon\Carbon::parse($siniestro->fecha_salida)->format('d/m/Y') : 'No especificada' }}
+                            </div>
+                            <div class="mb-2">
+                                <strong>Taller:</strong> {{ $siniestro->user->name }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="section-title">Vehículo</h5>
+                            <div class="mb-2">
+                                <strong>Marca:</strong> {{ $siniestro->vehiculo->marca }}
+                            </div>
+                            <div class="mb-2">
+                                <strong>Modelo:</strong> {{ $siniestro->vehiculo->modelo }}
+                            </div>
+                            <div class="mb-2">
+                                <strong>Matrícula:</strong> {{ $siniestro->vehiculo->matricula }}
+                            </div>
+                            <div class="mb-2">
+                                <strong>Color:</strong> {{ $siniestro->vehiculo->color }}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5 class="section-title">Descripción del Siniestro</h5>
+                    <div class="p-3 bg-light rounded mb-4">
+                        {{ $siniestro->descripcion ?? 'No hay descripción disponible.' }}
+                    </div>
+                    
+                    <h5 class="section-title">Observaciones</h5>
+                    <div class="p-3 bg-light rounded">
+                        {{ $siniestro->observaciones ?? 'No hay observaciones disponibles.' }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Recambios</h5>
+                </div>
+                <div class="card-body">
+                    @if($recambios->isEmpty())
+                        <p class="text-muted">No hay recambios registrados para este siniestro.</p>
+                    @else
+                        <div class="list-group">
+                            @foreach($recambios as $recambio)
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">{{ $recambio->nombre }}</h6>
+                                        <small>{{ $recambio->precio }}€</small>
+                                    </div>
+                                    <p class="mb-1">{{ $recambio->descripcion }}</p>
+                                    <small class="text-muted">
+                                        Estado: 
+                                        @switch($recambio->estado)
+                                            @case('pendiente')
+                                                <span class="badge bg-warning">Pendiente</span>
+                                                @break
+                                            @case('pedido')
+                                                <span class="badge bg-info">Pedido</span>
+                                                @break
+                                            @case('recibido')
+                                                <span class="badge bg-success">Recibido</span>
+                                                @break
+                                            @default
+                                                <span class="badge bg-secondary">{{ ucfirst($recambio->estado) }}</span>
+                                        @endswitch
+                                    </small>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+            </div>
+            
+            <div class="card shadow-sm">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Contacto del Taller</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        @if($siniestro->user->logo)
+                            <img src="{{ asset('storage/' . $siniestro->user->logo) }}" 
+                                 alt="{{ $siniestro->user->name }}" 
+                                 class="me-3" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;"
+                                 onerror="this.onerror=null; this.src='{{ asset('galeria/logo.png') }}';">
+                        @else
+                            <div class="me-3 d-flex align-items-center justify-content-center bg-primary text-white" 
+                                 style="width: 50px; height: 50px; border-radius: 8px;">
+                                <i class="bi bi-building"></i>
+                            </div>
+                        @endif
+                        <div>
+                            <h6 class="mb-0">{{ $siniestro->user->name }}</h6>
+                            <small class="text-muted">{{ $siniestro->user->company_name ?? '' }}</small>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-2">
+                        <i class="bi bi-envelope me-2"></i> {{ $siniestro->user->email }}
+                    </div>
+                    
+                    @if($siniestro->user->phone)
+                        <div class="mb-2">
+                            <i class="bi bi-telephone me-2"></i> {{ $siniestro->user->phone }}
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@push('styles')
 <style>
-    .detail-card {
-        border-radius: 12px;
+    .card {
+        border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-    
-    .detail-header {
-        background: linear-gradient(90deg, #4f8cff 0%, #235390 100%);
-        padding: 1.5rem;
-        color: white;
-    }
-    
-    .detail-section {
-        padding: 1.5rem;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .detail-section:last-child {
-        border-bottom: none;
     }
     
     .section-title {
@@ -31,177 +177,22 @@
         border-bottom: 2px solid #e3ecff;
     }
     
-    .taller-logo {
-        width: 60px;
-        height: 60px;
-        object-fit: contain;
-        background: white;
-        padding: 5px;
-        border-radius: 8px;
+    .badge {
+        font-weight: 500;
+        padding: 0.5em 0.8em;
+    }
+    
+    .list-group-item {
+        border-left: none;
+        border-right: none;
+    }
+    
+    .list-group-item:first-child {
+        border-top: none;
+    }
+    
+    .list-group-item:last-child {
+        border-bottom: none;
     }
 </style>
-@endsection
-
-@section('content')
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="mb-4">
-                <a href="{{ route('user.dashboard') }}" class="btn btn-outline-secondary">
-                    <i class="bi bi-arrow-left"></i> Volver a mis siniestros
-                </a>
-            </div>
-            
-            <div class="card detail-card mb-4">
-                <div class="detail-header d-flex justify-content-between align-items-center">
-                    <div>
-                        <h4 class="mb-0">Detalles del Siniestro</h4>
-                        <p class="mb-0 opacity-75">{{ $siniestro->vehiculo->marca }} {{ $siniestro->vehiculo->modelo }} - {{ $siniestro->vehiculo->matricula }}</p>
-                    </div>
-                    <span class="badge {{ $siniestro->estado == 'pendiente' ? 'bg-warning' : ($siniestro->estado == 'en_proceso' ? 'bg-info' : 'bg-success') }} fs-6">
-                        {{ ucfirst(str_replace('_', ' ', $siniestro->estado)) }}
-                    </span>
-                </div>
-                
-                <div class="detail-section">
-                    <h5 class="section-title">Información del Taller</h5>
-                    <div class="d-flex align-items-center">
-                        @if($siniestro->user->logo)
-                            <img src="{{ asset('storage/' . $siniestro->user->logo) }}" alt="{{ $siniestro->user->name }}" class="taller-logo me-3">
-                        @else
-                            <div class="me-3 bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                                <i class="bi bi-building fs-3"></i>
-                            </div>
-                        @endif
-                        <div>
-                            <h5 class="mb-1">{{ $siniestro->user->name }}</h5>
-                            <p class="mb-0 text-muted">{{ $siniestro->user->email }}</p>
-                            @if($siniestro->user->phone)
-                                <p class="mb-0 text-muted">{{ $siniestro->user->phone }}</p>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="detail-section">
-                    <h5 class="section-title">Información del Siniestro</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p><strong>Número:</strong> {{ $siniestro->numero ?? 'N/A' }}</p>
-                            <p><strong>Fecha de entrada:</strong> {{ \Carbon\Carbon::parse($siniestro->fecha_entrada ?? $siniestro->fecha)->format('d/m/Y') }}</p>
-                        </div>
-                        <div class="col-md-6">
-                            <p><strong>Estado:</strong> {{ ucfirst(str_replace('_', ' ', $siniestro->estado)) }}</p>
-                            @if($siniestro->fecha_salida)
-                                <p><strong>Fecha de salida:</strong> {{ \Carbon\Carbon::parse($siniestro->fecha_salida)->format('d/m/Y') }}</p>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="detail-section">
-                    <h5 class="section-title">Información del Vehículo</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label fw-bold">Marca</label>
-                                <input type="text" class="form-control" value="{{ $siniestro->vehiculo->marca }}" readonly>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label fw-bold">Modelo</label>
-                                <input type="text" class="form-control" value="{{ $siniestro->vehiculo->modelo }}" readonly>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label fw-bold">Matrícula</label>
-                                <input type="text" class="form-control" value="{{ $siniestro->vehiculo->matricula }}" readonly>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label fw-bold">Color</label>
-                                <input type="text" class="form-control" value="{{ $siniestro->vehiculo->color }}" readonly>
-                            </div>
-                        </div>
-                    </div>
-                    @if($siniestro->vehiculo->bastidor)
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label fw-bold">Bastidor</label>
-                                <input type="text" class="form-control" value="{{ $siniestro->vehiculo->bastidor }}" readonly>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label fw-bold">Fecha Matriculación</label>
-                                <input type="text" class="form-control" value="{{ $siniestro->vehiculo->fecha_matriculacion ? \Carbon\Carbon::parse($siniestro->vehiculo->fecha_matriculacion)->format('d/m/Y') : 'No disponible' }}" readonly>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
-                </div>
-                
-                <div class="detail-section">
-                    <h5 class="section-title">Descripción del Siniestro</h5>
-                    <div class="card">
-                        <div class="card-body bg-light">
-                            {{ $siniestro->descripcion }}
-                        </div>
-                    </div>
-                </div>
-                
-                @if($siniestro->daños)
-                <div class="detail-section">
-                    <h5 class="section-title">Daños Detectados</h5>
-                    <div class="card">
-                        <div class="card-body bg-light">
-                            {!! nl2br(e($siniestro->daños)) !!}
-                        </div>
-                    </div>
-                </div>
-                @endif
-                
-                @if(count($recambios) > 0)
-                <div class="detail-section">
-                    <h5 class="section-title">Recambios Utilizados</h5>
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Descripción</th>
-                                    <th>Cantidad</th>
-                                    <th class="text-end">Precio</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($recambios as $recambio)
-                                <tr>
-                                    <td>{{ $recambio->nombre }}</td>
-                                    <td>{{ $recambio->descripcion }}</td>
-                                    <td>{{ $recambio->cantidad }}</td>
-                                    <td class="text-end">{{ number_format($recambio->precio, 2) }} €</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th colspan="3" class="text-end">Total:</th>
-                                    <th class="text-end">{{ number_format($recambios->sum(function($recambio) { return $recambio->precio * $recambio->cantidad; }), 2) }} €</th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>
-                @endif
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+@endpush

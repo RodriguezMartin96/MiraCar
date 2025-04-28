@@ -7,6 +7,12 @@
     
     <title>Registro</title>
     
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
@@ -141,6 +147,26 @@
             background: #4f8cff;
             color: #fff;
         }
+        /* Estilos para el campo de contraseña con icono */
+        .password-container {
+            position: relative;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #235390;
+            z-index: 10;
+        }
+        .password-toggle:hover {
+            color: #4f8cff;
+        }
+        /* Ajuste para el icono dentro del input */
+        .password-input {
+            padding-right: 40px;
+        }
     </style>
 </head>
 <body>
@@ -214,14 +240,24 @@
                     </div>
                     <div class="mb-2">
                         <label for="company_password" class="form-label">Contraseña</label>
-                        <input id="company_password" type="password" name="company_password" class="form-control @error('company_password') is-invalid @enderror" />
+                        <div class="password-container">
+                            <input id="company_password" type="password" name="company_password" class="form-control password-input @error('company_password') is-invalid @enderror" />
+                            <span class="password-toggle" onclick="togglePasswordVisibility('company_password')">
+                                <i class="bi bi-eye-slash" id="company_password_toggle_icon"></i>
+                            </span>
+                        </div>
                         @error('company_password')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-2">
                         <label for="company_password_confirmation" class="form-label">Repetir contraseña</label>
-                        <input id="company_password_confirmation" type="password" name="company_password_confirmation" class="form-control @error('company_password_confirmation') is-invalid @enderror" />
+                        <div class="password-container">
+                            <input id="company_password_confirmation" type="password" name="company_password_confirmation" class="form-control password-input @error('company_password_confirmation') is-invalid @enderror" />
+                            <span class="password-toggle" onclick="togglePasswordVisibility('company_password_confirmation')">
+                                <i class="bi bi-eye-slash" id="company_password_confirmation_toggle_icon"></i>
+                            </span>
+                        </div>
                         @error('company_password_confirmation')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -281,14 +317,24 @@
                     </div>
                     <div class="mb-2">
                         <label for="password" class="form-label">Contraseña</label>
-                        <input id="password" type="password" name="password" class="form-control @error('password') is-invalid @enderror" />
+                        <div class="password-container">
+                            <input id="password" type="password" name="password" class="form-control password-input @error('password') is-invalid @enderror" />
+                            <span class="password-toggle" onclick="togglePasswordVisibility('password')">
+                                <i class="bi bi-eye-slash" id="password_toggle_icon"></i>
+                            </span>
+                        </div>
                         @error('password')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-2">
                         <label for="password_confirmation" class="form-label">Repetir contraseña</label>
-                        <input id="password_confirmation" type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" />
+                        <div class="password-container">
+                            <input id="password_confirmation" type="password" name="password_confirmation" class="form-control password-input @error('password_confirmation') is-invalid @enderror" />
+                            <span class="password-toggle" onclick="togglePasswordVisibility('password_confirmation')">
+                                <i class="bi bi-eye-slash" id="password_confirmation_toggle_icon"></i>
+                            </span>
+                        </div>
                         @error('password_confirmation')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -321,6 +367,7 @@
             const logoContainer = document.querySelector('.logo-container');
             const avatarInput = document.getElementById('avatar');
             const avatarContainer = document.querySelector('.avatar-container');
+            
             userTypeSelect.addEventListener('change', function() {
                 if (this.value === 'taller') {
                     tallerSection.classList.remove('d-none');
@@ -333,12 +380,15 @@
                     userSection.classList.add('d-none');
                 }
             });
+            
             logoInput.addEventListener('change', function() {
                 handleImagePreview(this, logoContainer);
             });
+            
             avatarInput.addEventListener('change', function() {
                 handleImagePreview(this, avatarContainer);
             });
+            
             function handleImagePreview(input, container) {
                 if (input.files && input.files[0]) {
                     const reader = new FileReader();
@@ -357,6 +407,7 @@
                     reader.readAsDataURL(input.files[0]);
                 }
             }
+            
             if (userTypeSelect.value === 'taller') {
                 tallerSection.classList.remove('d-none');
                 userSection.classList.add('d-none');
@@ -365,6 +416,22 @@
                 tallerSection.classList.add('d-none');
             }
         });
+        
+        // Función para mostrar/ocultar contraseña
+        function togglePasswordVisibility(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const toggleIcon = document.getElementById(inputId + '_toggle_icon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('bi-eye-slash');
+                toggleIcon.classList.add('bi-eye');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('bi-eye');
+                toggleIcon.classList.add('bi-eye-slash');
+            }
+        }
     </script>
 </body>
 </html>

@@ -8,8 +8,8 @@
     <title>Agregar Cliente - {{ config('app.name', 'MiraCar') }}</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
-    <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     

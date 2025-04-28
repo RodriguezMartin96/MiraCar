@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckTallerRole
+class CheckUserRole
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class CheckTallerRole
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() || !Auth::user()->isTaller()) {
-            abort(403, 'Acceso denegado. Solo los talleres pueden acceder a esta sección.');
+        if (!Auth::check() || !Auth::user()->isUser()) {
+            abort(403, 'Acceso denegado. Solo los usuarios pueden acceder a esta sección.');
         }
 
         return $next($request);

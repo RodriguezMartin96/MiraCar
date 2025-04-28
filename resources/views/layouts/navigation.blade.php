@@ -9,13 +9,12 @@
     }
     .taller-logo {
         height: 40px;
-        width: auto;
-        max-width: 100px;
+        width: 40px;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(79,140,255,0.10);
         background: #fff;
         padding: 2px;
-        object-fit: contain;
+        object-fit: cover; /* Cambiado para que funcione mejor con avatares */
     }
     .logo-container {
         display: inline-block;
@@ -65,6 +64,8 @@
         border-radius: 8px;
         padding: 10px 18px;
         transition: background 0.18s, color 0.18s;
+        display: flex;
+        align-items: center;
     }
     .user-dropdown-toggle:hover, .user-dropdown-toggle:focus {
         background: #fff;
@@ -84,6 +85,15 @@
     .dropdown-item:hover, .dropdown-item:focus {
         background: #e3ecff;
         color: #4f8cff;
+    }
+    /* Estilo para avatar de usuario en el menú */
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 8px;
+        border: 2px solid white;
     }
     @media (max-width: 991px) {
         .taller-navbar {
@@ -105,13 +115,24 @@
 
 <nav class="navbar navbar-expand-lg fixed-top taller-navbar">
     <div class="container-fluid">
-        <!-- Logo del taller -->
+        <!-- Logo del taller o avatar del usuario -->
         <a class="navbar-brand" href="{{ route('dashboard') }}">
             <div class="logo-container">
-                @if(Auth::check() && Auth::user()->isTaller() && Auth::user()->logo)
-                    <img src="{{ asset('storage/' . Auth::user()->logo) }}" alt="{{ Auth::user()->name }} Logo" class="taller-logo" 
-                         onerror="this.onerror=null; this.src='{{ asset('galeria/logo.png') }}'; console.log('Error cargando logo personalizado');">
+                @if(Auth::check())
+                    @if(Auth::user()->role === 'taller' && Auth::user()->logo)
+                        <!-- Logo del taller si es un taller con logo -->
+                        <img src="{{ asset('storage/' . Auth::user()->logo) }}" alt="{{ Auth::user()->name }} Logo" class="taller-logo" 
+                             onerror="this.onerror=null; this.src='{{ asset('galeria/logo.png') }}'; console.log('Error cargando logo personalizado');">
+                    @elseif(Auth::user()->role === 'user' && Auth::user()->avatar)
+                        <!-- Avatar del usuario si tiene uno -->
+                        <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="{{ Auth::user()->name }}" class="taller-logo" 
+                             onerror="this.onerror=null; this.src='{{ asset('galeria/logo.png') }}'; console.log('Error cargando avatar');">
+                    @else
+                        <!-- Logo por defecto si no hay avatar ni logo -->
+                        <img src="{{ asset('galeria/logo.png') }}" alt="MiraCar Logo" class="taller-logo">
+                    @endif
                 @else
+                    <!-- Logo por defecto para usuarios no autenticados -->
                     <img src="{{ asset('galeria/logo.png') }}" alt="MiraCar Logo" class="taller-logo">
                 @endif
             </div>
@@ -131,6 +152,7 @@
                         Inicio
                     </a>
                 </li>
+                @if(Auth::check() && Auth::user()->role === 'taller')
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('clientes.*') ? 'active' : '' }}" href="{{ route('clientes.index') }}">
                         Cliente
@@ -156,6 +178,7 @@
                         Documentación
                     </a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('soporte.*') ? 'active' : '' }}" href="{{ route('soporte.create') }}">
                         Soporte
@@ -169,12 +192,25 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle user-dropdown-toggle" href="#" id="userDropdown" role="button" 
                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-gear-fill me-1"></i>
-                    {{ Auth::user()->name ?? 'Taller' }}
+                    @if(Auth::check())
+                        @if(Auth::user()->role === 'user' && Auth::user()->avatar)
+                            <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="{{ Auth::user()->name }}" class="user-avatar" 
+                                 onerror="this.onerror=null; this.src='{{ asset('galeria/logo.png') }}'; console.log('Error cargando avatar');">
+                        @elseif(Auth::user()->role === 'taller' && Auth::user()->logo)
+                            <img src="{{ asset('storage/' . Auth::user()->logo) }}" alt="{{ Auth::user()->name }}" class="user-avatar" 
+                                 onerror="this.onerror=null; this.src='{{ asset('galeria/logo.png') }}'; console.log('Error cargando logo');">
+                        @else
+                            <i class="bi bi-person-circle me-1"></i>
+                        @endif
+                        {{ Auth::user()->name }}
+                    @else
+                        <i class="bi bi-person-circle me-1"></i>
+                        Usuario
+                    @endif
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                     <li>
-                        <a class="dropdown-item" href="{{ route('profile.edit') }}">
+                        <a class="dropdown-item" href="{{ route('user.profile') }}">
                             <i class="bi bi-person-fill me-2"></i>Perfil
                         </a>
                     </li>
@@ -193,9 +229,3 @@
         </div>
     </div>
 </nav>
-
-@if(env('APP_DEBUG'))
-<div id="logoDebug">
-    <!-- Código de depuración -->
-</div>
-@endif

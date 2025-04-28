@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
@@ -26,15 +27,25 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $validatedData = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'company_name' => ['nullable', 'string', 'max:255'],
+            'company_nif' => ['nullable', 'string', 'max:20'],
+            'phone' => ['nullable', 'string', 'max:20'],
+        ]);
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $user = $request->user();
+        $user->name = $validatedData['name'];
+        
+        if ($user->role === 'taller') {
+            $user->company_name = $validatedData['company_name'] ?? null;
+            $user->company_nif = $validatedData['company_nif'] ?? null;
         }
-
-        $request->user()->save();
+        
+        $user->phone = $validatedData['phone'] ?? null;
+        $user->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
@@ -50,19 +61,65 @@ class ProfileController extends Controller
 
         try {
             $user = $request->user();
+            
+            // Información de depuración
+            Log::info('Iniciando actualización de logo', [
+                'user_id' => $user->id,
+                'user_role' => $user->role,
+                'old_logo' => $user->logo
+            ]);
 
-            // Eliminar el logo anterior si existe
-            if ($user->logo && Storage::disk('public')->exists($user->logo)) {
-                Storage::disk('public')->delete($user->logo);
-                Log::info('Logo anterior eliminado: ' . $user->logo);
+            // Verificar si el archivo se subió correctamente
+            if (!$request->hasFile('logo') || !$request->file('logo')->isValid()) {
+                Log::error('Archivo de logo no válido o no subido');
+                return back()->withErrors(['logo' => 'El archivo no es válido o no se pudo subir.']);
             }
 
-            // Guardar el nuevo logo
-            $logoPath = $request->file('logo')->store('logos', 'public');
+            // Información sobre el archivo subido
+            $logoFile = $request->file('logo');
+            Log::info('Archivo de logo recibido', [
+                'original_name' => $logoFile->getClientOriginalName(),
+                'mime_type' => $logoFile->getMimeType(),
+                'size' => $logoFile->getSize()
+            ]);
+
+            // Eliminar el logo anterior si existe
+            if ($user->logo && File::exists(public_path('storage/' . $user->logo))) {
+                File::delete(public_path('storage/' . $user->logo));
+                Log::info('Logo anterior eliminado: ' . $user->logo);
+            } else if ($user->logo) {
+                Log::warning('Logo anterior no encontrado en el almacenamiento: ' . $user->logo);
+            }
+
+            // Asegurarse de que el directorio existe
+            $logosDir = public_path('storage/logos');
+            if (!File::exists($logosDir)) {
+                File::makeDirectory($logosDir, 0755, true);
+            }
+
+            // Guardar el nuevo logo con un nombre único basado en timestamp
+            $timestamp = time();
+            $extension = $logoFile->getClientOriginalExtension();
+            $fileName = 'logo_' . $user->id . '_' . $timestamp . '.' . $extension;
+            
+            // Guardar directamente en public/storage/logos
+            $logoFile->move($logosDir, $fileName);
+            $logoPath = 'logos/' . $fileName;
+            
+            Log::info('Nuevo logo guardado en: ' . $logoPath);
+
+            // Actualizar el usuario
             $user->logo = $logoPath;
             $user->save();
 
-            Log::info('Logo actualizado: ' . $logoPath);
+            Log::info('Logo actualizado en la base de datos');
+
+            // Verificar que el archivo existe después de guardarlo
+            if (File::exists(public_path('storage/' . $logoPath))) {
+                Log::info('Verificación: el archivo existe en el almacenamiento');
+            } else {
+                Log::error('Verificación fallida: el archivo no existe en el almacenamiento');
+            }
 
             return Redirect::route('profile.edit')->with('status', 'logo-updated');
         } catch (\Exception $e) {
@@ -72,7 +129,7 @@ class ProfileController extends Controller
             ]);
             
             return back()->withErrors([
-                'logo' => 'Ha ocurrido un error al actualizar el logo. Por favor, inténtalo de nuevo.',
+                'logo' => 'Ha ocurrido un error al actualizar el logo: ' . $e->getMessage(),
             ]);
         }
     }
@@ -89,8 +146,8 @@ class ProfileController extends Controller
         $user = $request->user();
 
         // Eliminar el logo si existe
-        if ($user->logo && Storage::disk('public')->exists($user->logo)) {
-            Storage::disk('public')->delete($user->logo);
+        if ($user->logo && File::exists(public_path('storage/' . $user->logo))) {
+            File::delete(public_path('storage/' . $user->logo));
             Log::info('Logo eliminado al borrar usuario: ' . $user->logo);
         }
 

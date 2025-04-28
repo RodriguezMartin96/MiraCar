@@ -8,8 +8,8 @@
     <title>Detalles del Cliente - {{ config('app.name', 'MiraCar') }}</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
-    <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     
@@ -152,3 +152,11 @@
                         @endif
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

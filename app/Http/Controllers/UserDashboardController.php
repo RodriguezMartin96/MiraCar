@@ -98,7 +98,7 @@ class UserDashboardController extends Controller
             $user = Auth::user();
             
             // Buscar el siniestro y verificar que pertenece a un vehículo del usuario
-            $siniestro = Siniestro::with(['vehiculo.cliente', 'user'])
+            $siniestro = Siniestro::with(['vehiculo.cliente', 'user', 'recambios'])
                 ->whereHas('vehiculo.cliente', function ($query) use ($user) {
                     $query->where('dni', $user->dni);
                 })

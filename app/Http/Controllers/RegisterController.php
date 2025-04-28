@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\File;
 
 class RegisterController extends Controller
 {
@@ -32,7 +33,10 @@ class RegisterController extends Controller
             }
         } catch (\Exception $e) {
             // Registrar el error para depuración
-            Log::error('Error en el registro: ' . $e->getMessage());
+            Log::error('Error en el registro: ' . $e->getMessage(), [
+                'exception' => get_class($e),
+                'trace' => $e->getTraceAsString()
+            ]);
             
             // Devolver al formulario con un mensaje de error
             return back()->withInput()->with('error', 'Ha ocurrido un error al procesar el registro: ' . $e->getMessage());
@@ -49,13 +53,47 @@ class RegisterController extends Controller
             'company_phone' => 'required|string|max:20',
             'company_password' => ['required', 'string', 'min:8'],
             'company_password_confirmation' => ['required', 'same:company_password'],
-            'logo' => 'nullable|image|max:2048',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         
         // Procesar y guardar el logo si se ha subido
         $logoPath = null;
-        if ($request->hasFile('logo')) {
-            $logoPath = $request->file('logo')->store('logos', 'public');
+        if ($request->hasFile('logo') && $request->file('logo')->isValid()) {
+            try {
+                $logoFile = $request->file('logo');
+                $timestamp = time();
+                $extension = $logoFile->getClientOriginalExtension();
+                $fileName = 'logo_' . $timestamp . '_' . uniqid() . '.' . $extension;
+                
+                // Asegurarse de que el directorio existe
+                $logosDir = public_path('storage/logos');
+                if (!File::exists($logosDir)) {
+                    File::makeDirectory($logosDir, 0755, true);
+                }
+                
+                // Guardar directamente en public/storage/logos
+                $logoFile->move($logosDir, $fileName);
+                $logoPath = 'logos/' . $fileName;
+                
+                Log::info('Logo guardado correctamente en public/storage/logos', [
+                    'path' => $logoPath,
+                    'full_path' => $logosDir . '/' . $fileName
+                ]);
+                
+                // Verificar que el archivo se guardó correctamente
+                if (!File::exists($logosDir . '/' . $fileName)) {
+                    Log::warning('El logo no se guardó correctamente', [
+                        'path' => $logoPath
+                    ]);
+                    $logoPath = null;
+                }
+            } catch (\Exception $e) {
+                Log::error('Error al subir el logo: ' . $e->getMessage(), [
+                    'exception' => get_class($e),
+                    'trace' => $e->getTraceAsString()
+                ]);
+                $logoPath = null;
+            }
         }
         
         // Crear usuario taller
@@ -68,6 +106,12 @@ class RegisterController extends Controller
             'company_name' => $validated['company_name'],
             'company_nif' => $validated['company_nif'],
             'logo' => $logoPath,
+        ]);
+        
+        Log::info('Taller registrado correctamente', [
+            'user_id' => $user->id,
+            'email' => $user->email,
+            'has_logo' => !is_null($logoPath)
         ]);
         
         // Iniciar sesión automáticamente
@@ -88,13 +132,47 @@ class RegisterController extends Controller
             'phone' => 'required|string|max:20',
             'password' => ['required', 'string', 'min:8'],
             'password_confirmation' => ['required', 'same:password'],
-            'avatar' => 'nullable|image|max:2048',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         
         // Procesar y guardar el avatar si se ha subido
         $avatarPath = null;
-        if ($request->hasFile('avatar')) {
-            $avatarPath = $request->file('avatar')->store('avatars', 'public');
+        if ($request->hasFile('avatar') && $request->file('avatar')->isValid()) {
+            try {
+                $avatarFile = $request->file('avatar');
+                $timestamp = time();
+                $extension = $avatarFile->getClientOriginalExtension();
+                $fileName = 'avatar_' . $timestamp . '_' . uniqid() . '.' . $extension;
+                
+                // Asegurarse de que el directorio existe
+                $avatarsDir = public_path('storage/avatars');
+                if (!File::exists($avatarsDir)) {
+                    File::makeDirectory($avatarsDir, 0755, true);
+                }
+                
+                // Guardar directamente en public/storage/avatars
+                $avatarFile->move($avatarsDir, $fileName);
+                $avatarPath = 'avatars/' . $fileName;
+                
+                Log::info('Avatar guardado correctamente en public/storage/avatars', [
+                    'path' => $avatarPath,
+                    'full_path' => $avatarsDir . '/' . $fileName
+                ]);
+                
+                // Verificar que el archivo se guardó correctamente
+                if (!File::exists($avatarsDir . '/' . $fileName)) {
+                    Log::warning('El avatar no se guardó correctamente', [
+                        'path' => $avatarPath
+                    ]);
+                    $avatarPath = null;
+                }
+            } catch (\Exception $e) {
+                Log::error('Error al subir el avatar: ' . $e->getMessage(), [
+                    'exception' => get_class($e),
+                    'trace' => $e->getTraceAsString()
+                ]);
+                $avatarPath = null;
+            }
         }
         
         // Crear usuario normal
@@ -107,6 +185,12 @@ class RegisterController extends Controller
             'password' => Hash::make($validated['password']),
             'avatar' => $avatarPath,
             'role' => 'user',
+        ]);
+        
+        Log::info('Usuario registrado correctamente', [
+            'user_id' => $user->id,
+            'email' => $user->email,
+            'has_avatar' => !is_null($avatarPath)
         ]);
         
         // Iniciar sesión automáticamente

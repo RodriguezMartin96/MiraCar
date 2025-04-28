@@ -7,16 +7,32 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
 class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Solo mostrar clientes del usuario autenticado
-        $clientes = Cliente::where('user_id', Auth::id())->paginate(10);
+        // Buscar clientes si hay un término de búsqueda
+        if ($request->has('search') && !empty($request->search)) {
+            $search = $request->search;
+            $clientes = Cliente::where('user_id', Auth::id())
+                ->where(function($query) use ($search) {
+                    $query->where('nombre', 'LIKE', "%{$search}%")
+                        ->orWhere('apellidos', 'LIKE', "%{$search}%")
+                        ->orWhere('email', 'LIKE', "%{$search}%")
+                        ->orWhere('telefono', 'LIKE', "%{$search}%")
+                        ->orWhere('dni', 'LIKE', "%{$search}%");
+                })
+                ->paginate(10);
+        } else {
+            // Solo mostrar clientes del usuario autenticado
+            $clientes = Cliente::where('user_id', Auth::id())->paginate(10);
+        }
+        
         return view('clientes.index', compact('clientes'));
     }
 
@@ -62,8 +78,22 @@ class ClienteController extends Controller
         ]);
 
         try {
+            // Convertir nombre y apellidos a Title Case
+            $clienteData = $request->all();
+            $clienteData['nombre'] = $this->toTitleCase($clienteData['nombre']);
+            $clienteData['apellidos'] = $this->toTitleCase($clienteData['apellidos']);
+            
+            // Convertir email a minúsculas y DNI a mayúsculas
+            if (isset($clienteData['email'])) {
+                $clienteData['email'] = mb_strtolower($clienteData['email'], 'UTF-8');
+            }
+            
+            if (isset($clienteData['dni']) && $clienteData['dni']) {
+                $clienteData['dni'] = mb_strtoupper($clienteData['dni'], 'UTF-8');
+            }
+            
             // Asociar el cliente al usuario autenticado
-            $cliente = new Cliente($request->all());
+            $cliente = new Cliente($clienteData);
             $cliente->user_id = Auth::id();
             $cliente->save();
 
@@ -168,7 +198,21 @@ class ClienteController extends Controller
         ]);
 
         try {
-            $cliente->update($request->all());
+            // Convertir nombre y apellidos a Title Case
+            $clienteData = $request->all();
+            $clienteData['nombre'] = $this->toTitleCase($clienteData['nombre']);
+            $clienteData['apellidos'] = $this->toTitleCase($clienteData['apellidos']);
+            
+            // Convertir email a minúsculas y DNI a mayúsculas
+            if (isset($clienteData['email'])) {
+                $clienteData['email'] = mb_strtolower($clienteData['email'], 'UTF-8');
+            }
+            
+            if (isset($clienteData['dni']) && $clienteData['dni']) {
+                $clienteData['dni'] = mb_strtoupper($clienteData['dni'], 'UTF-8');
+            }
+            
+            $cliente->update($clienteData);
             
             Log::info('Cliente actualizado correctamente', [
                 'cliente_id' => $cliente->id, 
@@ -230,5 +274,48 @@ class ClienteController extends Controller
             
             return back()->withErrors(['error' => 'Ha ocurrido un error al eliminar el cliente: ' . $e->getMessage()]);
         }
+    }
+    
+    /**
+     * Convierte un texto a formato Title Case (primera letra de cada palabra en mayúscula)
+     * con manejo especial para palabras con apóstrofes y preposiciones.
+     */
+    private function toTitleCase($string)
+    {
+        // Primero convertimos todo a minúsculas
+        $string = mb_strtolower($string, 'UTF-8');
+        
+        // Dividimos el string en palabras
+        $words = explode(' ', $string);
+        
+        // Lista de palabras que no deberían capitalizarse (preposiciones, artículos, etc.)
+        $smallWords = ['de', 'del', 'la', 'las', 'el', 'los', 'y', 'e', 'o', 'u', 'a', 'en', 'con', 'por', 'para'];
+        
+        foreach ($words as $key => $word) {
+            // La primera palabra siempre se capitaliza
+            if ($key === 0) {
+                $words[$key] = mb_strtoupper(mb_substr($word, 0, 1, 'UTF-8'), 'UTF-8') . mb_substr($word, 1, null, 'UTF-8');
+                continue;
+            }
+            
+            // Si la palabra está en la lista de palabras pequeñas, no la capitalizamos
+            if (in_array($word, $smallWords)) {
+                continue;
+            }
+            
+            // Manejo especial para palabras con apóstrofe
+            if (strpos($word, "'") !== false) {
+                $parts = explode("'", $word);
+                $parts[1] = mb_strtoupper(mb_substr($parts[1], 0, 1, 'UTF-8'), 'UTF-8') . mb_substr($parts[1], 1, null, 'UTF-8');
+                $words[$key] = $parts[0] . "'" . $parts[1];
+                continue;
+            }
+            
+            // Capitalizar la primera letra de la palabra
+            $words[$key] = mb_strtoupper(mb_substr($word, 0, 1, 'UTF-8'), 'UTF-8') . mb_substr($word, 1, null, 'UTF-8');
+        }
+        
+        // Unimos las palabras de nuevo
+        return implode(' ', $words);
     }
 }
