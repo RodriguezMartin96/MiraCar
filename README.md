@@ -1,67 +1,116 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
+  <img src="public/galeria/logo.png" alt="MiraCar Logo" width="200" height="200">
+  <h1>MiraCar</h1>
+  <p>Conectando talleres y clientes para un servicio automotriz eficiente</p>
+  
+  <p>
+    <a href="#características"><strong>Características</strong></a> •
+    <a href="#tecnologías-utilizadas"><strong>Tecnologías</strong></a> •
+    <a href="#instalación"><strong>Instalación</strong></a> •
+    <a href="#capturas-de-pantalla"><strong>Capturas</strong></a> •
+    <a href="#uso"><strong>Uso</strong></a> •
+    <a href="#licencia"><strong>Licencia</strong></a>
+  </p>
+  
+  <br>
+  
+  <p>
+    <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+    <img src="https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel">
+    <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+    <img src="https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
+  </p>
+</div>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 📋 Índice
 
-## About Laravel
+- [Sobre MiraCar](#sobre-miracar)
+- [Características](#características)
+- [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- [Instalación](#instalación)
+- [Capturas de Pantalla](#capturas-de-pantalla)
+  - [General](#general)
+  - [Taller](#taller)
+  - [Usuario](#usuario)
+- [Uso](#uso)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Contribución](#contribución)
+- [Licencia](#licencia)
+- [Contacto](#contacto)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚗 Sobre MiraCar
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**MiraCar** es una plataforma web innovadora diseñada para transformar la relación entre talleres mecánicos y clientes. Nuestra aplicación facilita la gestión integral de servicios automotrices, desde el seguimiento de reparaciones hasta la documentación digital de vehículos.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+La plataforma ofrece una experiencia fluida tanto para los talleres como para los usuarios finales, permitiendo una comunicación directa, transparencia en los procesos de reparación y un seguimiento detallado del historial de cada vehículo.
 
-## Learning Laravel
+## ✨ Características
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Para Talleres
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Gestión de Clientes**: Administración completa de la cartera de clientes con información detallada.
+- **Control de Vehículos**: Registro y seguimiento de todos los vehículos atendidos.
+- **Gestión de Siniestros**: Documentación y seguimiento de incidentes y reparaciones.
+- **Inventario de Recambios**: Control de piezas y repuestos utilizados en reparaciones.
+- **Documentación Digital**: Almacenamiento seguro de documentos relacionados con reparaciones.
+- **Sistema de Soporte**: Canal directo para resolver dudas y problemas de los clientes.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Para Usuarios
 
-## Laravel Sponsors
+- **Historial de Vehículos**: Acceso completo al historial de mantenimiento y reparaciones.
+- **Seguimiento de Reparaciones**: Monitoreo en tiempo real del estado de las reparaciones.
+- **Comunicación Directa**: Canal de comunicación con el taller para consultas y actualizaciones.
+- **Documentación Accesible**: Acceso a facturas, presupuestos y otros documentos importantes.
+- **Notificaciones**: Alertas sobre el estado de reparaciones y mantenimientos programados.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛠️ Tecnologías Utilizadas
 
-### Premium Partners
+MiraCar ha sido desarrollado utilizando un stack tecnológico moderno y robusto:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Backend
 
-## Contributing
+- **[PHP 8.2](https://www.php.net/)**: Lenguaje de programación principal.
+- **[Laravel 10](https://laravel.com/)**: Framework de desarrollo web.
+- **[MySQL](https://www.mysql.com/)**: Sistema de gestión de bases de datos.
+- **[Composer](https://getcomposer.org/)**: Gestor de dependencias para PHP.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Frontend
 
-## Code of Conduct
+- **[Bootstrap 5.3](https://getbootstrap.com/)**: Framework CSS para diseño responsivo.
+- **[JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)**: Para interactividad en el lado del cliente.
+- **[Blade](https://laravel.com/docs/10.x/blade)**: Motor de plantillas de Laravel.
+- **[Bootstrap Icons](https://icons.getbootstrap.com/)**: Biblioteca de iconos.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Herramientas de Desarrollo
 
-## Security Vulnerabilities
+- **[XAMPP](https://www.apachefriends.org/)**: Entorno de desarrollo local (Apache, MySQL, PHP).
+- **[Git](https://git-scm.com/)**: Control de versiones.
+- **[Node.js](https://nodejs.org/)**: Entorno de ejecución para herramientas de frontend.
+- **[npm](https://www.npmjs.com/)**: Gestor de paquetes para JavaScript.
+- **[Visual Studio Code](https://code.visualstudio.com/)**: Editor de código recomendado.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Entorno de Despliegue
 
-## License
+- **Compatibilidad**: Windows, macOS, Linux.
+- **Servidor Web**: Apache/Nginx.
+- **Requisitos mínimos**: PHP 8.1+, MySQL 5.7+.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# MiraCar
+## 📥 Instalación
+
+Sigue estos pasos para instalar y configurar MiraCar en tu entorno local:
+
+### Prerrequisitos
+
+- PHP 8.1 o superior
+- Composer
+- Node.js y npm
+- XAMPP, WAMP, MAMP o similar (Apache y MySQL)
+- Git
+
+### Pasos de Instalación
+
+1. **Clonar el repositorio**
+
+```bash
+git clone https://github.com/tuusuario/miracar.git
+cd miracar
