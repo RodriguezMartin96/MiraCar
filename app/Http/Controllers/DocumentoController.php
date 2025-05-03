@@ -73,13 +73,15 @@ class DocumentoController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string|max:255',
-            'formato' => 'required|string|max:50',
             'archivo' => 'required|file|max:10240', // 10MB máximo
             'otroNombre' => 'required_if:nombre,otro|nullable|string|max:255',
             'otraDescripcion' => 'required_if:descripcion,otro|nullable|string|max:255',
         ]);
 
         try {
+            // Obtener la extensión del archivo
+            $extension = $request->file('archivo')->getClientOriginalExtension();
+            
             // Guardar el archivo
             $rutaArchivo = $request->file('archivo')->store('documentos/' . Auth::id(), 'public');
             
@@ -87,7 +89,7 @@ class DocumentoController extends Controller
             $documento = new Documento([
                 'nombre' => $request->nombre,
                 'descripcion' => $request->descripcion,
-                'formato' => $request->formato,
+                'formato' => $extension, // Guardar la extensión como formato
                 'ruta_archivo' => $rutaArchivo,
                 'otro_nombre' => $request->nombre === 'otro' ? $request->otroNombre : null,
                 'otra_descripcion' => $request->descripcion === 'otro' ? $request->otraDescripcion : null,
@@ -171,7 +173,6 @@ class DocumentoController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string|max:255',
-            'formato' => 'required|string|max:50',
             'archivo' => 'nullable|file|max:10240', // 10MB máximo
             'otroNombre' => 'required_if:nombre,otro|nullable|string|max:255',
             'otraDescripcion' => 'required_if:descripcion,otro|nullable|string|max:255',
@@ -181,12 +182,17 @@ class DocumentoController extends Controller
             // Actualizar datos del documento
             $documento->nombre = $request->nombre;
             $documento->descripcion = $request->descripcion;
-            $documento->formato = $request->formato;
             $documento->otro_nombre = $request->nombre === 'otro' ? $request->otroNombre : null;
             $documento->otra_descripcion = $request->descripcion === 'otro' ? $request->otraDescripcion : null;
 
             // Si se ha subido un nuevo archivo
             if ($request->hasFile('archivo') && $request->file('archivo')->isValid()) {
+                // Obtener la extensión del nuevo archivo
+                $extension = $request->file('archivo')->getClientOriginalExtension();
+                
+                // Actualizar el formato con la nueva extensión
+                $documento->formato = $extension;
+                
                 // Eliminar el archivo anterior
                 if (Storage::disk('public')->exists($documento->ruta_archivo)) {
                     Storage::disk('public')->delete($documento->ruta_archivo);

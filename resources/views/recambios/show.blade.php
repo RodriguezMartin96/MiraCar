@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <title>Detalles del Recambio - {{ config('app.name', 'MiraCar') }}</title>
+    <title>{{ config('app.name', 'MiraCar') }} - Recambios</title>
     
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
@@ -78,7 +78,6 @@
             border-radius: 0.5rem;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            text-align: center;
         }
         
         .info-section h5 {
@@ -86,54 +85,430 @@
             font-weight: 600;
             margin-bottom: 1rem;
         }
+        
+        /* Estilos para el badge de visualización */
+        .view-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        
+        /* Contenedor con posición relativa para el badge */
+        .card-container {
+            position: relative;
+        }
+        
+        /* Estilos responsivos */
+        .container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        /* Media queries para dispositivos móviles */
+        @media (max-width: 767.98px) {
+            .container {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+            
+            .card-body {
+                padding: 1.25rem !important;
+            }
+            
+            .card-title {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+            
+            .py-4 {
+                padding-top: 1rem !important;
+                padding-bottom: 1rem !important;
+            }
+            
+            .mb-4 {
+                margin-bottom: 1rem !important;
+            }
+            
+            .info-section {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .info-section h5 {
+                font-size: 1.1rem;
+                margin-bottom: 0.75rem;
+                text-align: center;
+            }
+            
+            .info-label {
+                display: block;
+                margin-bottom: 0.25rem;
+            }
+            
+            .btn {
+                width: 100%;
+                margin-bottom: 0.5rem;
+                padding: 0.625rem 1rem;
+                font-size: 1rem;
+            }
+            
+            .ms-2 {
+                margin-left: 0 !important;
+            }
+            
+            .action-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .info-item {
+                text-align: center;
+                margin-bottom: 1rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid #dee2e6;
+            }
+            
+            .info-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+            
+            .info-value {
+                font-size: 1.1rem;
+            }
+            
+            /* Ajuste para el badge en móviles */
+            .view-badge {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Media queries para tablets */
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .card-body {
+                padding: 1.5rem !important;
+            }
+            
+            .info-section {
+                padding: 1.25rem;
+            }
+        }
+        
+        /* Mejoras para dispositivos táctiles */
+        @media (hover: none) and (pointer: coarse) {
+            .btn {
+                padding-top: 0.625rem;
+                padding-bottom: 0.625rem;
+                touch-action: manipulation;
+            }
+        }
+        
+        /* Mejoras para orientación landscape en móviles */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .container {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+            
+            .card-body {
+                padding: 1rem !important;
+            }
+            
+            .card-title {
+                font-size: 1.25rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .py-4 {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+            
+            .mb-4 {
+                margin-bottom: 0.75rem !important;
+            }
+            
+            .info-section {
+                padding: 0.75rem;
+            }
+        }
+        
+        /* Mejoras para pantallas muy pequeñas */
+        @media (max-width: 375px) {
+            .card-body {
+                padding: 1rem !important;
+            }
+            
+            .card-title {
+                font-size: 1.25rem;
+            }
+            
+            .info-section h5 {
+                font-size: 1rem;
+            }
+            
+            .info-value {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Animaciones y transiciones */
+        .btn {
+            transition: all 0.2s ease;
+        }
+        
+        .btn:active {
+            transform: scale(0.97);
+        }
+        
+        /* Mejoras para la accesibilidad */
+        .btn:focus {
+            outline: 2px solid var(--secondary-color);
+            outline-offset: 2px;
+        }
+        
+        /* Estilos adicionales para mejorar la visualización */
+        .detail-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .detail-header i {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 767.98px) {
+            .detail-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .detail-header i {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+                font-size: 1.75rem;
+            }
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .info-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .info-card-icon {
+            font-size: 1.75rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-card-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 0.25rem;
+        }
+        
+        .info-card-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .description-section {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .description-section h5 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .description-section h5 i {
+            margin-right: 0.5rem;
+        }
+        
+        .description-content {
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            white-space: pre-line;
+        }
+        
+        @media (max-width: 767.98px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .description-section {
+                padding: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .description-section h5 {
+                font-size: 1.1rem;
+                text-align: center;
+                display: block;
+            }
+            
+            .description-section h5 i {
+                display: block;
+                margin: 0 auto 0.5rem;
+                font-size: 1.5rem;
+            }
+            
+            .description-content {
+                padding: 0.75rem;
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Incluir la barra de navegación -->
     @include('layouts.navigation')
 
-    <div class="container py-4">
+    <div class="container py-3 py-md-4">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body p-4">
-                        <h2 class="card-title mb-4">Detalles del Recambio</h2>
-                        
-                        <div class="mb-4">
-                            <a href="{{ route('recambios.index') }}" class="btn btn-outline-secondary">
-                                <i class="bi bi-arrow-left me-1"></i> Volver
-                            </a>
-                            <a href="{{ route('recambios.edit', $recambio) }}" class="btn btn-outline-primary ms-2">
-                                <i class="bi bi-pencil me-1"></i> Editar
-                            </a>
+            <div class="col-12 col-md-8 col-lg-7">
+                <div class="card-container">
+                    <div class="card">
+                        <div class="view-badge d-flex">
+                            <i class="bi bi-eye-fill"></i>
                         </div>
-                        
-                        <div class="info-section">
-                            <h5>Información del Producto</h5>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <p><span class="info-label">Producto:</span> {{ $recambio->producto }}</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p><span class="info-label">Cantidad:</span> {{ $recambio->cantidad }}</p>
-                                </div>
+                        <div class="card-body">
+                            <div class="detail-header">
+                                <i class="bi bi-info-circle-fill d-none d-sm-inline-block"></i>
+                                <h2 class="card-title mb-0">Detalles del Recambio</h2>
                             </div>
                             
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <p><span class="info-label">Referencia:</span> {{ $recambio->referencia ?? 'No especificada' }}</p>
+                            <div class="mb-4 action-buttons">
+                                <a href="{{ route('recambios.index') }}" class="btn btn-outline-secondary">
+                                    <i class="bi bi-arrow-left me-1"></i> Volver
+                                </a>
+                                <a href="{{ route('recambios.edit', $recambio) }}" class="btn btn-outline-primary ms-md-2">
+                                    <i class="bi bi-pencil me-1"></i> Editar
+                                </a>
+                            </div>
+                            
+                            <div class="info-section">
+                                <h5 class="text-center">
+                                    <i class="bi bi-box-seam me-2 d-none d-sm-inline-block"></i>Información del Producto
+                                </h5>
+                                
+                                <!-- Vista para dispositivos móviles -->
+                                <div class="d-md-none">
+                                    <div class="info-item">
+                                        <div class="info-label">Producto</div>
+                                        <div class="info-value">{{ $recambio->producto }}</div>
+                                    </div>
+                                    
+                                    <div class="info-item">
+                                        <div class="info-label">Cantidad</div>
+                                        <div class="info-value">{{ $recambio->cantidad }}</div>
+                                    </div>
+                                    
+                                    <div class="info-item">
+                                        <div class="info-label">Referencia</div>
+                                        <div class="info-value">{{ $recambio->referencia ?? 'No especificada' }}</div>
+                                    </div>
+                                    
+                                    <div class="info-item">
+                                        <div class="info-label">Precio</div>
+                                        <div class="info-value">{{ $recambio->precio ? number_format($recambio->precio, 2) . ' €' : 'No especificado' }}</div>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <p><span class="info-label">Precio:</span> {{ $recambio->precio ? number_format($recambio->precio, 2) . ' €' : 'No especificado' }}</p>
+                                
+                                <!-- Vista para tablets y desktop -->
+                                <div class="d-none d-md-block">
+                                    <div class="info-grid">
+                                        <div class="info-card">
+                                            <div class="info-card-icon">
+                                                <i class="bi bi-box-seam"></i>
+                                            </div>
+                                            <div class="info-card-label">Producto</div>
+                                            <div class="info-card-value">{{ $recambio->producto }}</div>
+                                        </div>
+                                        
+                                        <div class="info-card">
+                                            <div class="info-card-icon">
+                                                <i class="bi bi-123"></i>
+                                            </div>
+                                            <div class="info-card-label">Cantidad</div>
+                                            <div class="info-card-value">{{ $recambio->cantidad }}</div>
+                                        </div>
+                                        
+                                        <div class="info-card">
+                                            <div class="info-card-icon">
+                                                <i class="bi bi-upc"></i>
+                                            </div>
+                                            <div class="info-card-label">Referencia</div>
+                                            <div class="info-card-value">{{ $recambio->referencia ?? 'No especificada' }}</div>
+                                        </div>
+                                        
+                                        <div class="info-card">
+                                            <div class="info-card-icon">
+                                                <i class="bi bi-currency-euro"></i>
+                                            </div>
+                                            <div class="info-card-label">Precio</div>
+                                            <div class="info-card-value">{{ $recambio->precio ? number_format($recambio->precio, 2) . ' €' : 'No especificado' }}</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
                             @if($recambio->descripcion)
-                                <div class="mb-0">
-                                    <p><span class="info-label">Descripción:</span></p>
-                                    <p class="mb-0">{{ $recambio->descripcion }}</p>
+                                <div class="description-section">
+                                    <h5>
+                                        <i class="bi bi-card-text d-none d-sm-inline-block"></i>Descripción
+                                    </h5>
+                                    <div class="description-content">
+                                        {{ $recambio->descripcion }}
+                                    </div>
                                 </div>
                             @endif
+                            
+                            <!-- Acciones adicionales para móviles -->
+                            <div class="d-md-none mt-4">
+                                <div class="d-grid gap-2">
+                                    <a href="{{ route('recambios.index') }}" class="btn btn-outline-secondary">
+                                        <i class="bi bi-arrow-left me-1"></i> Volver a la lista
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -143,5 +518,39 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Script para mejorar la experiencia en dispositivos móviles
+        document.addEventListener('DOMContentLoaded', function() {
+            // Detectar si es un dispositivo táctil
+            if ('ontouchstart' in window) {
+                // Mejorar la experiencia táctil para los botones
+                const buttons = document.querySelectorAll('.btn');
+                buttons.forEach(button => {
+                    button.addEventListener('touchstart', function() {
+                        this.style.opacity = '0.7';
+                    });
+                    
+                    button.addEventListener('touchend', function() {
+                        this.style.opacity = '1';
+                    });
+                });
+                
+                // Detectar orientación landscape en móviles
+                function adjustForLandscape() {
+                    if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
+                        document.body.classList.add('landscape-mode');
+                    } else {
+                        document.body.classList.remove('landscape-mode');
+                    }
+                }
+                
+                // Ejecutar al cargar y al cambiar orientación
+                adjustForLandscape();
+                window.addEventListener('resize', adjustForLandscape);
+                window.addEventListener('orientationchange', adjustForLandscape);
+            }
+        });
+    </script>
 </body>
 </html>

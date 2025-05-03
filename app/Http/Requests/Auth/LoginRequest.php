@@ -57,8 +57,10 @@ class LoginRequest extends FormRequest
 
         if (!Auth::attempt($credentials, $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
+            
+            // Mensaje de error personalizado
             throw ValidationException::withMessages([
-                'login' => trans('auth.failed'),
+                'login' => 'DNI, Email o Contraseña. Errónea inténtelo de nuevo.',
             ]);
         }
 

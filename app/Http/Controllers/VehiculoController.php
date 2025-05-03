@@ -53,13 +53,71 @@ class VehiculoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'marca' => 'required|string|max:255',
-            'modelo' => 'required|string|max:255',
-            'matricula' => 'required|string|max:20|unique:vehiculos',
-            'color' => 'required|string|max:50',
+            'marca' => [
+                'required',
+                'string',
+                'min:1',
+                'max:255',
+                'regex:/^[a-zA-Z0-9\s]+$/'
+            ],
+            'modelo' => [
+                'required',
+                'string',
+                'min:1',
+                'max:255',
+                'regex:/^[a-zA-Z0-9\s]+$/'
+            ],
+            'matricula' => [
+                'required',
+                'string',
+                'max:20',
+                'regex:/^([A-Z]{2}\d{4}[A-Z]{2}|\d{4}[A-Z]{3}|[A-Z]{3}\d{4})$/',
+                'unique:vehiculos'
+            ],
+            'color' => [
+                'required',
+                'string',
+                'min:1',
+                'max:50'
+            ],
             'cliente_id' => 'required|exists:clientes,id',
-            'bastidor' => 'nullable|string|max:255',
-            'fecha_matriculacion' => 'nullable|date',
+            'bastidor' => [
+                'nullable',
+                'string',
+                'min:1',
+                'max:255',
+                'regex:/^[A-Z0-9]+$/',
+                'unique:vehiculos'
+            ],
+            'fecha_matriculacion' => [
+                'nullable',
+                'date',
+                'before_or_equal:today'
+            ],
+        ], [
+            'marca.required' => 'La marca es obligatoria.',
+            'marca.min' => 'La marca debe tener al menos 1 carácter.',
+            'marca.regex' => 'La marca solo puede contener letras, números y espacios.',
+            
+            'modelo.required' => 'El modelo es obligatorio.',
+            'modelo.min' => 'El modelo debe tener al menos 1 carácter.',
+            'modelo.regex' => 'El modelo solo puede contener letras, números y espacios.',
+            
+            'matricula.required' => 'La matrícula es obligatoria.',
+            'matricula.regex' => 'La matrícula debe tener uno de estos formatos: AA0000AA, 0000AAA o AAA0000.',
+            'matricula.unique' => 'Esta matrícula ya está registrada.',
+            
+            'color.required' => 'El color es obligatorio.',
+            'color.min' => 'El color debe tener al menos 1 carácter.',
+            
+            'bastidor.min' => 'El bastidor debe tener al menos 1 carácter.',
+            'bastidor.regex' => 'El bastidor solo puede contener letras y números.',
+            'bastidor.unique' => 'Este bastidor ya está registrado.',
+            
+            'fecha_matriculacion.before_or_equal' => 'La fecha de matriculación no puede ser posterior a hoy.',
+            
+            'cliente_id.required' => 'Debe seleccionar un dueño para el vehículo.',
+            'cliente_id.exists' => 'El dueño seleccionado no es válido.',
         ]);
 
         try {
@@ -125,13 +183,71 @@ class VehiculoController extends Controller
         }
 
         $request->validate([
-            'marca' => 'required|string|max:255',
-            'modelo' => 'required|string|max:255',
-            'matricula' => 'required|string|max:20|unique:vehiculos,matricula,' . $vehiculo->id,
-            'color' => 'required|string|max:50',
+            'marca' => [
+                'required',
+                'string',
+                'min:1',
+                'max:255',
+                'regex:/^[a-zA-Z0-9\s]+$/'
+            ],
+            'modelo' => [
+                'required',
+                'string',
+                'min:1',
+                'max:255',
+                'regex:/^[a-zA-Z0-9\s]+$/'
+            ],
+            'matricula' => [
+                'required',
+                'string',
+                'max:20',
+                'regex:/^([A-Z]{2}\d{4}[A-Z]{2}|\d{4}[A-Z]{3}|[A-Z]{3}\d{4})$/',
+                'unique:vehiculos,matricula,' . $vehiculo->id
+            ],
+            'color' => [
+                'required',
+                'string',
+                'min:1',
+                'max:50'
+            ],
             'cliente_id' => 'required|exists:clientes,id',
-            'bastidor' => 'nullable|string|max:255',
-            'fecha_matriculacion' => 'nullable|date',
+            'bastidor' => [
+                'nullable',
+                'string',
+                'min:1',
+                'max:255',
+                'regex:/^[A-Z0-9]+$/',
+                'unique:vehiculos,bastidor,' . $vehiculo->id
+            ],
+            'fecha_matriculacion' => [
+                'nullable',
+                'date',
+                'before_or_equal:today'
+            ],
+        ], [
+            'marca.required' => 'La marca es obligatoria.',
+            'marca.min' => 'La marca debe tener al menos 1 carácter.',
+            'marca.regex' => 'La marca solo puede contener letras, números y espacios.',
+            
+            'modelo.required' => 'El modelo es obligatorio.',
+            'modelo.min' => 'El modelo debe tener al menos 1 carácter.',
+            'modelo.regex' => 'El modelo solo puede contener letras, números y espacios.',
+            
+            'matricula.required' => 'La matrícula es obligatoria.',
+            'matricula.regex' => 'La matrícula debe tener uno de estos formatos: AA0000AA, 0000AAA o AAA0000.',
+            'matricula.unique' => 'Esta matrícula ya está registrada.',
+            
+            'color.required' => 'El color es obligatorio.',
+            'color.min' => 'El color debe tener al menos 1 carácter.',
+            
+            'bastidor.min' => 'El bastidor debe tener al menos 1 carácter.',
+            'bastidor.regex' => 'El bastidor solo puede contener letras y números.',
+            'bastidor.unique' => 'Este bastidor ya está registrado.',
+            
+            'fecha_matriculacion.before_or_equal' => 'La fecha de matriculación no puede ser posterior a hoy.',
+            
+            'cliente_id.required' => 'Debe seleccionar un dueño para el vehículo.',
+            'cliente_id.exists' => 'El dueño seleccionado no es válido.',
         ]);
 
         try {

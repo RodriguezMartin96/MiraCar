@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class UserProfileController extends Controller
 {
@@ -70,13 +71,26 @@ class UserProfileController extends Controller
             
             $validatedData = $request->validate($validationRules);
 
-            $user->name = $validatedData['name'];
-            $user->lastname = $validatedData['lastname'] ?? $user->lastname;
-            $user->dni = $validatedData['dni'] ?? $user->dni;
+            // Convertir nombre y apellidos a Title Case
+            $user->name = Str::title($validatedData['name']);
+            
+            if (isset($validatedData['lastname'])) {
+                $user->lastname = Str::title($validatedData['lastname']);
+            }
+            
+            // Convertir DNI/NIF a mayúsculas
+            if (isset($validatedData['dni'])) {
+                $user->dni = strtoupper($validatedData['dni']);
+            }
             
             if ($user->role === 'taller') {
-                $user->company_name = $validatedData['company_name'] ?? null;
-                $user->company_nif = $validatedData['company_nif'] ?? null;
+                if (isset($validatedData['company_name'])) {
+                    $user->company_name = Str::title($validatedData['company_name']);
+                }
+                
+                if (isset($validatedData['company_nif'])) {
+                    $user->company_nif = strtoupper($validatedData['company_nif']);
+                }
             }
             
             $user->phone = $validatedData['phone'] ?? null;

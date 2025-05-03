@@ -12,15 +12,28 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
-        ->name('register');
+    // Ruta de registro personalizada
+    Route::get('registrarse', [RegisteredUserController::class, 'create'])
+        ->name('registrarse');
 
-    Route::post('register', [RegisteredUserController::class, 'store']);
+    Route::post('registrarse', [RegisteredUserController::class, 'store'])
+        ->name('registrarse.submit');
+        
+    // Mantener la ruta original para compatibilidad (opcional)
+    Route::get('register', function() {
+        return redirect()->route('registrarse');
+    })->name('register');
 
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+    // Rutas de login en español
+    Route::get('acceder', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
 
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('acceder', [AuthenticatedSessionController::class, 'store']);
+    
+    // Mantener la ruta original para compatibilidad
+    Route::get('login', function() {
+        return redirect()->route('login');
+    });
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
         ->name('password.request');

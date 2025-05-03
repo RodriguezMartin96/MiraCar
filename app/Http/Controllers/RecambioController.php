@@ -47,12 +47,36 @@ class RecambioController extends Controller
         $request->validate([
             'producto' => 'required|string|max:255',
             'cantidad' => 'required|integer|min:1',
-            'referencia' => 'nullable|string|max:255',
-            'precio' => 'nullable|numeric|min:0',
-            'descripcion' => 'nullable|string',
+            'referencia' => 'required|string|max:255',
+            'precio' => 'required|numeric|min:0.01',
+            'descripcion' => 'required|string',
+        ], [
+            'producto.required' => 'El campo producto es obligatorio.',
+            'cantidad.required' => 'El campo cantidad es obligatorio.',
+            'cantidad.min' => 'La cantidad debe ser al menos 1.',
+            'referencia.required' => 'El campo referencia es obligatorio.',
+            'precio.required' => 'El campo precio es obligatorio.',
+            'precio.min' => 'El precio debe ser mayor que 0.',
+            'descripcion.required' => 'El campo descripción es obligatorio.',
         ]);
 
         try {
+            // Validar que la descripción tenga al menos una palabra de más de un carácter
+            $descripcion = trim($request->descripcion);
+            $palabras = preg_split('/\s+/', $descripcion);
+            $tieneDescripcionValida = false;
+            
+            foreach ($palabras as $palabra) {
+                if (strlen($palabra) > 1) {
+                    $tieneDescripcionValida = true;
+                    break;
+                }
+            }
+            
+            if (!$tieneDescripcionValida) {
+                return back()->withErrors(['descripcion' => 'La descripción debe contener al menos una palabra de más de un carácter.'])->withInput();
+            }
+            
             // Crear el recambio
             $recambio = new Recambio([
                 'producto' => $request->producto,
@@ -116,12 +140,36 @@ class RecambioController extends Controller
         $request->validate([
             'producto' => 'required|string|max:255',
             'cantidad' => 'required|integer|min:1',
-            'referencia' => 'nullable|string|max:255',
-            'precio' => 'nullable|numeric|min:0',
-            'descripcion' => 'nullable|string',
+            'referencia' => 'required|string|max:255',
+            'precio' => 'required|numeric|min:0.01',
+            'descripcion' => 'required|string',
+        ], [
+            'producto.required' => 'El campo producto es obligatorio.',
+            'cantidad.required' => 'El campo cantidad es obligatorio.',
+            'cantidad.min' => 'La cantidad debe ser al menos 1.',
+            'referencia.required' => 'El campo referencia es obligatorio.',
+            'precio.required' => 'El campo precio es obligatorio.',
+            'precio.min' => 'El precio debe ser mayor que 0.',
+            'descripcion.required' => 'El campo descripción es obligatorio.',
         ]);
 
         try {
+            // Validar que la descripción tenga al menos una palabra de más de un carácter
+            $descripcion = trim($request->descripcion);
+            $palabras = preg_split('/\s+/', $descripcion);
+            $tieneDescripcionValida = false;
+            
+            foreach ($palabras as $palabra) {
+                if (strlen($palabra) > 1) {
+                    $tieneDescripcionValida = true;
+                    break;
+                }
+            }
+            
+            if (!$tieneDescripcionValida) {
+                return back()->withErrors(['descripcion' => 'La descripción debe contener al menos una palabra de más de un carácter.'])->withInput();
+            }
+            
             // Actualizar el recambio
             $recambio->update([
                 'producto' => $request->producto,

@@ -1,29 +1,25 @@
-    <!-- Favicon -->
-    <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
-    <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
-    <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
-    <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
-
 @extends('layouts.app')
 
+@section('title', config('app.name', 'MiraCar') . ' - Soporte')
+
 @section('content')
-<div class="container py-4">
+<div class="container py-3 py-md-4">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-12 col-md-10 col-lg-8">
             <div class="card">
                 <div class="card-body p-0">
                     <!-- Contenido de confirmación -->
-                    <div class="p-5 text-center">
-                        <div class="mb-4">
-                            <i class="bi bi-check-circle-fill success-icon" style="font-size: 5rem; color: #198754;"></i>
+                    <div class="p-3 p-sm-4 p-md-5 text-center">
+                        <div class="mb-3 mb-md-4">
+                            <i class="bi bi-check-circle-fill success-icon"></i>
                         </div>
                         
-                        <h2 class="card-title mb-3">¡Solicitud Enviada!</h2>
+                        <h2 class="card-title mb-2 mb-md-3">¡Solicitud Enviada!</h2>
                         
-                        <p class="mb-4">Tu solicitud de soporte ha sido enviada correctamente. Nos pondremos en contacto contigo lo antes posible.</p>
+                        <p class="mb-3 mb-md-4">Tu solicitud de soporte ha sido enviada correctamente. Nos pondremos en contacto contigo lo antes posible.</p>
                         
-                        <div class="d-flex justify-content-center">
-                            <a href="{{ route('dashboard') }}" class="btn btn-primary me-2">
+                        <div class="d-flex flex-column flex-sm-row justify-content-center">
+                            <a href="{{ route('dashboard') }}" class="btn btn-primary mb-2 mb-sm-0 me-sm-2">
                                 <i class="bi bi-house-door me-1"></i> Ir al Inicio
                             </a>
                             <a href="{{ route('soporte.create') }}" class="btn btn-outline-primary">
@@ -38,6 +34,7 @@
 </div>
 
 <style>
+    /* Estilos base */
     .success-icon {
         font-size: 5rem;
         color: #198754;
@@ -53,5 +50,187 @@
         background-color: #f8f9fa;
         border-color: #e9ecef #e9ecef #dee2e6;
     }
+    
+    /* Estilos responsivos */
+    @media (max-width: 767.98px) {
+        .success-icon {
+            font-size: 4rem;
+        }
+        
+        .card-title {
+            font-size: 1.75rem;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 0.625rem 1rem;
+        }
+    }
+    
+    @media (max-width: 575.98px) {
+        .success-icon {
+            font-size: 3.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+        }
+        
+        .p-3 {
+            padding: 1rem !important;
+        }
+        
+        .mb-3 {
+            margin-bottom: 0.75rem !important;
+        }
+    }
+    
+    /* Mejoras para tablets */
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        .success-icon {
+            font-size: 4.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.85rem;
+        }
+    }
+    
+    /* Optimización para dispositivos táctiles */
+    @media (hover: none) and (pointer: coarse) {
+        .btn {
+            padding-top: 0.625rem;
+            padding-bottom: 0.625rem;
+            touch-action: manipulation;
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+            transition: transform 0.1s;
+        }
+    }
+    
+    /* Mejoras para orientación landscape en móviles */
+    @media (max-height: 500px) and (orientation: landscape) {
+        .success-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .p-sm-4 {
+            padding: 1rem !important;
+        }
+        
+        .mb-3 {
+            margin-bottom: 0.5rem !important;
+        }
+    }
+    
+    /* Animación para el icono de éxito */
+    .success-icon {
+        animation: scaleIn 0.5s ease-in-out;
+    }
+    
+    @keyframes scaleIn {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        60% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    
+    /* Mejoras de accesibilidad */
+    .btn:focus {
+        outline: 2px solid #4f8cff;
+        outline-offset: 2px;
+    }
+    
+    /* Mejoras para la tarjeta */
+    .card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+    }
+    
+    /* Mejoras para el contenedor */
+    @media (max-width: 767.98px) {
+        .container {
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+        }
+    }
+    
+    /* Mejoras para el texto */
+    p {
+        color: #6c757d;
+        line-height: 1.6;
+    }
+    
+    @media (max-width: 575.98px) {
+        p {
+            font-size: 0.95rem;
+        }
+    }
+    
+    /* Mejoras para los botones en dispositivos táctiles */
+    @media (hover: none) {
+        .btn {
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        
+        .btn-primary:active {
+            background-color: #1a4070;
+        }
+        
+        .btn-outline-primary:active {
+            background-color: #e3ecff;
+        }
+    }
 </style>
+
+<script>
+    // Script para mejorar la experiencia en dispositivos móviles
+    document.addEventListener('DOMContentLoaded', function() {
+        // Detectar si es un dispositivo táctil
+        if ('ontouchstart' in window) {
+            // Mejorar la experiencia táctil para los botones
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('touchstart', function() {
+                    this.style.opacity = '0.8';
+                });
+                
+                button.addEventListener('touchend', function() {
+                    this.style.opacity = '1';
+                });
+            });
+            
+            // Detectar orientación landscape en móviles
+            function adjustForLandscape() {
+                if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
+                    document.body.classList.add('landscape-mode');
+                } else {
+                    document.body.classList.remove('landscape-mode');
+                }
+            }
+            
+            // Ejecutar al cargar y al cambiar orientación
+            adjustForLandscape();
+            window.addEventListener('resize', adjustForLandscape);
+            window.addEventListener('orientationchange', adjustForLandscape);
+        }
+    });
+</script>
 @endsection

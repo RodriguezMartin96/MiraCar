@@ -45,11 +45,14 @@
         .welcome-container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 1rem;
         }
         
         .logo-container {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             transition: transform 0.3s ease;
+            display: flex;
+            justify-content: center;
         }
         
         .logo-container:hover {
@@ -61,16 +64,16 @@
             backdrop-filter: blur(10px);
             border-radius: 1rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 3rem;
+            padding: 1.5rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .btn-welcome {
             border-radius: 0.75rem;
-            padding: 0.8rem 2rem;
+            padding: 0.6rem 1.5rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            min-width: 180px;
+            min-width: 150px;
         }
         
         .btn-welcome:hover {
@@ -101,35 +104,35 @@
         }
         
         .welcome-title {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: white;
         }
         
         .welcome-subtitle {
-            font-size: 1.25rem;
+            font-size: 1rem;
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.5rem;
         }
         
         .welcome-features {
-            margin-top: 3rem;
+            margin-top: 1.5rem;
         }
         
         .feature-item {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: white;
         }
         
         .feature-icon {
-            font-size: 1.5rem;
-            margin-right: 1rem;
+            font-size: 1.25rem;
+            margin-right: 0.75rem;
             background-color: rgba(255, 255, 255, 0.2);
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -137,61 +140,155 @@
         }
         
         .feature-text {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
         }
         
         .footer {
-            margin-top: 3rem;
+            margin-top: 2rem;
             color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         
-        @media (max-width: 768px) {
-            .welcome-card {
-                padding: 2rem 1rem;
-            }
-            
+        /* Estilos específicos para el logo */
+        .logo-img {
+            max-height: 120px; /* Tamaño para móvil */
+            width: auto;
+        }
+        
+        /* Estilos para tablets */
+        @media (min-width: 768px) and (max-width: 991px) {
             .welcome-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .welcome-subtitle {
+                font-size: 1.15rem;
+            }
+            
+            .welcome-card {
+                padding: 2rem;
+            }
+            
+            .feature-icon {
+                font-size: 1.35rem;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .feature-text {
                 font-size: 1rem;
+            }
+            
+            .btn-welcome {
+                padding: 0.7rem 1.75rem;
+                min-width: 160px;
+            }
+            
+            .logo-img {
+                max-height: 140px; /* Tamaño para tablet */
+            }
+        }
+        
+        /* Estilos para desktop */
+        @media (min-width: 992px) {
+            .welcome-title {
+                font-size: 3rem;
+            }
+            
+            .welcome-subtitle {
+                font-size: 1.25rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .welcome-card {
+                padding: 3rem;
+            }
+            
+            .feature-icon {
+                font-size: 1.5rem;
+                width: 50px;
+                height: 50px;
+                margin-right: 1rem;
+            }
+            
+            .feature-text {
+                font-size: 1.1rem;
+            }
+            
+            .btn-welcome {
+                padding: 0.8rem 2rem;
+                min-width: 180px;
+            }
+            
+            .welcome-features {
+                margin-top: 3rem;
+            }
+            
+            .feature-item {
+                margin-bottom: 1.5rem;
+            }
+            
+            /* Alineación del logo en desktop */
+            .logo-container {
+                justify-content: center;
+                margin-bottom: 2rem;
+            }
+            
+            .logo-img {
+                max-height: 180px; /* Tamaño más grande para monitor */
+            }
+            
+            .content-wrapper {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+            
+            .buttons-wrapper {
+                justify-content: center;
+            }
+        }
+        
+        /* Estilos para pantallas grandes */
+        @media (min-width: 1200px) {
+            .logo-img {
+                max-height: 200px; /* Aún más grande para pantallas grandes */
             }
         }
     </style>
 </head>
 <body>
-    <div class="container welcome-container py-5">
+    <div class="container welcome-container py-3 py-md-4 py-lg-5">
         <div class="row align-items-center">
-            <div class="col-lg-6 text-center text-lg-start mb-5 mb-lg-0">
+            <div class="col-lg-6 text-center mb-4 mb-lg-0">
                 <div class="logo-container">
-                    <img src="{{ asset('galeria/logo.png') }}" alt="Logo MiraCar" class="img-fluid" style="max-height: 120px;">
+                    <img src="{{ asset('galeria/logo.png') }}" alt="Logo MiraCar" class="img-fluid logo-img">
                 </div>
-                <h1 class="welcome-title">Servicios automotor conectados</h1>
-                <p class="welcome-subtitle">La plataforma que conecta talleres y clientes para una experiencia automotriz más eficiente, transparente y satisfactoria.</p>
-                
-                <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="btn btn-welcome btn-primary-custom">
-                            <i class="bi bi-speedometer2 me-2"></i>Dashboard
-                        </a>
-                    @else
-                        <a href="{{ route('login') }}" class="btn btn-welcome btn-primary-custom">
-                            <i class="bi bi-box-arrow-in-right me-2"></i>Acceder
-                        </a>
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn btn-welcome btn-outline-custom">
-                                <i class="bi bi-person-plus me-2"></i>Registrarse
+                <div class="content-wrapper">
+                    <h1 class="welcome-title">Servicios automotor conectados</h1>
+                    <p class="welcome-subtitle">La plataforma que conecta talleres y clientes para una experiencia automotriz más eficiente, transparente y satisfactoria.</p>
+                    
+                    <div class="d-flex flex-wrap gap-2 gap-md-3 justify-content-center buttons-wrapper">
+                        @auth
+                            <a href="{{ url('/taller/inicio') }}" class="btn btn-welcome btn-primary-custom">
+                                <i class="bi bi-speedometer2 me-2"></i>Entrar
                             </a>
-                        @endif
-                    @endauth
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-welcome btn-primary-custom">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>Acceder
+                            </a>
+                            @if (Route::has('registrarse'))
+                                <a href="{{ route('registrarse') }}" class="btn btn-welcome btn-outline-custom">
+                                    <i class="bi bi-person-plus me-2"></i>Registrarse
+                                </a>
+                            @endif
+                        @endauth
+                    </div>
                 </div>
             </div>
             
-            <div class="col-lg-6">
+            <div class="col-lg-6 mt-4 mt-lg-0">
                 <div class="welcome-card">
-                    <h2 class="h3 text-white mb-4">Beneficios para todos</h2>
+                    <h2 class="h4 h3-md text-white mb-3 mb-md-4">Beneficios para todos</h2>
                     
                     <div class="welcome-features">
                         <div class="feature-item">
@@ -233,8 +330,8 @@
             </div>
         </div>
         
-        <div class="footer text-center mt-5">
-            <p>&copy; {{ date('Y') }} MiraCar. Todos los derechos reservados.</p>
+        <div class="footer text-center mt-3 mt-md-4 mt-lg-5">
+            <p class="mb-0">&copy; {{ date('Y') }} MiraCar. Todos los derechos reservados.</p>
         </div>
     </div>
 

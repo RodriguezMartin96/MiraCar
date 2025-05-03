@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -56,6 +57,10 @@ class RegisterController extends Controller
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         
+        // Convertir nombre de empresa a Title Case y NIF a mayúsculas
+        $companyName = Str::title($validated['company_name']);
+        $companyNif = strtoupper($validated['company_nif']);
+        
         // Procesar y guardar el logo si se ha subido
         $logoPath = null;
         if ($request->hasFile('logo') && $request->file('logo')->isValid()) {
@@ -98,13 +103,13 @@ class RegisterController extends Controller
         
         // Crear usuario taller
         $user = User::create([
-            'name' => $validated['company_name'],
+            'name' => $companyName,
             'email' => $validated['company_email'],
             'phone' => $validated['company_phone'],
             'password' => Hash::make($validated['company_password']),
             'role' => 'taller',
-            'company_name' => $validated['company_name'],
-            'company_nif' => $validated['company_nif'],
+            'company_name' => $companyName,
+            'company_nif' => $companyNif,
             'logo' => $logoPath,
         ]);
         
@@ -134,6 +139,11 @@ class RegisterController extends Controller
             'password_confirmation' => ['required', 'same:password'],
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+        
+        // Convertir nombre y apellidos a Title Case y DNI a mayúsculas
+        $name = Str::title($validated['name']);
+        $lastname = Str::title($validated['lastname']);
+        $dni = strtoupper($validated['dni']);
         
         // Procesar y guardar el avatar si se ha subido
         $avatarPath = null;
@@ -177,9 +187,9 @@ class RegisterController extends Controller
         
         // Crear usuario normal
         $user = User::create([
-            'name' => $validated['name'],
-            'lastname' => $validated['lastname'],
-            'dni' => $validated['dni'],
+            'name' => $name,
+            'lastname' => $lastname,
+            'dni' => $dni,
             'email' => $validated['email'],
             'phone' => $validated['phone'],
             'password' => Hash::make($validated['password']),

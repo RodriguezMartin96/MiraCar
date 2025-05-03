@@ -78,14 +78,16 @@ class UserDashboardController extends Controller
                 'talleres_con_siniestros' => count($siniestrosPorTaller)
             ]);
             
-            return view('user.dashboard', compact('siniestrosPorTaller'));
+            // Actualizado: Cambio de 'user.dashboard' a 'usuario.inicio'
+            return view('usuario.inicio', compact('siniestrosPorTaller'));
         } catch (\Exception $e) {
             Log::error('Error al cargar dashboard de usuario: ' . $e->getMessage(), [
                 'exception' => get_class($e),
                 'trace' => $e->getTraceAsString()
             ]);
             
-            return view('user.dashboard', ['error' => 'Ha ocurrido un error al cargar tus siniestros.']);
+            // Actualizado: Cambio de 'user.dashboard' a 'usuario.inicio'
+            return view('usuario.inicio', ['error' => 'Ha ocurrido un error al cargar tus siniestros.']);
         }
     }
     
@@ -112,7 +114,8 @@ class UserDashboardController extends Controller
                 'siniestro_id' => $siniestro->id
             ]);
             
-            return view('user.siniestro', compact('siniestro', 'recambios'));
+            // Actualizado: Cambio de 'user.siniestro' a 'usuario.siniestro'
+            return view('usuario.siniestro', compact('siniestro', 'recambios'));
         } catch (\Exception $e) {
             Log::error('Error al cargar detalles de siniestro: ' . $e->getMessage(), [
                 'exception' => get_class($e),

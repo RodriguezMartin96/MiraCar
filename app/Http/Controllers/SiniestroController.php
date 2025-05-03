@@ -71,10 +71,15 @@ class SiniestroController extends Controller
         $request->validate([
             'cliente_id' => 'required|exists:clientes,id',
             'vehiculo_id' => 'required|exists:vehiculos,id',
-            'fecha_entrada' => 'required|date',
+            'fecha_entrada' => 'required|date|after_or_equal:today',
             'fecha_salida' => 'nullable|date|after_or_equal:fecha_entrada',
             'estado' => 'required|in:Pendiente,En proceso,Finalizado',
-            'descripcion' => 'nullable|string',
+            'descripcion' => 'required|string|min:2',
+        ], [
+            'descripcion.required' => 'El campo descripción es obligatorio.',
+            'descripcion.min' => 'La descripción debe contener al menos una palabra de más de un carácter.',
+            'fecha_entrada.after_or_equal' => 'La fecha de entrada debe ser hoy o posterior.',
+            'fecha_salida.after_or_equal' => 'La fecha de salida debe ser igual o posterior a la fecha de entrada.'
         ]);
         
         // Asignar el usuario actual (taller) al siniestro
@@ -114,10 +119,15 @@ class SiniestroController extends Controller
         $request->validate([
             'cliente_id' => 'required|exists:clientes,id',
             'vehiculo_id' => 'required|exists:vehiculos,id',
-            'fecha_entrada' => 'required|date',
+            'fecha_entrada' => 'required|date|after_or_equal:today',
             'fecha_salida' => 'nullable|date|after_or_equal:fecha_entrada',
             'estado' => 'required|in:Pendiente,En proceso,Finalizado',
-            'descripcion' => 'nullable|string',
+            'descripcion' => 'required|string|min:2',
+        ], [
+            'descripcion.required' => 'El campo descripción es obligatorio.',
+            'descripcion.min' => 'La descripción debe contener al menos una palabra de más de un carácter.',
+            'fecha_entrada.after_or_equal' => 'La fecha de entrada debe ser hoy o posterior.',
+            'fecha_salida.after_or_equal' => 'La fecha de salida debe ser igual o posterior a la fecha de entrada.'
         ]);
         
         $siniestro->update($request->all());

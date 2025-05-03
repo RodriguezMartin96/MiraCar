@@ -11,6 +11,9 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Str;
 
 class ProfileController extends Controller
 {
@@ -29,19 +32,57 @@ class ProfileController extends Controller
      */
     public function update(Request $request): RedirectResponse
     {
-        $validatedData = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'company_name' => ['nullable', 'string', 'max:255'],
-            'company_nif' => ['nullable', 'string', 'max:20'],
-            'phone' => ['nullable', 'string', 'max:20'],
-        ]);
-
         $user = $request->user();
-        $user->name = $validatedData['name'];
         
         if ($user->role === 'taller') {
-            $user->company_name = $validatedData['company_name'] ?? null;
-            $user->company_nif = $validatedData['company_nif'] ?? null;
+            $validatedData = $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'company_name' => ['required', 'string', 'max:255'],
+                'company_nif' => [
+                    'required', 
+                    'string', 
+                    'max:20',
+                    'regex:/^[A-Z0-9]{9}$/', // Formato NIF/CIF español (simplificado)
+                    'unique:users,company_nif,' . $user->id
+                ],
+                'phone' => [
+                    'required', 
+                    'string', 
+                    'regex:/^[0-9]{9}$/' // Formato teléfono español (9 dígitos)
+                ],
+            ], [
+                'name.required' => 'El nombre es obligatorio.',
+                'company_name.required' => 'El nombre de la empresa es obligatorio.',
+                'company_nif.required' => 'El NIF/CIF es obligatorio.',
+                'company_nif.regex' => 'El formato del NIF/CIF no es válido.',
+                'phone.required' => 'El teléfono es obligatorio.',
+                'phone.regex' => 'El teléfono debe tener 9 dígitos.',
+            ]);
+            
+            // Convertir nombre de empresa a Title Case y NIF a mayúsculas
+            $name = Str::title($validatedData['name']);
+            $companyName = Str::title($validatedData['company_name']);
+            $companyNif = strtoupper($validatedData['company_nif']);
+            
+            $user->name = $name;
+            $user->company_name = $companyName;
+            $user->company_nif = $companyNif;
+        } else {
+            $validatedData = $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'lastname' => ['nullable', 'string', 'max:255'],
+                'dni' => ['nullable', 'string', 'max:20', 'unique:users,dni,' . $user->id],
+                'phone' => ['nullable', 'string', 'max:20'],
+            ]);
+            
+            // Convertir nombre y apellidos a Title Case y DNI a mayúsculas
+            $name = Str::title($validatedData['name']);
+            $lastname = isset($validatedData['lastname']) ? Str::title($validatedData['lastname']) : null;
+            $dni = isset($validatedData['dni']) ? strtoupper($validatedData['dni']) : null;
+            
+            $user->name = $name;
+            $user->lastname = $lastname;
+            $user->dni = $dni;
         }
         
         $user->phone = $validatedData['phone'] ?? null;
@@ -132,6 +173,35 @@ class ProfileController extends Controller
                 'logo' => 'Ha ocurrido un error al actualizar el logo: ' . $e->getMessage(),
             ]);
         }
+    }
+
+    /**
+     * Update the user's password.
+     */
+    public function updatePassword(Request $request): RedirectResponse
+    {
+        $validated = $request->validateWithBag('updatePassword', [
+            'current_password' => ['required', 'current_password'],
+            'password' => [
+                'required', 
+                'confirmed', 
+                'min:6',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@\-_+*\/#()\[\]{}])[A-Za-z\d@\-_+*\/#()\[\]{}]{6,}$/'
+            ],
+        ], [
+            'current_password.required' => 'La contraseña actual es obligatoria.',
+            'current_password.current_password' => 'La contraseña actual no es correcta.',
+            'password.required' => 'La nueva contraseña es obligatoria.',
+            'password.min' => 'La contraseña debe tener al menos 6 caracteres.',
+            'password.regex' => 'La contraseña debe contener al menos una mayúscula, una minúscula, un número y un carácter especial (@-_+*/#()[]{}).',
+            'password.confirmed' => 'Las contraseñas no coinciden.'
+        ]);
+
+        $request->user()->update([
+            'password' => Hash::make($validated['password']),
+        ]);
+
+        return back()->with('status', 'password-updated');
     }
 
     /**
