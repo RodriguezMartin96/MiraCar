@@ -1,226 +1,331 @@
-
-# 🚗 MiraCar
-
 <div align="center">
-  <img src="public/galeria/logo.png" alt="MiraCar Logo" width="150" />
-  <h1>MiraCar</h1>
-  <p>Conectando talleres y clientes para una experiencia automotriz moderna, clara y eficiente.</p>
+  <img src="/placeholder.svg?height=200&width=200&query=car%20logo" alt="MiraCar Logo" width="200" height="200" />
+  <h1 style={{ fontSize: '3.5rem', fontWeight: 'bold', background: 'linear-gradient(to right, #FF2D20, #4479A1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>🚗 MiraCar</h1>
+  <p style={{ fontSize: '1.3rem', maxWidth: '800px', margin: '0 auto 20px' }}>Conectando talleres y clientes para una experiencia automotriz moderna, clara y eficiente.</p>
+
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <a href="#sobre-miracar" style={{ textDecoration: 'none', color: '#FF2D20', fontWeight: 'bold', padding: '5px 10px', borderRadius: '5px', transition: 'all 0.3s ease' }}>¿Qué es MiraCar?</a>
+    <span style={{ color: '#666' }}>•</span>
+    <a href="#tecnologías-utilizadas" style={{ textDecoration: 'none', color: '#FF2D20', fontWeight: 'bold', padding: '5px 10px', borderRadius: '5px', transition: 'all 0.3s ease' }}>Tecnologías</a>
+    <span style={{ color: '#666' }}>•</span>
+    <a href="#instalación" style={{ textDecoration: 'none', color: '#FF2D20', fontWeight: 'bold', padding: '5px 10px', borderRadius: '5px', transition: 'all 0.3s ease' }}>Instalación</a>
+    <span style={{ color: '#666' }}>•</span>
+    <a href="#capturas-de-pantalla" style={{ textDecoration: 'none', color: '#FF2D20', fontWeight: 'bold', padding: '5px 10px', borderRadius: '5px', transition: 'all 0.3s ease' }}>Capturas</a>
+    <span style={{ color: '#666' }}>•</span>
+    <a href="#uso" style={{ textDecoration: 'none', color: '#FF2D20', fontWeight: 'bold', padding: '5px 10px', borderRadius: '5px', transition: 'all 0.3s ease' }}>Uso</a>
+    <span style={{ color: '#666' }}>•</span>
+    <a href="#estructura-del-proyecto" style={{ textDecoration: 'none', color: '#FF2D20', fontWeight: 'bold', padding: '5px 10px', borderRadius: '5px', transition: 'all 0.3s ease' }}>Estructura</a>
+  </div>
+
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap', margin: '30px 0' }}>
+    <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP Badge" />
+    <img src="https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel Badge" />
+    <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL Badge" />
+    <img src="https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap Badge" />
+    <img src="https://img.shields.io/badge/XAMPP-EF5B25?style=for-the-badge&logo=xampp&logoColor=white" alt="XAMPP Badge" />
+    <img src="https://img.shields.io/badge/Node.js-18.x-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js Badge" />
+    <img src="https://img.shields.io/badge/Composer-2.x-885630?style=for-the-badge&logo=composer&logoColor=white" alt="Composer Badge" />
+    <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git Badge" />
+  </div>
 </div>
 
----
+<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #FF2D20, transparent)', margin: '40px 0' }} />
 
-## ❓ ¿Qué es MiraCar?
+<h2 id="sobre-miracar" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#FF2D20', textAlign: 'center', margin: '40px 0 20px' }}>❓ ¿Qué es MiraCar?</h2>
 
-**MiraCar** es una aplicación web desarrollada para gestionar la relación entre talleres mecánicos y sus clientes. Permite al taller controlar procesos de reparación, clientes y documentación, y al usuario seguir el estado de su vehículo en tiempo real. Es completamente responsive, compatible con móvil, tablet y escritorio.
+<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', fontSize: '1.1rem', lineHeight: '1.6' }}>
+  <p><strong>MiraCar</strong> es una aplicación web multiplataforma que conecta talleres automotrices con sus clientes, mejorando la comunicación, la gestión de reparaciones y la trazabilidad del historial de vehículos.</p>
 
----
+  <p>El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquier dispositivo (móvil, tablet, escritorio). Se orienta tanto a <strong>talleres</strong> que necesitan gestionar siniestros, clientes y documentación, como a <strong>usuarios</strong> que desean hacer seguimiento en tiempo real de sus vehículos.</p>
+</div>
 
-## 🛠 Tecnologías Utilizadas
+<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #4479A1, transparent)', margin: '40px 0' }} />
 
-| Herramienta     | Descripción                                   |
-|-----------------|-----------------------------------------------|
-| **Laravel 10**  | Framework PHP backend                         |
-| **PHP 8.2**     | Lenguaje del lado del servidor                |
-| **MySQL 8.0**   | Sistema de gestión de bases de datos          |
-| **XAMPP**       | Servidor local para PHP y MySQL en Windows    |
-| **Composer**    | Gestor de dependencias PHP                    |
-| **Node.js**     | Entorno JS para desarrollo frontend           |
-| **npm**         | Gestor de paquetes de Node.js                 |
-| **Git**         | Control de versiones del código fuente        |
-| **Bootstrap 5** | Framework CSS responsive                      |
+<h2 id="tecnologías-utilizadas" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4479A1', textAlign: 'center', margin: '40px 0 20px' }}>🛠 Tecnologías Utilizadas</h2>
 
-Compatible con **Windows**, y también funcional en **Linux** y **macOS**.
+<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px' }}>
+  <p style={{ textAlign: 'center', marginBottom: '20px', fontSize: '1.1rem' }}>El proyecto fue desarrollado con las siguientes herramientas:</p>
 
----
+  <table style={{ width: '100%', borderCollapse: 'collapse', margin: '0 auto' }}>
+    <thead>
+      <tr style={{ background: '#f8f9fa' }}>
+        <th style={{ padding: '12px 15px', textAlign: 'left', borderBottom: '2px solid #4479A1' }}>Herramienta</th>
+        <th style={{ padding: '12px 15px', textAlign: 'left', borderBottom: '2px solid #4479A1' }}>Propósito</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>Laravel 10</strong></td>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Framework backend (PHP)</td>
+      </tr>
+      <tr style={{ background: '#f8f9fa' }}>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>PHP 8.2</strong></td>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Lenguaje del servidor</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>MySQL</strong></td>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Base de datos relacional</td>
+      </tr>
+      <tr style={{ background: '#f8f9fa' }}>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>XAMPP</strong></td>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Entorno local (Apache + MySQL + PHP)</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>Composer</strong></td>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Gestión de dependencias PHP</td>
+      </tr>
+      <tr style={{ background: '#f8f9fa' }}>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>Node.js & npm</strong></td>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Gestión frontend, assets, dependencias JS</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>Bootstrap 5.3</strong></td>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Framework CSS responsivo</td>
+      </tr>
+      <tr style={{ background: '#f8f9fa' }}>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>Git</strong></td>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Control de versiones</td>
+      </tr>
+      <tr>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>Visual Studio Code</strong></td>
+        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Editor de código recomendado</td>
+      </tr>
+    </tbody>
+  </table>
 
-## ⚙️ Instalación
+  <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '1.1rem' }}>Compatible con <strong>Windows, macOS y Linux</strong>.</p>
+</div>
 
-### Requisitos
+<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #FF2D20, transparent)', margin: '40px 0' }} />
 
-- PHP 8.1 o superior
-- Node.js 18.x y npm
-- Composer 2.x
-- Git
-- XAMPP (o equivalente)
+<h2 id="instalación" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#FF2D20', textAlign: 'center', margin: '40px 0 20px' }}>⚙️ Instalación</h2>
 
-### Pasos
+<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px' }}>
+  <h3 style={{ fontSize: '1.8rem', color: '#333', marginBottom: '15px', textAlign: 'center' }}>Requisitos Previos</h3>
 
-```bash
+  <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '10px', margin: '20px 0' }}>
+    <span style={{ padding: '8px 15px', background: '#f8f9fa', borderRadius: '20px', border: '1px solid #ddd' }}>PHP 8.1+</span>
+    <span style={{ padding: '8px 15px', background: '#f8f9fa', borderRadius: '20px', border: '1px solid #ddd' }}>MySQL 5.7+</span>
+    <span style={{ padding: '8px 15px', background: '#f8f9fa', borderRadius: '20px', border: '1px solid #ddd' }}>Node.js + npm</span>
+    <span style={{ padding: '8px 15px', background: '#f8f9fa', borderRadius: '20px', border: '1px solid #ddd' }}>Composer</span>
+    <span style={{ padding: '8px 15px', background: '#f8f9fa', borderRadius: '20px', border: '1px solid #ddd' }}>Git</span>
+    <span style={{ padding: '8px 15px', background: '#f8f9fa', borderRadius: '20px', border: '1px solid #ddd' }}>XAMPP o similar</span>
+  </div>
+
+  <h3 style={{ fontSize: '1.8rem', color: '#333', marginBottom: '15px', textAlign: 'center' }}>Pasos</h3>
+
+  <div style={{ background: '#282c34', color: '#abb2bf', padding: '20px', borderRadius: '8px', overflowX: 'auto', margin: '20px 0' }}>
+    <pre style={{ margin: 0 }}>
+      <code>
+{`# Clonar el proyecto
 git clone https://github.com/tuusuario/miracar.git
 cd miracar
 
+# Instalar dependencias backend
 composer install
-npm install
-npm run build
 
+# Instalar dependencias frontend
+npm install && npm run build
+
+# Crear base de datos y configurar .env
 cp .env.example .env
 php artisan key:generate
 php artisan migrate --seed
 
-php artisan serve
-```
-
----
-
-## 🖼️ Capturas de Pantalla
-
-### 📂 General (6 capturas)
-
-#### 📱 Móvil
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="General Móvil 1" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="General Móvil 2" style="width: 100%; max-width: 300px;" />
+# Iniciar servidor local
+php artisan serve`}
+      </code>
+    </pre>
+  </div>
 </div>
 
+<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #4479A1, transparent)', margin: '40px 0' }} />
 
-#### 💻 Tablet
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="General Tablet 1" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="General Tablet 2" style="width: 100%; max-width: 300px;" />
+<h2 id="capturas-de-pantalla" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4479A1', textAlign: 'center', margin: '40px 0 20px' }}>🖼️ Capturas de Pantalla</h2>
+
+<div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
+  <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#333', textAlign: 'center', margin: '30px 0 20px', borderBottom: '2px solid #4479A1', paddingBottom: '10px' }}>📂 General</h3>
+
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>📱 Móvil</h4>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=200&query=car%20app%20mobile%20view%201" alt="General Móvil 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=200&query=car%20app%20mobile%20view%202" alt="General Móvil 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>💻 Tablet</h4>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=600&query=car%20app%20tablet%20view%201" alt="General Tablet 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=600&query=car%20app%20tablet%20view%202" alt="General Tablet 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=800&query=car%20app%20desktop%20view%201" alt="General Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=800&query=car%20app%20desktop%20view%202" alt="General Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+
+  <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#333', textAlign: 'center', margin: '50px 0 20px', borderBottom: '2px solid #FF2D20', paddingBottom: '10px' }}>🔧 Taller</h3>
+
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>📱 Móvil</h4>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=200&query=car%20workshop%20mobile%20view%201" alt="Taller Móvil 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=200&query=car%20workshop%20mobile%20view%202" alt="Taller Móvil 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=200&query=car%20workshop%20mobile%20view%203" alt="Taller Móvil 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=200&query=car%20workshop%20mobile%20view%204" alt="Taller Móvil 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=200&query=car%20workshop%20mobile%20view%205" alt="Taller Móvil 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=200&query=car%20workshop%20mobile%20view%206" alt="Taller Móvil 6" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=200&query=car%20workshop%20mobile%20view%207" alt="Taller Móvil 7" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=200&query=car%20workshop%20mobile%20view%208" alt="Taller Móvil 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=200&query=car%20workshop%20mobile%20view%209" alt="Taller Móvil 9" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=200&query=car%20workshop%20mobile%20view%2010" alt="Taller Móvil 10" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=200&query=car%20workshop%20mobile%20view%2011" alt="Taller Móvil 11" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=200&query=car%20workshop%20mobile%20view%2012" alt="Taller Móvil 12" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>💻 Tablet</h4>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=600&query=car%20workshop%20tablet%20view%201" alt="Taller Tablet 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=600&query=car%20workshop%20tablet%20view%202" alt="Taller Tablet 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=600&query=car%20workshop%20tablet%20view%203" alt="Taller Tablet 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=600&query=car%20workshop%20tablet%20view%204" alt="Taller Tablet 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=600&query=car%20workshop%20tablet%20view%205" alt="Taller Tablet 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=600&query=car%20workshop%20tablet%20view%206" alt="Taller Tablet 6" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=600&query=car%20workshop%20tablet%20view%207" alt="Taller Tablet 7" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=600&query=car%20workshop%20tablet%20view%208" alt="Taller Tablet 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=600&query=car%20workshop%20tablet%20view%209" alt="Taller Tablet 9" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=600&query=car%20workshop%20tablet%20view%2010" alt="Taller Tablet 10" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=600&query=car%20workshop%20tablet%20view%2011" alt="Taller Tablet 11" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=600&query=car%20workshop%20tablet%20view%2012" alt="Taller Tablet 12" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=800&query=car%20workshop%20desktop%20view%201" alt="Taller Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=800&query=car%20workshop%20desktop%20view%202" alt="Taller Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=800&query=car%20workshop%20desktop%20view%203" alt="Taller Monitor 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=800&query=car%20workshop%20desktop%20view%204" alt="Taller Monitor 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=800&query=car%20workshop%20desktop%20view%205" alt="Taller Monitor 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=800&query=car%20workshop%20desktop%20view%206" alt="Taller Monitor 6" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=800&query=car%20workshop%20desktop%20view%207" alt="Taller Monitor 7"  alt="Taller Monitor 7" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=800&query=car%20workshop%20desktop%20view%208" alt="Taller Monitor 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=800&query=car%20workshop%20desktop%20view%209" alt="Taller Monitor 9" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=800&query=car%20workshop%20desktop%20view%2010" alt="Taller Monitor 10" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=800&query=car%20workshop%20desktop%20view%2011" alt="Taller Monitor 11" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=800&query=car%20workshop%20desktop%20view%2012" alt="Taller Monitor 12" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+
+  <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#333', textAlign: 'center', margin: '50px 0 20px', borderBottom: '2px solid #4479A1', paddingBottom: '10px' }}>👤 Usuario</h3>
+
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>📱 Móvil</h4>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=200&query=car%20user%20mobile%20view%201" alt="Usuario Móvil 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=200&query=car%20user%20mobile%20view%202" alt="Usuario Móvil 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=200&query=car%20user%20mobile%20view%203" alt="Usuario Móvil 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=200&query=car%20user%20mobile%20view%204" alt="Usuario Móvil 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>💻 Tablet</h4>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=600&query=car%20user%20tablet%20view%201" alt="Usuario Tablet 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=600&query=car%20user%20tablet%20view%202" alt="Usuario Tablet 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=600&query=car%20user%20tablet%20view%203" alt="Usuario Tablet 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=600&query=car%20user%20tablet%20view%204" alt="Usuario Tablet 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=800&query=car%20user%20desktop%20view%201" alt="Usuario Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=800&query=car%20user%20desktop%20view%202" alt="Usuario Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="/placeholder.svg?height=400&width=800&query=car%20user%20desktop%20view%203" alt="Usuario Monitor 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="/placeholder.svg?height=400&width=800&query=car%20user%20desktop%20view%204" alt="Usuario Monitor 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
 </div>
 
+<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #FF2D20, transparent)', margin: '40px 0' }} />
 
-#### 🖥️ Monitor
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="General Monitor 1" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="General Monitor 2" style="width: 100%; max-width: 300px;" />
+<h2 id="uso" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#FF2D20', textAlign: 'center', margin: '40px 0 20px' }}>🚀 Uso del Programa</h2>
+
+<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+    <div style={{ background: '#f8f9fa', padding: '25px', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
+      <h3 style={{ fontSize: '1.8rem', color: '#333', marginBottom: '15px', borderLeft: '4px solid #FF2D20', paddingLeft: '10px' }}>Para el Taller:</h3>
+      <ul style={{ listStyleType: 'none', padding: 0 }}>
+        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
+          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#FF2D20', marginRight: '10px' }}></span>
+          Registro de clientes, vehículos y partes de siniestro.
+        </li>
+        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
+          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#FF2D20', marginRight: '10px' }}></span>
+          Gestión de documentos, fotos y piezas.
+        </li>
+        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
+          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#FF2D20', marginRight: '10px' }}></span>
+          Control de estado de cada reparación paso a paso.
+        </li>
+        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
+          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#FF2D20', marginRight: '10px' }}></span>
+          Comunicación directa con el cliente.
+        </li>
+      </ul>
+    </div>
+
+    <div style={{ background: '#f8f9fa', padding: '25px', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
+      <h3 style={{ fontSize: '1.8rem', color: '#333', marginBottom: '15px', borderLeft: '4px solid #4479A1', paddingLeft: '10px' }}>Para el Usuario:</h3>
+      <ul style={{ listStyleType: 'none', padding: 0 }}>
+        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
+          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#4479A1', marginRight: '10px' }}></span>
+          Visualización del estado de reparación del vehículo.
+        </li>
+        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
+          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#4479A1', marginRight: '10px' }}></span>
+          Acceso a presupuestos, facturas y documentos.
+        </li>
+        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
+          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#4479A1', marginRight: '10px' }}></span>
+          Recepción de notificaciones del taller.
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
+<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #4479A1, transparent)', margin: '40px 0' }} />
 
----
+<h2 id="estructura-del-proyecto" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4479A1', textAlign: 'center', margin: '40px 0 20px' }}>📁 Estructura del Proyecto</h2>
 
-### 🔧 Taller (36 capturas)
-
-#### 📱 Móvil
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Taller Móvil 1" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Móvil 2" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Móvil 3" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Móvil 4" style="width: 100%; max-width: 300px;" />
-</div>
-
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Taller Móvil 5" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Móvil 6" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Móvil 7" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Móvil 8" style="width: 100%; max-width: 300px;" />
-</div>
-
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Taller Móvil 9" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Móvil 10" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Móvil 11" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Móvil 12" style="width: 100%; max-width: 300px;" />
-</div>
-
-
-#### 💻 Tablet
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Taller Tablet 1" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Tablet 2" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Tablet 3" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Tablet 4" style="width: 100%; max-width: 300px;" />
-</div>
-
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Taller Tablet 5" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Tablet 6" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Tablet 7" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Tablet 8" style="width: 100%; max-width: 300px;" />
-</div>
-
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Taller Tablet 9" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Tablet 10" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Tablet 11" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Tablet 12" style="width: 100%; max-width: 300px;" />
-</div>
-
-
-#### 🖥️ Monitor
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Taller Monitor 1" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Monitor 2" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Monitor 3" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Monitor 4" style="width: 100%; max-width: 300px;" />
-</div>
-
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Taller Monitor 5" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Monitor 6" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Monitor 7" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Monitor 8" style="width: 100%; max-width: 300px;" />
-</div>
-
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Taller Monitor 9" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Monitor 10" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Monitor 11" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Taller Monitor 12" style="width: 100%; max-width: 300px;" />
-</div>
-
-
----
-
-### 👤 Usuario (12 capturas)
-
-#### 📱 Móvil
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Usuario Móvil 1" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Usuario Móvil 2" style="width: 100%; max-width: 300px;" />
-</div>
-
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Usuario Móvil 3" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Usuario Móvil 4" style="width: 100%; max-width: 300px;" />
-</div>
-
-
-#### 💻 Tablet
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Usuario Tablet 1" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Usuario Tablet 2" style="width: 100%; max-width: 300px;" />
-</div>
-
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Usuario Tablet 3" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Usuario Tablet 4" style="width: 100%; max-width: 300px;" />
-</div>
-
-
-#### 🖥️ Monitor
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Usuario Monitor 1" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Usuario Monitor 2" style="width: 100%; max-width: 300px;" />
-</div>
-
-<div style="display: flex; gap: 10px;">
-  <img src="<captura-de-pantalla>" alt="Usuario Monitor 3" style="width: 100%; max-width: 300px;" />
-  <img src="<captura-de-pantalla>" alt="Usuario Monitor 4" style="width: 100%; max-width: 300px;" />
-</div>
-
-
----
-
-## 🚀 Uso del Programa
-
-### Para el Taller:
-- Registro de clientes, vehículos y partes de siniestro.
-- Gestión de documentos, fotos y piezas.
-- Control de estado de cada reparación paso a paso.
-- Comunicación directa con el cliente.
-
-### Para el Usuario:
-- Visualización del estado de reparación del vehículo.
-- Acceso a presupuestos, facturas y documentos.
-- Recepción de notificaciones del taller.
-
----
-
-## 📁 Estructura del Proyecto
-
-```
-miracar/
+<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px' }}>
+  <div style={{ background: '#282c34', color: '#abb2bf', padding: '20px', borderRadius: '8px', overflowX: 'auto', margin: '20px 0', fontFamily: 'monospace' }}>
+    <pre style={{ margin: 0 }}>
+      <code>
+{`miracar/
 ├── app/
 ├── bootstrap/
 ├── config/
@@ -236,29 +341,57 @@ miracar/
 ├── artisan
 ├── composer.json
 ├── package.json
-└── README.md
-```
+└── README.md`}
+      </code>
+    </pre>
+  </div>
+</div>
 
----
+<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #FF2D20, transparent)', margin: '40px 0' }} />
 
-## 🤝 Contribuciones
+<h2 id="contribuciones" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#FF2D20', textAlign: 'center', margin: '40px 0 20px' }}>🤝 Contribuciones</h2>
 
-Las contribuciones son bienvenidas. Puedes:
-1. Hacer un fork del repositorio.
-2. Crear una nueva rama (`git checkout -b mejora-x`).
-3. Realizar tus cambios.
-4. Enviar un Pull Request.
+<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
+  <p style={{ fontSize: '1.1rem', marginBottom: '20px' }}>Las contribuciones son bienvenidas. Puedes:</p>
 
----
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '500px', margin: '0 auto', textAlign: 'left' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <span style={{ background: '#FF2D20', color: 'white', borderRadius: '50%', width: '25px', height: '25px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>1</span>
+      <span>Hacer un fork del repositorio.</span>
+    </div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <span style={{ background: '#FF2D20', color: 'white', borderRadius: '50%', width: '25px', height: '25px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>2</span>
+      <span>Crear una nueva rama (<code style={{ background: '#f1f1f1', padding: '2px 5px', borderRadius: '3px' }}>git checkout -b mejora-x</code>).</span>
+    </div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <span style={{ background: '#FF2D20', color: 'white', borderRadius: '50%', width: '25px', height: '25px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>3</span>
+      <span>Realizar tus cambios.</span>
+    </div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <span style={{ background: '#FF2D20', color: 'white', borderRadius: '50%', width: '25px', height: '25px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>4</span>
+      <span>Enviar un Pull Request.</span>
+    </div>
+  </div>
+</div>
 
-## 📜 Licencia
+<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #4479A1, transparent)', margin: '40px 0' }} />
 
-Este proyecto está bajo la Licencia MIT. Revisa el archivo LICENSE para más información.
+<h2 id="licencia" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4479A1', textAlign: 'center', margin: '40px 0 20px' }}>📜 Licencia</h2>
 
----
+<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
+  <p style={{ fontSize: '1.1rem' }}>Este proyecto está bajo la Licencia MIT. Revisa el archivo LICENSE para más información.</p>
+</div>
 
-## ✉️ Contacto
+<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #FF2D20, transparent)', margin: '40px 0' }} />
 
-Proyecto desarrollado por **Román Rodríguez Martín**  
-📧 Correo: roman@ejemplo.com  
-🌐 Sitio: [www.miracar.com](https://www.miracar.com) *(en construcción)*
+<h2 id="contacto" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#FF2D20', textAlign: 'center', margin: '40px 0 20px' }}>✉️ Contacto</h2>
+
+<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
+  <p style={{ fontSize: '1.1rem', marginBottom: '10px' }}>Proyecto desarrollado por <strong>Román Rodríguez Martín</strong></p>
+  <p style={{ fontSize: '1.1rem', marginBottom: '5px' }}>
+    📧 Correo: <a href="mailto:roman@ejemplo.com" style={{ color: '#FF2D20', textDecoration: 'none' }}>roman@ejemplo.com</a>
+  </p>
+  <p style={{ fontSize: '1.1rem' }}>
+    🌐 Sitio: <a href="https://www.miracar.com" style={{ color: '#4479A1', textDecoration: 'none' }}>www.miracar.com</a> <em>(en construcción)</em>
+  </p>
+</div>
