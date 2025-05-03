@@ -160,13 +160,23 @@ php artisan serve`}
   <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>💻 Tablet</h4>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/table/general/1.png" alt="General Tablet 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/general/2.png" alt="General Tablet 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/table/general/5.png" alt="General Tablet 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="galeria/table/general/2.png" alt="General Tablet 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/table/general/3.png" alt="General Tablet 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/table/general/4.png" alt="General Tablet 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
 
   <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/monitor/general/1.png" alt="General Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/general/2.png" alt="General Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/general/5.png" alt="General Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="galeria/monitor/general/2.png" alt="General Monitor 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/general/3.png" alt="General Monitor 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/general/4.png" alt="General Monitor 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
 
   <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#333', textAlign: 'center', margin: '50px 0 20px', borderBottom: '2px solid #FF2D20', paddingBottom: '10px' }}>🔧 Taller</h3>
@@ -195,24 +205,18 @@ php artisan serve`}
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/table/taller/1.png" alt="Taller Tablet 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/table/taller/2.png" alt="Taller Tablet 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/table/taller/3.png" alt="Taller Tablet 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/table/taller/4.png" alt="Taller Tablet 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/table/taller/5.png" alt="Taller Tablet 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/table/taller/6.png" alt="Taller Tablet 6" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/table/taller/7.png" alt="Taller Tablet 7" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/table/taller/8.png" alt="Taller Tablet 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/table/taller/9.png" alt="Taller Tablet 9" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/table/taller/10.png" alt="Taller Tablet 10" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/table/taller/11.png" alt="Taller Tablet 11" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/table/taller/12.png" alt="Taller Tablet 12" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
@@ -221,24 +225,18 @@ php artisan serve`}
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/monitor/taller/1.png" alt="Taller Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/monitor/taller/2.png" alt="Taller Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/monitor/taller/3.png" alt="Taller Monitor 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/monitor/taller/4.png" alt="Taller Monitor 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/monitor/taller/5.png" alt="Taller Monitor 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/monitor/taller/6.png" alt="Taller Monitor 6" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/monitor/taller/7.png" alt="Taller Monitor 7" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/8.png" alt="Taller Monitor 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/taller/8.png" alt="Taller Monitor 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)  alt="Taller Monitor 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/monitor/taller/9.png" alt="Taller Monitor 9" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/monitor/taller/10.png" alt="Taller Monitor 10" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/monitor/taller/11.png" alt="Taller Monitor 11" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/monitor/taller/12.png" alt="Taller Monitor 12" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
@@ -257,8 +255,6 @@ php artisan serve`}
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/table/usuario/1.png" alt="Usuario Tablet 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/table/usuario/2.png" alt="Usuario Tablet 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/table/usuario/3.png" alt="Usuario Tablet 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/table/usuario/4.png" alt="Usuario Tablet 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
@@ -267,8 +263,6 @@ php artisan serve`}
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/monitor/usuario/1.png" alt="Usuario Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/monitor/usuario/2.png" alt="Usuario Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/monitor/usuario/3.png" alt="Usuario Monitor 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/monitor/usuario/4.png" alt="Usuario Monitor 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
