@@ -1,116 +1,325 @@
 <div align="center">
   <img src="public/galeria/logo.png" alt="MiraCar Logo" width="200" height="200">
-  <h1>MiraCar</h1>
-  <p>Conectando talleres y clientes para un servicio automotriz eficiente</p>
-  
+  <h1 style="font-size: 3rem; font-weight: bold;">🚗 MiraCar</h1>
+  <p style="font-size: 1.2rem;">Conectando talleres y clientes para una experiencia automotriz moderna, clara y eficiente.</p>
+
   <p>
-    <a href="#características"><strong>Características</strong></a> •
+    <a href="#sobre-miracar"><strong>¿Qué es MiraCar?</strong></a> •
     <a href="#tecnologías-utilizadas"><strong>Tecnologías</strong></a> •
     <a href="#instalación"><strong>Instalación</strong></a> •
     <a href="#capturas-de-pantalla"><strong>Capturas</strong></a> •
     <a href="#uso"><strong>Uso</strong></a> •
-    <a href="#licencia"><strong>Licencia</strong></a>
+    <a href="#estructura-del-proyecto"><strong>Estructura</strong></a>
   </p>
-  
+
   <br>
-  
+
   <p>
-    <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
-    <img src="https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel">
-    <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
-    <img src="https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
+    <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white">
+    <img src="https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white">
+    <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+    <img src="https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
+    <img src="https://img.shields.io/badge/XAMPP-EF5B25?style=for-the-badge&logo=xampp&logoColor=white">
+    <img src="https://img.shields.io/badge/Node.js-18.x-339933?style=for-the-badge&logo=node.js&logoColor=white">
+    <img src="https://img.shields.io/badge/Composer-2.x-885630?style=for-the-badge&logo=composer&logoColor=white">
+    <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
   </p>
 </div>
 
-## 📋 Índice
+---
 
-- [Sobre MiraCar](#sobre-miracar)
-- [Características](#características)
-- [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Instalación](#instalación)
-- [Capturas de Pantalla](#capturas-de-pantalla)
-  - [General](#general)
-  - [Taller](#taller)
-  - [Usuario](#usuario)
-- [Uso](#uso)
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [Contribución](#contribución)
-- [Licencia](#licencia)
-- [Contacto](#contacto)
+## ❓ ¿Qué es MiraCar?
 
-## 🚗 Sobre MiraCar
+**MiraCar** es una aplicación web multiplataforma que conecta talleres automotrices con sus clientes, mejorando la comunicación, la gestión de reparaciones y la trazabilidad del historial de vehículos. 
 
-**MiraCar** es una plataforma web innovadora diseñada para transformar la relación entre talleres mecánicos y clientes. Nuestra aplicación facilita la gestión integral de servicios automotrices, desde el seguimiento de reparaciones hasta la documentación digital de vehículos.
+El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquier dispositivo (móvil, tablet, escritorio). Se orienta tanto a **talleres** que necesitan gestionar siniestros, clientes y documentación, como a **usuarios** que desean hacer seguimiento en tiempo real de sus vehículos.
 
-La plataforma ofrece una experiencia fluida tanto para los talleres como para los usuarios finales, permitiendo una comunicación directa, transparencia en los procesos de reparación y un seguimiento detallado del historial de cada vehículo.
+---
 
-## ✨ Características
+## 🛠 Tecnologías Utilizadas
 
-### Para Talleres
+El proyecto fue desarrollado con las siguientes herramientas:
 
-- **Gestión de Clientes**: Administración completa de la cartera de clientes con información detallada.
-- **Control de Vehículos**: Registro y seguimiento de todos los vehículos atendidos.
-- **Gestión de Siniestros**: Documentación y seguimiento de incidentes y reparaciones.
-- **Inventario de Recambios**: Control de piezas y repuestos utilizados en reparaciones.
-- **Documentación Digital**: Almacenamiento seguro de documentos relacionados con reparaciones.
-- **Sistema de Soporte**: Canal directo para resolver dudas y problemas de los clientes.
+| Herramienta          | Propósito                                     |
+|----------------------|-----------------------------------------------|
+| **Laravel 10**       | Framework backend (PHP)                       |
+| **PHP 8.2**           | Lenguaje del servidor                         |
+| **MySQL**             | Base de datos relacional                      |
+| **XAMPP**             | Entorno local (Apache + MySQL + PHP)         |
+| **Composer**          | Gestión de dependencias PHP                  |
+| **Node.js & npm**     | Gestión frontend, assets, dependencias JS    |
+| **Bootstrap 5.3**     | Framework CSS responsivo                     |
+| **Git**               | Control de versiones                         |
+| **Visual Studio Code**| Editor de código recomendado                 |
 
-### Para Usuarios
+Compatible con **Windows, macOS y Linux**.
 
-- **Historial de Vehículos**: Acceso completo al historial de mantenimiento y reparaciones.
-- **Seguimiento de Reparaciones**: Monitoreo en tiempo real del estado de las reparaciones.
-- **Comunicación Directa**: Canal de comunicación con el taller para consultas y actualizaciones.
-- **Documentación Accesible**: Acceso a facturas, presupuestos y otros documentos importantes.
-- **Notificaciones**: Alertas sobre el estado de reparaciones y mantenimientos programados.
+---
 
-## 🛠️ Tecnologías Utilizadas
+## ⚙️ Instalación
 
-MiraCar ha sido desarrollado utilizando un stack tecnológico moderno y robusto:
+### Requisitos Previos
 
-### Backend
+- PHP 8.1+
+- MySQL 5.7+
+- Node.js + npm
+- Composer
+- Git
+- XAMPP o similar
 
-- **[PHP 8.2](https://www.php.net/)**: Lenguaje de programación principal.
-- **[Laravel 10](https://laravel.com/)**: Framework de desarrollo web.
-- **[MySQL](https://www.mysql.com/)**: Sistema de gestión de bases de datos.
-- **[Composer](https://getcomposer.org/)**: Gestor de dependencias para PHP.
+### Pasos
 
-### Frontend
+```bash
+# Clonar el proyecto
+git clone https://github.com/tuusuario/miracar.git
+cd miracar
 
-- **[Bootstrap 5.3](https://getbootstrap.com/)**: Framework CSS para diseño responsivo.
-- **[JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)**: Para interactividad en el lado del cliente.
-- **[Blade](https://laravel.com/docs/10.x/blade)**: Motor de plantillas de Laravel.
-- **[Bootstrap Icons](https://icons.getbootstrap.com/)**: Biblioteca de iconos.
+# Instalar dependencias backend
+composer install
 
-### Herramientas de Desarrollo
+# Instalar dependencias frontend
+npm install && npm run build
 
-- **[XAMPP](https://www.apachefriends.org/)**: Entorno de desarrollo local (Apache, MySQL, PHP).
-- **[Git](https://git-scm.com/)**: Control de versiones.
-- **[Node.js](https://nodejs.org/)**: Entorno de ejecución para herramientas de frontend.
-- **[npm](https://www.npmjs.com/)**: Gestor de paquetes para JavaScript.
-- **[Visual Studio Code](https://code.visualstudio.com/)**: Editor de código recomendado.
+# Crear base de datos y configurar .env
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
 
-### Entorno de Despliegue
+# Iniciar servidor local
+php artisan serve
 
-- **Compatibilidad**: Windows, macOS, Linux.
-- **Servidor Web**: Apache/Nginx.
-- **Requisitos mínimos**: PHP 8.1+, MySQL 5.7+.
+Perfecto. A continuación te entrego el contenido completo del archivo `README.md`, con todas las secciones organizadas y un total de **54 imágenes** repartidas por secciones y subapartados, todo **dentro del `.md`**, listo para reemplazar los marcadores `<captura-de-pantalla>` por las imágenes reales cuando las tengas:
 
-## 📥 Instalación
+---
 
-Sigue estos pasos para instalar y configurar MiraCar en tu entorno local:
+````markdown
+# 🚗 MiraCar
 
-### Prerrequisitos
+<div align="center">
+  <img src="public/galeria/logo.png" alt="MiraCar Logo" width="150" />
+  <h1>MiraCar</h1>
+  <p>Conectando talleres y clientes para una experiencia automotriz moderna, clara y eficiente.</p>
+</div>
+
+---
+
+## ❓ ¿Qué es MiraCar?
+
+**MiraCar** es una aplicación web desarrollada para gestionar la relación entre talleres mecánicos y sus clientes. Permite al taller controlar procesos de reparación, clientes y documentación, y al usuario seguir el estado de su vehículo en tiempo real. Es completamente responsive, compatible con móvil, tablet y escritorio.
+
+---
+
+## 🛠 Tecnologías Utilizadas
+
+| Herramienta     | Descripción                                   |
+|-----------------|-----------------------------------------------|
+| **Laravel 10**  | Framework PHP backend                         |
+| **PHP 8.2**     | Lenguaje del lado del servidor                |
+| **MySQL 8.0**   | Sistema de gestión de bases de datos          |
+| **XAMPP**       | Servidor local para PHP y MySQL en Windows    |
+| **Composer**    | Gestor de dependencias PHP                    |
+| **Node.js**     | Entorno JS para desarrollo frontend           |
+| **npm**         | Gestor de paquetes de Node.js                 |
+| **Git**         | Control de versiones del código fuente        |
+| **Bootstrap 5** | Framework CSS responsive                      |
+
+Compatible con **Windows**, y también funcional en **Linux** y **macOS**.
+
+---
+
+## ⚙️ Instalación
+
+### Requisitos
 
 - PHP 8.1 o superior
-- Composer
-- Node.js y npm
-- XAMPP, WAMP, MAMP o similar (Apache y MySQL)
+- Node.js 18.x y npm
+- Composer 2.x
 - Git
+- XAMPP (o equivalente)
 
-### Pasos de Instalación
-
-1. **Clonar el repositorio**
+### Pasos
 
 ```bash
 git clone https://github.com/tuusuario/miracar.git
 cd miracar
+
+composer install
+npm install
+npm run build
+
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+
+php artisan serve
+````
+
+---
+
+## 🖼️ Capturas de Pantalla
+
+### 📂 General (6 capturas)
+
+#### 📱 Móvil
+
+* ![General Móvil 1](captura-de-pantalla)
+* ![General Móvil 2](captura-de-pantalla)
+
+#### 💻 Tablet
+
+* ![General Tablet 1](captura-de-pantalla)
+* ![General Tablet 2](captura-de-pantalla)
+
+#### 🖥️ Monitor
+
+* ![General Monitor 1](captura-de-pantalla)
+* ![General Monitor 2](captura-de-pantalla)
+
+---
+
+### 🔧 Taller (36 capturas)
+
+#### 📱 Móvil
+
+* ![Taller Móvil 1](captura-de-pantalla)
+* ![Taller Móvil 2](captura-de-pantalla)
+* ![Taller Móvil 3](captura-de-pantalla)
+* ![Taller Móvil 4](captura-de-pantalla)
+* ![Taller Móvil 5](captura-de-pantalla)
+* ![Taller Móvil 6](captura-de-pantalla)
+* ![Taller Móvil 7](captura-de-pantalla)
+* ![Taller Móvil 8](captura-de-pantalla)
+* ![Taller Móvil 9](captura-de-pantalla)
+* ![Taller Móvil 10](captura-de-pantalla)
+* ![Taller Móvil 11](captura-de-pantalla)
+* ![Taller Móvil 12](captura-de-pantalla)
+
+#### 💻 Tablet
+
+* ![Taller Tablet 1](captura-de-pantalla)
+* ![Taller Tablet 2](captura-de-pantalla)
+* ![Taller Tablet 3](captura-de-pantalla)
+* ![Taller Tablet 4](captura-de-pantalla)
+* ![Taller Tablet 5](captura-de-pantalla)
+* ![Taller Tablet 6](captura-de-pantalla)
+* ![Taller Tablet 7](captura-de-pantalla)
+* ![Taller Tablet 8](captura-de-pantalla)
+* ![Taller Tablet 9](captura-de-pantalla)
+* ![Taller Tablet 10](captura-de-pantalla)
+* ![Taller Tablet 11](captura-de-pantalla)
+* ![Taller Tablet 12](captura-de-pantalla)
+
+#### 🖥️ Monitor
+
+* ![Taller Monitor 1](captura-de-pantalla)
+* ![Taller Monitor 2](captura-de-pantalla)
+* ![Taller Monitor 3](captura-de-pantalla)
+* ![Taller Monitor 4](captura-de-pantalla)
+* ![Taller Monitor 5](captura-de-pantalla)
+* ![Taller Monitor 6](captura-de-pantalla)
+* ![Taller Monitor 7](captura-de-pantalla)
+* ![Taller Monitor 8](captura-de-pantalla)
+* ![Taller Monitor 9](captura-de-pantalla)
+* ![Taller Monitor 10](captura-de-pantalla)
+* ![Taller Monitor 11](captura-de-pantalla)
+* ![Taller Monitor 12](captura-de-pantalla)
+
+---
+
+### 👤 Usuario (12 capturas)
+
+#### 📱 Móvil
+
+* ![Usuario Móvil 1](captura-de-pantalla)
+* ![Usuario Móvil 2](captura-de-pantalla)
+* ![Usuario Móvil 3](captura-de-pantalla)
+* ![Usuario Móvil 4](captura-de-pantalla)
+
+#### 💻 Tablet
+
+* ![Usuario Tablet 1](captura-de-pantalla)
+* ![Usuario Tablet 2](captura-de-pantalla)
+* ![Usuario Tablet 3](captura-de-pantalla)
+* ![Usuario Tablet 4](captura-de-pantalla)
+
+#### 🖥️ Monitor
+
+* ![Usuario Monitor 1](captura-de-pantalla)
+* ![Usuario Monitor 2](captura-de-pantalla)
+* ![Usuario Monitor 3](captura-de-pantalla)
+* ![Usuario Monitor 4](captura-de-pantalla)
+
+---
+
+## 🚀 Uso del Programa
+
+### Para el Taller:
+
+* Registro de clientes, vehículos y partes de siniestro.
+* Gestión de documentos, fotos y piezas.
+* Control de estado de cada reparación paso a paso.
+* Comunicación directa con el cliente.
+
+### Para el Usuario:
+
+* Visualización del estado de reparación del vehículo.
+* Acceso a presupuestos, facturas y documentos.
+* Recepción de notificaciones del taller.
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+miracar/
+├── app/
+├── bootstrap/
+├── config/
+├── database/
+├── public/
+│   └── galeria/
+├── resources/
+│   └── views/
+├── routes/
+├── storage/
+├── tests/
+├── .env
+├── artisan
+├── composer.json
+├── package.json
+└── README.md
+```
+
+---
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Puedes:
+
+1. Hacer un fork del repositorio.
+2. Crear una nueva rama (`git checkout -b mejora-x`).
+3. Realizar tus cambios.
+4. Enviar un Pull Request.
+
+---
+
+## 📜 Licencia
+
+Este proyecto está bajo la Licencia MIT. Revisa el archivo LICENSE para más información.
+
+---
+
+## ✉️ Contacto
+
+Proyecto desarrollado por **Román Rodríguez Martín**
+📧 Correo: [roman@ejemplo.com](mailto:roman@ejemplo.com)
+🌐 Sitio: [www.miracar.com](https://www.miracar.com) *(en construcción)*
+
+---
+
+```
+
+---
+
+¿Quieres que ahora te lo genere como archivo `.md` listo para descargar?
+```
