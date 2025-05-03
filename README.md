@@ -1,98 +1,4 @@
-<div align="center">
-  <img src="public/galeria/logo.png" alt="MiraCar Logo" width="200" height="200">
-  <h1 style="font-size: 3rem; font-weight: bold;">🚗 MiraCar</h1>
-  <p style="font-size: 1.2rem;">Conectando talleres y clientes para una experiencia automotriz moderna, clara y eficiente.</p>
 
-  <p>
-    <a href="#sobre-miracar"><strong>¿Qué es MiraCar?</strong></a> •
-    <a href="#tecnologías-utilizadas"><strong>Tecnologías</strong></a> •
-    <a href="#instalación"><strong>Instalación</strong></a> •
-    <a href="#capturas-de-pantalla"><strong>Capturas</strong></a> •
-    <a href="#uso"><strong>Uso</strong></a> •
-    <a href="#estructura-del-proyecto"><strong>Estructura</strong></a>
-  </p>
-
-  <br>
-
-  <p>
-    <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white">
-    <img src="https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white">
-    <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
-    <img src="https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
-    <img src="https://img.shields.io/badge/XAMPP-EF5B25?style=for-the-badge&logo=xampp&logoColor=white">
-    <img src="https://img.shields.io/badge/Node.js-18.x-339933?style=for-the-badge&logo=node.js&logoColor=white">
-    <img src="https://img.shields.io/badge/Composer-2.x-885630?style=for-the-badge&logo=composer&logoColor=white">
-    <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
-  </p>
-</div>
-
----
-
-## ❓ ¿Qué es MiraCar?
-
-**MiraCar** es una aplicación web multiplataforma que conecta talleres automotrices con sus clientes, mejorando la comunicación, la gestión de reparaciones y la trazabilidad del historial de vehículos. 
-
-El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquier dispositivo (móvil, tablet, escritorio). Se orienta tanto a **talleres** que necesitan gestionar siniestros, clientes y documentación, como a **usuarios** que desean hacer seguimiento en tiempo real de sus vehículos.
-
----
-
-## 🛠 Tecnologías Utilizadas
-
-El proyecto fue desarrollado con las siguientes herramientas:
-
-| Herramienta          | Propósito                                     |
-|----------------------|-----------------------------------------------|
-| **Laravel 10**       | Framework backend (PHP)                       |
-| **PHP 8.2**           | Lenguaje del servidor                         |
-| **MySQL**             | Base de datos relacional                      |
-| **XAMPP**             | Entorno local (Apache + MySQL + PHP)         |
-| **Composer**          | Gestión de dependencias PHP                  |
-| **Node.js & npm**     | Gestión frontend, assets, dependencias JS    |
-| **Bootstrap 5.3**     | Framework CSS responsivo                     |
-| **Git**               | Control de versiones                         |
-| **Visual Studio Code**| Editor de código recomendado                 |
-
-Compatible con **Windows, macOS y Linux**.
-
----
-
-## ⚙️ Instalación
-
-### Requisitos Previos
-
-- PHP 8.1+
-- MySQL 5.7+
-- Node.js + npm
-- Composer
-- Git
-- XAMPP o similar
-
-### Pasos
-
-```bash
-# Clonar el proyecto
-git clone https://github.com/tuusuario/miracar.git
-cd miracar
-
-# Instalar dependencias backend
-composer install
-
-# Instalar dependencias frontend
-npm install && npm run build
-
-# Crear base de datos y configurar .env
-cp .env.example .env
-php artisan key:generate
-php artisan migrate --seed
-
-# Iniciar servidor local
-php artisan serve
-
-Perfecto. A continuación te entrego el contenido completo del archivo `README.md`, con todas las secciones organizadas y un total de **54 imágenes** repartidas por secciones y subapartados, todo **dentro del `.md`**, listo para reemplazar los marcadores `<captura-de-pantalla>` por las imágenes reales cuando las tengas:
-
----
-
-````markdown
 # 🚗 MiraCar
 
 <div align="center">
@@ -152,7 +58,7 @@ php artisan key:generate
 php artisan migrate --seed
 
 php artisan serve
-````
+```
 
 ---
 
@@ -161,110 +67,99 @@ php artisan serve
 ### 📂 General (6 capturas)
 
 #### 📱 Móvil
-
-* ![General Móvil 1](captura-de-pantalla)
-* ![General Móvil 2](captura-de-pantalla)
+- ![General Móvil 1](<captura-de-pantalla>)
+- ![General Móvil 2](<captura-de-pantalla>)
 
 #### 💻 Tablet
-
-* ![General Tablet 1](captura-de-pantalla)
-* ![General Tablet 2](captura-de-pantalla)
+- ![General Tablet 1](<captura-de-pantalla>)
+- ![General Tablet 2](<captura-de-pantalla>)
 
 #### 🖥️ Monitor
-
-* ![General Monitor 1](captura-de-pantalla)
-* ![General Monitor 2](captura-de-pantalla)
+- ![General Monitor 1](<captura-de-pantalla>)
+- ![General Monitor 2](<captura-de-pantalla>)
 
 ---
 
 ### 🔧 Taller (36 capturas)
 
 #### 📱 Móvil
-
-* ![Taller Móvil 1](captura-de-pantalla)
-* ![Taller Móvil 2](captura-de-pantalla)
-* ![Taller Móvil 3](captura-de-pantalla)
-* ![Taller Móvil 4](captura-de-pantalla)
-* ![Taller Móvil 5](captura-de-pantalla)
-* ![Taller Móvil 6](captura-de-pantalla)
-* ![Taller Móvil 7](captura-de-pantalla)
-* ![Taller Móvil 8](captura-de-pantalla)
-* ![Taller Móvil 9](captura-de-pantalla)
-* ![Taller Móvil 10](captura-de-pantalla)
-* ![Taller Móvil 11](captura-de-pantalla)
-* ![Taller Móvil 12](captura-de-pantalla)
+- ![Taller Móvil 1](<captura-de-pantalla>)
+- ![Taller Móvil 2](<captura-de-pantalla>)
+- ![Taller Móvil 3](<captura-de-pantalla>)
+- ![Taller Móvil 4](<captura-de-pantalla>)
+- ![Taller Móvil 5](<captura-de-pantalla>)
+- ![Taller Móvil 6](<captura-de-pantalla>)
+- ![Taller Móvil 7](<captura-de-pantalla>)
+- ![Taller Móvil 8](<captura-de-pantalla>)
+- ![Taller Móvil 9](<captura-de-pantalla>)
+- ![Taller Móvil 10](<captura-de-pantalla>)
+- ![Taller Móvil 11](<captura-de-pantalla>)
+- ![Taller Móvil 12](<captura-de-pantalla>)
 
 #### 💻 Tablet
-
-* ![Taller Tablet 1](captura-de-pantalla)
-* ![Taller Tablet 2](captura-de-pantalla)
-* ![Taller Tablet 3](captura-de-pantalla)
-* ![Taller Tablet 4](captura-de-pantalla)
-* ![Taller Tablet 5](captura-de-pantalla)
-* ![Taller Tablet 6](captura-de-pantalla)
-* ![Taller Tablet 7](captura-de-pantalla)
-* ![Taller Tablet 8](captura-de-pantalla)
-* ![Taller Tablet 9](captura-de-pantalla)
-* ![Taller Tablet 10](captura-de-pantalla)
-* ![Taller Tablet 11](captura-de-pantalla)
-* ![Taller Tablet 12](captura-de-pantalla)
+- ![Taller Tablet 1](<captura-de-pantalla>)
+- ![Taller Tablet 2](<captura-de-pantalla>)
+- ![Taller Tablet 3](<captura-de-pantalla>)
+- ![Taller Tablet 4](<captura-de-pantalla>)
+- ![Taller Tablet 5](<captura-de-pantalla>)
+- ![Taller Tablet 6](<captura-de-pantalla>)
+- ![Taller Tablet 7](<captura-de-pantalla>)
+- ![Taller Tablet 8](<captura-de-pantalla>)
+- ![Taller Tablet 9](<captura-de-pantalla>)
+- ![Taller Tablet 10](<captura-de-pantalla>)
+- ![Taller Tablet 11](<captura-de-pantalla>)
+- ![Taller Tablet 12](<captura-de-pantalla>)
 
 #### 🖥️ Monitor
-
-* ![Taller Monitor 1](captura-de-pantalla)
-* ![Taller Monitor 2](captura-de-pantalla)
-* ![Taller Monitor 3](captura-de-pantalla)
-* ![Taller Monitor 4](captura-de-pantalla)
-* ![Taller Monitor 5](captura-de-pantalla)
-* ![Taller Monitor 6](captura-de-pantalla)
-* ![Taller Monitor 7](captura-de-pantalla)
-* ![Taller Monitor 8](captura-de-pantalla)
-* ![Taller Monitor 9](captura-de-pantalla)
-* ![Taller Monitor 10](captura-de-pantalla)
-* ![Taller Monitor 11](captura-de-pantalla)
-* ![Taller Monitor 12](captura-de-pantalla)
+- ![Taller Monitor 1](<captura-de-pantalla>)
+- ![Taller Monitor 2](<captura-de-pantalla>)
+- ![Taller Monitor 3](<captura-de-pantalla>)
+- ![Taller Monitor 4](<captura-de-pantalla>)
+- ![Taller Monitor 5](<captura-de-pantalla>)
+- ![Taller Monitor 6](<captura-de-pantalla>)
+- ![Taller Monitor 7](<captura-de-pantalla>)
+- ![Taller Monitor 8](<captura-de-pantalla>)
+- ![Taller Monitor 9](<captura-de-pantalla>)
+- ![Taller Monitor 10](<captura-de-pantalla>)
+- ![Taller Monitor 11](<captura-de-pantalla>)
+- ![Taller Monitor 12](<captura-de-pantalla>)
 
 ---
 
 ### 👤 Usuario (12 capturas)
 
 #### 📱 Móvil
-
-* ![Usuario Móvil 1](captura-de-pantalla)
-* ![Usuario Móvil 2](captura-de-pantalla)
-* ![Usuario Móvil 3](captura-de-pantalla)
-* ![Usuario Móvil 4](captura-de-pantalla)
+- ![Usuario Móvil 1](<captura-de-pantalla>)
+- ![Usuario Móvil 2](<captura-de-pantalla>)
+- ![Usuario Móvil 3](<captura-de-pantalla>)
+- ![Usuario Móvil 4](<captura-de-pantalla>)
 
 #### 💻 Tablet
-
-* ![Usuario Tablet 1](captura-de-pantalla)
-* ![Usuario Tablet 2](captura-de-pantalla)
-* ![Usuario Tablet 3](captura-de-pantalla)
-* ![Usuario Tablet 4](captura-de-pantalla)
+- ![Usuario Tablet 1](<captura-de-pantalla>)
+- ![Usuario Tablet 2](<captura-de-pantalla>)
+- ![Usuario Tablet 3](<captura-de-pantalla>)
+- ![Usuario Tablet 4](<captura-de-pantalla>)
 
 #### 🖥️ Monitor
-
-* ![Usuario Monitor 1](captura-de-pantalla)
-* ![Usuario Monitor 2](captura-de-pantalla)
-* ![Usuario Monitor 3](captura-de-pantalla)
-* ![Usuario Monitor 4](captura-de-pantalla)
+- ![Usuario Monitor 1](<captura-de-pantalla>)
+- ![Usuario Monitor 2](<captura-de-pantalla>)
+- ![Usuario Monitor 3](<captura-de-pantalla>)
+- ![Usuario Monitor 4](<captura-de-pantalla>)
 
 ---
 
 ## 🚀 Uso del Programa
 
 ### Para el Taller:
-
-* Registro de clientes, vehículos y partes de siniestro.
-* Gestión de documentos, fotos y piezas.
-* Control de estado de cada reparación paso a paso.
-* Comunicación directa con el cliente.
+- Registro de clientes, vehículos y partes de siniestro.
+- Gestión de documentos, fotos y piezas.
+- Control de estado de cada reparación paso a paso.
+- Comunicación directa con el cliente.
 
 ### Para el Usuario:
-
-* Visualización del estado de reparación del vehículo.
-* Acceso a presupuestos, facturas y documentos.
-* Recepción de notificaciones del taller.
+- Visualización del estado de reparación del vehículo.
+- Acceso a presupuestos, facturas y documentos.
+- Recepción de notificaciones del taller.
 
 ---
 
@@ -295,7 +190,6 @@ miracar/
 ## 🤝 Contribuciones
 
 Las contribuciones son bienvenidas. Puedes:
-
 1. Hacer un fork del repositorio.
 2. Crear una nueva rama (`git checkout -b mejora-x`).
 3. Realizar tus cambios.
@@ -311,15 +205,6 @@ Este proyecto está bajo la Licencia MIT. Revisa el archivo LICENSE para más in
 
 ## ✉️ Contacto
 
-Proyecto desarrollado por **Román Rodríguez Martín**
-📧 Correo: [roman@ejemplo.com](mailto:roman@ejemplo.com)
+Proyecto desarrollado por **Román Rodríguez Martín**  
+📧 Correo: roman@ejemplo.com  
 🌐 Sitio: [www.miracar.com](https://www.miracar.com) *(en construcción)*
-
----
-
-```
-
----
-
-¿Quieres que ahora te lo genere como archivo `.md` listo para descargar?
-```
