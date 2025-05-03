@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="galeria/logo.png" alt="MiraCar Logo" width="150" height="200" />
+  <img src="galeria/logo.png" alt="MiraCar Logo" width="300" height="350" />
   <h1 style={{ fontSize: '3.5rem', fontWeight: 'bold', background: 'linear-gradient(to right, #FF2D20, #4479A1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>🚗 MiraCar</h1>
   <p style={{ fontSize: '1.3rem', maxWidth: '800px', margin: '0 auto 20px' }}>Conectando talleres y clientes para una experiencia automotriz moderna, clara y eficiente.</p>
 
