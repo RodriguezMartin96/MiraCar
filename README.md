@@ -388,7 +388,7 @@ php artisan serve`}
 <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
   <p style={{ fontSize: '1.1rem', marginBottom: '10px' }}>Proyecto desarrollado por <strong>Román Rodríguez Martín</strong></p>
   <p style={{ fontSize: '1.1rem', marginBottom: '5px' }}>
-    📧 Correo: <a href="mailto:roman@ejemplo.com" style={{ color: '#FF2D20', textDecoration: 'none' }}>roman@ejemplo.com</a>
+    📧 Correo: <a href="mailto:adm.96.rrm@gmail.com" style={{ color: '#FF2D20', textDecoration: 'none' }}>adm.96.rrm@gmail.com</a>
   </p>
   <p style={{ fontSize: '1.1rem' }}>
     🌐 Sitio: <a href="https://www.miracar.com" style={{ color: '#4479A1', textDecoration: 'none' }}>www.miracar.com</a> <em>(en construcción)</em>
