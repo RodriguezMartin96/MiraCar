@@ -413,7 +413,7 @@
                             @enderror
                         </div>
                         <div class="mb-2">
-                            <label for="company_nif" class="form-label required-field">NIF</label>
+                            <label for="company_nif" class="form-label required-field">NIF/CIF</label>
                             <input id="company_nif" type="text" name="company_nif" class="form-control @error('company_nif') is-invalid @enderror" value="{{ old('company_nif') }}" />
                             <div id="company_nif_help" class="document-help">
                                 Formato: CIF (B12345678) o NIF (12345678Z)

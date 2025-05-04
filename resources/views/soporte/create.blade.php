@@ -2,6 +2,12 @@
 
 @section('title', config('app.name', 'MiraCar') . ' - Soporte')
 
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
+
 @section('content')
 <div class="container py-3 py-md-4">
     <div class="card shadow-sm">
