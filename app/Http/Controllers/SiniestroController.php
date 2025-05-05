@@ -15,7 +15,9 @@ class SiniestroController extends Controller
      */
     public function index(Request $request)
     {
+        // Filtrar siniestros por el usuario (taller) autenticado
         $query = Siniestro::query()
+            ->where('user_id', Auth::id())
             ->with(['cliente', 'vehiculo']);
         
         // Búsqueda
