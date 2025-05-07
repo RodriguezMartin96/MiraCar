@@ -1,4 +1,3 @@
-```markdown
 # MiraCar
 
 <div align="center">
