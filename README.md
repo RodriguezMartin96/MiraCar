@@ -1,5 +1,3 @@
-Aquí tienes el código completo del archivo README.md:
-
 ```markdown
 # MiraCar
 
@@ -818,9 +816,3 @@ Proyecto desarrollado por **Román Rodríguez Martín**
 📧 Correo: [adm.96.rrm@gmail.com](mailto:adm.96.rrm@gmail.com)
 
 🌐 Sitio: [www.miracar.com](http://www.miracar.com) *(en construcción)*
-
-```plaintext
-
-Puedes copiar este código completo y guardarlo como un archivo README.md. El formato Markdown se renderizará correctamente en plataformas como GitHub, GitLab, Bitbucket, etc., mostrando todos los elementos visuales como encabezados, tablas, imágenes y enlaces.
-
-```
