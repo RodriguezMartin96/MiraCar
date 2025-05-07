@@ -1,23 +1,19 @@
 <div align="center">
   <img src="galeria/logo.png" alt="MiraCar Logo" width="300" height="400" />
-  <h1 style={{ fontSize: '3.5rem', fontWeight: 'bold', background: 'linear-gradient(to right, #FF2D20, #4479A1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>🚗 MiraCar</h1>
-  <p style={{ fontSize: '1.3rem', maxWidth: '800px', margin: '0 auto 20px' }}>Conectando talleres y clientes para una experiencia automotriz moderna, clara y eficiente.</p>
+  <h1>🚗 MiraCar</h1>
+  <p>Conectando talleres y clientes para una experiencia automotriz moderna, clara y eficiente.</p>
 
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <a href="#sobre-miracar" style={{ textDecoration: 'none', color: '#FF2D20', fontWeight: 'bold', padding: '5px 10px', borderRadius: '5px', transition: 'all 0.3s ease' }}>¿Qué es MiraCar?</a>
-    <span style={{ color: '#666' }}>•</span>
-    <a href="#tecnologías-utilizadas" style={{ textDecoration: 'none', color: '#FF2D20', fontWeight: 'bold', padding: '5px 10px', borderRadius: '5px', transition: 'all 0.3s ease' }}>Tecnologías</a>
-    <span style={{ color: '#666' }}>•</span>
-    <a href="#instalación" style={{ textDecoration: 'none', color: '#FF2D20', fontWeight: 'bold', padding: '5px 10px', borderRadius: '5px', transition: 'all 0.3s ease' }}>Instalación</a>
-    <span style={{ color: '#666' }}>•</span>
-    <a href="#capturas-de-pantalla" style={{ textDecoration: 'none', color: '#FF2D20', fontWeight: 'bold', padding: '5px 10px', borderRadius: '5px', transition: 'all 0.3s ease' }}>Capturas</a>
-    <span style={{ color: '#666' }}>•</span>
-    <a href="#uso" style={{ textDecoration: 'none', color: '#FF2D20', fontWeight: 'bold', padding: '5px 10px', borderRadius: '5px', transition: 'all 0.3s ease' }}>Uso</a>
-    <span style={{ color: '#666' }}>•</span>
-    <a href="#estructura-del-proyecto" style={{ textDecoration: 'none', color: '#FF2D20', fontWeight: 'bold', padding: '5px 10px', borderRadius: '5px', transition: 'all 0.3s ease' }}>Estructura</a>
+  <div>
+    <a href="#-qué-es-miracar">¿Qué es MiraCar?</a> •
+    <a href="#-tecnologías-utilizadas">Tecnologías</a> •
+    <a href="#%EF%B8%8F-instalación">Instalación</a> •
+    <a href="#-guía-xampp">Guía XAMPP</a> •
+    <a href="#%EF%B8%8F-capturas">Capturas</a> •
+    <a href="#-uso">Uso</a> •
+    <a href="#-contacto">Contacto</a>
   </div>
-
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap', margin: '30px 0' }}>
+  <br/>
+  <div>
     <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP Badge" />
     <img src="https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel Badge" />
     <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL Badge" />
@@ -29,95 +25,51 @@
   </div>
 </div>
 
-<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #FF2D20, transparent)', margin: '40px 0' }} />
+---
 
-<h2 id="sobre-miracar" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#FF2D20', textAlign: 'center', margin: '40px 0 20px' }}>❓ ¿Qué es MiraCar?</h2>
+## ❓ ¿Qué es MiraCar?
 
-<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', fontSize: '1.1rem', lineHeight: '1.6' }}>
-  <p><strong>MiraCar</strong> es una aplicación web multiplataforma que conecta talleres automotrices con sus clientes, mejorando la comunicación, la gestión de reparaciones y la trazabilidad del historial de vehículos.</p>
+**MiraCar** es una aplicación web multiplataforma que conecta talleres automotrices con sus clientes, mejorando la comunicación, la gestión de reparaciones y la trazabilidad del historial de vehículos.
 
-  <p>El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquier dispositivo (móvil, tablet, escritorio). Se orienta tanto a <strong>talleres</strong> que necesitan gestionar siniestros, clientes y documentación, como a <strong>usuarios</strong> que desean hacer seguimiento en tiempo real de sus vehículos.</p>
-</div>
+El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquier dispositivo (móvil, tablet, escritorio). Se orienta tanto a **talleres** que necesitan gestionar siniestros, clientes y documentación, como a **usuarios** que desean hacer seguimiento en tiempo real de sus vehículos.
 
-<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #4479A1, transparent)', margin: '40px 0' }} />
+---
 
-<h2 id="tecnologías-utilizadas" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4479A1', textAlign: 'center', margin: '40px 0 20px' }}>🛠 Tecnologías Utilizadas</h2>
+## 🛠 Tecnologías Utilizadas
 
-<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px' }}>
-  <p style={{ textAlign: 'center', marginBottom: '20px', fontSize: '1.1rem' }}>El proyecto fue desarrollado con las siguientes herramientas:</p>
+El proyecto fue desarrollado con las siguientes herramientas:
 
-  <table style={{ width: '100%', borderCollapse: 'collapse', margin: '0 auto' }}>
-    <thead>
-      <tr style={{ background: '#f8f9fa' }}>
-        <th style={{ padding: '12px 15px', textAlign: 'left', borderBottom: '2px solid #4479A1' }}>Herramienta</th>
-        <th style={{ padding: '12px 15px', textAlign: 'left', borderBottom: '2px solid #4479A1' }}>Propósito</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>Laravel 10</strong></td>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Framework backend (PHP)</td>
-      </tr>
-      <tr style={{ background: '#f8f9fa' }}>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>PHP 8.2</strong></td>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Lenguaje del servidor</td>
-      </tr>
-      <tr>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>MySQL</strong></td>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Base de datos relacional</td>
-      </tr>
-      <tr style={{ background: '#f8f9fa' }}>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>XAMPP</strong></td>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Entorno local (Apache + MySQL + PHP)</td>
-      </tr>
-      <tr>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>Composer</strong></td>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Gestión de dependencias PHP</td>
-      </tr>
-      <tr style={{ background: '#f8f9fa' }}>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>Node.js & npm</strong></td>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Gestión frontend, assets, dependencias JS</td>
-      </tr>
-      <tr>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>Bootstrap 5.3</strong></td>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Framework CSS responsivo</td>
-      </tr>
-      <tr style={{ background: '#f8f9fa' }}>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>Git</strong></td>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Control de versiones</td>
-      </tr>
-      <tr>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}><strong>Visual Studio Code</strong></td>
-        <td style={{ padding: '12px 15px', borderBottom: '1px solid #ddd' }}>Editor de código recomendado</td>
-      </tr>
-    </tbody>
-  </table>
+| Herramienta | Propósito |
+|-------------|-----------|
+| **Laravel 10** | Framework backend (PHP) |
+| **PHP 8.2** | Lenguaje del servidor |
+| **MySQL** | Base de datos relacional |
+| **XAMPP** | Entorno local (Apache + MySQL + PHP) |
+| **Composer** | Gestión de dependencias PHP |
+| **Node.js & npm** | Gestión frontend, assets, dependencias JS |
+| **Bootstrap 5.3** | Framework CSS responsivo |
+| **Git** | Control de versiones |
+| **Visual Studio Code** | Editor de código recomendado |
 
-  <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '1.1rem' }}>Compatible con <strong>Windows, macOS y Linux</strong>.</p>
-</div>
+Compatible con **Windows, macOS y Linux**.
 
-<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #FF2D20, transparent)', margin: '40px 0' }} />
+---
 
-<h2 id="instalación" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#FF2D20', textAlign: 'center', margin: '40px 0 20px' }}>⚙️ Instalación</h2>
+## ⚙️ Instalación
 
-<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px' }}>
-  <h3 style={{ fontSize: '1.8rem', color: '#333', marginBottom: '15px', textAlign: 'center' }}>Requisitos Previos</h3>
+### Requisitos Previos
 
-  <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '10px', margin: '20px 0' }}>
-    <span style={{ padding: '8px 15px', background: '#f8f9fa', borderRadius: '20px', border: '1px solid #ddd' }}>PHP 8.1+</span>
-    <span style={{ padding: '8px 15px', background: '#f8f9fa', borderRadius: '20px', border: '1px solid #ddd' }}>MySQL 5.7+</span>
-    <span style={{ padding: '8px 15px', background: '#f8f9fa', borderRadius: '20px', border: '1px solid #ddd' }}>Node.js + npm</span>
-    <span style={{ padding: '8px 15px', background: '#f8f9fa', borderRadius: '20px', border: '1px solid #ddd' }}>Composer</span>
-    <span style={{ padding: '8px 15px', background: '#f8f9fa', borderRadius: '20px', border: '1px solid #ddd' }}>Git</span>
-    <span style={{ padding: '8px 15px', background: '#f8f9fa', borderRadius: '20px', border: '1px solid #ddd' }}>XAMPP o similar</span>
-  </div>
+- PHP 8.1+
+- MySQL 5.7+
+- Node.js + npm
+- Composer
+- Git
+- XAMPP o similar
 
-  <h3 style={{ fontSize: '1.8rem', color: '#333', marginBottom: '15px', textAlign: 'center' }}>Pasos</h3>
+### Pasos
 
-  <div style={{ background: '#282c34', color: '#abb2bf', padding: '20px', borderRadius: '8px', overflowX: 'auto', margin: '20px 0' }}>
-    <pre style={{ margin: 0 }}>
-      <code>
-{`# Clonar el proyecto
+```bash
+# Clonar el proyecto
 git clone https://github.com/tuusuario/miracar.git
 cd miracar
 
@@ -133,209 +85,799 @@ php artisan key:generate
 php artisan migrate --seed
 
 # Iniciar servidor local
-php artisan serve`}
-      </code>
-    </pre>
-  </div>
-</div>
+php artisan serve
+```
 
-<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #4479A1, transparent)', margin: '40px 0' }} />
+---
 
-<h2 id="capturas-de-pantalla" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4479A1', textAlign: 'center', margin: '40px 0 20px' }}>🖼️ Capturas de Pantalla</h2>
+## 📚 Guía XAMPP
 
-<div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
-  <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#333', textAlign: 'center', margin: '30px 0 20px', borderBottom: '2px solid #4479A1', paddingBottom: '10px' }}>📂 General</h3>
+Esta guía detalla el proceso de instalación y configuración de XAMPP para el proyecto MiraCar.
 
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/monitor/general/1.png" alt="General Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/general/5.png" alt="General Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/monitor/general/2.png" alt="General Monitor 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/general/3.png" alt="General Monitor 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/general/4.png" alt="General Monitor 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
+### Índice de la Guía
 
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>💻 Tablet</h4>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/table/general/1.png" alt="General Tablet 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/general/5.png" alt="General Tablet 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/table/general/2.png" alt="General Tablet 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/general/3.png" alt="General Tablet 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/general/4.png" alt="General Tablet 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
+1. [Instalación de XAMPP](#instalación-de-xampp)
+2. [Solución de Problemas Comunes](#solución-de-problemas-comunes)
+3. [Restauración de un Proyecto Laravel](#restauración-de-un-proyecto-laravel)
+4. [Configuración del Entorno Laravel](#configuración-del-entorno-laravel)
+5. [Solución de Problemas Específicos](#solución-de-problemas-específicos)
 
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>📱 Móvil</h4>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/movil/general/1.png" alt="General Móvil 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/general/5.png" alt="General Móvil 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/movil/general/2.png" alt="General Móvil 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/general/3.png" alt="General Móvil 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/general/4.png" alt="General Móvil 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
 
-  <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#333', textAlign: 'center', margin: '50px 0 20px', borderBottom: '2px solid #FF2D20', paddingBottom: '10px' }}>🔧 Taller</h3>
+### Instalación de XAMPP
 
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/monitor/taller/1.png" alt="Taller Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/2.png" alt="Taller Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/3.png" alt="Taller Monitor 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/4.png" alt="Taller Monitor 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/monitor/taller/5.png" alt="Taller Monitor 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/6.png" alt="Taller Monitor 6" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/7.png" alt="Taller Monitor 7" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/8.png" alt="Taller Monitor 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)  alt="Taller Monitor 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/monitor/taller/9.png" alt="Taller Monitor 9" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/10.png" alt="Taller Monitor 10" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/11.png" alt="Taller Monitor 11" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/12.png" alt="Taller Monitor 12" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
+#### Paso 1: Descargar la última versión de XAMPP
 
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>💻 Tablet</h4>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/table/taller/1.png" alt="Taller Tablet 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/taller/2.png" alt="Taller Tablet 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/taller/3.png" alt="Taller Tablet 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/taller/4.png" alt="Taller Tablet 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/table/taller/5.png" alt="Taller Tablet 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/taller/6.png" alt="Taller Tablet 6" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/taller/7.png" alt="Taller Tablet 7" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/taller/8.png" alt="Taller Tablet 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/table/taller/9.png" alt="Taller Tablet 9" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/taller/10.png" alt="Taller Tablet 10" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/taller/11.png" alt="Taller Tablet 11" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/taller/12.png" alt="Taller Tablet 12" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
+1. **Visita el sitio oficial de XAMPP**:
 
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>📱 Móvil</h4>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/movil/taller/1.png" alt="Taller Móvil 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/2.png" alt="Taller Móvil 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/3.png" alt="Taller Móvil 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/4.png" alt="Taller Móvil 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/movil/taller/5.png" alt="Taller Móvil 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/6.png" alt="Taller Móvil 6" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/7.png" alt="Taller Móvil 7" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/8.png" alt="Taller Móvil 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/movil/taller/9.png" alt="Taller Móvil 9" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/10.png" alt="Taller Móvil 10" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/11.png" alt="Taller Móvil 11" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/12.png" alt="Taller Móvil 12" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
+1. Abre tu navegador y ve a [https://www.apachefriends.org/download.html](https://www.apachefriends.org/download.html)
 
-  <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#333', textAlign: 'center', margin: '50px 0 20px', borderBottom: '2px solid #4479A1', paddingBottom: '10px' }}>👤 Usuario</h3>
 
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/monitor/usuario/1.png" alt="Usuario Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/usuario/2.png" alt="Usuario Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/usuario/3.png" alt="Usuario Monitor 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/usuario/4.png" alt="Usuario Monitor 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-</div>
 
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>💻 Tablet</h4>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/table/usuario/1.png" alt="Usuario Tablet 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/usuario/2.png" alt="Usuario Tablet 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/usuario/3.png" alt="Usuario Tablet 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/usuario/4.png" alt="Usuario Tablet 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
+2. **Selecciona la versión para Windows**:
 
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>📱 Móvil</h4>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/movil/usuario/1.png" alt="Usuario Móvil 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/usuario/2.png" alt="Usuario Móvil 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/usuario/3.png" alt="Usuario Móvil 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/usuario/4.png" alt="Usuario Móvil 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
+1. Elige la versión más reciente para Windows
+2. Haz clic en el botón de descarga
 
-<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #FF2D20, transparent)', margin: '40px 0' }} />
 
-<h2 id="uso" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#FF2D20', textAlign: 'center', margin: '40px 0 20px' }}>🚀 Uso del Programa</h2>
 
-<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px' }}>
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-    <div style={{ background: '#f8f9fa', padding: '25px', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
-      <h3 style={{ fontSize: '1.8rem', color: '#333', marginBottom: '15px', borderLeft: '4px solid #FF2D20', paddingLeft: '10px' }}>Para el Taller:</h3>
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
-        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
-          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#FF2D20', marginRight: '10px' }}></span>
-          Registro de clientes, vehículos y partes de siniestro.
-        </li>
-        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
-          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#FF2D20', marginRight: '10px' }}></span>
-          Gestión de documentos, fotos y piezas.
-        </li>
-        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
-          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#FF2D20', marginRight: '10px' }}></span>
-          Control de estado de cada reparación paso a paso.
-        </li>
-        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
-          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#FF2D20', marginRight: '10px' }}></span>
-          Comunicación directa con el cliente.
-        </li>
-      </ul>
-    </div>
+3. **Guarda el archivo de instalación**:
 
-    <div style={{ background: '#f8f9fa', padding: '25px', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
-      <h3 style={{ fontSize: '1.8rem', color: '#333', marginBottom: '15px', borderLeft: '4px solid #4479A1', paddingLeft: '10px' }}>Para el Usuario:</h3>
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
-        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
-          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#4479A1', marginRight: '10px' }}></span>
-          Visualización del estado de reparación del vehículo.
-        </li>
-        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
-          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#4479A1', marginRight: '10px' }}></span>
-          Acceso a presupuestos, facturas y documentos.
-        </li>
-        <li style={{ padding: '8px 0', display: 'flex', alignItems: 'center' }}>
-          <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#4479A1', marginRight: '10px' }}></span>
-          Recepción de notificaciones del taller.
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+1. Selecciona una ubicación fácil de encontrar, como tu Escritorio
 
-<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #4479A1, transparent)', margin: '40px 0' }} />
 
-<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #4479A1, transparent)', margin: '40px 0' }} />
 
-<h2 id="licencia" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4479A1', textAlign: 'center', margin: '40px 0 20px' }}>📜 Licencia</h2>
 
-<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
-  <p style={{ fontSize: '1.1rem' }}>Este proyecto está bajo la Licencia MIT. Revisa el archivo LICENSE para más información.</p>
-</div>
 
-<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #FF2D20, transparent)', margin: '40px 0' }} />
+#### Paso 2: Instalar XAMPP
 
-<h2 id="contacto" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#FF2D20', textAlign: 'center', margin: '40px 0 20px' }}>✉️ Contacto</h2>
+1. **Ejecuta el instalador**:
 
-<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
-  <p style={{ fontSize: '1.1rem', marginBottom: '10px' }}>Proyecto desarrollado por <strong>Román Rodríguez Martín</strong></p>
-  <p style={{ fontSize: '1.1rem', marginBottom: '5px' }}>
-    📧 Correo: <a href="mailto:adm.96.rrm@gmail.com" style={{ color: '#FF2D20', textDecoration: 'none' }}>adm.96.rrm@gmail.com</a>
-  </p>
-  <p style={{ fontSize: '1.1rem' }}>
-    🌐 Sitio: <a href="" style={{ color: '#4479A1', textDecoration: 'none' }}>www.miracar.com</a> <em>(en construcción)</em>
-  </p>
-</div>
+1. Localiza el archivo descargado (normalmente `xampp-windows-x64-X.X.X-X-installer.exe`)
+2. Haz clic derecho y selecciona "Ejecutar como administrador"
+
+
+
+2. **Si aparece una advertencia de seguridad**:
+
+1. Haz clic en "Sí" para permitir que el programa realice cambios
+
+
+
+3. **Sigue el asistente de instalación**:
+
+1. Haz clic en "Next" (Siguiente)
+2. En la pantalla de selección de componentes, asegúrate de que estén marcados al menos:
+
+1. Apache
+2. MySQL
+3. PHP
+4. phpMyAdmin
+
+
+
+3. Haz clic en "Next"
+
+
+
+4. **Selecciona la carpeta de instalación**:
+
+1. La ubicación predeterminada es `C:\xampp`
+2. Puedes cambiarla si lo deseas, pero recuerda la nueva ubicación
+3. Haz clic en "Next"
+
+
+
+5. **Selección de idioma y otras opciones**:
+
+1. Selecciona tu idioma preferido
+2. Desmarca la opción "Learn more about Bitnami" si no te interesa
+3. Haz clic en "Next"
+
+
+
+6. **Inicia la instalación**:
+
+1. Haz clic en "Next" para comenzar la instalación
+2. Espera a que se complete el proceso (puede tardar varios minutos)
+
+
+
+7. **Finaliza la instalación**:
+
+1. Cuando se complete, marca la casilla "Start Control Panel now"
+2. Haz clic en "Finish"
+
+
+
+
+
+#### Paso 3: Configurar XAMPP después de la instalación
+
+1. **Configura el panel de control**:
+
+1. En el panel de control de XAMPP, haz clic en "Config" (arriba a la derecha)
+2. Selecciona las opciones según tus preferencias
+
+
+
+2. **Inicia los servicios necesarios**:
+
+1. Haz clic en "Start" junto a Apache
+2. Haz clic en "Start" junto a MySQL
+3. Verifica que ambos servicios muestren la luz verde
+
+
+
+3. **Verifica la instalación**:
+
+1. Abre tu navegador
+2. Navega a `http://localhost`
+3. Deberías ver la página de bienvenida de XAMPP
+
+
+
+4. **Configura la seguridad**:
+
+1. Haz clic en "Security" en la página de bienvenida
+2. Sigue las recomendaciones para asegurar tu instalación
+3. Establece contraseñas para MySQL y phpMyAdmin
+
+
+
+
+
+#### Paso 4: Restaurar tus datos (si es necesario)
+
+1. **Restaura tus bases de datos**:
+
+1. Copia las carpetas de bases de datos desde `C:\XAMPP_Backup\databases`
+2. Pégalas en `C:\xampp\mysql\data`
+
+
+
+2. **Restaura tus proyectos web**:
+
+1. Copia las carpetas de proyectos desde `C:\XAMPP_Backup\htdocs`
+2. Pégalas en `C:\xampp\htdocs`
+
+
+
+3. **Restaura configuraciones personalizadas** (si es necesario):
+
+1. Revisa tus configuraciones personalizadas en `C:\XAMPP_Backup\config`
+2. Aplica los cambios necesarios a los nuevos archivos de configuración
+3. **No sobrescribas** directamente los archivos, mejor aplica los cambios manualmente
+
+
+
+
+
+### Solución de Problemas Comunes
+
+#### Si MySQL no inicia:
+
+1. **Verifica los puertos**:
+
+1. Asegúrate de que el puerto 3306 no esté siendo usado por otro programa
+2. Puedes cambiar el puerto en `C:\xampp\mysql\bin\my.ini`
+
+
+
+2. **Verifica los archivos de datos**:
+
+1. Si restauraste bases de datos, puede haber conflictos
+2. Intenta iniciar MySQL sin las bases de datos restauradas
+
+
+
+
+
+#### Si Apache no inicia:
+
+1. **Verifica los puertos**:
+
+1. Asegúrate de que los puertos 80 y 443 no estén siendo usados
+2. Puedes cambiar los puertos en `C:\xampp\apache\conf\httpd.conf`
+
+
+
+2. **Verifica la configuración**:
+
+1. Revisa `C:\xampp\apache\conf\httpd.conf` en busca de errores
+2. Revisa los logs en `C:\xampp\apache\logs`
+
+
+
+
+
+#### Solución para el mensaje "La carpeta seleccionada no está vacía"
+
+##### Opción 1: Eliminar completamente la carpeta existente
+
+1. **Cierra el instalador de XAMPP**
+2. **Asegúrate de tener una copia de seguridad de tus datos importantes**
+3. **Elimina la carpeta de XAMPP existente**:
+
+1. Navega a la ubicación de XAMPP (normalmente `C:\xampp`)
+2. Haz clic derecho en la carpeta y selecciona "Eliminar"
+
+
+
+4. **Ejecuta el instalador nuevamente**
+
+
+##### Opción 2: Instalar en una ubicación diferente
+
+1. **Cierra el instalador de XAMPP**
+2. **Ejecuta el instalador nuevamente**
+3. **Cuando llegues a la pantalla de selección de ubicación**:
+
+1. Elige una ubicación diferente, por ejemplo:
+
+1. `C:\xampp2`
+2. `D:\xampp`
+3. `C:\Programas\xampp`
+
+
+
+
+
+
+4. **Completa la instalación normalmente**
+
+
+### Restauración de un Proyecto Laravel
+
+#### Paso 1: Restaurar el código fuente del proyecto
+
+1. **Localiza la copia de seguridad** de tu proyecto Laravel
+2. **Copia la carpeta del proyecto** a la nueva instalación:
+
+1. Copia toda la carpeta de tu proyecto (por ejemplo, `miracar`)
+2. Pégala en `C:\xampp\htdocs\`
+
+
+
+3. **Configura los permisos correctos** para las carpetas que requieren escritura:
+
+1. `C:\xampp\htdocs\laravel\miracar\storage`
+2. `C:\xampp\htdocs\laravel\miracar\bootstrap\cache`
+
+
+
+
+
+#### Paso 2: Restaurar la base de datos
+
+1. **Inicia los servicios de XAMPP**
+2. **Restaurar desde archivos de datos**:
+
+1. Detén el servicio MySQL en el panel de control de XAMPP
+2. Copia la carpeta de la base de datos
+3. Pégala en `C:\xampp\mysql\data\`
+4. Inicia el servicio MySQL nuevamente
+
+
+
+3. **Restaurar desde un archivo SQL** (si tienes un dump):
+
+1. Abre phpMyAdmin (`http://localhost/phpmyadmin`)
+2. Crea una nueva base de datos
+3. Importa el archivo SQL
+
+
+
+
+
+### Configuración del Entorno Laravel
+
+#### Paso 1: Verificar el archivo .env
+
+1. **Verifica que el archivo .env exista**:
+
+1. Si no existe, crea uno copiando `.env.example`:
+
+
+
+
+
+```shellscript
+copy .env.example .env
+```
+
+2. **Edita el archivo .env** para que coincida con tu nueva configuración:
+
+
+```plaintext
+APP_URL=http://miracar.com
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=miracar
+DB_USERNAME=root
+DB_PASSWORD=
+
+SESSION_DRIVER=database
+CACHE_DRIVER=file
+```
+
+#### Paso 2: Instalar dependencias y regenerar la clave
+
+1. **Verifica si Composer está instalado**:
+
+
+```shellscript
+composer --version
+```
+
+2. **Instala las dependencias del proyecto**:
+
+
+```shellscript
+cd C:\xampp\htdocs\laravel\MiraCar
+composer install
+```
+
+3. **Genera una nueva clave de aplicación**:
+
+
+```shellscript
+php artisan key:generate
+```
+
+4. **Limpia cachés**:
+
+
+```shellscript
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+php artisan cache:clear
+```
+
+#### Paso 3: Configurar hosts virtuales
+
+1. **Edita el archivo hosts**:
+
+1. Abre `C:\Windows\System32\drivers\etc\hosts` como administrador
+2. Agrega estas líneas:
+
+
+
+
+
+```plaintext
+127.0.0.1 miracar.com
+127.0.0.1 www.miracar.com
+```
+
+2. **Configura el host virtual en Apache**:
+
+1. Abre `C:\xampp\apache\conf\extra\httpd-vhosts.conf`
+2. Agrega esta configuración:
+
+
+
+
+
+```plaintext
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/laravel/miracar/public"
+    ServerName miracar.com
+    ServerAlias www.miracar.com
+    <Directory "C:/xampp/htdocs/laravel/miracar/public">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+    ErrorLog "logs/miracar.com-error.log"
+    CustomLog "logs/miracar.com-access.log" combined
+</VirtualHost>
+
+# Configuración para acceder a través de IP/miracar
+Alias "/miracar" "C:/xampp/htdocs/laravel/miracar/public"
+<Directory "C:/xampp/htdocs/laravel/miracar/public">
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+```
+
+3. **Reinicia Apache**
+
+
+### Solución de Problemas Específicos
+
+#### Recrear el archivo .env sin copia de seguridad
+
+1. **Crea un nuevo archivo .env a partir del ejemplo**:
+
+
+```shellscript
+copy .env.example .env
+```
+
+2. **Configura los valores básicos**:
+
+
+```plaintext
+APP_NAME=MiraCar
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://miracar.com
+
+LOG_CHANNEL=stack
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=miracar
+DB_USERNAME=root
+DB_PASSWORD=
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+FILESYSTEM_DISK=local
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=database
+SESSION_LIFETIME=120
+```
+
+3. **Genera una nueva clave de aplicación**:
+
+
+```shellscript
+php artisan key:generate
+```
+
+#### Solución para el error de vendor/autoload.php no encontrado
+
+1. **Instala Composer** (si no está instalado)
+2. **Instala las dependencias del proyecto**:
+
+
+```shellscript
+cd C:\xampp\htdocs\laravel\MiraCar
+composer install
+```
+
+3. **Si encuentras errores de extensiones de PHP faltantes**:
+
+1. Edita `C:\xampp\php\php.ini`
+2. Descomenta las extensiones necesarias:
+
+
+
+
+
+```plaintext
+extension=fileinfo
+extension=openssl
+extension=mbstring
+extension=pdo_mysql
+extension=zip
+```
+
+#### Solución para el problema de redirección a la página de XAMPP
+
+1. **Verifica la estructura de carpetas**:
+
+1. Confirma que tu proyecto esté en la ubicación correcta
+2. Asegúrate de que la carpeta `public` exista
+
+
+
+2. **Corrige la configuración del host virtual**:
+
+1. Asegúrate de que `DocumentRoot` apunte a la carpeta `public`
+
+
+
+3. **Verifica el archivo .htaccess** en la carpeta `public`:
+
+
+```plaintext
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+```
+
+4. **Verifica que mod_rewrite esté habilitado**:
+
+1. Abre `C:\xampp\apache\conf\httpd.conf`
+2. Busca `LoadModule rewrite_module modules/mod_rewrite.so`
+3. Asegúrate de que no esté comentada
+
+
+
+5. **Revisa los logs de error** para identificar problemas específicos:
+
+1. Apache: `C:\xampp\apache\logs\error.log`
+2. Laravel: `C:\xampp\htdocs\laravel\MiraCar\storage\logs\laravel.log`
+
+
+
+
+
+---
+
+## 🖼️ Capturas
+
+### 📂 General
+
+#### 🖥️ Monitor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### 💻 Tablet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### 📱 Móvil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 🔧 Taller
+
+#### 🖥️ Monitor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### 💻 Tablet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### 📱 Móvil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 👤 Usuario
+
+#### 🖥️ Monitor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### 💻 Tablet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### 📱 Móvil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+## 🚀 Uso
+
+### Para el Taller:
+
+- Registro de clientes, vehículos y partes de siniestro.
+- Gestión de documentos, fotos y piezas.
+- Control de estado de cada reparación paso a paso.
+- Comunicación directa con el cliente.
+
+
+### Para el Usuario:
+
+- Visualización del estado de reparación del vehículo.
+- Acceso a presupuestos, facturas y documentos.
+- Recepción de notificaciones del taller.
+
+
+---
+
+## 📜 Licencia
+
+Este proyecto está bajo la Licencia MIT. Revisa el archivo LICENSE para más información.
+
+---
+
+## ✉️ Contacto
+
+Proyecto desarrollado por **Román Rodríguez Martín**
+
+📧 Correo: [adm.96.rrm@gmail.com](mailto:adm.96.rrm@gmail.com)
+
+🌐 Sitio: [www.miracar.com](http://www.miracar.com) *(en construcción)*
