@@ -146,15 +146,15 @@ php artisan serve`}
 <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
   <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#333', textAlign: 'center', margin: '30px 0 20px', borderBottom: '2px solid #4479A1', paddingBottom: '10px' }}>📂 General</h3>
 
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>📱 Móvil</h4>
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/movil/general/1.png" alt="General Móvil 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/general/5.png" alt="General Móvil 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/general/1.png" alt="General Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/general/5.png" alt="General Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/movil/general/2.png" alt="General Móvil 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/general/3.png" alt="General Móvil 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/general/4.png" alt="General Móvil 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/general/2.png" alt="General Monitor 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/general/3.png" alt="General Monitor 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/general/4.png" alt="General Monitor 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
 
   <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>💻 Tablet</h4>
@@ -168,37 +168,37 @@ php artisan serve`}
     <img src="galeria/table/general/4.png" alt="General Tablet 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
 
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>📱 Móvil</h4>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/monitor/general/1.png" alt="General Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/general/5.png" alt="General Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/general/1.png" alt="General Móvil 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/general/5.png" alt="General Móvil 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/monitor/general/2.png" alt="General Monitor 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/general/3.png" alt="General Monitor 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/general/4.png" alt="General Monitor 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/general/2.png" alt="General Móvil 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/general/3.png" alt="General Móvil 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/general/4.png" alt="General Móvil 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
 
   <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#333', textAlign: 'center', margin: '50px 0 20px', borderBottom: '2px solid #FF2D20', paddingBottom: '10px' }}>🔧 Taller</h3>
 
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>📱 Móvil</h4>
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/movil/taller/1.png" alt="Taller Móvil 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/2.png" alt="Taller Móvil 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/3.png" alt="Taller Móvil 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/4.png" alt="Taller Móvil 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/taller/1.png" alt="Taller Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/taller/2.png" alt="Taller Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/taller/3.png" alt="Taller Monitor 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/taller/4.png" alt="Taller Monitor 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/movil/taller/5.png" alt="Taller Móvil 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/6.png" alt="Taller Móvil 6" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/7.png" alt="Taller Móvil 7" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/8.png" alt="Taller Móvil 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/taller/5.png" alt="Taller Monitor 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/taller/6.png" alt="Taller Monitor 6" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/taller/7.png" alt="Taller Monitor 7" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/taller/8.png" alt="Taller Monitor 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)  alt="Taller Monitor 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/movil/taller/9.png" alt="Taller Móvil 9" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/10.png" alt="Taller Móvil 10" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/11.png" alt="Taller Móvil 11" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/taller/12.png" alt="Taller Móvil 12" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/taller/9.png" alt="Taller Monitor 9" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/taller/10.png" alt="Taller Monitor 10" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/taller/11.png" alt="Taller Monitor 11" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/monitor/taller/12.png" alt="Taller Monitor 12" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
 
   <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>💻 Tablet</h4>
@@ -221,43 +221,27 @@ php artisan serve`}
     <img src="galeria/table/taller/12.png" alt="Taller Tablet 12" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
 
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>📱 Móvil</h4>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/monitor/taller/1.png" alt="Taller Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/2.png" alt="Taller Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/3.png" alt="Taller Monitor 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/4.png" alt="Taller Monitor 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/taller/1.png" alt="Taller Móvil 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/taller/2.png" alt="Taller Móvil 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/taller/3.png" alt="Taller Móvil 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/taller/4.png" alt="Taller Móvil 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/monitor/taller/5.png" alt="Taller Monitor 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/6.png" alt="Taller Monitor 6" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/7.png" alt="Taller Monitor 7" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/8.png" alt="Taller Monitor 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)  alt="Taller Monitor 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/taller/5.png" alt="Taller Móvil 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/taller/6.png" alt="Taller Móvil 6" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/taller/7.png" alt="Taller Móvil 7" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/taller/8.png" alt="Taller Móvil 8" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/monitor/taller/9.png" alt="Taller Monitor 9" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/10.png" alt="Taller Monitor 10" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/11.png" alt="Taller Monitor 11" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/monitor/taller/12.png" alt="Taller Monitor 12" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/taller/9.png" alt="Taller Móvil 9" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/taller/10.png" alt="Taller Móvil 10" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/taller/11.png" alt="Taller Móvil 11" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/taller/12.png" alt="Taller Móvil 12" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
 
   <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#333', textAlign: 'center', margin: '50px 0 20px', borderBottom: '2px solid #4479A1', paddingBottom: '10px' }}>👤 Usuario</h3>
-
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>📱 Móvil</h4>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/movil/usuario/1.png" alt="Usuario Móvil 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/usuario/2.png" alt="Usuario Móvil 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/usuario/3.png" alt="Usuario Móvil 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/usuario/4.png" alt="Usuario Móvil 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
-
-  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>💻 Tablet</h4>
-  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
-    <img src="galeria/table/usuario/1.png" alt="Usuario Tablet 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/usuario/2.png" alt="Usuario Tablet 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/usuario/3.png" alt="Usuario Tablet 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/table/usuario/4.png" alt="Usuario Tablet 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>
 
   <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
@@ -267,6 +251,22 @@ php artisan serve`}
     <img src="galeria/monitor/usuario/4.png" alt="Usuario Monitor 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
   </div>
 </div>
+
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>💻 Tablet</h4>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="galeria/table/usuario/1.png" alt="Usuario Tablet 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/table/usuario/2.png" alt="Usuario Tablet 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/table/usuario/3.png" alt="Usuario Tablet 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/table/usuario/4.png" alt="Usuario Tablet 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
+
+  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>📱 Móvil</h4>
+  <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
+    <img src="galeria/movil/usuario/1.png" alt="Usuario Móvil 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/usuario/2.png" alt="Usuario Móvil 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/usuario/3.png" alt="Usuario Móvil 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+    <img src="galeria/movil/usuario/4.png" alt="Usuario Móvil 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
+  </div>
 
 <hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #FF2D20, transparent)', margin: '40px 0' }} />
 
