@@ -10,6 +10,7 @@
     <a href="#tecnologías-utilizadas">Tecnologías</a> •
     <a href="#instalación-y-configuración">Instalación</a> •
     <a href="#capturas-de-pantalla">Capturas</a> •
+    <a href="#documentación">Documentación</a> •
     <a href="#uso-del-programa">Uso</a> •
     <a href="#estructura-del-proyecto">Estructura</a> •
     <a href="#licencia">Licencia</a>
@@ -41,13 +42,13 @@ El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquie
 
 | Herramienta              | Propósito                            | Versión  | Enlace |
 |--------------------------|--------------------------------------|----------|--------|
-| Laravel                  | Framework backend (PHP)              | 12     | -   |
-| PHP                      | Lenguaje del servidor                | 8.2      | - |
-| MySQL                    | Base de datos relacional             | 8.0      | - |
+| Laravel                  | Framework backend (PHP)              | 12       | -      |
+| PHP                      | Lenguaje del servidor                | 8.2      | -      |
+| MySQL                    | Base de datos relacional             | 8.0      | -      |
 | [XAMPP](https://www.apachefriends.org/es/index.html) | Entorno local (Apache + MySQL + PHP) | 8.2.4    | [Descargar](https://www.apachefriends.org/es/index.html) |
 | [Composer](https://getcomposer.org/) | Gestión de dependencias PHP          | 2.x      | [Instalar](https://getcomposer.org/) |
 | [Node.js](https://nodejs.org/es) & npm | Gestión frontend y assets JS         | 18.x     | [Descargar](https://nodejs.org/es) |
-| Bootstrap                | Framework CSS responsivo             | 5        | - |
+| Bootstrap                | Framework CSS responsivo             | 5        | -      |
 | [Git](https://git-scm.com/) | Control de versiones                 | 2.x      | [Descargar](https://git-scm.com/) |
 
 Compatible con **Windows, macOS y Linux**.
@@ -234,6 +235,7 @@ Para configuración de hosts virtuales y otros ajustes, consulta la [Guía Compl
 ### Para Usuarios
 - Ver estado de vehículos
 - Recibir notificaciones
+- Acceder a presupuestos y facturas
 
 ---
 
@@ -252,6 +254,17 @@ miracar/
 ├── tests/                # Pruebas
 └── vendor/               # Dependencias
 ```
+
+---
+
+## 📚 Documentación
+
+Documentación técnica y diagramas del sistema:
+
+- [📄 Documentación Completa del Proyecto](0documentos/Documentación%20Del%20Proyecto.pdf)
+- [📊 Diagrama de Casos de Uso](0documentos/Diagrama%20de%20casos%20de%20uso.png)
+- [🔗 Modelo Entidad-Relación](0documentos/Modelo%20Entidad%20&%20Relación.png)
+- [🎨 Prototipo de Interfaz](0documentos/Prototipo.jpg)
 
 ---
 
@@ -326,11 +339,3 @@ php artisan optimize:clear
 
 Para más detalles, consulta los logs correspondientes.
 ```
-
-He realizado las siguientes mejoras:
-1. Añadido enlaces a las tecnologías en la tabla correspondiente
-2. Mantenido todos los elementos visuales y estructura original
-3. Conservado todas las capturas de pantalla organizadas por secciones
-4. Asegurando que todos los enlaces funcionen correctamente
-5. Mejorado la consistencia del formato en todo el documento
-6. Verificado que todas las imágenes tengan texto alternativo descriptivo
