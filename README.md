@@ -126,6 +126,16 @@ Compatible con **Windows, macOS y Linux**.
      DB_DATABASE=miracar
      DB_USERNAME=root
      DB_PASSWORD=
+     
+     MAIL_MAILER=smtp
+     MAIL_HOST=smtp.gmail.com
+     MAIL_PORT=587
+     MAIL_USERNAME=adm.96.rrm@gmail.com
+     MAIL_PASSWORD=tu-contraseña-de-aplicación
+     MAIL_ENCRYPTION=tls
+     MAIL_FROM_ADDRESS=adm.96.rrm@gmail.com
+     MAIL_FROM_NAME="Soporte MiraCar"
+     MAIL_SUPPORT_ADDRESS=adm.96.rrm@gmail.com
      ```
    - Ejecutar migraciones:
      ```bash
