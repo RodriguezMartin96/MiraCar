@@ -218,7 +218,7 @@ miracar/
   <img src="1galeria/movil/taller/4.png" alt="Taller Móvil 4" width="23%"/>
 </div>
 
-### 👤🚘 Panel del Usuario
+### 👤 Panel del Usuario
 
 #### 🖥️ Monitor
 <div align="center">
