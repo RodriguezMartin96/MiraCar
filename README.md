@@ -1,11 +1,11 @@
-<div align="center" style='font-size=60px;'>
+<div align="center">
   <h1>MiraCar</h1>
 </div>
 
 <div align="center">
   <img src="1galeria/logo.png" alt="MiraCar Logo" width="300" height="400" />
   <h1>🚗 MiraCar</h1>
-  <p>Conectando talleres y clientes para una experiencia automotriz moderna, clara y eficiente.</p>
+  <p>Conectando talleres y clientes para una experiencia moderna, clara y eficiente.</p>
 
   <div>
     <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
@@ -31,7 +31,7 @@ El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquie
 
 ## 🚀 Uso del Programa
 
-### Para Talleres
+### 🛠️ Para Talleres
 - Registrar clientes, vehículos y siniestros
 - Adjuntar documentos y fotos
 - Controlar estado de reparaciones
@@ -39,7 +39,7 @@ El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquie
 - Control de recambios en stock
 - Fácil búsqueda de los datos
 
-### Para Usuarios
+### 👤 Para Usuarios
 - Ver estado de vehículos a tiempo real
 - Recibir notificaciones
 
@@ -192,7 +192,7 @@ miracar/
   <img src="1galeria/movil/general/4.png" alt="General Móvil 5" width="30%"/>
 </div>
 
-### 🔧🛠️ Panel del Taller
+### 🛠️ Panel del Taller
 
 #### 🖥️ Monitor
 <div align="center">
