@@ -526,9 +526,8 @@ RewriteRule ^ index.php [L]
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/movil/general/2.png" alt="General Móvil 3" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/movil/general/3.png" alt="General Móvil 4" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-    <img src="galeria/movil/general/4.png" alt="General Móvil 5" style={{ borderRadius: '8px', box  }} />
     <img src="galeria/movil/general/4.png" alt="General Móvil 5" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
-  </div>``  <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#333', textAlign: 'center', margin: '50px 0 20px', borderBottom: '2px solid #FF2D20', paddingBottom: '10px' }}>🔧 Taller</h3>``  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
+  </div>``  <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#333', textAlign: 'center', margin: '50px 0 20px', borderBottom: '2px solid #FF2D20',  color: '#333', textAlign: 'center', margin: '50px 0 20px', borderBottom: '2px solid #FF2D20', paddingBottom: '10px' }}>🔧 Taller</h3>``  <h4 style={{ fontSize: '1.3rem', color: '#666', textAlign: 'center', margin: '20px 0 15px', fontWeight: 'normal' }}>🖥️ Monitor</h4>
   <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', margin: '20px 0' }}>
     <img src="galeria/monitor/taller/1.png" alt="Taller Monitor 1" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
     <img src="galeria/monitor/taller/2.png" alt="Taller Monitor 2" style={{ borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }} />
@@ -641,7 +640,7 @@ RewriteRule ^ index.php [L]
     </li>
   </ul>
 </div>
-`
+```
 
 `  </div>
 </div>``<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #4479A1, transparent)', margin: '40px 0' }} />``<h2 id="licencia" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4479A1', textAlign: 'center', margin: '40px 0 20px' }}>📜 Licencia</h2>``<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
