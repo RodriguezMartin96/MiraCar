@@ -335,4 +335,3 @@ Este proyecto está bajo la [Licencia MIT](LICENSE).
    php artisan key:generate
    php artisan storage:link
    ```
-```
