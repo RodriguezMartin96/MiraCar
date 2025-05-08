@@ -158,9 +158,9 @@ miracar/
 
 ## 🖼️ Capturas de Pantalla
 
-### Panel del Inicio de Sesión & Registro
+### 🔐📱 Panel de Inicio de Sesión & Registro
 
-#### Monitor
+#### 🖥️ Monitor
 <div align="center">
   <img src="1galeria/monitor/general/1.png" alt="General Monitor 1" width="45%"/>
   <img src="1galeria/monitor/general/5.png" alt="General Monitor 2" width="45%"/>
@@ -170,7 +170,7 @@ miracar/
   <img src="1galeria/monitor/general/4.png" alt="General Monitor 5" width="30%"/>
 </div>
 
-#### Tablet
+#### 💻 Tablet
 <div align="center">
   <img src="1galeria/table/general/1.png" alt="General Tablet 1" width="45%"/>
   <img src="1galeria/table/general/5.png" alt="General Tablet 2" width="45%"/>
@@ -180,7 +180,7 @@ miracar/
   <img src="1galeria/table/general/4.png" alt="General Tablet 5" width="30%"/>
 </div>
 
-#### Móvil
+#### 📱 Móvil
 <div align="center">
   <img src="1galeria/movil/general/1.png" alt="General Móvil 1" width="45%"/>
   <img src="1galeria/movil/general/5.png" alt="General Móvil 2" width="45%"/>
@@ -190,9 +190,9 @@ miracar/
   <img src="1galeria/movil/general/4.png" alt="General Móvil 5" width="30%"/>
 </div>
 
-### Panel del Taller
+### 🔧🛠️ Panel del Taller
 
-#### Monitor
+#### 🖥️ Monitor
 <div align="center">
   <img src="1galeria/monitor/taller/1.png" alt="Taller Monitor 1" width="23%"/>
   <img src="1galeria/monitor/taller/2.png" alt="Taller Monitor 2" width="23%"/>
@@ -200,7 +200,7 @@ miracar/
   <img src="1galeria/monitor/taller/4.png" alt="Taller Monitor 4" width="23%"/>
 </div>
 
-#### Tablet
+#### 💻 Tablet
 <div align="center">
   <img src="1galeria/table/taller/1.png" alt="Taller Tablet 1" width="23%"/>
   <img src="1galeria/table/taller/2.png" alt="Taller Tablet 2" width="23%"/>
@@ -208,7 +208,7 @@ miracar/
   <img src="1galeria/table/taller/4.png" alt="Taller Tablet 4" width="23%"/>
 </div>
 
-#### Móvil
+#### 📱 Móvil
 <div align="center">
   <img src="1galeria/movil/taller/1.png" alt="Taller Móvil 1" width="23%"/>
   <img src="1galeria/movil/taller/2.png" alt="Taller Móvil 2" width="23%"/>
@@ -216,21 +216,21 @@ miracar/
   <img src="1galeria/movil/taller/4.png" alt="Taller Móvil 4" width="23%"/>
 </div>
 
-### Panel del Usuario
+### 👤🚘 Panel del Usuario
 
-#### Monitor
+#### 🖥️ Monitor
 <div align="center">
   <img src="1galeria/monitor/usuario/1.png" alt="Usuario Monitor 1" width="45%"/>
   <img src="1galeria/monitor/usuario/2.png" alt="Usuario Monitor 2" width="45%"/>
 </div>
 
-#### Tablet
+#### 💻 Tablet
 <div align="center">
   <img src="1galeria/table/usuario/1.png" alt="Usuario Tablet 1" width="45%"/>
   <img src="1galeria/table/usuario/2.png" alt="Usuario Tablet 2" width="45%"/>
 </div>
 
-#### Móvil
+#### 📱 Móvil
 <div align="center">
   <img src="1galeria/movil/usuario/1.png" alt="Usuario Móvil 1" width="45%"/>
   <img src="1galeria/movil/usuario/2.png" alt="Usuario Móvil 2" width="45%"/>
@@ -243,7 +243,7 @@ miracar/
 <div align="center">
   <a href="https://www.youtube.com/watch?v=TU_ENLACE_DE_VIDEO" target="_blank">
     <img src="1galeria/video-thumbnail.jpg" alt="Video demostrativo de MiraCar" width="60%"/>
-    <p>Ver demostración en YouTube</p>
+    <p>🎥 Ver demostración en YouTube</p>
   </a>
 </div>
 
