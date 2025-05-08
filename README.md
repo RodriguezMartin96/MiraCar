@@ -45,11 +45,11 @@ El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquie
 | Laravel                  | Framework backend (PHP)              | 12       | -      |
 | PHP                      | Lenguaje del servidor                | 8.2      | -      |
 | MySQL                    | Base de datos relacional             | 8.0      | -      |
-| [XAMPP](https://www.apachefriends.org/es/index.html) | Entorno local (Apache + MySQL + PHP) | 8.2.4    | [Descargar](https://www.apachefriends.org/es/index.html) |
-| [Composer](https://getcomposer.org/) | Gestión de dependencias PHP          | 2.x      | [Instalar](https://getcomposer.org/) |
-| [Node.js](https://nodejs.org/es) & npm | Gestión frontend y assets JS         | 18.x     | [Descargar](https://nodejs.org/es) |
+| XAMPP                    | Entorno local (Apache + MySQL + PHP) | 8.2.4    | [Descargar](https://www.apachefriends.org/es/index.html) |
+| Composer                 | Gestión de dependencias PHP          | 2.x      | [Instalar](https://getcomposer.org/) |
+| Node.js & npm            | Gestión frontend y assets JS         | 18.x     | [Descargar](https://nodejs.org/es) |
 | Bootstrap                | Framework CSS responsivo             | 5        | -      |
-| [Git](https://git-scm.com/) | Control de versiones                 | 2.x      | [Descargar](https://git-scm.com/) |
+| Git                      | Control de versiones                 | 2.x      | [Descargar](https://git-scm.com/) |
 
 Compatible con **Windows, macOS y Linux**.
 
@@ -60,23 +60,23 @@ Compatible con **Windows, macOS y Linux**.
 ### Requisitos Previos
 - PHP 8.1+
 - MySQL 5.7+
-- [Node.js](https://nodejs.org/es) + npm
-- [Composer](https://getcomposer.org/)
-- [Git](https://git-scm.com/)
-- [XAMPP](https://www.apachefriends.org/es/index.html) o similar
+- Node.js + npm
+- Composer
+- Git
+- XAMPP o similar
 
 ### Pasos de Instalación
 
 1. **Instalar XAMPP** (entorno de desarrollo local):
-   - Descargar XAMPP desde [Apache Friends](https://www.apachefriends.org/es/index.html).
-   - Ejecutar el instalador como administrador.
+   - Descargar XAMPP desde [Apache Friends](https://www.apachefriends.org/es/index.html)
+   - Ejecutar el instalador como administrador
    - Seleccionar componentes esenciales:
      - **Apache** (servidor web)
      - **MySQL** (base de datos)
      - **PHP** (versión 8.2+ recomendada)
      - **phpMyAdmin** (opcional para gestión de bases de datos)
-   - Completar la instalación y abrir el panel de control.
-   - Iniciar los servicios de **Apache** y **MySQL** desde el panel.
+   - Completar la instalación y abrir el panel de control
+   - Iniciar los servicios de **Apache** y **MySQL** desde el panel
 
 2. **Clonar el repositorio**:
    ```bash
@@ -97,7 +97,7 @@ Compatible con **Windows, macOS y Linux**.
    ```
 
 5. **Configurar base de datos**:
-   - Crear una base de datos MySQL llamada `miracar` desde phpMyAdmin ([http://localhost/phpmyadmin](http://localhost/phpmyadmin)).
+   - Crear una base de datos MySQL llamada `miracar` desde phpMyAdmin ([http://localhost/phpmyadmin](http://localhost/phpmyadmin))
    - Configurar las credenciales en `.env`:
      ```env
      DB_DATABASE=miracar
@@ -113,15 +113,15 @@ Compatible con **Windows, macOS y Linux**.
    ```bash
    php artisan serve
    ```
-   Acceder a [http://localhost:8000](http://localhost:8000).
+   Acceder a [http://localhost:8000](http://localhost:8000)
 
 ---
 
 ## 🖼️ Capturas de Pantalla
 
-### 📂 Panel del Inicio De Sección & Registro
+### Panel del Inicio de Sesión & Registro
 
-#### 🖥️ Monitor
+#### Monitor
 <div align="center">
   <img src="1galeria/monitor/general/1.png" alt="General Monitor 1" width="45%"/>
   <img src="1galeria/monitor/general/5.png" alt="General Monitor 2" width="45%"/>
@@ -131,7 +131,7 @@ Compatible con **Windows, macOS y Linux**.
   <img src="1galeria/monitor/general/4.png" alt="General Monitor 5" width="30%"/>
 </div>
 
-#### 💻 Tablet
+#### Tablet
 <div align="center">
   <img src="1galeria/table/general/1.png" alt="General Tablet 1" width="45%"/>
   <img src="1galeria/table/general/5.png" alt="General Tablet 2" width="45%"/>
@@ -141,7 +141,7 @@ Compatible con **Windows, macOS y Linux**.
   <img src="1galeria/table/general/4.png" alt="General Tablet 5" width="30%"/>
 </div>
 
-#### 📱 Móvil
+#### Móvil
 <div align="center">
   <img src="1galeria/movil/general/1.png" alt="General Móvil 1" width="45%"/>
   <img src="1galeria/movil/general/5.png" alt="General Móvil 2" width="45%"/>
@@ -151,9 +151,9 @@ Compatible con **Windows, macOS y Linux**.
   <img src="1galeria/movil/general/4.png" alt="General Móvil 5" width="30%"/>
 </div>
 
-### 🔧 Panel del Taller
+### Panel del Taller
 
-#### 🖥️ Monitor
+#### Monitor
 <div align="center">
   <img src="1galeria/monitor/taller/1.png" alt="Taller Monitor 1" width="23%"/>
   <img src="1galeria/monitor/taller/2.png" alt="Taller Monitor 2" width="23%"/>
@@ -171,7 +171,7 @@ Compatible con **Windows, macOS y Linux**.
   <img src="1galeria/monitor/taller/12.png" alt="Taller Monitor 12" width="23%"/>
 </div>
 
-#### 💻 Tablet
+#### Tablet
 <div align="center">
   <img src="1galeria/table/taller/1.png" alt="Taller Tablet 1" width="23%"/>
   <img src="1galeria/table/taller/2.png" alt="Taller Tablet 2" width="23%"/>
@@ -189,7 +189,7 @@ Compatible con **Windows, macOS y Linux**.
   <img src="1galeria/table/taller/12.png" alt="Taller Tablet 12" width="23%"/>
 </div>
 
-#### 📱 Móvil
+#### Móvil
 <div align="center">
   <img src="1galeria/movil/taller/1.png" alt="Taller Móvil 1" width="23%"/>
   <img src="1galeria/movil/taller/2.png" alt="Taller Móvil 2" width="23%"/>
@@ -207,9 +207,9 @@ Compatible con **Windows, macOS y Linux**.
   <img src="1galeria/movil/taller/12.png" alt="Taller Móvil 12" width="23%"/>
 </div>
 
-### 👤 Panel del Usuario
+### Panel del Usuario
 
-#### 🖥️ Monitor
+#### Monitor
 <div align="center">
   <img src="1galeria/monitor/usuario/1.png" alt="Usuario Monitor 1" width="45%"/>
   <img src="1galeria/monitor/usuario/2.png" alt="Usuario Monitor 2" width="45%"/>
@@ -218,7 +218,7 @@ Compatible con **Windows, macOS y Linux**.
   <img src="1galeria/monitor/usuario/4.png" alt="Usuario Monitor 4" width="45%"/>
 </div>
 
-#### 💻 Tablet
+#### Tablet
 <div align="center">
   <img src="1galeria/table/usuario/1.png" alt="Usuario Tablet 1" width="45%"/>
   <img src="1galeria/table/usuario/2.png" alt="Usuario Tablet 2" width="45%"/>
@@ -227,7 +227,7 @@ Compatible con **Windows, macOS y Linux**.
   <img src="1galeria/table/usuario/4.png" alt="Usuario Tablet 4" width="45%"/>
 </div>
 
-#### 📱 Móvil
+#### Móvil
 <div align="center">
   <img src="1galeria/movil/usuario/1.png" alt="Usuario Móvil 1" width="45%"/>
   <img src="1galeria/movil/usuario/2.png" alt="Usuario Móvil 2" width="45%"/>
@@ -246,7 +246,7 @@ Compatible con **Windows, macOS y Linux**.
 - Controlar estado de reparaciones
 - Comunicación con clientes
 - Control de recambios en stock
-- Fácil busqueda de los datos
+- Fácil búsqueda de los datos
 
 ### Para Usuarios
 - Ver estado de vehículos a tiempo real
@@ -276,10 +276,10 @@ miracar/
 
 Documentación técnica y diagramas del sistema:
 
-- [📄 Documentación Completa del Proyecto](0documentos/Documentación%20Del%20Proyecto.pdf)
-- [📊 Diagrama de Casos de Uso](0documentos/Diagrama%20de%20casos%20de%20uso.png)
-- [🔗 Modelo Entidad-Relación](0documentos/Modelo%20Entidad%20&%20Relación.png)
-- [🎨 Prototipo de Interfaz](0documentos/Prototipo.jpg)
+- [Documentación Completa del Proyecto](0documentos/Documentación%20Del%20Proyecto.pdf)
+- [Diagrama de Casos de Uso](0documentos/Diagrama%20de%20casos%20de%20uso.png)
+- [Modelo Entidad-Relación](0documentos/Modelo%20Entidad%20&%20Relación.png)
+- [Prototipo de Interfaz](0documentos/Prototipo.jpg)
 
 ---
 
@@ -335,3 +335,4 @@ Este proyecto está bajo la [Licencia MIT](LICENSE).
    php artisan key:generate
    php artisan storage:link
    ```
+```
