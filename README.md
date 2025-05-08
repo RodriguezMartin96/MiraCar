@@ -234,7 +234,6 @@ Para configuración de hosts virtuales y otros ajustes, consulta la [Guía Compl
 ### Para Usuarios
 - Ver estado de vehículos
 - Recibir notificaciones
-- Acceder a presupuestos y facturas
 
 ---
 
