@@ -244,7 +244,7 @@ miracar/
 
 <div align="center">
   <a href="https://youtu.be/C0zMWogztQs?si=knLXbShdP6B-xlcw" target="_blank">
-    <img src="1galeria/video-thumbnail.jpg" alt="Video demostrativo de MiraCar" width="60%"/>
+    <img src="1galeria/monitor/general/1.png" alt="Video demostrativo de MiraCar" width="60%"/>
     <p>🎥 Ver demostración en YouTube</p>
   </a>
 </div>
