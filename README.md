@@ -641,7 +641,7 @@ RewriteRule ^ index.php [L]
     </li>
   </ul>
 </div>
-```
+`
 
 `  </div>
 </div>``<hr style={{ border: 'none', height: '1px', background: 'linear-gradient(to right, transparent, #4479A1, transparent)', margin: '40px 0' }} />``<h2 id="licencia" style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4479A1', textAlign: 'center', margin: '40px 0 20px' }}>📜 Licencia</h2>``<div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
