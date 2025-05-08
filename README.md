@@ -333,20 +333,3 @@ composer install
 php artisan key:generate
 php artisan storage:link
 ```
-
-
-
-
-```plaintext
-
-**Nota**: He añadido instrucciones detalladas para instalar XAMPP como primer paso en la sección "Pasos de Instalación" y he modificado todos los enlaces para que se abran en una nueva pestaña usando el atributo `{:target="_blank"}`. Este atributo funciona en GitHub y en muchos otros renderizadores de Markdown, pero ten en cuenta que algunos sistemas podrían no soportarlo. En ese caso, los enlaces seguirán funcionando pero se abrirán en la misma pestaña.
-
-<Actions>
-  <Action name="Añadir más detalles a la instalación" description="Expandir las instrucciones de instalación con más detalles" />
-  <Action name="Crear una guía de solución de problemas" description="Añadir una sección de solución de problemas comunes" />
-  <Action name="Mejorar la sección de requisitos" description="Detallar más los requisitos del sistema" />
-  <Action name="Añadir instrucciones para otros sistemas operativos" description="Incluir pasos específicos para macOS y Linux" />
-</Actions>
-
-
-```
