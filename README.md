@@ -19,7 +19,7 @@
     <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
     <img src="https://img.shields.io/badge/Laravel-12-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel" />
     <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-    <img src="https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap" />
+    <img src="https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap" />
     <img src="https://img.shields.io/badge/XAMPP-EF5B25?style=for-the-badge&logo=xampp&logoColor=white" alt="XAMPP" />
     <img src="https://img.shields.io/badge/Node.js-18.x-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
     <img src="https://img.shields.io/badge/Composer-2.x-885630?style=for-the-badge&logo=composer&logoColor=white" alt="Composer" />
@@ -47,7 +47,7 @@ El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquie
 | [XAMPP](https://www.apachefriends.org/es/index.html) | Entorno local (Apache + MySQL + PHP) | 8.2.4    | [Descargar](https://www.apachefriends.org/es/index.html) |
 | [Composer](https://getcomposer.org/) | Gestión de dependencias PHP          | 2.x      | [Instalar](https://getcomposer.org/) |
 | [Node.js](https://nodejs.org/es) & npm | Gestión frontend y assets JS         | 18.x     | [Descargar](https://nodejs.org/es) |
-| Bootstrap                | Framework CSS responsivo             | 5.3      | - |
+| Bootstrap                | Framework CSS responsivo             | 5        | - |
 | [Git](https://git-scm.com/) | Control de versiones                 | 2.x      | [Descargar](https://git-scm.com/) |
 
 Compatible con **Windows, macOS y Linux**.
