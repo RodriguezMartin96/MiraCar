@@ -1,4 +1,4 @@
-# MiraCar - Gestión Automotriz Integral
+# MiraCar
 
 <div align="center">
   <img src="1galeria/logo.png" alt="MiraCar Logo" width="300" height="400" />
@@ -45,11 +45,11 @@ El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquie
 | Laravel                  | Framework backend (PHP)              | 12       | -      |
 | PHP                      | Lenguaje del servidor                | 8.2      | -      |
 | MySQL                    | Base de datos relacional             | 8.0      | -      |
-| [XAMPP](https://www.apachefriends.org/es/index.html){:target="_blank"} | Entorno local (Apache + MySQL + PHP) | 8.2.4    | [Descargar](https://www.apachefriends.org/es/index.html){:target="_blank"} |
-| [Composer](https://getcomposer.org/){:target="_blank"} | Gestión de dependencias PHP          | 2.x      | [Instalar](https://getcomposer.org/){:target="_blank"} |
-| [Node.js](https://nodejs.org/es){:target="_blank"} & npm | Gestión frontend y assets JS         | 18.x     | [Descargar](https://nodejs.org/es){:target="_blank"} |
+| [XAMPP](https://www.apachefriends.org/es/index.html) | Entorno local (Apache + MySQL + PHP) | 8.2.4    | [Descargar](https://www.apachefriends.org/es/index.html) |
+| [Composer](https://getcomposer.org/) | Gestión de dependencias PHP          | 2.x      | [Instalar](https://getcomposer.org/) |
+| [Node.js](https://nodejs.org/es) & npm | Gestión frontend y assets JS         | 18.x     | [Descargar](https://nodejs.org/es) |
 | Bootstrap                | Framework CSS responsivo             | 5        | -      |
-| [Git](https://git-scm.com/){:target="_blank"} | Control de versiones                 | 2.x      | [Descargar](https://git-scm.com/){:target="_blank"} |
+| [Git](https://git-scm.com/) | Control de versiones                 | 2.x      | [Descargar](https://git-scm.com/) |
 
 Compatible con **Windows, macOS y Linux**.
 
@@ -60,15 +60,15 @@ Compatible con **Windows, macOS y Linux**.
 ### Requisitos Previos
 - PHP 8.1+
 - MySQL 5.7+
-- [Node.js](https://nodejs.org/es){:target="_blank"} + npm
-- [Composer](https://getcomposer.org/){:target="_blank"}
-- [Git](https://git-scm.com/){:target="_blank"}
-- [XAMPP](https://www.apachefriends.org/es/index.html){:target="_blank"} o similar
+- [Node.js](https://nodejs.org/es) + npm
+- [Composer](https://getcomposer.org/)
+- [Git](https://git-scm.com/)
+- [XAMPP](https://www.apachefriends.org/es/index.html) o similar
 
 ### Pasos de Instalación
 
 1. **Instalar XAMPP** (entorno de desarrollo local):
-   - Descargar XAMPP desde [Apache Friends](https://www.apachefriends.org/es/index.html){:target="_blank"}.
+   - Descargar XAMPP desde [Apache Friends](https://www.apachefriends.org/es/index.html).
    - Ejecutar el instalador como administrador.
    - Seleccionar componentes esenciales:
      - **Apache** (servidor web)
@@ -97,7 +97,7 @@ Compatible con **Windows, macOS y Linux**.
    ```
 
 5. **Configurar base de datos**:
-   - Crear una base de datos MySQL llamada `miracar` desde phpMyAdmin ([http://localhost/phpmyadmin](http://localhost/phpmyadmin){:target="_blank"}).
+   - Crear una base de datos MySQL llamada `miracar` desde phpMyAdmin ([http://localhost/phpmyadmin](http://localhost/phpmyadmin)).
    - Configurar las credenciales en `.env`:
      ```env
      DB_DATABASE=miracar
@@ -113,7 +113,7 @@ Compatible con **Windows, macOS y Linux**.
    ```bash
    php artisan serve
    ```
-   Acceder a [http://localhost:8000](http://localhost:8000){:target="_blank"}.
+   Acceder a [http://localhost:8000](http://localhost:8000).
 
 ---
 
@@ -276,16 +276,16 @@ miracar/
 
 Documentación técnica y diagramas del sistema:
 
-- [📄 Documentación Completa del Proyecto](0documentos/Documentación%20Del%20Proyecto.pdf){:target="_blank"}
-- [📊 Diagrama de Casos de Uso](0documentos/Diagrama%20de%20casos%20de%20uso.png){:target="_blank"}
-- [🔗 Modelo Entidad-Relación](0documentos/Modelo%20Entidad%20&%20Relación.png){:target="_blank"}
-- [🎨 Prototipo de Interfaz](0documentos/Prototipo.jpg){:target="_blank"}
+- [📄 Documentación Completa del Proyecto](0documentos/Documentación%20Del%20Proyecto.pdf)
+- [📊 Diagrama de Casos de Uso](0documentos/Diagrama%20de%20casos%20de%20uso.png)
+- [🔗 Modelo Entidad-Relación](0documentos/Modelo%20Entidad%20&%20Relación.png)
+- [🎨 Prototipo de Interfaz](0documentos/Prototipo.jpg)
 
 ---
 
 ## 📜 Licencia
 
-Este proyecto está bajo la [Licencia MIT](LICENSE){:target="_blank"}.
+Este proyecto está bajo la [Licencia MIT](LICENSE).
 
 ---
 
@@ -293,7 +293,7 @@ Este proyecto está bajo la [Licencia MIT](LICENSE){:target="_blank"}.
 
 **Román Rodríguez Martín**  
 📧 [adm.96.rrm@gmail.com](mailto:adm.96.rrm@gmail.com)  
-🌐 [www.miracar.com](http://www.miracar.com){:target="_blank"} *(en construcción)*
+🌐 [www.miracar.com](http://www.miracar.com) *(en construcción)*
 
 ---
 
@@ -301,7 +301,7 @@ Este proyecto está bajo la [Licencia MIT](LICENSE){:target="_blank"}.
 
 ### Instalación de XAMPP
 
-1. **Descargar XAMPP** desde [apachefriends.org](https://www.apachefriends.org/es/index.html){:target="_blank"}
+1. **Descargar XAMPP** desde [apachefriends.org](https://www.apachefriends.org/es/index.html)
 2. **Ejecutar instalador** como administrador
 3. **Seleccionar componentes**:
    - Apache
