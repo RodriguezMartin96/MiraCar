@@ -32,7 +32,7 @@
 
 ## ❓ ¿Qué es MiraCar?
 
-**MiraCar** es una aplicación web multiplataforma que conecta talleres automotrices con sus clientes, mejorando la comunicación, la gestión de reparaciones y la trazabilidad del historial de vehículos.
+**MiraCar** es una aplicación web multiplataforma que conecta talleres con sus clientes, mejorando la comunicación, la gestión de reparaciones y la transparencia con el cliente.
 
 El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquier dispositivo (móvil, tablet, escritorio). Se orienta tanto a **talleres** que necesitan gestionar siniestros, clientes y documentación, como a **usuarios** que desean hacer seguimiento en tiempo real de sus vehículos.
 
@@ -98,14 +98,11 @@ Compatible con **Windows, macOS y Linux**.
    php artisan serve
    ```
 
-### Configuración Avanzada
-Para configuración de hosts virtuales y otros ajustes, consulta la [Guía Completa de Instalación](#guía-completa-de-instalación).
-
 ---
 
 ## 🖼️ Capturas de Pantalla
 
-### 📂 Vistas Generales
+### 📂 Panel del Inicio De Sección & Registro
 
 #### 🖥️ Monitor
 <div align="center">
@@ -231,11 +228,12 @@ Para configuración de hosts virtuales y otros ajustes, consulta la [Guía Compl
 - Adjuntar documentos y fotos
 - Controlar estado de reparaciones
 - Comunicación con clientes
+- Control de recambios en stock
+- Fácil busqueda de los datos
 
 ### Para Usuarios
-- Ver estado de vehículos
+- Ver estado de vehículos a tiempo real
 - Recibir notificaciones
-- Acceder a presupuestos y facturas
 
 ---
 
@@ -320,22 +318,3 @@ Este proyecto está bajo la [Licencia MIT](LICENSE).
    php artisan key:generate
    php artisan storage:link
    ```
-
-### Solución de Problemas
-
-**MySQL no inicia**:
-- Verificar puerto 3306
-- Revisar logs en `mysql/data/mysql_error.log`
-
-**Apache no inicia**:
-- Verificar puertos 80/443
-- Revisar `apache/logs/error.log`
-
-**Error de autoload**:
-```bash
-composer dump-autoload
-php artisan optimize:clear
-```
-
-Para más detalles, consulta los logs correspondientes.
-```
