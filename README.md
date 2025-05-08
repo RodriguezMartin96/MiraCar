@@ -1,4 +1,4 @@
-<div align="center">
+<div align="center" font-size=20px>
   <h1>MiraCar</h1>
 </div>
 
