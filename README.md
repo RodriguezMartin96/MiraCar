@@ -1,6 +1,3 @@
-Aquí tienes el README.md completo con todas las modificaciones solicitadas:
-
-```markdown
 # MiraCar - Gestión Automotriz Integral
 
 <div align="center">
