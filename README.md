@@ -1,6 +1,4 @@
-<div align="center" style='font-size=60px;'>
-  <h1>MiraCar</h1>
-</div>
+<h1 style="text-align: center; font-size: 60px;">MiraCar</h1>
 
 <div align="center">
   <img src="1galeria/logo.png" alt="MiraCar Logo" width="300" height="400" />
