@@ -1,20 +1,7 @@
-# MiraCar
-
 <div align="center">
   <img src="1galeria/logo.png" alt="MiraCar Logo" width="300" height="400" />
   <h1>🚗 MiraCar</h1>
   <p>Conectando talleres y clientes para una experiencia automotriz moderna, clara y eficiente.</p>
-
-  <div>
-    <a href="#qué-es-miracar">¿Qué es MiraCar?</a> •
-    <a href="#tecnologías-utilizadas">Tecnologías</a> •
-    <a href="#instalación-y-configuración">Instalación</a> •
-    <a href="#capturas-de-pantalla">Capturas</a> •
-    <a href="#documentación">Documentación</a> •
-    <a href="#uso-del-programa">Uso</a> •
-    <a href="#estructura-del-proyecto">Estructura</a> •
-    <a href="#licencia">Licencia</a>
-  </div>
 
   <div>
     <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
@@ -35,6 +22,33 @@
 **MiraCar** es una aplicación web multiplataforma que conecta talleres con sus clientes, mejorando la comunicación, la gestión de reparaciones y la transparencia con el cliente.
 
 El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquier dispositivo (móvil, tablet, escritorio). Se orienta tanto a **talleres** que necesitan gestionar siniestros, clientes y documentación, como a **usuarios** que desean hacer seguimiento en tiempo real de sus vehículos.
+
+---
+
+## 🚀 Uso del Programa
+
+### Para Talleres
+- Registrar clientes, vehículos y siniestros
+- Adjuntar documentos y fotos
+- Controlar estado de reparaciones
+- Comunicación con clientes
+- Control de recambios en stock
+- Fácil búsqueda de los datos
+
+### Para Usuarios
+- Ver estado de vehículos a tiempo real
+- Recibir notificaciones
+
+---
+
+## 📚 Documentación
+
+Documentación técnica y diagramas del sistema:
+
+- [Documentación Completa del Proyecto](0documentos/Documentación%20Del%20Proyecto.pdf)
+- [Diagrama de Casos de Uso](0documentos/Diagrama%20de%20casos%20de%20uso.png)
+- [Modelo Entidad-Relación](0documentos/Modelo%20Entidad%20&%20Relación.png)
+- [Prototipo de Interfaz](0documentos/Prototipo.jpg)
 
 ---
 
@@ -65,23 +79,26 @@ Compatible con **Windows, macOS y Linux**.
 - Git
 - XAMPP o similar
 
-### Pasos de Instalación
+### Instalación de XAMPP
+1. **Descargar XAMPP** desde [apachefriends.org](https://www.apachefriends.org/es/index.html)
+2. **Ejecutar instalador** como administrador
+3. **Seleccionar componentes**:
+   - Apache
+   - MySQL
+   - PHP
+   - phpMyAdmin
+4. **Iniciar servicios** desde el panel de control
 
-1. **Instalar XAMPP** (entorno de desarrollo local):
-   - Descargar XAMPP desde [Apache Friends](https://www.apachefriends.org/es/index.html)
-   - Ejecutar el instalador como administrador
-   - Seleccionar componentes esenciales:
-     - **Apache** (servidor web)
-     - **MySQL** (base de datos)
-     - **PHP** (versión 8.2+ recomendada)
-     - **phpMyAdmin** (opcional para gestión de bases de datos)
-   - Completar la instalación y abrir el panel de control
-   - Iniciar los servicios de **Apache** y **MySQL** desde el panel
-
-2. **Clonar el repositorio**:
+### Configuración del Proyecto
+1. **Clonar el repositorio**:
    ```bash
    git clone https://github.com/tuusuario/miracar.git
    cd miracar
+   ```
+
+2. **Copiar proyecto** a `htdocs` (opcional):
+   ```bash
+   cp -r miracar/ C:\xampp\htdocs\
    ```
 
 3. **Instalar dependencias**:
@@ -94,12 +111,14 @@ Compatible con **Windows, macOS y Linux**.
    ```bash
    cp .env.example .env
    php artisan key:generate
+   php artisan storage:link
    ```
 
 5. **Configurar base de datos**:
    - Crear una base de datos MySQL llamada `miracar` desde phpMyAdmin ([http://localhost/phpmyadmin](http://localhost/phpmyadmin))
    - Configurar las credenciales en `.env`:
      ```env
+     APP_URL=http://localhost/miracar/public
      DB_DATABASE=miracar
      DB_USERNAME=root
      DB_PASSWORD=
@@ -114,6 +133,24 @@ Compatible con **Windows, macOS y Linux**.
    php artisan serve
    ```
    Acceder a [http://localhost:8000](http://localhost:8000)
+
+---
+
+## 📂 Estructura del Proyecto
+
+```
+miracar/
+├── app/                  # Lógica de la aplicación
+├── bootstrap/            # Archivos de inicio
+├── config/               # Configuraciones
+├── database/             # Migraciones y seeds
+├── public/               # Assets públicos
+├── resources/            # Vistas y assets
+├── routes/               # Rutas
+├── storage/              # Almacenamiento
+├── tests/                # Pruebas
+└── vendor/               # Dependencias
+```
 
 ---
 
@@ -159,16 +196,6 @@ Compatible con **Windows, macOS y Linux**.
   <img src="1galeria/monitor/taller/2.png" alt="Taller Monitor 2" width="23%"/>
   <img src="1galeria/monitor/taller/3.png" alt="Taller Monitor 3" width="23%"/>
   <img src="1galeria/monitor/taller/4.png" alt="Taller Monitor 4" width="23%"/>
-  
-  <img src="1galeria/monitor/taller/5.png" alt="Taller Monitor 5" width="23%"/>
-  <img src="1galeria/monitor/taller/6.png" alt="Taller Monitor 6" width="23%"/>
-  <img src="1galeria/monitor/taller/7.png" alt="Taller Monitor 7" width="23%"/>
-  <img src="1galeria/monitor/taller/8.png" alt="Taller Monitor 8" width="23%"/>
-  
-  <img src="1galeria/monitor/taller/9.png" alt="Taller Monitor 9" width="23%"/>
-  <img src="1galeria/monitor/taller/10.png" alt="Taller Monitor 10" width="23%"/>
-  <img src="1galeria/monitor/taller/11.png" alt="Taller Monitor 11" width="23%"/>
-  <img src="1galeria/monitor/taller/12.png" alt="Taller Monitor 12" width="23%"/>
 </div>
 
 #### Tablet
@@ -177,16 +204,6 @@ Compatible con **Windows, macOS y Linux**.
   <img src="1galeria/table/taller/2.png" alt="Taller Tablet 2" width="23%"/>
   <img src="1galeria/table/taller/3.png" alt="Taller Tablet 3" width="23%"/>
   <img src="1galeria/table/taller/4.png" alt="Taller Tablet 4" width="23%"/>
-  
-  <img src="1galeria/table/taller/5.png" alt="Taller Tablet 5" width="23%"/>
-  <img src="1galeria/table/taller/6.png" alt="Taller Tablet 6" width="23%"/>
-  <img src="1galeria/table/taller/7.png" alt="Taller Tablet 7" width="23%"/>
-  <img src="1galeria/table/taller/8.png" alt="Taller Tablet 8" width="23%"/>
-  
-  <img src="1galeria/table/taller/9.png" alt="Taller Tablet 9" width="23%"/>
-  <img src="1galeria/table/taller/10.png" alt="Taller Tablet 10" width="23%"/>
-  <img src="1galeria/table/taller/11.png" alt="Taller Tablet 11" width="23%"/>
-  <img src="1galeria/table/taller/12.png" alt="Taller Tablet 12" width="23%"/>
 </div>
 
 #### Móvil
@@ -195,16 +212,6 @@ Compatible con **Windows, macOS y Linux**.
   <img src="1galeria/movil/taller/2.png" alt="Taller Móvil 2" width="23%"/>
   <img src="1galeria/movil/taller/3.png" alt="Taller Móvil 3" width="23%"/>
   <img src="1galeria/movil/taller/4.png" alt="Taller Móvil 4" width="23%"/>
-  
-  <img src="1galeria/movil/taller/5.png" alt="Taller Móvil 5" width="23%"/>
-  <img src="1galeria/movil/taller/6.png" alt="Taller Móvil 6" width="23%"/>
-  <img src="1galeria/movil/taller/7.png" alt="Taller Móvil 7" width="23%"/>
-  <img src="1galeria/movil/taller/8.png" alt="Taller Móvil 8" width="23%"/>
-  
-  <img src="1galeria/movil/taller/9.png" alt="Taller Móvil 9" width="23%"/>
-  <img src="1galeria/movil/taller/10.png" alt="Taller Móvil 10" width="23%"/>
-  <img src="1galeria/movil/taller/11.png" alt="Taller Móvil 11" width="23%"/>
-  <img src="1galeria/movil/taller/12.png" alt="Taller Móvil 12" width="23%"/>
 </div>
 
 ### Panel del Usuario
@@ -213,73 +220,19 @@ Compatible con **Windows, macOS y Linux**.
 <div align="center">
   <img src="1galeria/monitor/usuario/1.png" alt="Usuario Monitor 1" width="45%"/>
   <img src="1galeria/monitor/usuario/2.png" alt="Usuario Monitor 2" width="45%"/>
-  
-  <img src="1galeria/monitor/usuario/3.png" alt="Usuario Monitor 3" width="45%"/>
-  <img src="1galeria/monitor/usuario/4.png" alt="Usuario Monitor 4" width="45%"/>
 </div>
 
 #### Tablet
 <div align="center">
   <img src="1galeria/table/usuario/1.png" alt="Usuario Tablet 1" width="45%"/>
   <img src="1galeria/table/usuario/2.png" alt="Usuario Tablet 2" width="45%"/>
-  
-  <img src="1galeria/table/usuario/3.png" alt="Usuario Tablet 3" width="45%"/>
-  <img src="1galeria/table/usuario/4.png" alt="Usuario Tablet 4" width="45%"/>
 </div>
 
 #### Móvil
 <div align="center">
   <img src="1galeria/movil/usuario/1.png" alt="Usuario Móvil 1" width="45%"/>
   <img src="1galeria/movil/usuario/2.png" alt="Usuario Móvil 2" width="45%"/>
-  
-  <img src="1galeria/movil/usuario/3.png" alt="Usuario Móvil 3" width="45%"/>
-  <img src="1galeria/movil/usuario/4.png" alt="Usuario Móvil 4" width="45%"/>
 </div>
-
----
-
-## 🚀 Uso del Programa
-
-### Para Talleres
-- Registrar clientes, vehículos y siniestros
-- Adjuntar documentos y fotos
-- Controlar estado de reparaciones
-- Comunicación con clientes
-- Control de recambios en stock
-- Fácil búsqueda de los datos
-
-### Para Usuarios
-- Ver estado de vehículos a tiempo real
-- Recibir notificaciones
-
----
-
-## 📂 Estructura del Proyecto
-
-```
-miracar/
-├── app/                  # Lógica de la aplicación
-├── bootstrap/            # Archivos de inicio
-├── config/               # Configuraciones
-├── database/             # Migraciones y seeds
-├── public/               # Assets públicos
-├── resources/            # Vistas y assets
-├── routes/               # Rutas
-├── storage/              # Almacenamiento
-├── tests/                # Pruebas
-└── vendor/               # Dependencias
-```
-
----
-
-## 📚 Documentación
-
-Documentación técnica y diagramas del sistema:
-
-- [Documentación Completa del Proyecto](0documentos/Documentación%20Del%20Proyecto.pdf)
-- [Diagrama de Casos de Uso](0documentos/Diagrama%20de%20casos%20de%20uso.png)
-- [Modelo Entidad-Relación](0documentos/Modelo%20Entidad%20&%20Relación.png)
-- [Prototipo de Interfaz](0documentos/Prototipo.jpg)
 
 ---
 
@@ -294,45 +247,4 @@ Este proyecto está bajo la [Licencia MIT](LICENSE).
 **Román Rodríguez Martín**  
 📧 [adm.96.rrm@gmail.com](mailto:adm.96.rrm@gmail.com)  
 🌐 [www.miracar.com](http://www.miracar.com) *(en construcción)*
-
----
-
-## 🔍 Guía Completa de Instalación
-
-### Instalación de XAMPP
-
-1. **Descargar XAMPP** desde [apachefriends.org](https://www.apachefriends.org/es/index.html)
-2. **Ejecutar instalador** como administrador
-3. **Seleccionar componentes**:
-   - Apache
-   - MySQL
-   - PHP
-   - phpMyAdmin
-4. **Iniciar servicios** desde el panel de control
-
-### Configuración de Laravel
-
-1. **Copiar proyecto** a `htdocs`:
-   ```bash
-   cp -r miracar/ C:\xampp\htdocs\
-   ```
-
-2. **Configurar base de datos**:
-   - Restaurar backup SQL via phpMyAdmin
-   - O copiar archivos a `mysql/data`
-
-3. **Configurar .env**:
-   ```env
-   APP_URL=http://localhost/miracar/public
-   DB_DATABASE=miracar
-   DB_USERNAME=root
-   DB_PASSWORD=
-   ```
-
-4. **Instalar dependencias**:
-   ```bash
-   composer install
-   php artisan key:generate
-   php artisan storage:link
-   ```
 ```
