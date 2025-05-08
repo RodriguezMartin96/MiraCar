@@ -1,7 +1,7 @@
 # MiraCar - Gestión Automotriz Integral
 
 <div align="center">
-  <img src="galeria/logo.png" alt="MiraCar Logo" width="300" height="400" />
+  <img src="1galeria/logo.png" alt="MiraCar Logo" width="300" height="400" />
   <h1>🚗 MiraCar</h1>
   <p>Conectando talleres y clientes para una experiencia automotriz moderna, clara y eficiente.</p>
 
@@ -108,117 +108,117 @@ Para configuración de hosts virtuales y otros ajustes, consulta la [Guía Compl
 
 #### 🖥️ Monitor
 <div align="center">
-  <img src="galeria/monitor/general/1.png" alt="General Monitor 1" width="45%"/>
-  <img src="galeria/monitor/general/5.png" alt="General Monitor 2" width="45%"/>
+  <img src="1galeria/monitor/general/1.png" alt="General Monitor 1" width="45%"/>
+  <img src="1galeria/monitor/general/5.png" alt="General Monitor 2" width="45%"/>
   
-  <img src="galeria/monitor/general/2.png" alt="General Monitor 3" width="30%"/>
-  <img src="galeria/monitor/general/3.png" alt="General Monitor 4" width="30%"/>
-  <img src="galeria/monitor/general/4.png" alt="General Monitor 5" width="30%"/>
+  <img src="1galeria/monitor/general/2.png" alt="General Monitor 3" width="30%"/>
+  <img src="1galeria/monitor/general/3.png" alt="General Monitor 4" width="30%"/>
+  <img src="1galeria/monitor/general/4.png" alt="General Monitor 5" width="30%"/>
 </div>
 
 #### 💻 Tablet
 <div align="center">
-  <img src="galeria/table/general/1.png" alt="General Tablet 1" width="45%"/>
-  <img src="galeria/table/general/5.png" alt="General Tablet 2" width="45%"/>
+  <img src="1galeria/table/general/1.png" alt="General Tablet 1" width="45%"/>
+  <img src="1galeria/table/general/5.png" alt="General Tablet 2" width="45%"/>
   
-  <img src="galeria/table/general/2.png" alt="General Tablet 3" width="30%"/>
-  <img src="galeria/table/general/3.png" alt="General Tablet 4" width="30%"/>
-  <img src="galeria/table/general/4.png" alt="General Tablet 5" width="30%"/>
+  <img src="1galeria/table/general/2.png" alt="General Tablet 3" width="30%"/>
+  <img src="1galeria/table/general/3.png" alt="General Tablet 4" width="30%"/>
+  <img src="1galeria/table/general/4.png" alt="General Tablet 5" width="30%"/>
 </div>
 
 #### 📱 Móvil
 <div align="center">
-  <img src="galeria/movil/general/1.png" alt="General Móvil 1" width="45%"/>
-  <img src="galeria/movil/general/5.png" alt="General Móvil 2" width="45%"/>
+  <img src="1galeria/movil/general/1.png" alt="General Móvil 1" width="45%"/>
+  <img src="1galeria/movil/general/5.png" alt="General Móvil 2" width="45%"/>
   
-  <img src="galeria/movil/general/2.png" alt="General Móvil 3" width="30%"/>
-  <img src="galeria/movil/general/3.png" alt="General Móvil 4" width="30%"/>
-  <img src="galeria/movil/general/4.png" alt="General Móvil 5" width="30%"/>
+  <img src="1galeria/movil/general/2.png" alt="General Móvil 3" width="30%"/>
+  <img src="1galeria/movil/general/3.png" alt="General Móvil 4" width="30%"/>
+  <img src="1galeria/movil/general/4.png" alt="General Móvil 5" width="30%"/>
 </div>
 
 ### 🔧 Panel del Taller
 
 #### 🖥️ Monitor
 <div align="center">
-  <img src="galeria/monitor/taller/1.png" alt="Taller Monitor 1" width="23%"/>
-  <img src="galeria/monitor/taller/2.png" alt="Taller Monitor 2" width="23%"/>
-  <img src="galeria/monitor/taller/3.png" alt="Taller Monitor 3" width="23%"/>
-  <img src="galeria/monitor/taller/4.png" alt="Taller Monitor 4" width="23%"/>
+  <img src="1galeria/monitor/taller/1.png" alt="Taller Monitor 1" width="23%"/>
+  <img src="1galeria/monitor/taller/2.png" alt="Taller Monitor 2" width="23%"/>
+  <img src="1galeria/monitor/taller/3.png" alt="Taller Monitor 3" width="23%"/>
+  <img src="1galeria/monitor/taller/4.png" alt="Taller Monitor 4" width="23%"/>
   
-  <img src="galeria/monitor/taller/5.png" alt="Taller Monitor 5" width="23%"/>
-  <img src="galeria/monitor/taller/6.png" alt="Taller Monitor 6" width="23%"/>
-  <img src="galeria/monitor/taller/7.png" alt="Taller Monitor 7" width="23%"/>
-  <img src="galeria/monitor/taller/8.png" alt="Taller Monitor 8" width="23%"/>
+  <img src="1galeria/monitor/taller/5.png" alt="Taller Monitor 5" width="23%"/>
+  <img src="1galeria/monitor/taller/6.png" alt="Taller Monitor 6" width="23%"/>
+  <img src="1galeria/monitor/taller/7.png" alt="Taller Monitor 7" width="23%"/>
+  <img src="1galeria/monitor/taller/8.png" alt="Taller Monitor 8" width="23%"/>
   
-  <img src="galeria/monitor/taller/9.png" alt="Taller Monitor 9" width="23%"/>
-  <img src="galeria/monitor/taller/10.png" alt="Taller Monitor 10" width="23%"/>
-  <img src="galeria/monitor/taller/11.png" alt="Taller Monitor 11" width="23%"/>
-  <img src="galeria/monitor/taller/12.png" alt="Taller Monitor 12" width="23%"/>
+  <img src="1galeria/monitor/taller/9.png" alt="Taller Monitor 9" width="23%"/>
+  <img src="1galeria/monitor/taller/10.png" alt="Taller Monitor 10" width="23%"/>
+  <img src="1galeria/monitor/taller/11.png" alt="Taller Monitor 11" width="23%"/>
+  <img src="1galeria/monitor/taller/12.png" alt="Taller Monitor 12" width="23%"/>
 </div>
 
 #### 💻 Tablet
 <div align="center">
-  <img src="galeria/table/taller/1.png" alt="Taller Tablet 1" width="23%"/>
-  <img src="galeria/table/taller/2.png" alt="Taller Tablet 2" width="23%"/>
-  <img src="galeria/table/taller/3.png" alt="Taller Tablet 3" width="23%"/>
-  <img src="galeria/table/taller/4.png" alt="Taller Tablet 4" width="23%"/>
+  <img src="1galeria/table/taller/1.png" alt="Taller Tablet 1" width="23%"/>
+  <img src="1galeria/table/taller/2.png" alt="Taller Tablet 2" width="23%"/>
+  <img src="1galeria/table/taller/3.png" alt="Taller Tablet 3" width="23%"/>
+  <img src="1galeria/table/taller/4.png" alt="Taller Tablet 4" width="23%"/>
   
-  <img src="galeria/table/taller/5.png" alt="Taller Tablet 5" width="23%"/>
-  <img src="galeria/table/taller/6.png" alt="Taller Tablet 6" width="23%"/>
-  <img src="galeria/table/taller/7.png" alt="Taller Tablet 7" width="23%"/>
-  <img src="galeria/table/taller/8.png" alt="Taller Tablet 8" width="23%"/>
+  <img src="1galeria/table/taller/5.png" alt="Taller Tablet 5" width="23%"/>
+  <img src="1galeria/table/taller/6.png" alt="Taller Tablet 6" width="23%"/>
+  <img src="1galeria/table/taller/7.png" alt="Taller Tablet 7" width="23%"/>
+  <img src="1galeria/table/taller/8.png" alt="Taller Tablet 8" width="23%"/>
   
-  <img src="galeria/table/taller/9.png" alt="Taller Tablet 9" width="23%"/>
-  <img src="galeria/table/taller/10.png" alt="Taller Tablet 10" width="23%"/>
-  <img src="galeria/table/taller/11.png" alt="Taller Tablet 11" width="23%"/>
-  <img src="galeria/table/taller/12.png" alt="Taller Tablet 12" width="23%"/>
+  <img src="1galeria/table/taller/9.png" alt="Taller Tablet 9" width="23%"/>
+  <img src="1galeria/table/taller/10.png" alt="Taller Tablet 10" width="23%"/>
+  <img src="1galeria/table/taller/11.png" alt="Taller Tablet 11" width="23%"/>
+  <img src="1galeria/table/taller/12.png" alt="Taller Tablet 12" width="23%"/>
 </div>
 
 #### 📱 Móvil
 <div align="center">
-  <img src="galeria/movil/taller/1.png" alt="Taller Móvil 1" width="23%"/>
-  <img src="galeria/movil/taller/2.png" alt="Taller Móvil 2" width="23%"/>
-  <img src="galeria/movil/taller/3.png" alt="Taller Móvil 3" width="23%"/>
-  <img src="galeria/movil/taller/4.png" alt="Taller Móvil 4" width="23%"/>
+  <img src="1galeria/movil/taller/1.png" alt="Taller Móvil 1" width="23%"/>
+  <img src="1galeria/movil/taller/2.png" alt="Taller Móvil 2" width="23%"/>
+  <img src="1galeria/movil/taller/3.png" alt="Taller Móvil 3" width="23%"/>
+  <img src="1galeria/movil/taller/4.png" alt="Taller Móvil 4" width="23%"/>
   
-  <img src="galeria/movil/taller/5.png" alt="Taller Móvil 5" width="23%"/>
-  <img src="galeria/movil/taller/6.png" alt="Taller Móvil 6" width="23%"/>
-  <img src="galeria/movil/taller/7.png" alt="Taller Móvil 7" width="23%"/>
-  <img src="galeria/movil/taller/8.png" alt="Taller Móvil 8" width="23%"/>
+  <img src="1galeria/movil/taller/5.png" alt="Taller Móvil 5" width="23%"/>
+  <img src="1galeria/movil/taller/6.png" alt="Taller Móvil 6" width="23%"/>
+  <img src="1galeria/movil/taller/7.png" alt="Taller Móvil 7" width="23%"/>
+  <img src="1galeria/movil/taller/8.png" alt="Taller Móvil 8" width="23%"/>
   
-  <img src="galeria/movil/taller/9.png" alt="Taller Móvil 9" width="23%"/>
-  <img src="galeria/movil/taller/10.png" alt="Taller Móvil 10" width="23%"/>
-  <img src="galeria/movil/taller/11.png" alt="Taller Móvil 11" width="23%"/>
-  <img src="galeria/movil/taller/12.png" alt="Taller Móvil 12" width="23%"/>
+  <img src="1galeria/movil/taller/9.png" alt="Taller Móvil 9" width="23%"/>
+  <img src="1galeria/movil/taller/10.png" alt="Taller Móvil 10" width="23%"/>
+  <img src="1galeria/movil/taller/11.png" alt="Taller Móvil 11" width="23%"/>
+  <img src="1galeria/movil/taller/12.png" alt="Taller Móvil 12" width="23%"/>
 </div>
 
 ### 👤 Panel del Usuario
 
 #### 🖥️ Monitor
 <div align="center">
-  <img src="galeria/monitor/usuario/1.png" alt="Usuario Monitor 1" width="45%"/>
-  <img src="galeria/monitor/usuario/2.png" alt="Usuario Monitor 2" width="45%"/>
+  <img src="1galeria/monitor/usuario/1.png" alt="Usuario Monitor 1" width="45%"/>
+  <img src="1galeria/monitor/usuario/2.png" alt="Usuario Monitor 2" width="45%"/>
   
-  <img src="galeria/monitor/usuario/3.png" alt="Usuario Monitor 3" width="45%"/>
-  <img src="galeria/monitor/usuario/4.png" alt="Usuario Monitor 4" width="45%"/>
+  <img src="1galeria/monitor/usuario/3.png" alt="Usuario Monitor 3" width="45%"/>
+  <img src="1galeria/monitor/usuario/4.png" alt="Usuario Monitor 4" width="45%"/>
 </div>
 
 #### 💻 Tablet
 <div align="center">
-  <img src="galeria/table/usuario/1.png" alt="Usuario Tablet 1" width="45%"/>
-  <img src="galeria/table/usuario/2.png" alt="Usuario Tablet 2" width="45%"/>
+  <img src="1galeria/table/usuario/1.png" alt="Usuario Tablet 1" width="45%"/>
+  <img src="1galeria/table/usuario/2.png" alt="Usuario Tablet 2" width="45%"/>
   
-  <img src="galeria/table/usuario/3.png" alt="Usuario Tablet 3" width="45%"/>
-  <img src="galeria/table/usuario/4.png" alt="Usuario Tablet 4" width="45%"/>
+  <img src="1galeria/table/usuario/3.png" alt="Usuario Tablet 3" width="45%"/>
+  <img src="1galeria/table/usuario/4.png" alt="Usuario Tablet 4" width="45%"/>
 </div>
 
 #### 📱 Móvil
 <div align="center">
-  <img src="galeria/movil/usuario/1.png" alt="Usuario Móvil 1" width="45%"/>
-  <img src="galeria/movil/usuario/2.png" alt="Usuario Móvil 2" width="45%"/>
+  <img src="1galeria/movil/usuario/1.png" alt="Usuario Móvil 1" width="45%"/>
+  <img src="1galeria/movil/usuario/2.png" alt="Usuario Móvil 2" width="45%"/>
   
-  <img src="galeria/movil/usuario/3.png" alt="Usuario Móvil 3" width="45%"/>
-  <img src="galeria/movil/usuario/4.png" alt="Usuario Móvil 4" width="45%"/>
+  <img src="1galeria/movil/usuario/3.png" alt="Usuario Móvil 3" width="45%"/>
+  <img src="1galeria/movil/usuario/4.png" alt="Usuario Móvil 4" width="45%"/>
 </div>
 
 ---
