@@ -1,5 +1,5 @@
 <div align="center">
-  # MiraCar
+  <h1>MiraCar</h1>
 </div>
 
 <div align="center">
