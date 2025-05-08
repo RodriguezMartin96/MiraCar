@@ -1,4 +1,6 @@
-# MiraCar
+<div align="center">
+  # MiraCar
+</div>
 
 <div align="center">
   <img src="1galeria/logo.png" alt="MiraCar Logo" width="300" height="400" />
