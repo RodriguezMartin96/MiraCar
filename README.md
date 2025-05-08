@@ -238,6 +238,17 @@ miracar/
 
 ---
 
+## 📹 Video
+
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=TU_ENLACE_DE_VIDEO" target="_blank">
+    <img src="1galeria/video-thumbnail.jpg" alt="Video demostrativo de MiraCar" width="60%"/>
+    <p>Ver demostración en YouTube</p>
+  </a>
+</div>
+
+---
+
 ## 📜 Licencia
 
 Este proyecto está bajo la [Licencia MIT](LICENSE).
