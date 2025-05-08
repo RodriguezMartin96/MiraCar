@@ -1,110 +1,328 @@
-# Guía Completa de MiraCar: Instalación, Configuración y Uso
+# MiraCar - Gestión Automotriz Integral
 
-<p align="center">
+<div align="center">
   <img src="galeria/logo.png" alt="MiraCar Logo" width="300" height="400" />
-</p>
+  <h1>🚗 MiraCar</h1>
+  <p>Conectando talleres y clientes para una experiencia automotriz moderna, clara y eficiente.</p>
 
-<h1 align="center">🚗 MiraCar</h1>
+  <div>
+    <a href="#qué-es-miracar">¿Qué es MiraCar?</a> •
+    <a href="#tecnologías-utilizadas">Tecnologías</a> •
+    <a href="#instalación-y-configuración">Instalación</a> •
+    <a href="#capturas-de-pantalla">Capturas</a> •
+    <a href="#uso-del-programa">Uso</a> •
+    <a href="#estructura-del-proyecto">Estructura</a> •
+    <a href="#licencia">Licencia</a>
+  </div>
 
-<p align="center">
-  Conectando talleres y clientes para una experiencia automotriz moderna, clara y eficiente.
-</p>
-
-<p align="center">
-  <a href="#qué-es-miracar">¿Qué es MiraCar?</a> •
-  <a href="#tecnologías-utilizadas">Tecnologías</a> •
-  <a href="#instalación-y-configuración">Instalación</a> •
-  <a href="#🖼️-capturas-de-pantalla">Capturas</a> •
-  <a href="#🚀-uso-del-programa">Uso</a> •
-  <a href="#📜-licencia">Licencia</a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white" />
-  <img src="https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" />
-  <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />
-  <img src="https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" />
-  <img src="https://img.shields.io/badge/XAMPP-EF5B25?style=for-the-badge&logo=xampp&logoColor=white" />
-  <img src="https://img.shields.io/badge/Node.js-18.x-339933?style=for-the-badge&logo=node.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/Composer-2.x-885630?style=for-the-badge&logo=composer&logoColor=white" />
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
-</p>
+  <div>
+    <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
+    <img src="https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel" />
+    <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+    <img src="https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap" />
+    <img src="https://img.shields.io/badge/XAMPP-EF5B25?style=for-the-badge&logo=xampp&logoColor=white" alt="XAMPP" />
+    <img src="https://img.shields.io/badge/Node.js-18.x-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/Composer-2.x-885630?style=for-the-badge&logo=composer&logoColor=white" alt="Composer" />
+    <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
+  </div>
+</div>
 
 ---
 
-## ¿Qué es MiraCar?
+## ❓ ¿Qué es MiraCar?
 
 **MiraCar** es una aplicación web multiplataforma que conecta talleres automotrices con sus clientes, mejorando la comunicación, la gestión de reparaciones y la trazabilidad del historial de vehículos.
 
-El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquier dispositivo (móvil, tablet, escritorio). Se orienta tanto a **talleres** como a **usuarios**.
+El sistema está diseñado para ser intuitivo, responsivo y adaptable a cualquier dispositivo (móvil, tablet, escritorio). Se orienta tanto a **talleres** que necesitan gestionar siniestros, clientes y documentación, como a **usuarios** que desean hacer seguimiento en tiempo real de sus vehículos.
 
 ---
 
-## Tecnologías Utilizadas
+## 🛠 Tecnologías Utilizadas
 
-| Herramienta              | Propósito                            |
-|--------------------------|--------------------------------------|
-| Laravel 10               | Framework backend (PHP)              |
-| PHP 8.2                  | Lenguaje del servidor                |
-| MySQL                    | Base de datos relacional             |
-| XAMPP                    | Entorno local (Apache + MySQL + PHP) |
-| Composer                 | Gestión de dependencias PHP          |
-| Node.js & npm            | Gestión frontend y assets JS         |
-| Bootstrap 5.3            | Framework CSS responsivo             |
-| Git                      | Control de versiones                 |
-| Visual Studio Code       | Editor de código recomendado         |
+| Herramienta              | Propósito                            | Versión  |
+|--------------------------|--------------------------------------|----------|
+| Laravel                  | Framework backend (PHP)              | 10.x     |
+| PHP                      | Lenguaje del servidor                | 8.2      |
+| MySQL                    | Base de datos relacional             | 8.0      |
+| XAMPP                    | Entorno local (Apache + MySQL + PHP) | 8.2.4    |
+| Composer                 | Gestión de dependencias PHP          | 2.x      |
+| Node.js & npm            | Gestión frontend y assets JS         | 18.x     |
+| Bootstrap                | Framework CSS responsivo             | 5.3      |
+| Git                      | Control de versiones                 | 2.x      |
 
 Compatible con **Windows, macOS y Linux**.
 
 ---
 
-## Instalación y Configuración
+## ⚙️ Instalación y Configuración
 
-### Instalación de XAMPP
+### Requisitos Previos
+- PHP 8.1+
+- MySQL 5.7+
+- Node.js + npm
+- Composer
+- Git
+- XAMPP o similar
 
-1. Descargar desde [apachefriends.org](https://www.apachefriends.org)
-2. Ejecutar el instalador como administrador
-3. Iniciar Apache y MySQL
+### Pasos de Instalación
 
-### Restaurar Proyecto Laravel
+1. **Clonar el repositorio**:
+   ```bash
+   git clone https://github.com/tuusuario/miracar.git
+   cd miracar
+   ```
 
-1. Copiar proyecto a `C:\\xampp\\htdocs\\miracar`
-2. Restaurar base de datos en `phpMyAdmin`
-3. Configurar `.env`
-4. Ejecutar `composer install`, `php artisan key:generate`
+2. **Instalar dependencias**:
+   ```bash
+   composer install
+   npm install && npm run build
+   ```
+
+3. **Configurar entorno**:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+4. **Configurar base de datos**:
+   - Crear base de datos MySQL
+   - Configurar credenciales en `.env`
+   - Ejecutar migraciones:
+     ```bash
+     php artisan migrate --seed
+     ```
+
+5. **Iniciar servidor**:
+   ```bash
+   php artisan serve
+   ```
+
+### Configuración Avanzada
+Para configuración de hosts virtuales y otros ajustes, consulta la [Guía Completa de Instalación](#guía-completa-de-instalación).
 
 ---
 
 ## 🖼️ Capturas de Pantalla
 
-Las capturas están ubicadas en la carpeta `/galeria/` según el dispositivo y rol.
+### 📂 Vistas Generales
+
+#### 🖥️ Monitor
+<div align="center">
+  <img src="galeria/monitor/general/1.png" alt="General Monitor 1" width="45%"/>
+  <img src="galeria/monitor/general/5.png" alt="General Monitor 2" width="45%"/>
+  
+  <img src="galeria/monitor/general/2.png" alt="General Monitor 3" width="30%"/>
+  <img src="galeria/monitor/general/3.png" alt="General Monitor 4" width="30%"/>
+  <img src="galeria/monitor/general/4.png" alt="General Monitor 5" width="30%"/>
+</div>
+
+#### 💻 Tablet
+<div align="center">
+  <img src="galeria/table/general/1.png" alt="General Tablet 1" width="45%"/>
+  <img src="galeria/table/general/5.png" alt="General Tablet 2" width="45%"/>
+  
+  <img src="galeria/table/general/2.png" alt="General Tablet 3" width="30%"/>
+  <img src="galeria/table/general/3.png" alt="General Tablet 4" width="30%"/>
+  <img src="galeria/table/general/4.png" alt="General Tablet 5" width="30%"/>
+</div>
+
+#### 📱 Móvil
+<div align="center">
+  <img src="galeria/movil/general/1.png" alt="General Móvil 1" width="45%"/>
+  <img src="galeria/movil/general/5.png" alt="General Móvil 2" width="45%"/>
+  
+  <img src="galeria/movil/general/2.png" alt="General Móvil 3" width="30%"/>
+  <img src="galeria/movil/general/3.png" alt="General Móvil 4" width="30%"/>
+  <img src="galeria/movil/general/4.png" alt="General Móvil 5" width="30%"/>
+</div>
+
+### 🔧 Panel del Taller
+
+#### 🖥️ Monitor
+<div align="center">
+  <img src="galeria/monitor/taller/1.png" alt="Taller Monitor 1" width="23%"/>
+  <img src="galeria/monitor/taller/2.png" alt="Taller Monitor 2" width="23%"/>
+  <img src="galeria/monitor/taller/3.png" alt="Taller Monitor 3" width="23%"/>
+  <img src="galeria/monitor/taller/4.png" alt="Taller Monitor 4" width="23%"/>
+  
+  <img src="galeria/monitor/taller/5.png" alt="Taller Monitor 5" width="23%"/>
+  <img src="galeria/monitor/taller/6.png" alt="Taller Monitor 6" width="23%"/>
+  <img src="galeria/monitor/taller/7.png" alt="Taller Monitor 7" width="23%"/>
+  <img src="galeria/monitor/taller/8.png" alt="Taller Monitor 8" width="23%"/>
+  
+  <img src="galeria/monitor/taller/9.png" alt="Taller Monitor 9" width="23%"/>
+  <img src="galeria/monitor/taller/10.png" alt="Taller Monitor 10" width="23%"/>
+  <img src="galeria/monitor/taller/11.png" alt="Taller Monitor 11" width="23%"/>
+  <img src="galeria/monitor/taller/12.png" alt="Taller Monitor 12" width="23%"/>
+</div>
+
+#### 💻 Tablet
+<div align="center">
+  <img src="galeria/table/taller/1.png" alt="Taller Tablet 1" width="23%"/>
+  <img src="galeria/table/taller/2.png" alt="Taller Tablet 2" width="23%"/>
+  <img src="galeria/table/taller/3.png" alt="Taller Tablet 3" width="23%"/>
+  <img src="galeria/table/taller/4.png" alt="Taller Tablet 4" width="23%"/>
+  
+  <img src="galeria/table/taller/5.png" alt="Taller Tablet 5" width="23%"/>
+  <img src="galeria/table/taller/6.png" alt="Taller Tablet 6" width="23%"/>
+  <img src="galeria/table/taller/7.png" alt="Taller Tablet 7" width="23%"/>
+  <img src="galeria/table/taller/8.png" alt="Taller Tablet 8" width="23%"/>
+  
+  <img src="galeria/table/taller/9.png" alt="Taller Tablet 9" width="23%"/>
+  <img src="galeria/table/taller/10.png" alt="Taller Tablet 10" width="23%"/>
+  <img src="galeria/table/taller/11.png" alt="Taller Tablet 11" width="23%"/>
+  <img src="galeria/table/taller/12.png" alt="Taller Tablet 12" width="23%"/>
+</div>
+
+#### 📱 Móvil
+<div align="center">
+  <img src="galeria/movil/taller/1.png" alt="Taller Móvil 1" width="23%"/>
+  <img src="galeria/movil/taller/2.png" alt="Taller Móvil 2" width="23%"/>
+  <img src="galeria/movil/taller/3.png" alt="Taller Móvil 3" width="23%"/>
+  <img src="galeria/movil/taller/4.png" alt="Taller Móvil 4" width="23%"/>
+  
+  <img src="galeria/movil/taller/5.png" alt="Taller Móvil 5" width="23%"/>
+  <img src="galeria/movil/taller/6.png" alt="Taller Móvil 6" width="23%"/>
+  <img src="galeria/movil/taller/7.png" alt="Taller Móvil 7" width="23%"/>
+  <img src="galeria/movil/taller/8.png" alt="Taller Móvil 8" width="23%"/>
+  
+  <img src="galeria/movil/taller/9.png" alt="Taller Móvil 9" width="23%"/>
+  <img src="galeria/movil/taller/10.png" alt="Taller Móvil 10" width="23%"/>
+  <img src="galeria/movil/taller/11.png" alt="Taller Móvil 11" width="23%"/>
+  <img src="galeria/movil/taller/12.png" alt="Taller Móvil 12" width="23%"/>
+</div>
+
+### 👤 Panel del Usuario
+
+#### 🖥️ Monitor
+<div align="center">
+  <img src="galeria/monitor/usuario/1.png" alt="Usuario Monitor 1" width="45%"/>
+  <img src="galeria/monitor/usuario/2.png" alt="Usuario Monitor 2" width="45%"/>
+  
+  <img src="galeria/monitor/usuario/3.png" alt="Usuario Monitor 3" width="45%"/>
+  <img src="galeria/monitor/usuario/4.png" alt="Usuario Monitor 4" width="45%"/>
+</div>
+
+#### 💻 Tablet
+<div align="center">
+  <img src="galeria/table/usuario/1.png" alt="Usuario Tablet 1" width="45%"/>
+  <img src="galeria/table/usuario/2.png" alt="Usuario Tablet 2" width="45%"/>
+  
+  <img src="galeria/table/usuario/3.png" alt="Usuario Tablet 3" width="45%"/>
+  <img src="galeria/table/usuario/4.png" alt="Usuario Tablet 4" width="45%"/>
+</div>
+
+#### 📱 Móvil
+<div align="center">
+  <img src="galeria/movil/usuario/1.png" alt="Usuario Móvil 1" width="45%"/>
+  <img src="galeria/movil/usuario/2.png" alt="Usuario Móvil 2" width="45%"/>
+  
+  <img src="galeria/movil/usuario/3.png" alt="Usuario Móvil 3" width="45%"/>
+  <img src="galeria/movil/usuario/4.png" alt="Usuario Móvil 4" width="45%"/>
+</div>
 
 ---
 
 ## 🚀 Uso del Programa
 
-### Taller
-
+### Para Talleres
 - Registrar clientes, vehículos y siniestros
 - Adjuntar documentos y fotos
-- Comunicarse con el cliente
+- Controlar estado de reparaciones
+- Comunicación con clientes
 
-### Usuario
-
-- Ver el estado de su vehículo
+### Para Usuarios
+- Ver estado de vehículos
 - Recibir notificaciones
 - Acceder a presupuestos y facturas
 
 ---
 
+## 📂 Estructura del Proyecto
+
+```
+miracar/
+├── app/                  # Lógica de la aplicación
+├── bootstrap/            # Archivos de inicio
+├── config/               # Configuraciones
+├── database/             # Migraciones y seeds
+├── public/               # Assets públicos
+├── resources/            # Vistas y assets
+├── routes/               # Rutas
+├── storage/              # Almacenamiento
+├── tests/                # Pruebas
+└── vendor/               # Dependencias
+```
+
+---
+
 ## 📜 Licencia
 
-Este proyecto está bajo la Licencia MIT.
+Este proyecto está bajo la [Licencia MIT](LICENSE).
 
 ---
 
 ## ✉️ Contacto
 
-Román Rodríguez Martín  
+**Román Rodríguez Martín**  
 📧 [adm.96.rrm@gmail.com](mailto:adm.96.rrm@gmail.com)  
 🌐 [www.miracar.com](http://www.miracar.com) *(en construcción)*
+
+---
+
+## 🔍 Guía Completa de Instalación
+
+### Instalación de XAMPP
+
+1. **Descargar XAMPP** desde [apachefriends.org](https://www.apachefriends.org)
+2. **Ejecutar instalador** como administrador
+3. **Seleccionar componentes**:
+   - Apache
+   - MySQL
+   - PHP
+   - phpMyAdmin
+4. **Iniciar servicios** desde el panel de control
+
+### Configuración de Laravel
+
+1. **Copiar proyecto** a `htdocs`:
+   ```bash
+   cp -r miracar/ C:\xampp\htdocs\
+   ```
+
+2. **Configurar base de datos**:
+   - Restaurar backup SQL via phpMyAdmin
+   - O copiar archivos a `mysql/data`
+
+3. **Configurar .env**:
+   ```env
+   APP_URL=http://localhost/miracar/public
+   DB_DATABASE=miracar
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
+
+4. **Instalar dependencias**:
+   ```bash
+   composer install
+   php artisan key:generate
+   php artisan storage:link
+   ```
+
+### Solución de Problemas
+
+**MySQL no inicia**:
+- Verificar puerto 3306
+- Revisar logs en `mysql/data/mysql_error.log`
+
+**Apache no inicia**:
+- Verificar puertos 80/443
+- Revisar `apache/logs/error.log`
+
+**Error de autoload**:
+```bash
+composer dump-autoload
+php artisan optimize:clear
+```
+
+Para más detalles, consulta los logs correspondientes.
