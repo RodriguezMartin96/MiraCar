@@ -130,12 +130,12 @@ Compatible con **Windows, macOS y Linux**.
      MAIL_MAILER=smtp
      MAIL_HOST=smtp.gmail.com
      MAIL_PORT=587
-     MAIL_USERNAME=adm.96.rrm@gmail.com
+     MAIL_USERNAME=tu-email
      MAIL_PASSWORD=tu-contraseña-de-aplicación
      MAIL_ENCRYPTION=tls
-     MAIL_FROM_ADDRESS=adm.96.rrm@gmail.com
+     MAIL_FROM_ADDRESS=tu-email
      MAIL_FROM_NAME="Soporte MiraCar"
-     MAIL_SUPPORT_ADDRESS=adm.96.rrm@gmail.com
+     MAIL_SUPPORT_ADDRESS=tu-email
      ```
    - Ejecutar migraciones:
      ```bash
@@ -253,7 +253,7 @@ miracar/
 ## 📹 Video
 
 <div align="center">
-  <a href="https://youtu.be/C0zMWogztQs?si=knLXbShdP6B-xlcw" target="_blank">
+  <a href="https://www.youtube.com/watch?v=jRk04dubF_0" target="_blank">
     <img src="1galeria/monitor/general/1.png" alt="Video demostrativo de MiraCar" width="60%"/>
     <p>🎥 Ver demostración en YouTube</p>
   </a>
