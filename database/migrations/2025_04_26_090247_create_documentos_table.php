@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('documentos', function (Blueprint $table) {
@@ -17,16 +14,13 @@ return new class extends Migration
             $table->string('descripcion');
             $table->string('formato');
             $table->string('ruta_archivo');
-            $table->string('otro_nombre')->nullable(); // Campo para almacenar el nombre personalizado
-            $table->string('otra_descripcion')->nullable(); // Campo para almacenar la descripción personalizada
+            $table->string('otro_nombre')->nullable();
+            $table->string('otra_descripcion')->nullable();
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('documentos');

@@ -13,7 +13,6 @@
         <i class="bi bi-trash me-1"></i>Eliminar Cuenta
     </button>
 
-    <!-- Modal de confirmación -->
     <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

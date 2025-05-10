@@ -11,27 +11,17 @@ use App\Mail\SoporteMail;
 
 class SoporteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        // Solo mostrar solicitudes de soporte del usuario autenticado
         $soportes = Soporte::where('user_id', Auth::id())->orderBy('created_at', 'desc')->paginate(10);
         return view('soporte.index', compact('soportes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('soporte.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -40,7 +30,6 @@ class SoporteController extends Controller
         ]);
 
         try {
-            // Asociar la solicitud de soporte al usuario autenticado
             $soporte = new Soporte([
                 'email' => Auth::user()->email,
                 'asunto' => $request->asunto,
@@ -50,7 +39,6 @@ class SoporteController extends Controller
             ]);
             $soporte->save();
 
-            // Preparar datos para el correo
             $mailData = [
                 'fromEmail' => Auth::user()->email,
                 'tallerName' => Auth::user()->name,
@@ -59,9 +47,7 @@ class SoporteController extends Controller
                 'toEmail' => 'adm.96.rrm@gmail.com'
             ];
 
-            // Enviar correo electrónico
             try {
-                // Enviar a la dirección principal y añadir BCC
                 Mail::to('soporte@miracar.com')
                     ->bcc('adm.96.rrm@gmail.com')
                     ->send(new SoporteMail($mailData));
@@ -77,7 +63,6 @@ class SoporteController extends Controller
                     'trace' => $e->getTraceAsString()
                 ]);
                 
-                // Método alternativo de envío de correo
                 try {
                     $to = 'adm.96.rrm@gmail.com';
                     $subject = 'Soporte MiraCar: ' . $request->asunto;
@@ -124,12 +109,8 @@ class SoporteController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Soporte $soporte)
     {
-        // Verificar que la solicitud de soporte pertenece al usuario autenticado
         if ($soporte->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para ver esta solicitud de soporte.');
         }
@@ -137,12 +118,8 @@ class SoporteController extends Controller
         return view('soporte.show', compact('soporte'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Soporte $soporte)
     {
-        // Verificar que la solicitud de soporte pertenece al usuario autenticado
         if ($soporte->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para editar esta solicitud de soporte.');
         }
@@ -150,12 +127,8 @@ class SoporteController extends Controller
         return view('soporte.edit', compact('soporte'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Soporte $soporte)
     {
-        // Verificar que la solicitud de soporte pertenece al usuario autenticado
         if ($soporte->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para actualizar esta solicitud de soporte.');
         }
@@ -186,12 +159,8 @@ class SoporteController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Soporte $soporte)
     {
-        // Verificar que la solicitud de soporte pertenece al usuario autenticado
         if ($soporte->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para eliminar esta solicitud de soporte.');
         }
@@ -211,9 +180,6 @@ class SoporteController extends Controller
         }
     }
 
-    /**
-     * Método para probar el envío de correos (solo para desarrollo)
-     */
     public function testEmail()
     {
         try {

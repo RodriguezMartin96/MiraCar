@@ -19,26 +19,15 @@ class Recambio extends Model
         'user_id',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
     protected $casts = [
         'precio' => 'decimal:2',
     ];
 
-    /**
-     * Mutador para convertir el producto a title case.
-     */
     public function setProductoAttribute($value)
     {
         $this->attributes['producto'] = Str::title($value);
     }
 
-    /**
-     * Obtener el usuario (taller) al que pertenece este recambio.
-     */
     public function user()
     {
         return $this->belongsTo(User::class);

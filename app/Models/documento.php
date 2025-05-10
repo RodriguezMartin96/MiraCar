@@ -20,17 +20,11 @@ class Documento extends Model
         'user_id',
     ];
 
-    /**
-     * Mutador para convertir el nombre a title case.
-     */
     public function setNombreAttribute($value)
     {
         $this->attributes['nombre'] = $value;
     }
 
-    /**
-     * Mutador para convertir otro_nombre a title case.
-     */
     public function setOtroNombreAttribute($value)
     {
         if ($value) {
@@ -40,9 +34,6 @@ class Documento extends Model
         }
     }
 
-    /**
-     * Obtener el usuario (taller) al que pertenece este documento.
-     */
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
@@ -15,8 +14,6 @@
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
-
-    <!-- Bootstrap CSS y Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
@@ -94,7 +91,6 @@
             transition: max-height 0.3s ease;
         }
         
-        /* Estilos responsivos */
         .card-body {
             padding: 1.5rem;
         }
@@ -113,7 +109,6 @@
             padding: 0.6rem 1rem;
         }
         
-        /* Media queries para dispositivos móviles */
         @media (max-width: 576px) {
             body {
                 padding: 0.5rem;
@@ -156,7 +151,6 @@
             }
         }
         
-        /* Media queries para tablets */
         @media (min-width: 577px) and (max-width: 991px) {
             .card-body {
                 padding: 1.75rem 1.5rem;
@@ -167,7 +161,6 @@
             }
         }
         
-        /* Mejoras para pantallas táctiles */
         @media (hover: none) and (pointer: coarse) {
             .form-check-input {
                 width: 1.2em;
@@ -193,7 +186,6 @@
             }
         }
         
-        /* Animaciones */
         .card {
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
@@ -206,7 +198,6 @@
             transform: scale(0.97);
         }
         
-        /* Mejoras de accesibilidad */
         .form-label {
             margin-bottom: 0.4rem;
             font-weight: 600;
@@ -220,7 +211,6 @@
             margin-bottom: 0;
         }
         
-        /* Orientación landscape en móviles */
         @media (max-height: 500px) and (orientation: landscape) {
             body {
                 align-items: flex-start;
@@ -250,7 +240,6 @@
             }
         }
         
-        /* Estilo para el mensaje de error personalizado */
         .alert-danger {
             background-color: rgba(220, 53, 69, 0.1);
             color: #dc3545;
@@ -352,7 +341,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Función para mostrar/ocultar contraseña
         function togglePassword(inputId, iconId) {
             const passwordInput = document.getElementById(inputId);
             const toggleIcon = document.getElementById(iconId);
@@ -368,7 +356,6 @@
             }
         }
         
-        // Animación de entrada
         document.addEventListener('DOMContentLoaded', function() {
             const loginCard = document.querySelector('.card');
             loginCard.style.opacity = '0';
@@ -380,7 +367,6 @@
                 loginCard.style.transform = 'translateY(0)';
             }, 200);
             
-            // Ajustar altura en dispositivos móviles en orientación landscape
             function adjustForLandscape() {
                 if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
                     document.body.classList.add('landscape-mode');
@@ -389,7 +375,6 @@
                 }
             }
             
-            // Ejecutar al cargar y al cambiar orientación
             adjustForLandscape();
             window.addEventListener('resize', adjustForLandscape);
             window.addEventListener('orientationchange', adjustForLandscape);

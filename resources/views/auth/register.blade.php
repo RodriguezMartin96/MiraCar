@@ -7,20 +7,15 @@
     
     <title>Registro</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
@@ -102,7 +97,6 @@
             padding-right: calc(1.5em + 0.75rem);
         }
         
-        /* Ajuste para los iconos en campos de contraseña */
         .password-input.is-valid, .password-input.is-invalid {
             background-position: right calc(2.5em + 0.1875rem) center;
         }
@@ -197,7 +191,6 @@
             color: #fff;
         }
         
-        /* Estilos para el campo de contraseña con icono */
         .password-container {
             position: relative;
         }
@@ -218,24 +211,21 @@
             color: #4f8cff;
         }
         
-        /* Ajuste para el icono dentro del input */
         .password-input {
             padding-right: 40px;
         }
         
-        /* Estilos para campos requeridos */
         .required-field::after {
             content: "*";
             color: #dc3545;
             margin-left: 4px;
         }
         
-        /* Estilos para requisitos de contraseña */
         .password-requirements {
             font-size: 0.8rem;
             color: #6c757d;
             margin-top: 0.25rem;
-            display: none; /* Oculto por defecto */
+            display: none;
             transition: opacity 0.2s ease-in-out;
         }
         
@@ -243,12 +233,11 @@
             display: block;
         }
         
-        /* Estilos para ayuda de documentos */
         .document-help {
             font-size: 0.8rem;
             color: #6c757d;
             margin-top: 0.25rem;
-            display: none; /* Oculto por defecto */
+            display: none;
             transition: opacity 0.2s ease-in-out;
         }
         
@@ -256,13 +245,12 @@
             display: block;
         }
         
-        /* Estilos para feedback de coincidencia de contraseñas */
         .password-match-feedback {
             font-size: 0.8rem;
             margin-top: 0.25rem;
             display: none;
-            margin-right: 50px; /* Espacio para evitar superposición con el icono */
-            padding-left: 5px; /* Espacio a la izquierda */
+            margin-right: 50px;
+            padding-left: 5px;
         }
         
         .password-match-feedback.valid {
@@ -275,7 +263,6 @@
             display: block;
         }
         
-        /* Media queries para tablets */
         @media (min-width: 768px) {
             .auth-card {
                 padding: 2rem 1.5rem;
@@ -318,7 +305,6 @@
             }
         }
         
-        /* Media queries para desktop */
         @media (min-width: 992px) {
             .auth-card {
                 padding: 2.5rem 2rem;
@@ -332,7 +318,6 @@
             }
         }
         
-        /* Ajustes específicos para móviles pequeños */
         @media (max-width: 375px) {
             .auth-card {
                 padding: 1.25rem 0.75rem;
@@ -389,7 +374,6 @@
                     @enderror
                 </div>
 
-                <!-- Formulario para Taller -->
                 <div id="taller_section" class="row g-2 g-md-3 {{ old('user_type') == 'taller' ? '' : 'd-none' }}">
                     <div class="col-12 col-md-4 text-center mb-3">
                         <div class="logo-container mx-auto mb-2 mb-md-3 rounded-circle d-flex justify-content-center align-items-center bg-info bg-opacity-10" style="overflow: hidden;">
@@ -476,7 +460,6 @@
                     </div>
                 </div>
 
-                <!-- Formulario para Usuario -->
                 <div id="user_section" class="row g-2 g-md-3 {{ old('user_type') == 'user' ? '' : 'd-none' }}">
                     <div class="col-12 col-md-4 text-center mb-3">
                         <div class="avatar-container mx-auto mb-2 mb-md-3 rounded-circle d-flex justify-content-center align-items-center bg-info bg-opacity-10" style="overflow: hidden;">
@@ -600,38 +583,30 @@
             const registerForm = document.getElementById('registerForm');
             const submitBtn = document.getElementById('submitBtn');
             
-            // Ayuda para documentos
             const companyNifHelp = document.getElementById('company_nif_help');
             const dniHelp = document.getElementById('dni_help');
             
-            // Campos de texto
             const companyName = document.getElementById('company_name');
             const userName = document.getElementById('name');
             const userLastname = document.getElementById('lastname');
             
-            // Campos de email
             const companyEmail = document.getElementById('company_email');
             const userEmail = document.getElementById('email');
             
-            // Campos de NIF/DNI
             const companyNif = document.getElementById('company_nif');
             const userDni = document.getElementById('dni');
             
-            // Campos de contraseña
             const companyPassword = document.getElementById('company_password');
             const companyPasswordConfirm = document.getElementById('company_password_confirmation');
             const userPassword = document.getElementById('password');
             const userPasswordConfirm = document.getElementById('password_confirmation');
             
-            // Campos de teléfono
             const companyPhone = document.getElementById('company_phone');
             const userPhone = document.getElementById('phone');
             
-            // Elementos de requisitos de contraseña
             const companyPasswordRequirements = document.getElementById('company_password_requirements');
             const passwordRequirements = document.getElementById('password_requirements');
             
-            // Elementos de feedback
             const companyNameFeedback = document.getElementById('company_name_feedback');
             const companyNifFeedback = document.getElementById('company_nif_feedback');
             const companyEmailFeedback = document.getElementById('company_email_feedback');
@@ -646,13 +621,11 @@
             const passwordMatch = document.getElementById('password_match');
             const passwordMismatch = document.getElementById('password_mismatch');
             
-            // Cambio de tipo de usuario
             userTypeSelect.addEventListener('change', function() {
                 if (this.value === 'taller') {
                     tallerSection.classList.remove('d-none');
                     userSection.classList.add('d-none');
                     
-                    // Hacer requeridos los campos de taller
                     setRequiredFields('taller', true);
                     setRequiredFields('user', false);
                     
@@ -660,7 +633,6 @@
                     userSection.classList.remove('d-none');
                     tallerSection.classList.add('d-none');
                     
-                    // Hacer requeridos los campos de usuario
                     setRequiredFields('user', true);
                     setRequiredFields('taller', false);
                     
@@ -668,13 +640,11 @@
                     tallerSection.classList.add('d-none');
                     userSection.classList.add('d-none');
                     
-                    // Quitar requeridos de todos los campos
                     setRequiredFields('user', false);
                     setRequiredFields('taller', false);
                 }
             });
             
-            // Función para establecer campos como requeridos o no
             function setRequiredFields(type, isRequired) {
                 if (type === 'taller') {
                     document.getElementById('company_name').required = isRequired;
@@ -694,7 +664,6 @@
                 }
             }
             
-            // Establecer campos requeridos según el tipo de usuario seleccionado inicialmente
             if (userTypeSelect.value === 'taller') {
                 setRequiredFields('taller', true);
                 setRequiredFields('user', false);
@@ -710,7 +679,6 @@
                 setRequiredFields('taller', false);
             }
             
-            // Previsualización de imágenes
             logoInput.addEventListener('change', function() {
                 handleImagePreview(this, logoContainer);
             });
@@ -738,7 +706,6 @@
                 }
             }
             
-            // Validación de campos de texto
             if (companyName) {
                 companyName.addEventListener('input', function() {
                     validateTextField(this, companyNameFeedback);
@@ -757,18 +724,15 @@
                 });
             }
             
-            // Función para validar campos de texto
             function validateTextField(input, feedbackElement) {
                 const value = input.value.trim();
                 
-                // Si está vacío, no validamos aún
                 if (!value) {
                     input.classList.remove('is-valid', 'is-invalid');
                     if (feedbackElement) feedbackElement.textContent = '';
                     return false;
                 }
                 
-                // Validar que tenga al menos 2 caracteres
                 let isValid = value.length >= 2;
                 let message = '';
                 
@@ -776,7 +740,6 @@
                     message = 'Debe tener al menos 2 caracteres.';
                 }
                 
-                // Actualizar UI según validación
                 if (isValid) {
                     input.classList.remove('is-invalid');
                     input.classList.add('is-valid');
@@ -790,7 +753,6 @@
                 return isValid;
             }
             
-            // Validación de email
             if (companyEmail) {
                 companyEmail.addEventListener('input', function() {
                     validateEmail(this, companyEmailFeedback);
@@ -803,18 +765,15 @@
                 });
             }
             
-            // Función para validar email
             function validateEmail(input, feedbackElement) {
                 const value = input.value.trim();
                 
-                // Si está vacío, no validamos aún
                 if (!value) {
                     input.classList.remove('is-valid', 'is-invalid');
                     if (feedbackElement) feedbackElement.textContent = '';
                     return false;
                 }
                 
-                // Validar formato de email
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 let isValid = emailRegex.test(value);
                 let message = '';
@@ -823,7 +782,6 @@
                     message = 'Formato de email no válido.';
                 }
                 
-                // Actualizar UI según validación
                 if (isValid) {
                     input.classList.remove('is-invalid');
                     input.classList.add('is-valid');
@@ -837,7 +795,6 @@
                 return isValid;
             }
             
-            // Mostrar/ocultar requisitos de contraseña al hacer focus/blur
             if (companyPassword) {
                 companyPassword.addEventListener('focus', function() {
                     companyPasswordRequirements.classList.add('visible');
@@ -847,7 +804,6 @@
                     companyPasswordRequirements.classList.remove('visible');
                 });
                 
-                // También mostrar al hacer clic en el icono de toggle
                 document.getElementById('company_password_toggle_icon').parentElement.addEventListener('click', function() {
                     companyPasswordRequirements.classList.add('visible');
                     setTimeout(() => companyPassword.focus(), 100);
@@ -863,14 +819,12 @@
                     passwordRequirements.classList.remove('visible');
                 });
                 
-                // También mostrar al hacer clic en el icono de toggle
                 document.getElementById('password_toggle_icon').parentElement.addEventListener('click', function() {
                     passwordRequirements.classList.add('visible');
                     setTimeout(() => userPassword.focus(), 100);
                 });
             }
             
-            // Mostrar/ocultar ayuda de NIF/DNI al hacer focus/blur
             if (companyNif) {
                 companyNif.addEventListener('focus', function() {
                     companyNifHelp.classList.add('visible');
@@ -891,7 +845,6 @@
                 });
             }
             
-            // Validación de teléfono
             if (companyPhone) {
                 companyPhone.addEventListener('input', function() {
                     validatePhone(this, companyPhoneFeedback);
@@ -904,18 +857,15 @@
                 });
             }
             
-            // Función para validar teléfono
             function validatePhone(input, feedbackElement) {
                 const value = input.value.trim();
                 
-                // Si está vacío, no validamos aún
                 if (!value) {
                     input.classList.remove('is-valid', 'is-invalid');
                     if (feedbackElement) feedbackElement.textContent = '';
                     return false;
                 }
                 
-                // Validar formato de teléfono (9 dígitos para España o formato internacional)
                 const phoneRegex = /^(\+\d{1,3})?[0-9]{9,15}$/;
                 
                 let isValid = phoneRegex.test(value);
@@ -925,7 +875,6 @@
                     message = 'Formato de teléfono no válido.';
                 }
                 
-                // Actualizar UI según validación
                 if (isValid) {
                     input.classList.remove('is-invalid');
                     input.classList.add('is-valid');
@@ -939,7 +888,6 @@
                 return isValid;
             }
             
-            // Validación de NIF
             if (companyNif) {
                 companyNif.addEventListener('input', function() {
                     validateSpanishNIF(this, companyNifFeedback);
@@ -952,25 +900,21 @@
                 });
             }
             
-            // Función para validar NIF/CIF español
             function validateSpanishNIF(input, feedbackElement) {
                 const value = input.value.toUpperCase().trim();
                 
-                // Si está vacío, no validamos aún
                 if (!value) {
                     input.classList.remove('is-valid', 'is-invalid');
                     if (feedbackElement) feedbackElement.textContent = '';
                     return false;
                 }
                 
-                // Expresiones regulares para diferentes tipos de documentos
                 const dniRegex = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/;
                 const nieRegex = /^[XYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/;
                 const cifRegex = /^[ABCDEFGHJKLMNPQRSUVW][0-9]{7}[0-9A-J]$/;
                 
                 let isValid = false;
                 
-                // Validar DNI
                 if (dniRegex.test(value)) {
                     const numero = value.substr(0, 8);
                     const letra = value.substr(8, 1);
@@ -980,13 +924,11 @@
                         isValid = true;
                     }
                 }
-                // Validar NIE
                 else if (nieRegex.test(value)) {
                     const primeraLetra = value.charAt(0);
                     let numero = value.substr(1, 7);
                     const letra = value.substr(8, 1);
                     
-                    // Convertir la primera letra a número según normativa
                     if (primeraLetra === 'X') numero = '0' + numero;
                     else if (primeraLetra === 'Y') numero = '1' + numero;
                     else if (primeraLetra === 'Z') numero = '2' + numero;
@@ -997,12 +939,10 @@
                         isValid = true;
                     }
                 }
-                // Validar CIF
                 else if (cifRegex.test(value)) {
                     isValid = validarCIF(value);
                 }
                 
-                // Actualizar UI según validación
                 if (isValid) {
                     input.classList.remove('is-invalid');
                     input.classList.add('is-valid');
@@ -1016,14 +956,12 @@
                 return isValid;
             }
             
-            // Función para calcular la letra del DNI
             function calcularLetraDNI(numero) {
                 const letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
                 const indice = parseInt(numero) % 23;
                 return letras.charAt(indice);
             }
             
-            // Función para validar CIF
             function validarCIF(cif) {
                 const match = cif.match(/^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/);
                 if (!match) return false;
@@ -1032,13 +970,11 @@
                 const numero = match[2];
                 const control = match[3];
                 
-                // Cálculo del dígito de control
                 let suma = 0;
                 
                 for (let i = 0; i < numero.length; i++) {
                     let digito = parseInt(numero[i]);
                     
-                    // Posiciones pares (0, 2, 4, 6)
                     if (i % 2 === 0) {
                         digito *= 2;
                         if (digito > 9) {
@@ -1057,7 +993,6 @@
                     controlCalculado = (10 - resto).toString();
                 }
                 
-                // Para entidades que usan letra como dígito de control
                 if (/[ABCDEFGHJUV]/.test(letra)) {
                     const letrasControl = 'JABCDEFGHI';
                     if (control === letrasControl.charAt(parseInt(controlCalculado))) {
@@ -1066,11 +1001,9 @@
                     return control === controlCalculado;
                 }
                 
-                // Para el resto de entidades
                 return control === controlCalculado;
             }
             
-            // Validación de contraseñas
             if (companyPassword) {
                 companyPassword.addEventListener('input', function() {
                     validatePassword(this, 'company_password_feedback');
@@ -1097,11 +1030,9 @@
                 });
             }
             
-            // Validación del formulario antes de enviar
             registerForm.addEventListener('submit', function(event) {
                 let isValid = true;
                 
-                // Validar según el tipo de usuario
                 if (userTypeSelect.value === 'taller') {
                     if (!validateTextField(companyName, companyNameFeedback)) {
                         isValid = false;
@@ -1130,10 +1061,7 @@
                         isValid = false;
                     }
                     
-                    // Convertir NIF a mayúsculas
                     companyNif.value = companyNif.value.toUpperCase();
-                    
-                    // Convertir nombre de empresa a Title Case
                     companyName.value = toTitleCase(companyName.value);
                     
                 } else if (userTypeSelect.value === 'user') {
@@ -1168,10 +1096,7 @@
                         isValid = false;
                     }
                     
-                    // Convertir DNI a mayúsculas
                     userDni.value = userDni.value.toUpperCase();
-                    
-                    // Convertir nombre y apellidos a Title Case
                     userName.value = toTitleCase(userName.value);
                     userLastname.value = toTitleCase(userLastname.value);
                 }
@@ -1181,14 +1106,12 @@
                 }
             });
             
-            // Función para convertir texto a Title Case (primera letra de cada palabra en mayúscula)
             function toTitleCase(str) {
                 return str.replace(/\w\S*/g, function(txt) {
                     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
                 });
             }
             
-            // Función para validar contraseña
             function validatePassword(input, feedbackId) {
                 const value = input.value;
                 const hasLowerCase = /[a-z]/.test(value);
@@ -1240,7 +1163,6 @@
                 return isValid;
             }
             
-            // Función para verificar que las contraseñas coinciden
             function checkPasswordsMatch(passwordInput, confirmInput, matchElement, mismatchElement) {
                 if (!passwordInput.value || !confirmInput.value) {
                     matchElement.classList.remove('valid');
@@ -1263,7 +1185,6 @@
             }
         });
         
-        // Función para mostrar/ocultar contraseña
         function togglePasswordVisibility(inputId) {
             const passwordInput = document.getElementById(inputId);
             const toggleIcon = document.getElementById(inputId + '_toggle_icon');

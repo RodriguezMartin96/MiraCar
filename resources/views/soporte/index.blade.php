@@ -21,7 +21,6 @@
     
     <div class="card shadow-sm">
         <div class="card-body p-2 p-md-4">
-            <!-- Vista de tabla para pantallas medianas y grandes -->
             <div class="table-responsive d-none d-md-block">
                 <table class="table table-striped table-hover">
                     <thead>
@@ -73,7 +72,6 @@
                 </table>
             </div>
             
-            <!-- Vista de tarjetas para dispositivos móviles -->
             <div class="d-md-none">
                 @forelse($soportes as $soporte)
                     <div class="card mb-3 soporte-card">
@@ -112,7 +110,6 @@
                     </div>
                 @endforelse
                 
-                <!-- Formularios de eliminación ocultos para móviles -->
                 @foreach($soportes as $soporte)
                     <form id="delete-form-{{ $soporte->id }}" action="{{ route('soporte.destroy', $soporte->id) }}" method="POST" class="d-none">
                         @csrf
@@ -129,7 +126,6 @@
 </div>
 
 <style>
-    /* Estilos base */
     .card {
         border: none;
         border-radius: 0.75rem;
@@ -168,7 +164,6 @@
         border-color: #c82333;
     }
     
-    /* Estilos para las insignias de estado */
     .estado-pendiente {
         background-color: #ffc107;
         color: #212529;
@@ -189,7 +184,6 @@
         color: white;
     }
     
-    /* Estilos para tarjetas en móvil */
     .soporte-card {
         transition: transform 0.2s, box-shadow 0.2s;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -210,7 +204,6 @@
         border-top: 1px solid #eee;
     }
     
-    /* Estilos responsivos */
     @media (max-width: 767.98px) {
         h1 {
             font-size: 1.75rem;
@@ -274,7 +267,6 @@
         }
     }
     
-    /* Mejoras para tablets */
     @media (min-width: 768px) and (max-width: 991.98px) {
         .table th, .table td {
             padding: 0.75rem 0.5rem;
@@ -285,7 +277,6 @@
         }
     }
     
-    /* Optimización para dispositivos táctiles */
     @media (hover: none) and (pointer: coarse) {
         .btn {
             padding-top: 0.625rem;
@@ -318,7 +309,6 @@
         }
     }
     
-    /* Mejoras para orientación landscape en móviles */
     @media (max-height: 500px) and (orientation: landscape) {
         .container {
             padding-top: 0.5rem;
@@ -344,14 +334,12 @@
         }
     }
     
-    /* Mejoras de accesibilidad */
     .btn:focus, .page-link:focus {
         outline: 2px solid #4f8cff;
         outline-offset: 2px;
         box-shadow: none;
     }
     
-    /* Animación para los botones */
     .btn {
         transition: transform 0.1s, background-color 0.2s;
     }
@@ -360,7 +348,6 @@
         transform: scale(0.98);
     }
     
-    /* Mejoras para la tabla */
     .table {
         margin-bottom: 0;
     }
@@ -370,7 +357,6 @@
         border-bottom-width: 1px;
     }
     
-    /* Mejoras para la paginación */
     .pagination {
         justify-content: center;
     }
@@ -388,7 +374,6 @@
         color: #1a4070;
     }
     
-    /* Mejoras para las alertas */
     .alert {
         border-radius: 0.5rem;
         border: none;
@@ -400,7 +385,6 @@
         color: #155724;
     }
     
-    /* Mejoras para el botón de nueva solicitud */
     @media (max-width: 767.98px) {
         .btn-primary {
             padding: 0.625rem 1.25rem;
@@ -409,7 +393,6 @@
         }
     }
     
-    /* Mejoras para el hover en dispositivos no táctiles */
     @media (hover: hover) {
         .btn:hover {
             transform: translateY(-1px);
@@ -420,7 +403,6 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Manejar botones de eliminación en vista móvil
     const deleteButtons = document.querySelectorAll('.delete-btn');
     deleteButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -431,9 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Detectar si es un dispositivo táctil
     if ('ontouchstart' in window) {
-        // Mejorar la experiencia táctil para los botones
         const buttons = document.querySelectorAll('.btn');
         buttons.forEach(button => {
             button.addEventListener('touchstart', function() {
@@ -445,11 +425,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Añadir clase para dispositivos táctiles
         document.body.classList.add('touch-device');
     }
     
-    // Mejorar la experiencia de desplazamiento en dispositivos táctiles
     const soporteCards = document.querySelectorAll('.soporte-card');
     let touchStartY = 0;
     
@@ -464,19 +442,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const scrollDown = touchY < touchStartY;
             const scrollingElement = document.scrollingElement || document.documentElement;
             
-            // Si estamos en la parte superior y tratamos de desplazarnos hacia arriba
             if (scrollingElement.scrollTop === 0 && scrollUp) {
-                e.preventDefault(); // Evitar el efecto de rebote
+                e.preventDefault();
             }
             
-            // Si estamos en la parte inferior y tratamos de desplazarnos hacia abajo
             if ((scrollingElement.scrollHeight - scrollingElement.scrollTop <= window.innerHeight) && scrollDown) {
-                e.preventDefault(); // Evitar el efecto de rebote
+                e.preventDefault();
             }
         }, { passive: false });
     });
     
-    // Auto-ocultar alertas después de 5 segundos
     const alerts = document.querySelectorAll('.alert');
     alerts.forEach(alert => {
         setTimeout(() => {

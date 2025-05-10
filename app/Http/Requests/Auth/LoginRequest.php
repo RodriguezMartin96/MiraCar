@@ -12,19 +12,11 @@ use Illuminate\Validation\ValidationException;
 
 class LoginRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
-     */
     public function rules(): array
     {
         return [
@@ -33,23 +25,15 @@ class LoginRequest extends FormRequest
         ];
     }
 
-    /**
-     * Attempt to authenticate the request's credentials.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function authenticate(): void
     {
         $this->ensureIsNotRateLimited();
 
-        // Determinar si el login es un email o un DNI
         $login = $this->input('login');
         $loginType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'dni';
         
-        // Registrar intento para depuración
         Log::info("Intentando autenticar con {$loginType}: {$login}");
 
-        // Intentar autenticar con el tipo de login detectado
         $credentials = [
             $loginType => $login,
             'password' => $this->input('password')
@@ -58,23 +42,16 @@ class LoginRequest extends FormRequest
         if (!Auth::attempt($credentials, $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
             
-            // Mensaje de error personalizado
             throw ValidationException::withMessages([
                 'login' => 'DNI, Email o Contraseña. Errónea inténtelo de nuevo.',
             ]);
         }
 
-        // Registrar éxito para depuración
         Log::info("Autenticación exitosa para usuario: " . Auth::user()->id);
 
         RateLimiter::clear($this->throttleKey());
     }
 
-    /**
-     * Ensure the login request is not rate limited.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function ensureIsNotRateLimited(): void
     {
         if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
@@ -93,9 +70,6 @@ class LoginRequest extends FormRequest
         ]);
     }
 
-    /**
-     * Get the rate limiting throttle key for the request.
-     */
     public function throttleKey(): string
     {
         return Str::transliterate(Str::lower($this->input('login')).'|'.$this->ip());

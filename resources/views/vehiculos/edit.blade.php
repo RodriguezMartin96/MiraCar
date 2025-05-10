@@ -7,20 +7,15 @@
     
     <title>{{ config('app.name', 'MiraCar') }} - Editar Vehículo</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
@@ -105,7 +100,6 @@
             border-radius: var(--border-radius);
         }
         
-        /* Estilos para campos válidos e inválidos */
         .form-control.is-valid, .form-select.is-valid {
             border-color: var(--success-color);
             padding-right: calc(1.5em + 0.75rem);
@@ -166,7 +160,7 @@
         .was-validated .form-control:valid ~ .valid-tooltip, 
         .form-control.is-valid ~ .valid-feedback,
         .form-control.is-valid ~ .valid-tooltip {
-            display: none; /* Ocultar mensajes de "correcto" */
+            display: none;
         }
         
         .was-validated .form-control:invalid ~ .invalid-feedback,
@@ -176,7 +170,6 @@
             display: block;
         }
         
-        /* Estilos responsivos */
         @media (max-width: 767.98px) {
             .container {
                 padding-left: 15px;
@@ -219,7 +212,6 @@
             }
         }
         
-        /* Ajustes para tablets */
         @media (min-width: 768px) and (max-width: 991.98px) {
             .card-body {
                 padding: 1.5rem;
@@ -230,18 +222,16 @@
             }
         }
         
-        /* Optimización para dispositivos táctiles */
         @media (hover: none) and (pointer: coarse) {
             .form-control, .form-select, .btn {
-                font-size: 16px; /* Evita zoom en iOS */
-                min-height: 44px; /* Área táctil mínima recomendada */
+                font-size: 16px;
+                min-height: 44px;
             }
             
             .btn:active {
                 transform: scale(0.98);
             }
             
-            /* Espaciado adicional para elementos táctiles */
             .form-label {
                 margin-bottom: 0.5rem;
             }
@@ -251,7 +241,6 @@
             }
         }
         
-        /* Mejoras para orientación landscape en móviles */
         @media (max-height: 500px) and (orientation: landscape) {
             .container {
                 padding-top: 0.5rem;
@@ -271,7 +260,6 @@
             }
         }
         
-        /* Clases de utilidad */
         .form-group-spacing {
             margin-bottom: 1.5rem;
         }
@@ -282,7 +270,6 @@
             gap: 1rem;
         }
         
-        /* Animaciones y efectos */
         .btn {
             position: relative;
             overflow: hidden;
@@ -321,13 +308,11 @@
             }
         }
         
-        /* Mejoras de accesibilidad */
         .form-control:focus, .form-select:focus, .btn:focus {
             outline: 2px solid var(--secondary-color);
             outline-offset: 2px;
         }
         
-        /* Estilos para el badge de edición */
         .edit-badge {
             position: absolute;
             top: -10px;
@@ -344,25 +329,21 @@
             z-index: 10;
         }
         
-        /* Contenedor con posición relativa para el badge */
         .card-container {
             position: relative;
         }
         
-        /* Estilos para campos requeridos */
         .required-field::after {
             content: "*";
             color: red;
             margin-left: 4px;
         }
         
-        /* Estilos para los iconos en los campos */
         .field-icon {
             color: var(--primary-color);
             margin-right: 0.25rem;
         }
         
-        /* Estilos para campos modificados */
         .field-modified {
             background-color: rgba(79, 140, 255, 0.1);
             border-color: var(--secondary-color);
@@ -370,7 +351,6 @@
     </style>
 </head>
 <body>
-    <!-- Incluir la barra de navegación -->
     @include('layouts.navigation')
 
     <div class="container py-3 py-md-4">
@@ -532,7 +512,6 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Modificado: Estructura de botones similar a la página de clientes -->
                                 <div class="d-flex justify-content-center flex-column flex-md-row mt-4">
                                     <a href="{{ route('vehiculos.index') }}" class="btn btn-secondary me-md-2 order-2 order-md-1">
                                         <i class="bi bi-arrow-left me-1"></i>Cancelar
@@ -549,23 +528,18 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Validación del formulario
             const form = document.getElementById('vehiculoForm');
             const inputs = form.querySelectorAll('input, select');
             
-            // Guardar valores originales
             const originalValues = {};
             
-            // Guardar valores originales
             inputs.forEach(input => {
                 originalValues[input.id] = input.value;
                 
-                // Detectar cambios
                 input.addEventListener('input', function() {
                     if (this.value !== originalValues[this.id]) {
                         this.classList.add('field-modified');
@@ -583,11 +557,9 @@
                 });
             });
             
-            // Función para validar un campo
             function validateField(input) {
                 let isValid = true;
                 
-                // Validar según el tipo de campo
                 switch(input.id) {
                     case 'marca':
                     case 'modelo':
@@ -596,14 +568,13 @@
                         break;
                         
                     case 'matricula':
-                        // Validación: formatos específicos de matrícula
                         const matriculaPattern = /^([A-Z]{2}\d{4}[A-Z]{2}|\d{4}[A-Z]{3}|[A-Z]{3}\d{4})$/;
                         isValid = matriculaPattern.test(input.value);
                         break;
                         
                     case 'bastidor':
                         if (input.value.trim() === '') {
-                            isValid = true; // Es opcional
+                            isValid = true;
                         } else {
                             const bastidorPattern = /^[A-Z0-9]+$/;
                             isValid = bastidorPattern.test(input.value);
@@ -612,7 +583,7 @@
                         
                     case 'fecha_matriculacion':
                         if (input.value === '') {
-                            isValid = true; // Es opcional
+                            isValid = true;
                         } else {
                             const selectedDate = new Date(input.value);
                             const today = new Date();
@@ -630,7 +601,6 @@
                         break;
                 }
                 
-                // Actualizar clases y feedback según validación
                 if (input.required && input.value.trim() === '') {
                     input.classList.remove('is-valid');
                     input.classList.add('is-invalid');
@@ -646,7 +616,6 @@
                 }
             }
             
-            // Validar todos los campos al enviar el formulario
             form.addEventListener('submit', function(event) {
                 let formValid = true;
                 
@@ -665,7 +634,6 @@
                 form.classList.add('was-validated');
             });
             
-            // Validar cada campo cuando cambia su valor
             inputs.forEach(function(input) {
                 input.addEventListener('input', function() {
                     validateField(this);
@@ -675,56 +643,40 @@
                     validateField(this);
                 });
                 
-                // Validar campos con valores iniciales
                 if (input.value.trim() !== '') {
                     validateField(input);
                 }
             });
             
-            // Formatear matrícula automáticamente
             const matriculaInput = document.getElementById('matricula');
             if (matriculaInput) {
                 matriculaInput.addEventListener('input', function() {
                     let value = this.value.toUpperCase();
-                    // Eliminar caracteres no alfanuméricos
                     value = value.replace(/[^A-Z0-9]/g, '');
                     this.value = value;
                     
-                    // Validar en tiempo real
                     validateField(this);
                 });
             }
             
-            // Formatear bastidor automáticamente
             const bastidorInput = document.getElementById('bastidor');
             if (bastidorInput) {
                 bastidorInput.addEventListener('input', function() {
                     let value = this.value.toUpperCase();
-                    // Eliminar caracteres no alfanuméricos
                     value = value.replace(/[^A-Z0-9]/g, '');
                     this.value = value;
                     
-                    // Validar en tiempo real
                     validateField(this);
                 });
             }
             
-            // Establecer la fecha máxima para la fecha de matriculación
             const fechaMatriculacionInput = document.getElementById('fecha_matriculacion');
             if (fechaMatriculacionInput) {
                 const today = new Date().toISOString().split('T')[0];
                 fechaMatriculacionInput.setAttribute('max', today);
             }
             
-            // Guardar valores originales
-            const originalValues = {};
-            inputs.forEach(input => {
-                originalValues[input.id] = input.value;
-            });
-            
-            // Detectar si es un dispositivo táctil
             if ('ontouchstart' in window) {
-                // Mejorar la experiencia táctil para los botones
                 const buttons = document.querySelectorAll('.btn');
                 buttons.forEach(button => {
                     button.addEventListener('touchstart', function() {
@@ -736,7 +688,6 @@
                     });
                 });
                 
-                // Detectar orientación landscape en móviles
                 function adjustForLandscape() {
                     if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
                         document.body.classList.add('landscape-mode');
@@ -745,15 +696,12 @@
                     }
                 }
                 
-                // Ejecutar al cargar y al cambiar orientación
                 adjustForLandscape();
                 window.addEventListener('resize', adjustForLandscape);
                 window.addEventListener('orientationchange', adjustForLandscape);
                 
-                // Mejorar la experiencia con selects en dispositivos móviles
                 const selects = document.querySelectorAll('select.form-select');
                 selects.forEach(select => {
-                    // Asegurarse de que el texto no se corte en dispositivos móviles
                     select.addEventListener('change', function() {
                         const selectedOption = this.options[this.selectedIndex];
                         if (selectedOption.textContent.length > 30) {

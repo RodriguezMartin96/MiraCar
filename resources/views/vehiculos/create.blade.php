@@ -7,20 +7,15 @@
     
     <title>{{ config('app.name', 'MiraCar') }} - Nuevo Vehículo</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
@@ -65,7 +60,7 @@
             padding: 0.625rem 0.75rem;
             border: 1px solid #ced4da;
             transition: var(--transition);
-            font-size: 16px; /* Evita zoom en iOS */
+            font-size: 16px;
         }
         
         .form-control:focus, .form-select:focus {
@@ -106,7 +101,6 @@
             border-radius: var(--border-radius);
         }
         
-        /* Estilos para campos válidos e inválidos */
         .form-control.is-valid, .form-select.is-valid {
             border-color: var(--success-color);
             padding-right: calc(1.5em + 0.75rem);
@@ -167,7 +161,7 @@
         .was-validated .form-control:valid ~ .valid-tooltip, 
         .form-control.is-valid ~ .valid-feedback,
         .form-control.is-valid ~ .valid-tooltip {
-            display: none; /* Ocultar mensajes de "correcto" */
+            display: none;
         }
         
         .was-validated .form-control:invalid ~ .invalid-feedback,
@@ -177,7 +171,6 @@
             display: block;
         }
         
-        /* Estilos para el badge de añadir */
         .add-badge {
             position: absolute;
             top: -10px;
@@ -194,12 +187,10 @@
             z-index: 10;
         }
         
-        /* Contenedor con posición relativa para el badge */
         .card-container {
             position: relative;
         }
         
-        /* Estilos responsivos */
         @media (max-width: 767.98px) {
             .container {
                 padding-left: 15px;
@@ -223,7 +214,7 @@
             .btn {
                 width: 100%;
                 margin-bottom: 0.5rem;
-                min-height: 44px; /* Área táctil mínima recomendada */
+                min-height: 44px;
             }
             
             .d-flex {
@@ -242,7 +233,6 @@
                 flex-direction: column;
             }
             
-            /* Mostrar el badge en móviles */
             .add-badge.d-none.d-md-flex {
                 display: flex !important;
                 width: 30px;
@@ -252,19 +242,16 @@
                 font-size: 0.9rem;
             }
             
-            /* Mejorar la visualización de los mensajes de error */
             .invalid-feedback {
                 font-size: 0.8rem;
                 margin-top: 0.2rem;
             }
             
-            /* Mejorar la visualización de los campos en móviles */
             .form-control, .form-select {
                 padding: 0.5rem 0.75rem;
-                min-height: 44px; /* Área táctil mínima recomendada */
+                min-height: 44px;
             }
             
-            /* Ajustar el espaciado entre filas */
             .row {
                 margin-left: -8px;
                 margin-right: -8px;
@@ -275,7 +262,6 @@
                 padding-right: 8px;
             }
             
-            /* Mejorar la visualización de los iconos en los campos */
             .field-icon {
                 width: 16px;
                 height: 16px;
@@ -283,7 +269,6 @@
             }
         }
         
-        /* Ajustes para tablets */
         @media (min-width: 768px) and (max-width: 991.98px) {
             .card-body {
                 padding: 1.5rem;
@@ -291,21 +276,18 @@
             
             .btn {
                 padding: 0.5rem 1.25rem;
-                min-height: 44px; /* Área táctil mínima recomendada */
+                min-height: 44px;
             }
             
-            /* Ajustar el espaciado entre filas */
             .form-group-spacing {
                 margin-bottom: 1.25rem;
             }
             
-            /* Mejorar la visualización de los campos en tablets */
             .form-control, .form-select {
                 padding: 0.5rem 0.75rem;
-                min-height: 44px; /* Área táctil mínima recomendada */
+                min-height: 44px;
             }
             
-            /* Ajustar el espaciado entre columnas */
             .row {
                 margin-left: -10px;
                 margin-right: -10px;
@@ -316,24 +298,21 @@
                 padding-right: 10px;
             }
             
-            /* Mejorar la visualización del select de clientes */
             .form-select {
                 text-overflow: ellipsis;
             }
         }
         
-        /* Optimización para dispositivos táctiles */
         @media (hover: none) and (pointer: coarse) {
             .form-control, .form-select, .btn {
-                font-size: 16px; /* Evita zoom en iOS */
-                min-height: 44px; /* Área táctil mínima recomendada */
+                font-size: 16px;
+                min-height: 44px;
             }
             
             .btn:active {
                 transform: scale(0.98);
             }
             
-            /* Espaciado adicional para elementos táctiles */
             .form-label {
                 margin-bottom: 0.5rem;
             }
@@ -342,18 +321,15 @@
                 margin-bottom: 1.25rem;
             }
             
-            /* Mejorar la experiencia táctil */
             .btn, .form-control, .form-select {
                 touch-action: manipulation;
             }
             
-            /* Efecto de toque para elementos interactivos */
             .form-control:active, .form-select:active {
                 background-color: #f8f9fa;
             }
         }
         
-        /* Mejoras para orientación landscape en móviles */
         @media (max-height: 500px) and (orientation: landscape) {
             .container {
                 padding-top: 0.5rem;
@@ -373,7 +349,6 @@
                 margin-bottom: 1rem !important;
             }
             
-            /* Ajustes específicos para landscape */
             .form-buttons {
                 flex-direction: row;
                 justify-content: center;
@@ -384,30 +359,25 @@
                 margin: 0 0.5rem;
             }
             
-            /* Ajustar el espaciado entre filas */
             .form-group-spacing {
                 margin-bottom: 0.75rem;
             }
             
-            /* Reducir el tamaño del título */
             .card-title {
                 font-size: 1.2rem;
                 margin-bottom: 0.75rem;
             }
             
-            /* Ajustar el espaciado de los campos */
             .form-control, .form-select {
                 padding: 0.4rem 0.6rem;
             }
             
-            /* Mejorar la visualización de los mensajes de error */
             .invalid-feedback {
                 font-size: 0.75rem;
                 margin-top: 0.1rem;
             }
         }
         
-        /* Clases de utilidad */
         .form-group-spacing {
             margin-bottom: 1.5rem;
         }
@@ -418,7 +388,6 @@
             gap: 1rem;
         }
         
-        /* Animaciones y efectos */
         .btn {
             position: relative;
             overflow: hidden;
@@ -457,26 +426,22 @@
             }
         }
         
-        /* Mejoras de accesibilidad */
         .form-control:focus, .form-select:focus, .btn:focus {
             outline: 2px solid var(--secondary-color);
             outline-offset: 2px;
         }
         
-        /* Estilos para campos requeridos */
         .required-field::after {
             content: "*";
             color: red;
             margin-left: 4px;
         }
         
-        /* Estilos para los iconos en los campos */
         .field-icon {
             color: var(--primary-color);
             margin-right: 0.25rem;
         }
         
-        /* Mejoras para accesibilidad */
         @media (prefers-reduced-motion: reduce) {
             * {
                 transition: none !important;
@@ -484,7 +449,6 @@
             }
         }
         
-        /* Mejoras para alto contraste */
         @media (prefers-contrast: more) {
             .form-label {
                 color: #000;
@@ -504,7 +468,6 @@
             }
         }
         
-        /* Animación para el badge */
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -528,7 +491,6 @@
     </style>
 </head>
 <body>
-    <!-- Incluir la barra de navegación -->
     @include('layouts.navigation')
 
     <div class="container py-3 py-md-4">
@@ -709,20 +671,16 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Validación del formulario
             const form = document.getElementById('vehiculoForm');
             const inputs = form.querySelectorAll('input, select');
             
-            // Función para validar un campo
             function validateField(input) {
                 let isValid = true;
                 
-                // Validar según el tipo de campo
                 switch(input.id) {
                     case 'marca':
                     case 'modelo':
@@ -731,14 +689,13 @@
                         break;
                         
                     case 'matricula':
-                        // Validación: formatos específicos de matrícula
                         const matriculaPattern = /^([A-Z]{2}\d{4}[A-Z]{2}|\d{4}[A-Z]{3}|[A-Z]{3}\d{4})$/;
                         isValid = matriculaPattern.test(input.value);
                         break;
                         
                     case 'bastidor':
                         if (input.value.trim() === '') {
-                            isValid = true; // Es opcional
+                            isValid = true;
                         } else {
                             const bastidorPattern = /^[A-Z0-9]+$/;
                             isValid = bastidorPattern.test(input.value);
@@ -747,7 +704,7 @@
                         
                     case 'fecha_matriculacion':
                         if (input.value === '') {
-                            isValid = true; // Es opcional
+                            isValid = true;
                         } else {
                             const selectedDate = new Date(input.value);
                             const today = new Date();
@@ -765,7 +722,6 @@
                         break;
                 }
                 
-                // Actualizar clases y feedback según validación
                 if (input.required && input.value.trim() === '') {
                     input.classList.remove('is-valid');
                     input.classList.add('is-invalid');
@@ -781,7 +737,6 @@
                 }
             }
             
-            // Validar todos los campos al enviar el formulario
             form.addEventListener('submit', function(event) {
                 let formValid = true;
                 
@@ -796,7 +751,6 @@
                     event.preventDefault();
                     event.stopPropagation();
                     
-                    // Desplazarse al primer campo con error
                     const firstInvalid = form.querySelector('.is-invalid');
                     if (firstInvalid) {
                         firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -807,7 +761,6 @@
                 form.classList.add('was-validated');
             });
             
-            // Validar cada campo cuando cambia su valor
             inputs.forEach(function(input) {
                 input.addEventListener('input', function() {
                     validateField(this);
@@ -817,50 +770,40 @@
                     validateField(this);
                 });
                 
-                // Validar campos con valores iniciales
                 if (input.value.trim() !== '') {
                     validateField(input);
                 }
             });
             
-            // Formatear matrícula automáticamente
             const matriculaInput = document.getElementById('matricula');
             if (matriculaInput) {
                 matriculaInput.addEventListener('input', function() {
                     let value = this.value.toUpperCase();
-                    // Eliminar caracteres no alfanuméricos
                     value = value.replace(/[^A-Z0-9]/g, '');
                     this.value = value;
                     
-                    // Validar en tiempo real
                     validateField(this);
                 });
             }
             
-            // Formatear bastidor automáticamente
             const bastidorInput = document.getElementById('bastidor');
             if (bastidorInput) {
                 bastidorInput.addEventListener('input', function() {
                     let value = this.value.toUpperCase();
-                    // Eliminar caracteres no alfanuméricos
                     value = value.replace(/[^A-Z0-9]/g, '');
                     this.value = value;
                     
-                    // Validar en tiempo real
                     validateField(this);
                 });
             }
             
-            // Establecer la fecha máxima para la fecha de matriculación
             const fechaMatriculacionInput = document.getElementById('fecha_matriculacion');
             if (fechaMatriculacionInput) {
                 const today = new Date().toISOString().split('T')[0];
                 fechaMatriculacionInput.setAttribute('max', today);
             }
             
-            // Detectar si es un dispositivo táctil
             if ('ontouchstart' in window) {
-                // Mejorar la experiencia táctil para los botones
                 const buttons = document.querySelectorAll('.btn');
                 buttons.forEach(button => {
                     button.addEventListener('touchstart', function() {
@@ -872,7 +815,6 @@
                     });
                 });
                 
-                // Detectar orientación landscape en móviles
                 function adjustForLandscape() {
                     if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
                         document.body.classList.add('landscape-mode');
@@ -881,15 +823,12 @@
                     }
                 }
                 
-                // Ejecutar al cargar y al cambiar orientación
                 adjustForLandscape();
                 window.addEventListener('resize', adjustForLandscape);
                 window.addEventListener('orientationchange', adjustForLandscape);
                 
-                // Mejorar la experiencia con selects en dispositivos móviles
                 const selects = document.querySelectorAll('select.form-select');
                 selects.forEach(select => {
-                    // Asegurarse de que el texto no se corte en dispositivos móviles
                     select.addEventListener('change', function() {
                         const selectedOption = this.options[this.selectedIndex];
                         if (selectedOption.textContent.length > 30) {
@@ -900,10 +839,8 @@
                     });
                 });
                 
-                // Ajustar el scroll al enfocar un campo en móviles
                 inputs.forEach(function(input) {
                     input.addEventListener('focus', function() {
-                        // Pequeño retraso para asegurar que el teclado virtual ya está visible
                         setTimeout(() => {
                             this.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         }, 300);

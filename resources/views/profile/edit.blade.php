@@ -94,7 +94,6 @@
         </div>
     </div>
     
-    <!-- Modal para editar perfil -->
     <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -149,7 +148,6 @@
         </div>
     </div>
     
-    <!-- Modal para cambiar logo -->
     <div class="modal fade" id="editLogoModal" tabindex="-1" aria-labelledby="editLogoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -185,7 +183,6 @@
         </div>
     </div>
     
-    <!-- Modal para cambiar contraseña -->
     <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -231,7 +228,6 @@
     </div>
     
     <script>
-        // Script para previsualizar la imagen antes de subirla
         document.getElementById('logo').onchange = function(evt) {
             const [file] = this.files;
             if (file) {
@@ -241,7 +237,6 @@
             }
         };
         
-        // Mostrar los modales si hay errores de validación
         document.addEventListener('DOMContentLoaded', function() {
             @if($errors->updatePassword->any())
                 new bootstrap.Modal(document.getElementById('changePasswordModal')).show();

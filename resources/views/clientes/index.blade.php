@@ -7,20 +7,15 @@
     
     <title>{{ config('app.name', 'MiraCar') }} - Clientes</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
@@ -80,12 +75,11 @@
             color: white;
         }
         
-        /* Estilos mejorados para los iconos de acción */
         .action-icons {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px; /* Espacio uniforme entre iconos */
+            gap: 8px;
         }
         
         .action-icons a, .action-icons button {
@@ -98,7 +92,7 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            margin: 0; /* Eliminar márgenes para que estén juntos */
+            margin: 0;
             padding: 0;
             background: transparent;
             border: none;
@@ -109,17 +103,16 @@
             background-color: rgba(79, 140, 255, 0.1);
         }
         
-        /* Estilos específicos para cada tipo de acción */
         .action-icons a.edit-icon, .action-icons button.edit-icon {
-            color: #0d6efd; /* Azul para editar */
+            color: #0d6efd;
         }
         
         .action-icons a.view-icon, .action-icons button.view-icon {
-            color: #198754; /* Verde para ver */
+            color: #198754;
         }
         
         .action-icons a.delete-icon, .action-icons button.delete-icon {
-            color: #dc3545; /* Rojo para eliminar */
+            color: #dc3545;
         }
         
         .action-icons a.edit-icon:hover, .action-icons button.edit-icon:hover {
@@ -150,15 +143,11 @@
             color: #0f5132;
         }
         
-        /* Centrar texto en la tabla */
         .table td, .table th {
             text-align: center;
             vertical-align: middle;
         }
         
-        /* Estilos responsivos */
-        
-        /* Vista de tarjeta para móviles */
         .client-card {
             display: none;
             background-color: white;
@@ -213,7 +202,6 @@
             border-top: 1px solid #eee;
         }
         
-        /* Estilos mejorados para los iconos de acción en tarjetas móviles */
         .client-card .card-actions {
             display: flex;
             gap: 8px;
@@ -238,17 +226,17 @@
         
         .client-card .card-actions a.edit-icon, 
         .client-card .card-actions button.edit-icon {
-            color: #0d6efd; /* Azul para editar */
+            color: #0d6efd;
         }
         
         .client-card .card-actions a.view-icon, 
         .client-card .card-actions button.view-icon {
-            color: #198754; /* Verde para ver */
+            color: #198754;
         }
         
         .client-card .card-actions a.delete-icon, 
         .client-card .card-actions button.delete-icon {
-            color: #dc3545; /* Rojo para eliminar */
+            color: #dc3545;
         }
         
         .client-card .card-actions a:hover, 
@@ -271,7 +259,6 @@
             background-color: rgba(220, 53, 69, 0.1);
         }
         
-        /* Animación de ripple para los botones de acción */
         .action-icons a, .action-icons button,
         .client-card .card-actions a, .client-card .card-actions button {
             position: relative;
@@ -313,7 +300,6 @@
             }
         }
         
-        /* Botón flotante para móviles */
         .floating-action-button {
             display: none;
             position: fixed;
@@ -336,7 +322,6 @@
             transform: scale(1.05);
         }
         
-        /* Media queries para diferentes dispositivos */
         @media (max-width: 991.98px) {
             .card-body {
                 padding: 1.25rem !important;
@@ -384,29 +369,24 @@
                 margin-bottom: 1rem !important;
             }
             
-            /* Ocultar tabla en móviles */
             .table-responsive {
                 display: none;
             }
             
-            /* Mostrar vista de tarjetas en móviles */
             .client-card {
                 display: block;
             }
             
-            /* Mostrar botón flotante en móviles */
             .floating-action-button {
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
             
-            /* Ocultar botón normal en móviles */
             .desktop-add-button {
                 display: none;
             }
             
-            /* Ajustes para la barra de búsqueda en móviles */
             .search-container .input-group {
                 border-radius: 2rem;
                 overflow: hidden;
@@ -421,7 +401,6 @@
                 border-radius: 0 2rem 2rem 0;
             }
             
-            /* Ajustes para la alerta de información en móviles */
             .alert-info {
                 font-size: 0.9rem;
                 padding: 0.75rem;
@@ -433,7 +412,6 @@
                 margin-top: 0.5rem;
             }
             
-            /* Ajustes para la paginación en móviles */
             .pagination {
                 justify-content: center;
             }
@@ -442,7 +420,6 @@
                 padding: 0.375rem 0.75rem;
             }
             
-            /* Ajustes para los iconos de acción en móviles */
             .client-card .card-actions a, 
             .client-card .card-actions button {
                 width: 44px;
@@ -451,7 +428,6 @@
             }
         }
         
-        /* Media queries para tablets */
         @media (min-width: 768px) and (max-width: 991.98px) {
             .table th, .table td {
                 padding: 0.5rem 0.25rem;
@@ -469,7 +445,6 @@
             }
         }
         
-        /* Mejoras para dispositivos táctiles */
         @media (hover: none) and (pointer: coarse) {
             .btn {
                 padding-top: 0.5rem;
@@ -479,7 +454,7 @@
             
             .action-icons a, .action-icons button,
             .client-card .card-actions a, .client-card .card-actions button {
-                min-height: 44px; /* Área táctil mínima recomendada */
+                min-height: 44px;
                 min-width: 44px;
             }
             
@@ -493,7 +468,6 @@
             }
         }
         
-        /* Mejoras para la alerta de información */
         .alert-info {
             background-color: var(--light-color);
             border-color: var(--secondary-color);
@@ -516,7 +490,6 @@
             }
         }
         
-        /* Mejoras para la paginación */
         .pagination {
             gap: 0.25rem;
         }
@@ -550,7 +523,6 @@
             }
         }
         
-        /* Estilos para el modal de confirmación de eliminación */
         .delete-modal .modal-header {
             background-color: var(--primary-color);
             color: white;
@@ -638,7 +610,6 @@
             font-weight: 500;
         }
         
-        /* Mejoras para el modal en dispositivos móviles */
         @media (max-width: 767.98px) {
             .delete-modal .modal-dialog {
                 margin: 0.5rem;
@@ -675,7 +646,6 @@
             }
         }
         
-        /* Estilo para el icono de cliente en la tabla vacía */
         .empty-table-icon {
             font-size: 3rem;
             color: var(--primary-color);
@@ -685,7 +655,6 @@
     </style>
 </head>
 <body>
-    <!-- Incluir la barra de navegación -->
     @include('layouts.navigation')
 
     <div class="container py-3 py-md-4">
@@ -705,7 +674,6 @@
                             </div>
                         @endif
                         
-                        <!-- Barra de búsqueda -->
                         <div class="search-container mb-3 mb-md-4">
                             <form action="{{ route('clientes.index') }}" method="GET">
                                 <div class="input-group">
@@ -717,7 +685,6 @@
                             </form>
                         </div>
                         
-                        <!-- Información de búsqueda -->
                         @if(request('search'))
                             <div class="alert alert-info mb-3 mb-md-4">
                                 <div class="d-flex justify-content-between align-items-center">
@@ -733,14 +700,12 @@
                             </div>
                         @endif
                         
-                        <!-- Botón Agregar (versión desktop) -->
                         <div class="mb-3 mb-md-4 desktop-add-button">
                             <a href="{{ route('clientes.create') }}" class="btn btn-primary">
                                 <i class="bi bi-plus-lg me-1"></i> Agregar Cliente
                             </a>
                         </div>
                         
-                        <!-- Tabla de clientes (vista desktop y tablet) -->
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover">
                                 <thead>
@@ -797,7 +762,6 @@
                             </table>
                         </div>
                         
-                        <!-- Vista de tarjetas para móviles -->
                         <div class="mobile-cards">
                             @forelse($clientes as $cliente)
                                 <div class="client-card">
@@ -839,11 +803,9 @@
                                     </div>
                                 </div>
                             @empty
-                                <!-- No se muestra nada cuando está vacío, se maneja con el estado vacío -->
                             @endforelse
                         </div>
                         
-                        <!-- Paginación -->
                         @if($clientes->hasPages())
                             <div class="d-flex justify-content-center mt-3 mt-md-4">
                                 {{ $clientes->appends(['search' => request('search')])->links() }}
@@ -855,12 +817,10 @@
         </div>
     </div>
     
-    <!-- Botón flotante para agregar (versión móvil) -->
     <a href="{{ route('clientes.create') }}" class="floating-action-button">
         <i class="bi bi-plus-lg"></i>
     </a>
 
-    <!-- Modal de confirmación de eliminación -->
     <div class="modal fade delete-modal" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -889,13 +849,10 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Script para mejorar la experiencia en dispositivos móviles
         document.addEventListener('DOMContentLoaded', function() {
-            // Configuración del modal de eliminación
             const deleteModal = document.getElementById('deleteModal');
             if (deleteModal) {
                 deleteModal.addEventListener('show.bs.modal', function(event) {
@@ -905,28 +862,23 @@
                     const apellidos = button.getAttribute('data-apellidos');
                     const dni = button.getAttribute('data-dni');
                     
-                    // Actualizar el contenido del modal
                     document.getElementById('clientNombre').textContent = nombre;
                     document.getElementById('clientApellidos').textContent = apellidos;
                     document.getElementById('clientDni').textContent = dni;
                     
-                    // Actualizar el formulario de eliminación
                     const deleteForm = document.getElementById('deleteForm');
                     if (deleteForm) {
                         deleteForm.action = `{{ route('clientes.destroy', '') }}/${id}`;
                     }
                 });
                 
-                // Añadir animación al abrir el modal
                 deleteModal.addEventListener('shown.bs.modal', function() {
                     const iconBox = this.querySelector('.warning-icon');
                     iconBox.style.animation = 'pulse 1s';
                 });
             }
             
-            // Detectar si es un dispositivo táctil
             if ('ontouchstart' in window) {
-                // Mejorar la experiencia táctil para los botones
                 const buttons = document.querySelectorAll('.btn, .card-actions a, .card-actions button, .action-icons a, .action-icons button');
                 buttons.forEach(button => {
                     button.addEventListener('touchstart', function() {
@@ -939,7 +891,6 @@
                 });
             }
             
-            // Efecto ripple para los botones de acción
             const actionButtons = document.querySelectorAll('.action-icons a, .action-icons button, .card-actions a, .card-actions button');
             
             actionButtons.forEach(button => {
@@ -969,7 +920,6 @@
             });
         });
         
-        // Animación de ripple
         document.head.insertAdjacentHTML('beforeend', `
             <style>
                 @keyframes ripple-effect {

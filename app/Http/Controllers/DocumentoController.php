@@ -10,15 +10,10 @@ use Illuminate\Support\Facades\Storage;
 
 class DocumentoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     {
-        // Solo mostrar documentos del usuario autenticado
         $query = Documento::where('user_id', Auth::id());
         
-        // Búsqueda
         if ($request->has('search') && $request->search) {
             $search = $request->search;
             $query->where(function($q) use ($search) {
@@ -33,9 +28,6 @@ class DocumentoController extends Controller
         return view('documentacion.index', compact('documentos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $categorias = [
@@ -65,31 +57,24 @@ class DocumentoController extends Controller
         return view('documentacion.create', compact('categorias', 'descripciones'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string|max:255',
-            'archivo' => 'required|file|max:10240', // 10MB máximo
+            'archivo' => 'required|file|max:10240',
             'otroNombre' => 'required_if:nombre,otro|nullable|string|max:255',
             'otraDescripcion' => 'required_if:descripcion,otro|nullable|string|max:255',
         ]);
 
         try {
-            // Obtener la extensión del archivo
             $extension = $request->file('archivo')->getClientOriginalExtension();
-            
-            // Guardar el archivo
             $rutaArchivo = $request->file('archivo')->store('documentos/' . Auth::id(), 'public');
             
-            // Crear el documento
             $documento = new Documento([
                 'nombre' => $request->nombre,
                 'descripcion' => $request->descripcion,
-                'formato' => $extension, // Guardar la extensión como formato
+                'formato' => $extension,
                 'ruta_archivo' => $rutaArchivo,
                 'otro_nombre' => $request->nombre === 'otro' ? $request->otroNombre : null,
                 'otra_descripcion' => $request->descripcion === 'otro' ? $request->otraDescripcion : null,
@@ -110,12 +95,8 @@ class DocumentoController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Documento $documento)
     {
-        // Verificar que el documento pertenece al usuario autenticado
         if ($documento->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para ver este documento.');
         }
@@ -123,12 +104,8 @@ class DocumentoController extends Controller
         return view('documentacion.show', compact('documento'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Documento $documento)
     {
-        // Verificar que el documento pertenece al usuario autenticado
         if ($documento->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para editar este documento.');
         }
@@ -160,12 +137,8 @@ class DocumentoController extends Controller
         return view('documentacion.edit', compact('documento', 'categorias', 'descripciones'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Documento $documento)
     {
-        // Verificar que el documento pertenece al usuario autenticado
         if ($documento->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para actualizar este documento.');
         }
@@ -173,32 +146,25 @@ class DocumentoController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string|max:255',
-            'archivo' => 'nullable|file|max:10240', // 10MB máximo
+            'archivo' => 'nullable|file|max:10240',
             'otroNombre' => 'required_if:nombre,otro|nullable|string|max:255',
             'otraDescripcion' => 'required_if:descripcion,otro|nullable|string|max:255',
         ]);
 
         try {
-            // Actualizar datos del documento
             $documento->nombre = $request->nombre;
             $documento->descripcion = $request->descripcion;
             $documento->otro_nombre = $request->nombre === 'otro' ? $request->otroNombre : null;
             $documento->otra_descripcion = $request->descripcion === 'otro' ? $request->otraDescripcion : null;
 
-            // Si se ha subido un nuevo archivo
             if ($request->hasFile('archivo') && $request->file('archivo')->isValid()) {
-                // Obtener la extensión del nuevo archivo
                 $extension = $request->file('archivo')->getClientOriginalExtension();
-                
-                // Actualizar el formato con la nueva extensión
                 $documento->formato = $extension;
                 
-                // Eliminar el archivo anterior
                 if (Storage::disk('public')->exists($documento->ruta_archivo)) {
                     Storage::disk('public')->delete($documento->ruta_archivo);
                 }
 
-                // Guardar el nuevo archivo
                 $rutaArchivo = $request->file('archivo')->store('documentos/' . Auth::id(), 'public');
                 $documento->ruta_archivo = $rutaArchivo;
             }
@@ -217,18 +183,13 @@ class DocumentoController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Documento $documento)
     {
-        // Verificar que el documento pertenece al usuario autenticado
         if ($documento->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para eliminar este documento.');
         }
 
         try {
-            // Eliminar el archivo
             if (Storage::disk('public')->exists($documento->ruta_archivo)) {
                 Storage::disk('public')->delete($documento->ruta_archivo);
             }
@@ -247,12 +208,8 @@ class DocumentoController extends Controller
         }
     }
 
-    /**
-     * Download the specified resource.
-     */
     public function download(Documento $documento)
     {
-        // Verificar que el documento pertenece al usuario autenticado
         if ($documento->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para descargar este documento.');
         }
@@ -265,12 +222,8 @@ class DocumentoController extends Controller
         return back()->withErrors(['error' => 'El archivo no existe.']);
     }
 
-    /**
-     * View the specified resource.
-     */
     public function view(Documento $documento)
     {
-        // Verificar que el documento pertenece al usuario autenticado
         if ($documento->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para ver este documento.');
         }

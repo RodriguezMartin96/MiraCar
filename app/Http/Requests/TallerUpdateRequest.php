@@ -6,17 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class TallerUpdateRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return $this->user() && $this->user()->role === 'taller';
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     */
     public function rules(): array
     {
         return [
@@ -28,9 +22,6 @@ class TallerUpdateRequest extends FormRequest
         ];
     }
 
-    /**
-     * Get custom attributes for validator errors.
-     */
     public function attributes(): array
     {
         return [

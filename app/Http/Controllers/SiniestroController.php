@@ -10,17 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 class SiniestroController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     {
-        // Filtrar siniestros por el usuario (taller) autenticado
         $query = Siniestro::query()
             ->where('user_id', Auth::id())
             ->with(['cliente', 'vehiculo']);
         
-        // Búsqueda
         if ($request->has('search') && $request->search != '') {
             $search = $request->search;
             $query->where(function($q) use ($search) {
@@ -40,7 +35,6 @@ class SiniestroController extends Controller
             });
         }
         
-        // Ordenar por estado: En proceso, Pendiente, Finalizado
         $query->orderByRaw("CASE 
             WHEN estado = 'En proceso' THEN 1 
             WHEN estado = 'Pendiente' THEN 2 
@@ -54,20 +48,14 @@ class SiniestroController extends Controller
         return view('siniestros.index', compact('siniestros'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        $clientes = Cliente::orderBy('nombre')->get();
-        $vehiculos = Vehiculo::orderBy('matricula')->get();
+        $clientes = Cliente::where('user_id', Auth::id())->orderBy('nombre')->get();
+        $vehiculos = Vehiculo::where('user_id', Auth::id())->orderBy('matricula')->get();
         
         return view('siniestros.create', compact('clientes', 'vehiculos'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -84,7 +72,17 @@ class SiniestroController extends Controller
             'fecha_salida.after_or_equal' => 'La fecha de salida debe ser igual o posterior a la fecha de entrada.'
         ]);
         
-        // Asignar el usuario actual (taller) al siniestro
+        $cliente = Cliente::findOrFail($request->cliente_id);
+        $vehiculo = Vehiculo::findOrFail($request->vehiculo_id);
+        
+        if ($cliente->user_id !== Auth::id()) {
+            return back()->withErrors(['cliente_id' => 'El cliente seleccionado no es válido.'])->withInput();
+        }
+        
+        if ($vehiculo->user_id !== Auth::id()) {
+            return back()->withErrors(['vehiculo_id' => 'El vehículo seleccionado no es válido.'])->withInput();
+        }
+        
         $data = $request->all();
         $data['user_id'] = Auth::id();
         
@@ -94,30 +92,33 @@ class SiniestroController extends Controller
             ->with('success', 'Siniestro creado correctamente.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Siniestro $siniestro)
     {
+        if ($siniestro->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para ver este siniestro.');
+        }
+        
         return view('siniestros.show', compact('siniestro'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Siniestro $siniestro)
     {
-        $clientes = Cliente::orderBy('nombre')->get();
-        $vehiculos = Vehiculo::orderBy('matricula')->get();
+        if ($siniestro->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para editar este siniestro.');
+        }
+        
+        $clientes = Cliente::where('user_id', Auth::id())->orderBy('nombre')->get();
+        $vehiculos = Vehiculo::where('user_id', Auth::id())->orderBy('matricula')->get();
         
         return view('siniestros.edit', compact('siniestro', 'clientes', 'vehiculos'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Siniestro $siniestro)
     {
+        if ($siniestro->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para actualizar este siniestro.');
+        }
+        
         $request->validate([
             'cliente_id' => 'required|exists:clientes,id',
             'vehiculo_id' => 'required|exists:vehiculos,id',
@@ -132,17 +133,29 @@ class SiniestroController extends Controller
             'fecha_salida.after_or_equal' => 'La fecha de salida debe ser igual o posterior a la fecha de entrada.'
         ]);
         
+        $cliente = Cliente::findOrFail($request->cliente_id);
+        $vehiculo = Vehiculo::findOrFail($request->vehiculo_id);
+        
+        if ($cliente->user_id !== Auth::id()) {
+            return back()->withErrors(['cliente_id' => 'El cliente seleccionado no es válido.'])->withInput();
+        }
+        
+        if ($vehiculo->user_id !== Auth::id()) {
+            return back()->withErrors(['vehiculo_id' => 'El vehículo seleccionado no es válido.'])->withInput();
+        }
+        
         $siniestro->update($request->all());
         
         return redirect()->route('siniestros.index')
             ->with('success', 'Siniestro actualizado correctamente.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Siniestro $siniestro)
     {
+        if ($siniestro->user_id !== Auth::id()) {
+            abort(403, 'No tienes permiso para eliminar este siniestro.');
+        }
+        
         $siniestro->delete();
         
         return redirect()->route('siniestros.index')

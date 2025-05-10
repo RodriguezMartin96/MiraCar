@@ -8,7 +8,6 @@
         <div class="col-12 col-md-10 col-lg-8">
             <div class="card">
                 <div class="card-body p-0">
-                    <!-- Contenido de confirmación -->
                     <div class="p-3 p-sm-4 p-md-5 text-center">
                         <div class="mb-3 mb-md-4">
                             <i class="bi bi-check-circle-fill success-icon"></i>
@@ -34,7 +33,6 @@
 </div>
 
 <style>
-    /* Estilos base */
     .success-icon {
         font-size: 5rem;
         color: #198754;
@@ -51,7 +49,6 @@
         border-color: #e9ecef #e9ecef #dee2e6;
     }
     
-    /* Estilos responsivos */
     @media (max-width: 767.98px) {
         .success-icon {
             font-size: 4rem;
@@ -85,7 +82,6 @@
         }
     }
     
-    /* Mejoras para tablets */
     @media (min-width: 768px) and (max-width: 991.98px) {
         .success-icon {
             font-size: 4.5rem;
@@ -96,7 +92,6 @@
         }
     }
     
-    /* Optimización para dispositivos táctiles */
     @media (hover: none) and (pointer: coarse) {
         .btn {
             padding-top: 0.625rem;
@@ -110,7 +105,6 @@
         }
     }
     
-    /* Mejoras para orientación landscape en móviles */
     @media (max-height: 500px) and (orientation: landscape) {
         .success-icon {
             font-size: 3rem;
@@ -131,7 +125,6 @@
         }
     }
     
-    /* Animación para el icono de éxito */
     .success-icon {
         animation: scaleIn 0.5s ease-in-out;
     }
@@ -150,13 +143,11 @@
         }
     }
     
-    /* Mejoras de accesibilidad */
     .btn:focus {
         outline: 2px solid #4f8cff;
         outline-offset: 2px;
     }
     
-    /* Mejoras para la tarjeta */
     .card {
         border: none;
         border-radius: 1rem;
@@ -164,7 +155,6 @@
         overflow: hidden;
     }
     
-    /* Mejoras para el contenedor */
     @media (max-width: 767.98px) {
         .container {
             padding-left: 0.75rem;
@@ -172,7 +162,6 @@
         }
     }
     
-    /* Mejoras para el texto */
     p {
         color: #6c757d;
         line-height: 1.6;
@@ -184,7 +173,6 @@
         }
     }
     
-    /* Mejoras para los botones en dispositivos táctiles */
     @media (hover: none) {
         .btn {
             transition: background-color 0.2s, transform 0.1s;
@@ -201,11 +189,8 @@
 </style>
 
 <script>
-    // Script para mejorar la experiencia en dispositivos móviles
     document.addEventListener('DOMContentLoaded', function() {
-        // Detectar si es un dispositivo táctil
         if ('ontouchstart' in window) {
-            // Mejorar la experiencia táctil para los botones
             const buttons = document.querySelectorAll('.btn');
             buttons.forEach(button => {
                 button.addEventListener('touchstart', function() {
@@ -217,7 +202,6 @@
                 });
             });
             
-            // Detectar orientación landscape en móviles
             function adjustForLandscape() {
                 if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
                     document.body.classList.add('landscape-mode');
@@ -226,7 +210,6 @@
                 }
             }
             
-            // Ejecutar al cargar y al cambiar orientación
             adjustForLandscape();
             window.addEventListener('resize', adjustForLandscape);
             window.addEventListener('orientationchange', adjustForLandscape);

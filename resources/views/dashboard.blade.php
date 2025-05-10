@@ -1,9 +1,8 @@
-    <!-- Favicon -->
-    <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
-    <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
-    <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
-    <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
+<link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
+<link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
+<meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 @extends('layouts.app')
 <title>{{ config('app.name', 'MiraCar') }} - Inicio</title>
@@ -54,7 +53,6 @@
             overflow: hidden;
         }
         
-        /* Estilos responsive */
         @media (min-width: 768px) {
             .icon-lg {
                 font-size: 2.25rem;
@@ -80,7 +78,6 @@
             }
         }
         
-        /* Ajustes para móviles */
         @media (max-width: 767.98px) {
             .display-4 {
                 font-size: 2rem;
@@ -111,7 +108,6 @@
 
 @section('content')
 <div class="container py-3 py-md-4 py-lg-5">
-    <!-- Encabezado de bienvenida -->
     <div class="row mb-3 mb-md-4 mb-lg-5">
         <div class="col-12 text-center">
             <h1 class="display-4 fw-bold text-primary mb-2">Bienvenido a MiraCar</h1>
@@ -119,7 +115,6 @@
         </div>
     </div>
     
-    <!-- Primera fila de videos: Cliente, Vehículo, Siniestro -->
     <div class="row g-3 g-md-4 mb-3 mb-md-4">
         <div class="col-12 col-sm-6 col-lg-4">
             <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Cliente" data-video-src="https://player.vimeo.com/video/76979871" role="button">
@@ -157,7 +152,6 @@
             </div>
         </div>
     
-        <!-- Segunda fila de videos: Recambios, Documentación, Soporte -->
         <div class="col-12 col-sm-6 col-lg-4">
             <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Recambios" data-video-src="https://player.vimeo.com/video/76979871" role="button">
                 <div class="card-body text-center">
@@ -196,7 +190,6 @@
     </div>
 </div>
 
-<!-- Modal para reproducir videos -->
 <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-sm modal-md-lg">
         <div class="modal-content rounded-4 shadow">
@@ -217,7 +210,6 @@
 @section('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Manejar la apertura del modal de video
         const videoModal = document.getElementById('videoModal');
         const videoFrame = document.getElementById('videoFrame');
         const videoModalLabel = document.getElementById('videoModalLabel');
@@ -232,13 +224,11 @@
                 videoFrame.src = videoSrc;
             });
             
-            // Detener el video cuando se cierra el modal
             videoModal.addEventListener('hidden.bs.modal', function() {
                 videoFrame.src = '';
             });
         }
         
-        // Animación de entrada para las tarjetas
         const cards = document.querySelectorAll('.card');
         cards.forEach((card, index) => {
             card.style.opacity = '0';

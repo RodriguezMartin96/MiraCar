@@ -22,82 +22,56 @@ class Siniestro extends Model
         'user_id',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
     protected $casts = [
         'fecha_entrada' => 'date',
         'fecha_salida' => 'date',
     ];
 
-    /**
-     * Boot function from Laravel.
-     */
     protected static function boot()
     {
         parent::boot();
         
-        // Antes de crear un nuevo siniestro, generamos el número automáticamente
         static::creating(function ($siniestro) {
             if (!$siniestro->numero) {
                 $fecha = Carbon::now()->format('Ymd');
                 
-                // Buscar el último siniestro con la fecha actual
                 $ultimoSiniestro = static::where('numero', 'like', $fecha . '-%')
+                    ->where('user_id', $siniestro->user_id)
                     ->orderBy('id', 'desc')
                     ->first();
                 
                 if ($ultimoSiniestro) {
-                    // Extraer el número secuencial del último siniestro
                     $partes = explode('-', $ultimoSiniestro->numero);
                     $secuencial = intval(end($partes)) + 1;
                 } else {
                     $secuencial = 1;
                 }
                 
-                // Generar el nuevo número de siniestro
                 $siniestro->numero = $fecha . '-' . $secuencial;
             }
         });
     }
 
-    /**
-     * Obtener el usuario (taller) al que pertenece este siniestro.
-     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Obtener el vehículo asociado a este siniestro.
-     */
     public function vehiculo()
     {
         return $this->belongsTo(Vehiculo::class);
     }
 
-    /**
-     * Obtener el cliente asociado a este siniestro.
-     */
     public function cliente()
     {
         return $this->belongsTo(Cliente::class);
     }
 
-    /**
-     * Obtener los recambios asociados a este siniestro.
-     */
     public function recambios()
     {
         return $this->hasMany(Recambio::class);
     }
     
-    /**
-     * Obtener el color de fondo según el estado del siniestro.
-     */
     public function getEstadoColorClass()
     {
         switch ($this->estado) {
@@ -111,9 +85,6 @@ class Siniestro extends Model
         }
     }
     
-    /**
-     * Obtener la clase de badge según el estado del siniestro.
-     */
     public function getEstadoBadgeClass()
     {
         switch ($this->estado) {
@@ -127,19 +98,16 @@ class Siniestro extends Model
         }
     }
     
-    /**
-     * Obtener el color de fondo según el estado del siniestro.
-     */
     public function getEstadoColor()
     {
         switch ($this->estado) {
             case 'Finalizado':
-                return '#4caf50'; // Verde
+                return '#4caf50';
             case 'En proceso':
-                return '#ff9800'; // Naranja
+                return '#ff9800';
             case 'Pendiente':
             default:
-                return '#f44336'; // Rojo
+                return '#f44336';
         }
     }
 }

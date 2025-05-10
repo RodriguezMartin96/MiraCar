@@ -2,7 +2,6 @@
 
 <title>{{ config('app.name', 'MiraCar') }} - Siniestro</title>
 
-<!-- Favicon -->
 <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
 <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
 <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
@@ -20,7 +19,6 @@
     </div>
 
     <div class="row">
-        <!-- Tarjeta de contacto del taller para móviles (aparece primero) -->
         <div class="col-12 d-md-none mb-3">
             <div class="card shadow-sm">
                 <div class="card-header bg-light">
@@ -57,7 +55,6 @@
             </div>
         </div>
 
-        <!-- Detalles del siniestro -->
         <div class="col-12 col-md-8">
             <div class="card shadow-sm mb-4">
                 <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
@@ -119,7 +116,6 @@
             </div>
         </div>
         
-        <!-- Tarjeta de contacto del taller para tablets y desktop -->
         <div class="col-md-4 d-none d-md-block">
             <div class="card shadow-sm">
                 <div class="card-header bg-light">
@@ -195,7 +191,6 @@
         border-bottom: none;
     }
     
-    /* Estilos responsive */
     @media (max-width: 767.98px) {
         .container {
             padding-left: 10px;
@@ -223,7 +218,6 @@
         }
     }
     
-    /* Ajustes para tablets */
     @media (min-width: 768px) and (max-width: 991.98px) {
         .container {
             padding-left: 15px;

@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
-
     <meta charset="utf-8">
     <title>Solicitud de Soporte</title>
     <style>

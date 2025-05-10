@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('vehiculos', function (Blueprint $table) {
@@ -20,14 +17,11 @@ return new class extends Migration
             $table->date('fecha_matriculacion')->nullable();
             $table->string('color')->nullable();
             $table->foreignId('cliente_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade'); // Añadido para la relación con el usuario (taller)
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('vehiculos');

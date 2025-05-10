@@ -7,20 +7,12 @@
 
     <title>{{ config('app.name', 'MiraCar') }}</title>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
-    <!-- Global CSS -->
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     
-    <!-- Page Specific CSS -->
     @yield('styles')
     
     <style>
@@ -151,17 +143,15 @@
         }
         
         main {
-            margin-top: 80px !important; /* Espacio para la barra de navegación fija */
+            margin-top: 80px !important;
         }
     </style>
 </head>
 <body>
     <div id="app">
         @if(Auth::check() && Auth::user()->isUser())
-            <!-- Navbar para usuarios normales con el mismo estilo que los talleres -->
             <nav class="navbar navbar-expand-lg fixed-top taller-navbar">
                 <div class="container-fluid">
-                    <!-- Logo o avatar del usuario -->
                     <a class="navbar-brand" href="{{ route('user.dashboard') }}">
                         <div class="logo-container">
                             @if(Auth::user()->avatar)
@@ -173,13 +163,11 @@
                         </div>
                     </a>
                     
-                    <!-- Botón de hamburguesa para móviles -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" 
                             aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="bi bi-list"></i>
                     </button>
                     
-                    <!-- Menú principal -->
                     <div class="collapse navbar-collapse justify-content-center" id="navbarMain">
                         <ul class="navbar-nav">
                             <li class="nav-item">
@@ -195,7 +183,6 @@
                         </ul>
                     </div>
                     
-                    <!-- Menú de usuario y cierre de sesión -->
                     <div class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle user-dropdown-toggle" href="#" id="userDropdown" role="button" 
@@ -230,20 +217,16 @@
                 </div>
             </nav>
         @elseif(Auth::check() && Auth::user()->isTaller())
-            <!-- Incluir la navegación para talleres -->
             @include('layouts.navigation')
         @endif
 
-        <!-- Contenido principal -->
         <main>
             @yield('content')
         </main>
     </div>
     
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Page Specific JS -->
     @yield('scripts')
 </body>
 </html>

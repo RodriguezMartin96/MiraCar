@@ -2,7 +2,6 @@
 
 <title>{{ config('app.name', 'MiraCar') }} - Inicio</title>
 
-<!-- Favicon -->
 <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
 <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
 <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
@@ -63,7 +62,6 @@
                             </div>
                         </div>
                         <div class="card-body p-0">
-                            <!-- Versión para pantallas medianas y grandes -->
                             <div class="table-responsive d-none d-md-block">
                                 <table class="table table-hover mb-0">
                                     <thead>
@@ -117,7 +115,6 @@
                                 </table>
                             </div>
                             
-                            <!-- Versión para móviles -->
                             <div class="d-md-none">
                                 @foreach($tallerData['siniestros'] as $siniestro)
                                     <div class="border-bottom p-3">
@@ -187,7 +184,6 @@
         border-radius: 6px;
     }
     
-    /* Estilos responsive */
     @media (max-width: 767.98px) {
         .container {
             padding-left: 10px;
@@ -212,7 +208,6 @@
         }
     }
     
-    /* Ajustes para tablets */
     @media (min-width: 768px) and (max-width: 991.98px) {
         .container {
             padding-left: 15px;

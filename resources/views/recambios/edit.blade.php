@@ -7,20 +7,16 @@
     
     <title>{{ config('app.name', 'MiraCar') }} - Editar Recambio</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
@@ -58,7 +54,6 @@
             box-shadow: 0 0 0 0.25rem rgba(79, 140, 255, 0.25);
         }
         
-        /* Estilos para campos válidos e inválidos */
         .form-control.is-valid {
             border-color: var(--success-color);
             padding-right: calc(1.5em + 0.75rem);
@@ -103,13 +98,11 @@
             color: var(--danger-color);
         }
         
-        /* Ocultar mensajes de error por defecto para producto y referencia */
         #producto ~ .invalid-feedback,
         #referencia ~ .invalid-feedback {
             display: none;
         }
         
-        /* Mostrar mensajes de error cuando el campo está enfocado y es inválido */
         #producto:focus.is-invalid ~ .invalid-feedback,
         #referencia:focus.is-invalid ~ .invalid-feedback {
             display: block;
@@ -127,7 +120,7 @@
         .was-validated .form-control:valid ~ .valid-tooltip, 
         .form-control.is-valid ~ .valid-feedback,
         .form-control.is-valid ~ .valid-tooltip {
-            display: none; /* Ocultar mensajes de "correcto" */
+            display: none;
         }
         
         .was-validated .form-control:invalid ~ .invalid-feedback,
@@ -137,7 +130,6 @@
             display: block;
         }
         
-        /* Excepción para producto y referencia */
         .was-validated #producto:invalid ~ .invalid-feedback,
         .was-validated #referencia:invalid ~ .invalid-feedback {
             display: none;
@@ -177,7 +169,6 @@
             border-color: #f5c2c7;
         }
         
-        /* Estilos para el badge de edición */
         .edit-badge {
             position: absolute;
             top: -10px;
@@ -194,12 +185,10 @@
             z-index: 10;
         }
         
-        /* Contenedor con posición relativa para el badge */
         .card-container {
             position: relative;
         }
         
-        /* Estilos responsivos */
         .container {
             padding-left: 1rem;
             padding-right: 1rem;
@@ -209,7 +198,6 @@
             padding: 1.5rem;
         }
         
-        /* Media queries para dispositivos móviles */
         @media (max-width: 767.98px) {
             .container {
                 padding-left: 0.75rem;
@@ -271,7 +259,6 @@
                 font-size: 1.1rem;
             }
             
-            /* Ajuste para el badge en móviles */
             .edit-badge {
                 width: 30px;
                 height: 30px;
@@ -279,7 +266,6 @@
             }
         }
         
-        /* Media queries para tablets */
         @media (min-width: 768px) and (max-width: 991.98px) {
             .card-body {
                 padding: 1.75rem;
@@ -290,7 +276,6 @@
             }
         }
         
-        /* Mejoras para dispositivos táctiles */
         @media (hover: none) and (pointer: coarse) {
             .form-control {
                 padding: 0.5rem 0.75rem;
@@ -302,7 +287,6 @@
             }
         }
         
-        /* Animaciones y transiciones */
         .btn {
             transition: all 0.2s ease;
         }
@@ -311,7 +295,6 @@
             transform: scale(0.97);
         }
         
-        /* Mejoras para orientación landscape en móviles */
         @media (max-height: 500px) and (orientation: landscape) {
             .container {
                 padding-top: 0.5rem;
@@ -347,7 +330,6 @@
             }
         }
         
-        /* Mejoras para pantallas muy pequeñas */
         @media (max-width: 375px) {
             .card-body {
                 padding: 1rem;
@@ -371,14 +353,12 @@
             }
         }
         
-        /* Estilos para campos requeridos */
         .required-field::after {
             content: "*";
             color: red;
             margin-left: 4px;
         }
         
-        /* Estilos para el input-group */
         .input-group .form-control {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
@@ -390,13 +370,11 @@
             color: #495057;
         }
         
-        /* Estilos para textarea */
         textarea.form-control {
             min-height: 100px;
             resize: vertical;
         }
         
-        /* Indicador de campo modificado */
         .field-modified {
             background-color: rgba(79, 140, 255, 0.1);
             border-color: var(--secondary-color);
@@ -404,7 +382,6 @@
     </style>
 </head>
 <body>
-    <!-- Incluir la barra de navegación -->
     @include('layouts.navigation')
 
     <div class="container py-3 py-md-4">
@@ -521,25 +498,19 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Script para validación en tiempo real
         document.addEventListener('DOMContentLoaded', function() {
-            // Obtener todos los campos del formulario
             const form = document.getElementById('recambioForm');
             const inputs = form.querySelectorAll('input, textarea');
             
-            // Guardar valores originales
             const originalValues = {};
             const formInputs = document.querySelectorAll('#recambioForm input, #recambioForm textarea');
             
-            // Guardar valores originales
             formInputs.forEach(input => {
                 originalValues[input.id] = input.value;
                 
-                // Detectar cambios
                 input.addEventListener('input', function() {
                     if (this.value !== originalValues[this.id]) {
                         this.classList.add('field-modified');
@@ -549,12 +520,9 @@
                 });
             });
             
-            // Función para validar la descripción (al menos una palabra de más de un carácter)
             function validarDescripcion(texto) {
-                // Eliminar espacios en blanco al inicio y al final
                 const textoLimpio = texto.trim();
                 
-                // Verificar si hay al menos una palabra de más de un carácter
                 const palabras = textoLimpio.split(/\s+/);
                 for (let i = 0; i < palabras.length; i++) {
                     if (palabras[i].length > 1) {
@@ -565,11 +533,9 @@
                 return false;
             }
             
-            // Función para validar un campo
             function validateField(input) {
                 let isValid = true;
                 
-                // Validar según el tipo de campo
                 switch(input.id) {
                     case 'producto':
                         isValid = input.value.trim().length > 0;
@@ -592,7 +558,6 @@
                         break;
                 }
                 
-                // Actualizar clases y feedback según validación
                 if (input.required && input.value.trim() === '') {
                     input.classList.remove('is-valid');
                     input.classList.add('is-invalid');
@@ -608,7 +573,6 @@
                 }
             }
             
-            // Validar todos los campos al enviar el formulario
             form.addEventListener('submit', function(event) {
                 let formValid = true;
                 
@@ -627,7 +591,6 @@
                 form.classList.add('was-validated');
             });
             
-            // Validar cada campo cuando cambia su valor
             inputs.forEach(function(input) {
                 input.addEventListener('input', function() {
                     validateField(this);
@@ -637,12 +600,10 @@
                     validateField(this);
                 });
                 
-                // Validar campos con valores iniciales
                 if (input.value.trim() !== '') {
                     validateField(input);
                 }
                 
-                // Añadir clase cuando el campo está enfocado
                 input.addEventListener('focus', function() {
                     this.classList.add('input-focused');
                 });
@@ -651,10 +612,8 @@
                     this.classList.remove('input-focused');
                 });
                 
-                // Mejorar la experiencia en dispositivos táctiles
                 if ('ontouchstart' in window) {
                     input.addEventListener('touchstart', function(e) {
-                        // Prevenir zoom en dispositivos iOS
                         if (input.type === 'number') {
                             input.setAttribute('inputmode', 'numeric');
                         }
@@ -662,15 +621,12 @@
                 }
             });
             
-            // Mejorar la experiencia táctil para los inputs numéricos
             const numberInputs = document.querySelectorAll('input[type="number"]');
             numberInputs.forEach(input => {
-                // Prevenir el comportamiento predeterminado de las flechas
                 input.addEventListener('wheel', function(e) {
                     e.preventDefault();
                 });
                 
-                // Crear botones de incremento/decremento personalizados para móviles
                 if (window.matchMedia('(max-width: 767.98px)').matches) {
                     const inputContainer = document.createElement('div');
                     inputContainer.className = 'input-number-container d-flex align-items-center mt-2 d-md-none';
@@ -714,14 +670,12 @@
                     inputContainer.appendChild(valueDisplay);
                     inputContainer.appendChild(incrementBtn);
                     
-                    // Solo agregar para los campos cantidad y precio
                     if (input.id === 'cantidad' || input.id === 'precio') {
                         input.parentNode.appendChild(inputContainer);
                     }
                 }
             });
             
-            // Detectar orientación landscape en móviles
             function adjustForLandscape() {
                 if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
                     document.body.classList.add('landscape-mode');
@@ -730,7 +684,6 @@
                 }
             }
             
-            // Ejecutar al cargar y al cambiar orientación
             adjustForLandscape();
             window.addEventListener('resize', adjustForLandscape);
             window.addEventListener('orientationchange', adjustForLandscape);

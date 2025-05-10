@@ -7,20 +7,15 @@
     
     <title>{{ config('app.name', 'MiraCar') }} - Nuevo Cliente</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
@@ -58,7 +53,6 @@
             box-shadow: 0 0 0 0.25rem rgba(79, 140, 255, 0.25);
         }
         
-        /* Estilos para campos válidos e inválidos */
         .form-control.is-valid {
             border-color: var(--success-color);
             padding-right: calc(1.5em + 0.75rem);
@@ -103,13 +97,11 @@
             color: var(--danger-color);
         }
         
-        /* Ocultar mensajes de error por defecto para DNI y teléfono */
         #dni ~ .invalid-feedback,
         #telefono ~ .invalid-feedback {
             display: none;
         }
         
-        /* Mostrar mensajes de error cuando el campo está enfocado y es inválido */
         #dni:focus.is-invalid ~ .invalid-feedback,
         #telefono:focus.is-invalid ~ .invalid-feedback {
             display: block;
@@ -127,7 +119,7 @@
         .was-validated .form-control:valid ~ .valid-tooltip, 
         .form-control.is-valid ~ .valid-feedback,
         .form-control.is-valid ~ .valid-tooltip {
-            display: none; /* Ocultar mensajes de "correcto" */
+            display: none;
         }
         
         .was-validated .form-control:invalid ~ .invalid-feedback,
@@ -137,7 +129,6 @@
             display: block;
         }
         
-        /* Excepción para DNI y teléfono */
         .was-validated #dni:invalid ~ .invalid-feedback,
         .was-validated #telefono:invalid ~ .invalid-feedback {
             display: none;
@@ -148,7 +139,6 @@
             display: block;
         }
         
-        /* Estilos para el selector de tipo de documento */
         .document-type-selector {
             display: flex;
             margin-bottom: 0.5rem;
@@ -211,7 +201,6 @@
             border-color: #f5c2c7;
         }
         
-        /* Estilos para el badge de agregar */
         .add-badge {
             position: absolute;
             top: -10px;
@@ -243,12 +232,10 @@
             }
         }
         
-        /* Contenedor con posición relativa para el badge */
         .card-container {
             position: relative;
         }
         
-        /* Estilos responsivos */
         .container {
             padding-left: 1rem;
             padding-right: 1rem;
@@ -258,7 +245,6 @@
             padding: 1.5rem;
         }
         
-        /* Media queries para dispositivos móviles */
         @media (max-width: 767.98px) {
             .container {
                 padding-left: 0.75rem;
@@ -325,12 +311,10 @@
                 font-size: 0.85rem;
             }
             
-            /* Mejora para inputs en móviles */
             input, select, textarea {
-                font-size: 16px !important; /* Evita zoom automático en iOS */
+                font-size: 16px !important;
             }
             
-            /* Mejora para el badge en móviles */
             .add-badge {
                 width: 30px;
                 height: 30px;
@@ -340,7 +324,6 @@
             }
         }
         
-        /* Media queries para tablets */
         @media (min-width: 768px) and (max-width: 991.98px) {
             .card-body {
                 padding: 1.75rem;
@@ -350,18 +333,15 @@
                 padding: 0.5rem 1.5rem;
             }
             
-            /* Ajustes específicos para tablets */
             .document-type-selector label {
                 padding: 0.4rem 0.6rem;
             }
             
-            /* Mejora para inputs en tablets */
             input, select, textarea {
-                font-size: 16px !important; /* Evita zoom automático en iOS */
+                font-size: 16px !important;
             }
         }
         
-        /* Mejoras para dispositivos táctiles */
         @media (hover: none) and (pointer: coarse) {
             .form-control {
                 padding: 0.5rem 0.75rem;
@@ -372,18 +352,15 @@
                 padding-bottom: 0.625rem;
             }
             
-            /* Aumentar área táctil */
             .document-type-selector label {
                 padding: 0.5rem 0.75rem;
             }
             
-            /* Mejorar contraste en dispositivos móviles */
             .form-label {
                 font-weight: 600;
             }
         }
         
-        /* Animaciones y transiciones */
         .btn {
             transition: all 0.2s ease;
         }
@@ -392,7 +369,6 @@
             transform: scale(0.97);
         }
         
-        /* Mejoras para orientación landscape en móviles */
         @media (max-height: 500px) and (orientation: landscape) {
             .container {
                 padding-top: 0.5rem;
@@ -428,7 +404,6 @@
                 padding-bottom: 1rem !important;
             }
             
-            /* Ajuste específico para landscape */
             .row {
                 display: flex;
                 flex-wrap: nowrap;
@@ -436,7 +411,6 @@
                 padding-bottom: 0.5rem;
             }
             
-            /* Scroll suave en landscape */
             .row::-webkit-scrollbar {
                 height: 4px;
             }
@@ -447,7 +421,6 @@
             }
         }
         
-        /* Mejoras para pantallas muy pequeñas */
         @media (max-width: 375px) {
             .card-body {
                 padding: 1rem;
@@ -470,7 +443,6 @@
                 font-size: 0.9rem;
             }
             
-            /* Ajustes específicos para pantallas pequeñas */
             .document-type-selector label {
                 font-size: 0.8rem;
                 padding: 0.25rem 0.4rem;
@@ -481,14 +453,12 @@
             }
         }
         
-        /* Estilos para campos requeridos */
         .required-field::after {
             content: "*";
             color: red;
             margin-left: 4px;
         }
         
-        /* Mejoras para accesibilidad */
         @media (prefers-reduced-motion: reduce) {
             * {
                 transition: none !important;
@@ -496,7 +466,6 @@
             }
         }
         
-        /* Mejoras para alto contraste */
         @media (prefers-contrast: more) {
             .form-control {
                 border-width: 2px;
@@ -509,7 +478,6 @@
     </style>
 </head>
 <body>
-    <!-- Incluir la barra de navegación -->
     @include('layouts.navigation')
 
     <div class="container py-3 py-md-4">
@@ -676,34 +644,27 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Script para validación en tiempo real
         document.addEventListener('DOMContentLoaded', function() {
-            // Obtener todos los campos del formulario
             const form = document.getElementById('clienteForm');
             const inputs = form.querySelectorAll('input');
             
-            // Elementos para el tipo de documento
             const dniTypeRadio = document.getElementById('dni_type');
             const nieTypeRadio = document.getElementById('nie_type');
             const otherTypeRadio = document.getElementById('other_type');
             const dniInput = document.getElementById('dni');
             const dniErrorMessage = document.getElementById('dni_error_message');
             
-            // Elemento para el teléfono
             const telefonoInput = document.getElementById('telefono');
             
-            // Función para validar DNI español
             function validateSpanishDNI(dni) {
                 const dniPattern = /^[0-9]{8}[A-Za-z]$/;
                 if (!dniPattern.test(dni)) {
                     return false;
                 }
                 
-                // Validar la letra del DNI
                 const letters = 'TRWAGMYFPDXBNJZSQVHLCKE';
                 const number = dni.substring(0, 8);
                 const letter = dni.charAt(8).toUpperCase();
@@ -712,14 +673,12 @@
                 return letters.charAt(index) === letter;
             }
             
-            // Función para validar NIE
             function validateNIE(nie) {
                 const niePattern = /^[XYZ][0-9]{7}[A-Za-z]$/;
                 if (!niePattern.test(nie)) {
                     return false;
                 }
                 
-                // Convertir la primera letra a número
                 const letters = 'TRWAGMYFPDXBNJZSQVHLCKE';
                 let firstChar = nie.charAt(0);
                 let number;
@@ -738,13 +697,10 @@
                 return letters.charAt(index) === letter;
             }
             
-            // Función para validar otro tipo de documento
             function validateOtherDocument(doc) {
-                // Para otros documentos, simplemente verificamos que tenga al menos 5 caracteres
                 return doc.length >= 5;
             }
             
-            // Función para actualizar el mensaje de error según el tipo de documento
             function updateDocumentErrorMessage() {
                 if (dniTypeRadio.checked) {
                     dniInput.placeholder = '12345678A';
@@ -761,11 +717,9 @@
                 }
             }
             
-            // Función para validar un campo
             function validateField(input) {
                 let isValid = true;
                 
-                // Validar según el tipo de campo
                 switch(input.id) {
                     case 'nombre':
                     case 'apellidos':
@@ -784,7 +738,6 @@
                         break;
                         
                     case 'telefono':
-                        // Validación: solo números o # seguido de números, mínimo 6 dígitos
                         const phonePattern = /^(#?\d{6,})$/;
                         isValid = phonePattern.test(input.value);
                         break;
@@ -798,14 +751,12 @@
                         isValid = input.value.trim() !== '';
                         break;
                         
-                    // Los campos opcionales siempre son válidos si están vacíos
                     case 'cif':
                     case 'direccion_juridica':
                         isValid = true;
                         break;
                 }
                 
-                // Actualizar clases y feedback según validación
                 if (input.required && input.value.trim() === '') {
                     input.classList.remove('is-valid');
                     input.classList.add('is-invalid');
@@ -821,7 +772,6 @@
                 }
             }
             
-            // Validar todos los campos al enviar el formulario
             form.addEventListener('submit', function(event) {
                 let formValid = true;
                 
@@ -840,7 +790,6 @@
                 form.classList.add('was-validated');
             });
             
-            // Validar cada campo cuando cambia su valor
             inputs.forEach(function(input) {
                 input.addEventListener('input', function() {
                     validateField(this);
@@ -850,12 +799,10 @@
                     validateField(this);
                 });
                 
-                // Validar campos con valores iniciales
                 if (input.value.trim() !== '') {
                     validateField(input);
                 }
                 
-                // Añadir clase cuando el campo está enfocado
                 input.addEventListener('focus', function() {
                     this.classList.add('input-focused');
                 });
@@ -864,10 +811,8 @@
                     this.classList.remove('input-focused');
                 });
                 
-                // Mejorar la experiencia en dispositivos táctiles
                 if ('ontouchstart' in window) {
                     input.addEventListener('touchstart', function(e) {
-                        // Prevenir zoom en dispositivos iOS
                         if (input.type === 'tel' || input.type === 'email') {
                             input.setAttribute('inputmode', input.type === 'tel' ? 'numeric' : 'email');
                         }
@@ -875,12 +820,10 @@
                 }
             });
             
-            // Actualizar el mensaje de error cuando cambia el tipo de documento
             dniTypeRadio.addEventListener('change', updateDocumentErrorMessage);
             nieTypeRadio.addEventListener('change', updateDocumentErrorMessage);
             otherTypeRadio.addEventListener('change', updateDocumentErrorMessage);
             
-            // Validar el DNI cuando cambia el tipo de documento
             dniTypeRadio.addEventListener('change', function() {
                 validateField(dniInput);
             });
@@ -893,10 +836,8 @@
                 validateField(dniInput);
             });
             
-            // Inicializar el mensaje de error según el tipo de documento seleccionado
             updateDocumentErrorMessage();
             
-            // Detectar orientación landscape en móviles
             function adjustForLandscape() {
                 if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
                     document.body.classList.add('landscape-mode');
@@ -905,17 +846,13 @@
                 }
             }
             
-            // Ejecutar al cargar y al cambiar orientación
             adjustForLandscape();
             window.addEventListener('resize', adjustForLandscape);
             window.addEventListener('orientationchange', adjustForLandscape);
             
-            // Mejorar la experiencia en dispositivos móviles
             if ('ontouchstart' in window) {
-                // Ajustar el scroll al enfocar un campo en móviles
                 inputs.forEach(function(input) {
                     input.addEventListener('focus', function() {
-                        // Pequeño retraso para asegurar que el teclado virtual ya está visible
                         setTimeout(function() {
                             input.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         }, 300);

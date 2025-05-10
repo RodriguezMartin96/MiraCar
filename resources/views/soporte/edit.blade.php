@@ -89,7 +89,6 @@
 </div>
 
 <style>
-    /* Estilos base */
     .card {
         border: none;
         border-radius: 1rem;
@@ -122,7 +121,6 @@
         border-color: #5a6268;
     }
     
-    /* Estilos para las insignias de estado */
     .estado-badge .badge {
         font-size: 1rem;
         padding: 0.5rem 1.5rem;
@@ -149,7 +147,6 @@
         color: white;
     }
     
-    /* Estilos responsivos */
     @media (max-width: 767.98px) {
         h1 {
             font-size: 1.75rem;
@@ -205,7 +202,6 @@
         }
     }
     
-    /* Mejoras para tablets */
     @media (min-width: 768px) and (max-width: 991.98px) {
         h1 {
             font-size: 1.85rem;
@@ -220,7 +216,6 @@
         }
     }
     
-    /* Optimización para dispositivos táctiles */
     @media (hover: none) and (pointer: coarse) {
         .btn {
             padding-top: 0.625rem;
@@ -229,7 +224,7 @@
         }
         
         .form-control, .form-select {
-            font-size: 16px; /* Evita zoom en iOS */
+            font-size: 16px;
         }
         
         textarea.form-control {
@@ -246,7 +241,6 @@
         }
     }
     
-    /* Mejoras para orientación landscape en móviles */
     @media (max-height: 500px) and (orientation: landscape) {
         .container {
             padding-top: 0.5rem;
@@ -275,14 +269,12 @@
         }
     }
     
-    /* Mejoras de accesibilidad */
     .form-control:focus, .form-select:focus, .btn:focus {
         outline: 2px solid #4f8cff;
         outline-offset: 2px;
         box-shadow: none;
     }
     
-    /* Mejoras para el formulario */
     .form-control, .form-select {
         border-radius: 0.5rem;
         padding: 0.625rem 0.75rem;
@@ -300,13 +292,11 @@
         margin-bottom: 0.5rem;
     }
     
-    /* Campo de solo lectura */
     .form-control[readonly] {
         background-color: #f8f9fa;
         opacity: 0.8;
     }
     
-    /* Mejoras para el contenedor */
     @media (max-width: 767.98px) {
         .container {
             padding-left: 0.75rem;
@@ -314,7 +304,6 @@
         }
     }
     
-    /* Mejoras para los botones en dispositivos táctiles */
     @media (hover: none) {
         .btn {
             transition: background-color 0.2s, transform 0.1s;
@@ -329,14 +318,12 @@
         }
     }
     
-    /* Mejoras para el textarea en móviles */
     @media (max-width: 767.98px) {
         textarea.form-control {
             min-height: 100px;
         }
     }
     
-    /* Animación para el botón de actualizar */
     .btn-primary {
         position: relative;
         overflow: hidden;
@@ -375,7 +362,6 @@
         }
     }
     
-    /* Mejoras para el select */
     .form-select {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
         background-repeat: no-repeat;
@@ -383,16 +369,13 @@
         background-size: 16px 12px;
     }
     
-    /* Transición suave para cambios de estado */
     #estado {
         transition: background-color 0.3s ease;
     }
 </style>
 
 <script>
-// Script para mejorar la experiencia en dispositivos móviles
 document.addEventListener('DOMContentLoaded', function() {
-    // Ajustar altura del textarea en orientación landscape
     function adjustTextareaHeight() {
         const textareas = document.querySelectorAll('textarea.form-control');
         if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
@@ -406,14 +389,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Ejecutar al cargar y al cambiar orientación
     adjustTextareaHeight();
     window.addEventListener('resize', adjustTextareaHeight);
     window.addEventListener('orientationchange', adjustTextareaHeight);
     
-    // Detectar si es un dispositivo táctil
     if ('ontouchstart' in window) {
-        // Mejorar la experiencia táctil para los botones
         const buttons = document.querySelectorAll('.btn');
         buttons.forEach(button => {
             button.addEventListener('touchstart', function() {
@@ -425,34 +405,27 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Añadir clase para dispositivos táctiles
         document.body.classList.add('touch-device');
     }
     
-    // Cambiar color de la insignia según el estado seleccionado
     const estadoSelect = document.getElementById('estado');
     const estadoBadge = document.querySelector('.estado-badge .badge');
     
     if (estadoSelect && estadoBadge) {
         estadoSelect.addEventListener('change', function() {
-            // Eliminar todas las clases de estado
             estadoBadge.classList.remove('estado-pendiente', 'estado-en-proceso', 'estado-resuelto', 'estado-cerrado');
             
-            // Añadir la clase correspondiente al estado seleccionado
             const estadoValue = this.value.toLowerCase().replace(' ', '-');
             estadoBadge.classList.add('estado-' + estadoValue);
             
-            // Actualizar el texto de la insignia
             estadoBadge.textContent = this.value;
         });
     }
     
-    // Validación del formulario
     const form = document.getElementById('soporteForm');
     form.addEventListener('submit', function(event) {
         let isValid = true;
         
-        // Validar asunto
         const asunto = document.getElementById('asunto');
         if (asunto.value.trim() === '') {
             asunto.classList.add('is-invalid');

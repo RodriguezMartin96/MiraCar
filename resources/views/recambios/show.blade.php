@@ -7,20 +7,16 @@
     
     <title>{{ config('app.name', 'MiraCar') }} - Recambios</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
@@ -86,7 +82,6 @@
             margin-bottom: 1rem;
         }
         
-        /* Estilos para el badge de visualización */
         .view-badge {
             position: absolute;
             top: -10px;
@@ -103,18 +98,15 @@
             z-index: 10;
         }
         
-        /* Contenedor con posición relativa para el badge */
         .card-container {
             position: relative;
         }
         
-        /* Estilos responsivos */
         .container {
             padding-left: 1rem;
             padding-right: 1rem;
         }
         
-        /* Media queries para dispositivos móviles */
         @media (max-width: 767.98px) {
             .container {
                 padding-left: 0.75rem;
@@ -190,7 +182,6 @@
                 font-size: 1.1rem;
             }
             
-            /* Ajuste para el badge en móviles */
             .view-badge {
                 width: 30px;
                 height: 30px;
@@ -198,7 +189,6 @@
             }
         }
         
-        /* Media queries para tablets */
         @media (min-width: 768px) and (max-width: 991.98px) {
             .card-body {
                 padding: 1.5rem !important;
@@ -209,7 +199,6 @@
             }
         }
         
-        /* Mejoras para dispositivos táctiles */
         @media (hover: none) and (pointer: coarse) {
             .btn {
                 padding-top: 0.625rem;
@@ -218,7 +207,6 @@
             }
         }
         
-        /* Mejoras para orientación landscape en móviles */
         @media (max-height: 500px) and (orientation: landscape) {
             .container {
                 padding-top: 0.5rem;
@@ -248,7 +236,6 @@
             }
         }
         
-        /* Mejoras para pantallas muy pequeñas */
         @media (max-width: 375px) {
             .card-body {
                 padding: 1rem !important;
@@ -267,7 +254,6 @@
             }
         }
         
-        /* Animaciones y transiciones */
         .btn {
             transition: all 0.2s ease;
         }
@@ -276,13 +262,11 @@
             transform: scale(0.97);
         }
         
-        /* Mejoras para la accesibilidad */
         .btn:focus {
             outline: 2px solid var(--secondary-color);
             outline-offset: 2px;
         }
         
-        /* Estilos adicionales para mejorar la visualización */
         .detail-header {
             display: flex;
             align-items: center;
@@ -398,7 +382,6 @@
     </style>
 </head>
 <body>
-    <!-- Incluir la barra de navegación -->
     @include('layouts.navigation')
 
     <div class="container py-3 py-md-4">
@@ -429,7 +412,6 @@
                                     <i class="bi bi-box-seam me-2 d-none d-sm-inline-block"></i>Información del Producto
                                 </h5>
                                 
-                                <!-- Vista para dispositivos móviles -->
                                 <div class="d-md-none">
                                     <div class="info-item">
                                         <div class="info-label">Producto</div>
@@ -452,7 +434,6 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Vista para tablets y desktop -->
                                 <div class="d-none d-md-block">
                                     <div class="info-grid">
                                         <div class="info-card">
@@ -501,7 +482,6 @@
                                 </div>
                             @endif
                             
-                            <!-- Acciones adicionales para móviles -->
                             <div class="d-md-none mt-4">
                                 <div class="d-grid gap-2">
                                     <a href="{{ route('recambios.index') }}" class="btn btn-outline-secondary">
@@ -516,15 +496,11 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Script para mejorar la experiencia en dispositivos móviles
         document.addEventListener('DOMContentLoaded', function() {
-            // Detectar si es un dispositivo táctil
             if ('ontouchstart' in window) {
-                // Mejorar la experiencia táctil para los botones
                 const buttons = document.querySelectorAll('.btn');
                 buttons.forEach(button => {
                     button.addEventListener('touchstart', function() {
@@ -536,7 +512,6 @@
                     });
                 });
                 
-                // Detectar orientación landscape en móviles
                 function adjustForLandscape() {
                     if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
                         document.body.classList.add('landscape-mode');
@@ -545,7 +520,6 @@
                     }
                 }
                 
-                // Ejecutar al cargar y al cambiar orientación
                 adjustForLandscape();
                 window.addEventListener('resize', adjustForLandscape);
                 window.addEventListener('orientationchange', adjustForLandscape);

@@ -7,20 +7,16 @@
     
     <title>{{ config('app.name', 'MiraCar') }} - Siniestro</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
@@ -108,7 +104,6 @@
             font-size: 1rem;
         }
         
-        /* Estilos para el badge de visualización */
         .view-badge {
             position: absolute;
             top: -10px;
@@ -124,14 +119,10 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
-        /* Contenedor con posición relativa para el badge */
         .card-container {
             position: relative;
         }
         
-        /* Estilos responsivos */
-        
-        /* Estructura de columnas adaptativa */
         @media (max-width: 767.98px) {
             .container {
                 padding-left: 0.75rem;
@@ -197,7 +188,6 @@
                 margin-top: 0.25rem;
             }
             
-            /* Ajuste para el badge en móviles */
             .view-badge {
                 width: 30px;
                 height: 30px;
@@ -207,7 +197,6 @@
             }
         }
         
-        /* Vista específica para móviles */
         @media (max-width: 575.98px) {
             .info-section {
                 text-align: left;
@@ -246,14 +235,12 @@
             }
         }
         
-        /* Vista específica para desktop */
         @media (min-width: 768px) {
             .info-section p {
                 margin-bottom: 0;
             }
         }
         
-        /* Media queries específicos */
         @media (min-width: 576px) and (max-width: 767.98px) {
             .info-section .row {
                 display: flex;
@@ -267,7 +254,6 @@
             }
         }
         
-        /* Mejoras para tablets */
         @media (min-width: 768px) and (max-width: 991.98px) {
             .card-body {
                 padding: 1.5rem !important;
@@ -292,7 +278,6 @@
             }
         }
         
-        /* Optimización para dispositivos táctiles */
         @media (hover: none) and (pointer: coarse) {
             .btn {
                 padding-top: 0.625rem;
@@ -305,7 +290,6 @@
             }
         }
         
-        /* Adaptación de botones para móviles */
         @media (max-width: 767.98px) {
             .action-buttons {
                 display: flex;
@@ -318,7 +302,6 @@
             }
         }
         
-        /* Optimización para dispositivos táctiles */
         @media (hover: none) and (pointer: coarse) {
             .btn {
                 transition: background-color 0.2s ease;
@@ -329,7 +312,6 @@
             }
         }
         
-        /* Adaptación para orientación landscape */
         @media (max-height: 500px) and (orientation: landscape) {
             .container {
                 padding-top: 0.5rem;
@@ -361,27 +343,23 @@
             }
         }
         
-        /* Adaptación de iconos */
         @media (max-width: 767.98px) {
             .bi {
                 font-size: 1.1rem;
             }
         }
         
-        /* Feedback táctil */
         @media (hover: none) and (pointer: coarse) {
             .btn:active {
                 opacity: 0.8;
             }
         }
         
-        /* Mejoras para la accesibilidad */
         .btn:focus, .form-control:focus {
             outline: 2px solid var(--secondary-color);
             outline-offset: 2px;
         }
         
-        /* Diseño de tarjeta para información */
         .card-info {
             border-radius: 0.75rem;
             overflow: hidden;
@@ -401,7 +379,6 @@
             background-color: white;
         }
         
-        /* Adaptación para móviles */
         @media (max-width: 767.98px) {
             .card-info {
                 margin-bottom: 1rem;
@@ -417,7 +394,6 @@
             }
         }
         
-        /* Espaciado adaptativo */
         .section-spacing {
             margin-bottom: 2rem;
         }
@@ -428,7 +404,6 @@
             }
         }
         
-        /* Mejoras para orientación landscape */
         @media (max-height: 500px) and (orientation: landscape) {
             .section-spacing {
                 margin-bottom: 0.75rem;
@@ -439,7 +414,6 @@
             }
         }
         
-        /* Adaptación de iconos */
         .icon-container {
             display: inline-flex;
             align-items: center;
@@ -467,14 +441,12 @@
             }
         }
         
-        /* Feedback táctil */
         @media (hover: none) and (pointer: coarse) {
             .btn:active, .info-section:active {
                 transform: scale(0.99);
             }
         }
         
-        /* Mejoras para la accesibilidad */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -487,7 +459,6 @@
             border-width: 0;
         }
         
-        /* Mejoras para la sección de descripción */
         .description-section {
             background-color: #f8f9fa;
             border-radius: 0.5rem;
@@ -524,7 +495,6 @@
             }
         }
         
-        /* Estilos específicos para elementos de información en móviles */
         @media (max-width: 575.98px) {
             .mobile-info-item {
                 display: flex;
@@ -548,7 +518,6 @@
             }
         }
         
-        /* Acciones adicionales para móviles */
         .mobile-actions {
             display: none;
         }
@@ -583,7 +552,6 @@
     </style>
 </head>
 <body>
-    <!-- Incluir la barra de navegación -->
     @include('layouts.navigation')
 
     <div class="container py-3 py-md-4">
@@ -606,7 +574,6 @@
                                 </a>
                             </div>
                             
-                            <!-- Vista para móviles -->
                             <div class="d-block d-md-none mb-3">
                                 <div class="card-info">
                                     <div class="card-info-header d-flex justify-content-between align-items-center">
@@ -664,7 +631,6 @@
                                 @endif
                             </div>
                             
-                            <!-- Vista para desktop y tablet -->
                             <div class="d-none d-md-block">
                                 <div class="info-section">
                                     <h5><i class="bi bi-info-circle me-2"></i>Información del Siniestro</h5>
@@ -744,7 +710,6 @@
         </div>
     </div>
     
-    <!-- Acciones para móviles (fijas en la parte inferior) -->
     <div class="mobile-actions">
         <a href="{{ route('siniestros.index') }}" class="mobile-action-btn">
             <i class="bi bi-arrow-left"></i>
@@ -760,15 +725,11 @@
         </a>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Script para mejorar la experiencia en dispositivos móviles
         document.addEventListener('DOMContentLoaded', function() {
-            // Detectar si es un dispositivo táctil
             if ('ontouchstart' in window) {
-                // Mejorar la experiencia táctil para los botones
                 const buttons = document.querySelectorAll('.btn, .mobile-action-btn');
                 buttons.forEach(button => {
                     button.addEventListener('touchstart', function() {
@@ -780,7 +741,6 @@
                     });
                 });
                 
-                // Detectar orientación landscape en móviles
                 function adjustForLandscape() {
                     if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
                         document.body.classList.add('landscape-mode');
@@ -789,7 +749,6 @@
                     }
                 }
                 
-                // Ejecutar al cargar y al cambiar orientación
                 adjustForLandscape();
                 window.addEventListener('resize', adjustForLandscape);
                 window.addEventListener('orientationchange', adjustForLandscape);

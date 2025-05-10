@@ -7,20 +7,15 @@
     
     <title>{{ config('app.name', 'MiraCar') }} - Documento</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
@@ -58,7 +53,6 @@
             box-shadow: 0 0 0 0.25rem rgba(79, 140, 255, 0.25);
         }
         
-        /* Estilos para campos válidos e inválidos */
         .form-control.is-valid {
             border-color: var(--success-color);
             padding-right: calc(1.5em + 0.75rem);
@@ -121,7 +115,7 @@
         .was-validated .form-control:valid ~ .valid-tooltip, 
         .form-control.is-valid ~ .valid-feedback,
         .form-control.is-valid ~ .valid-tooltip {
-            display: none; /* Ocultar mensajes de "correcto" */
+            display: none;
         }
         
         .was-validated .form-control:invalid ~ .invalid-feedback,
@@ -160,7 +154,6 @@
             border-color: #f5c2c7;
         }
         
-        /* Centrar texto */
         .text-center {
             text-align: center;
         }
@@ -179,7 +172,6 @@
             border: 1px solid #e9ecef;
         }
         
-        /* Estilos para el badge de edición */
         .edit-badge {
             position: absolute;
             top: -10px;
@@ -196,12 +188,10 @@
             z-index: 10;
         }
         
-        /* Contenedor con posición relativa para el badge */
         .card-container {
             position: relative;
         }
         
-        /* Estilos responsivos */
         .container {
             padding-left: 1rem;
             padding-right: 1rem;
@@ -215,7 +205,6 @@
             padding: 1.5rem;
         }
         
-        /* Media queries para dispositivos móviles */
         @media (max-width: 767.98px) {
             .container {
                 padding-left: 0.75rem;
@@ -277,7 +266,6 @@
                 word-break: break-all;
             }
             
-            /* Ajuste para el badge en móviles */
             .edit-badge {
                 width: 30px;
                 height: 30px;
@@ -285,7 +273,6 @@
             }
         }
         
-        /* Media queries para tablets */
         @media (min-width: 768px) and (max-width: 991.98px) {
             .form-content {
                 padding: 1.75rem;
@@ -296,7 +283,6 @@
             }
         }
         
-        /* Mejoras para dispositivos táctiles */
         @media (hover: none) and (pointer: coarse) {
             .form-control, .form-select {
                 padding: 0.5rem 0.75rem;
@@ -307,7 +293,6 @@
                 padding-bottom: 0.625rem;
             }
             
-            /* Mejorar la experiencia de carga de archivos en móviles */
             input[type="file"] {
                 padding: 0.75rem;
             }
@@ -317,7 +302,6 @@
             }
         }
         
-        /* Animaciones y transiciones */
         .btn {
             transition: all 0.2s ease;
         }
@@ -326,7 +310,6 @@
             transform: scale(0.97);
         }
         
-        /* Mejoras para orientación landscape en móviles */
         @media (max-height: 500px) and (orientation: landscape) {
             .container {
                 padding-top: 0.5rem;
@@ -356,7 +339,6 @@
             }
         }
         
-        /* Mejoras para pantallas muy pequeñas */
         @media (max-width: 375px) {
             .form-content {
                 padding: 1rem;
@@ -384,7 +366,6 @@
             }
         }
         
-        /* Mejoras para el input de archivo */
         .file-input-container {
             position: relative;
         }
@@ -407,7 +388,6 @@
             background-color: var(--secondary-color);
         }
         
-        /* Mejoras para los botones en dispositivos móviles */
         @media (max-width: 767.98px) {
             .action-buttons {
                 display: flex;
@@ -422,11 +402,10 @@
             
             .action-buttons .btn:last-child {
                 margin-bottom: 0;
-                order: -1; /* Poner el botón principal primero en móviles */
+                order: -1;
             }
         }
         
-        /* Mejoras para la visualización del archivo actual */
         .current-file {
             transition: all 0.2s ease;
         }
@@ -458,14 +437,12 @@
             }
         }
         
-        /* Estilos para campos requeridos */
         .required-field::after {
             content: "*";
             color: red;
             margin-left: 4px;
         }
         
-        /* Estilos para campos modificados */
         .field-modified {
             background-color: rgba(79, 140, 255, 0.1);
             border-color: var(--secondary-color);
@@ -473,7 +450,6 @@
     </style>
 </head>
 <body>
-    <!-- Incluir la barra de navegación -->
     @include('layouts.navigation')
 
     <div class="container py-3 py-md-4">
@@ -485,7 +461,6 @@
                             <i class="bi bi-pencil-fill"></i>
                         </div>
                         <div class="card-body">
-                            <!-- Contenido del formulario -->
                             <div class="form-content">
                                 <h2 class="card-title mb-3 mb-md-4 text-center">
                                     <i class="bi bi-pencil-square me-2 d-none d-sm-inline-block"></i>Editar Documento
@@ -630,11 +605,9 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Script para validación y mostrar/ocultar campos adicionales
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('documentoForm');
             const nombreSelect = document.getElementById('nombre');
@@ -645,15 +618,12 @@
             const otraDescripcionInput = document.getElementById('otraDescripcion');
             const archivoInput = document.getElementById('archivo');
             
-            // Guardar valores originales
             const originalValues = {};
             const formInputs = document.querySelectorAll('#documentoForm input, #documentoForm select');
             
-            // Guardar valores originales
             formInputs.forEach(input => {
                 originalValues[input.id] = input.value;
                 
-                // Detectar cambios
                 input.addEventListener('input', function() {
                     if (this.value !== originalValues[this.id]) {
                         this.classList.add('field-modified');
@@ -671,31 +641,25 @@
                 });
             });
             
-            // Función para validar un campo
             function validateField(input) {
                 let isValid = true;
                 
-                // Validar según el tipo de campo
                 if (input.id === 'otroNombre') {
                     if (nombreSelect.value === 'otro') {
                         isValid = input.value.trim().length >= 1;
                     } else {
-                        // Si no es "otro", siempre es válido
                         return true;
                     }
                 } else if (input.id === 'otraDescripcion') {
                     if (descripcionSelect.value === 'otro') {
                         isValid = input.value.trim().length >= 1;
                     } else {
-                        // Si no es "otro", siempre es válido
                         return true;
                     }
                 } else if (input.id === 'archivo') {
-                    // El archivo es opcional en la edición
                     isValid = true;
                 }
                 
-                // Actualizar clases y feedback según validación
                 if (input.required && input.value.trim() === '') {
                     input.classList.remove('is-valid');
                     input.classList.add('is-invalid');
@@ -711,7 +675,6 @@
                 }
             }
             
-            // Mostrar/ocultar campos adicionales
             nombreSelect.addEventListener('change', function() {
                 if (this.value === 'otro') {
                     otroNombreDiv.style.display = 'block';
@@ -740,17 +703,14 @@
                 }
             });
             
-            // Validar todos los campos al enviar el formulario
             form.addEventListener('submit', function(event) {
                 let formValid = true;
                 
-                // Validar nombre
                 if (nombreSelect.value === 'otro') {
                     const otroNombreValid = validateField(otroNombreInput);
                     formValid = formValid && otroNombreValid;
                 }
                 
-                // Validar descripción
                 if (descripcionSelect.value === 'otro') {
                     const otraDescripcionValid = validateField(otraDescripcionInput);
                     formValid = formValid && otraDescripcionValid;
@@ -764,7 +724,6 @@
                 form.classList.add('was-validated');
             });
             
-            // Validar campos cuando cambian
             otroNombreInput.addEventListener('input', function() {
                 if (nombreSelect.value === 'otro') {
                     validateField(this);
@@ -781,7 +740,6 @@
                 validateField(this);
             });
             
-            // Verificar estado inicial
             if (nombreSelect.value === 'otro') {
                 otroNombreDiv.style.display = 'block';
                 otroNombreInput.required = true;
@@ -796,17 +754,13 @@
                 otraDescripcionInput.required = false;
             }
             
-            // Mejorar la experiencia en dispositivos móviles
             if ('ontouchstart' in window) {
-                // Ajustar el comportamiento del input de archivo en dispositivos táctiles
                 if (archivoInput) {
                     archivoInput.addEventListener('touchstart', function() {
-                        // Asegurar que el toque active el selector de archivos
                         this.click();
                     });
                 }
                 
-                // Detectar orientación landscape en móviles
                 function adjustForLandscape() {
                     if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
                         document.body.classList.add('landscape-mode');
@@ -815,7 +769,6 @@
                     }
                 }
                 
-                // Ejecutar al cargar y al cambiar orientación
                 adjustForLandscape();
                 window.addEventListener('resize', adjustForLandscape);
                 window.addEventListener('orientationchange', adjustForLandscape);

@@ -10,23 +10,16 @@ use Illuminate\Support\Str;
 
 class UserProfileController extends Controller
 {
-    /**
-     * Constructor para asegurar que el usuario esté autenticado
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Mostrar el perfil del usuario.
-     */
     public function show()
     {
         try {
             $user = Auth::user();
             
-            // Registrar que se está accediendo al perfil
             Log::info('Acceso a perfil de usuario', [
                 'user_id' => $user->id,
                 'role' => $user->role
@@ -36,21 +29,16 @@ class UserProfileController extends Controller
                 'user' => $user
             ]);
         } catch (\Exception $e) {
-            // Registrar el error
             Log::error('Error al mostrar perfil: ' . $e->getMessage(), [
                 'trace' => $e->getTraceAsString()
             ]);
             
-            // Mostrar un mensaje de error simple
             return response()->view('user.error', [
                 'message' => 'Ha ocurrido un error al cargar tu perfil. Por favor, inténtalo de nuevo más tarde.'
             ], 500);
         }
     }
 
-    /**
-     * Actualizar la información del perfil.
-     */
     public function update(Request $request)
     {
         try {
@@ -63,7 +51,6 @@ class UserProfileController extends Controller
                 'phone' => ['nullable', 'string', 'max:20'],
             ];
             
-            // Añadir reglas específicas para talleres
             if ($user->role === 'taller') {
                 $validationRules['company_name'] = ['nullable', 'string', 'max:255'];
                 $validationRules['company_nif'] = ['nullable', 'string', 'max:20'];
@@ -71,14 +58,12 @@ class UserProfileController extends Controller
             
             $validatedData = $request->validate($validationRules);
 
-            // Convertir nombre y apellidos a Title Case
             $user->name = Str::title($validatedData['name']);
             
             if (isset($validatedData['lastname'])) {
                 $user->lastname = Str::title($validatedData['lastname']);
             }
             
-            // Convertir DNI/NIF a mayúsculas
             if (isset($validatedData['dni'])) {
                 $user->dni = strtoupper($validatedData['dni']);
             }
@@ -110,9 +95,6 @@ class UserProfileController extends Controller
         }
     }
     
-    /**
-     * Actualizar el logo o avatar del usuario.
-     */
     public function updateLogo(Request $request)
     {
         $request->validate([
@@ -123,25 +105,20 @@ class UserProfileController extends Controller
             $user = Auth::user();
             $imageFile = $request->file('logo');
             
-            // Determinar el tipo de imagen y directorio según el rol
             $isAvatar = $user->role === 'user';
             $imageType = $isAvatar ? 'avatar' : 'logo';
             $directory = $isAvatar ? 'avatars' : 'logos';
             $oldImage = $isAvatar ? $user->avatar : $user->logo;
             
-            // Eliminar imagen anterior si existe
             if ($oldImage && Storage::disk('public')->exists($oldImage)) {
                 Storage::disk('public')->delete($oldImage);
             }
             
-            // Procesar y guardar la imagen con un tamaño fijo
             $filename = $imageType . '_' . $user->id . '_' . time() . '.' . $imageFile->getClientOriginalExtension();
             $path = $directory . '/' . $filename;
             
-            // Guardar la imagen original
             Storage::disk('public')->put($path, file_get_contents($imageFile));
             
-            // Actualizar usuario
             if ($isAvatar) {
                 $user->avatar = $path;
                 $statusMessage = 'avatar-updated';

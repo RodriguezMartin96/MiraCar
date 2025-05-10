@@ -20,9 +20,6 @@ class Soporte extends Model
         'user_id',
     ];
 
-    /**
-     * Obtener el usuario (taller) al que pertenece este soporte.
-     */
     public function user()
     {
         return $this->belongsTo(User::class);

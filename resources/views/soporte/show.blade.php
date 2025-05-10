@@ -17,7 +17,6 @@
     </div>
     
     <div class="card-body p-3 p-md-4">
-        <!-- Vista para dispositivos móviles -->
         <div class="d-md-none">
             <div class="info-item mb-3">
                 <div class="info-label">
@@ -61,7 +60,6 @@
             @endif
         </div>
         
-        <!-- Vista para tablets y escritorio -->
         <div class="d-none d-md-block">
             <div class="row mb-3">
                 <div class="col-md-6">
@@ -104,7 +102,6 @@
     </div>
     
     <div class="card-footer p-3 p-md-4">
-        <!-- Botones para móvil -->
         <div class="d-md-none">
             <div class="d-grid gap-2 mb-3">
                 <a href="{{ route('soporte.edit', $soporte->id) }}" class="btn btn-primary">
@@ -128,7 +125,6 @@
             </form>
         </div>
         
-        <!-- Botones para tablet y escritorio -->
         <div class="d-none d-md-flex justify-content-between">
             <a href="{{ route('soporte.index') }}" class="btn btn-secondary">
                 <i class="bi bi-arrow-left me-1"></i> Volver
@@ -151,7 +147,6 @@
 </div>
 
 <style>
-/* Estilos base */
 .card {
     border: none;
     border-radius: 1rem;
@@ -198,7 +193,6 @@
     border-color: #c82333;
 }
 
-/* Estilos para las insignias de estado */
 .estado-pendiente {
     background-color: #ffc107;
     color: #212529;
@@ -219,7 +213,6 @@
     color: white;
 }
 
-/* Estilos para la vista móvil */
 .info-item {
     padding-bottom: 0.75rem;
     border-bottom: 1px solid #eee;
@@ -258,7 +251,6 @@
     border-left: 3px solid #28a745;
 }
 
-/* Estilos responsivos */
 @media (max-width: 767.98px) {
     h1 {
         font-size: 1.75rem;
@@ -316,7 +308,6 @@
     }
 }
 
-/* Mejoras para tablets */
 @media (min-width: 768px) and (max-width: 991.98px) {
     .card-title {
         font-size: 1.35rem;
@@ -331,7 +322,6 @@
     }
 }
 
-/* Optimización para dispositivos táctiles */
 @media (hover: none) and (pointer: coarse) {
     .btn {
         padding-top: 0.75rem;
@@ -345,7 +335,6 @@
     }
 }
 
-/* Mejoras para orientación landscape en móviles */
 @media (max-height: 500px) and (orientation: landscape) {
     .container {
         padding-top: 0.5rem;
@@ -377,14 +366,12 @@
     }
 }
 
-/* Mejoras de accesibilidad */
 .btn:focus {
     outline: 2px solid #4f8cff;
     outline-offset: 2px;
     box-shadow: none;
 }
 
-/* Animación para los botones */
 .btn {
     transition: transform 0.1s, background-color 0.2s;
 }
@@ -393,19 +380,16 @@
     transform: scale(0.98);
 }
 
-/* Mejoras para el contenedor */
 @media (max-width: 767.98px) {
     .container {
         max-width: 100%;
     }
 }
 
-/* Mejoras para la descripción */
 .description-section .content-box {
     white-space: pre-line;
 }
 
-/* Mejoras para los elementos de información en móvil */
 @media (max-width: 767.98px) {
     .info-item:last-child {
         border-bottom: none;
@@ -417,7 +401,6 @@
     }
 }
 
-/* Mejoras para acciones en móvil */
 @media (max-width: 767.98px) {
     .btn {
         border-radius: 0.5rem;
@@ -435,68 +418,59 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-// Manejar botón de eliminación en vista móvil
-const deleteBtn = document.getElementById('deleteBtn');
-if (deleteBtn) {
-    deleteBtn.addEventListener('click', function() {
-        if (confirm('¿Estás seguro de que deseas eliminar esta solicitud?')) {
-            document.getElementById('deleteForm').submit();
-        }
-    });
-}
-
-// Detectar si es un dispositivo táctil
-if ('ontouchstart' in window) {
-    // Mejorar la experiencia táctil para los botones
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(button => {
-        button.addEventListener('touchstart', function() {
-            this.style.opacity = '0.8';
-        });
-        
-        button.addEventListener('touchend', function() {
-            this.style.opacity = '1';
-        });
-    });
-    
-    // Añadir clase para dispositivos táctiles
-    document.body.classList.add('touch-device');
-}
-
-// Ajustar altura de los content-box para que sean iguales en escritorio
-function adjustContentBoxHeight() {
-    if (window.innerWidth >= 768) {
-        const contentBoxes = document.querySelectorAll('.content-box');
-        let maxHeight = 0;
-        
-        // Resetear alturas
-        contentBoxes.forEach(box => {
-            box.style.height = 'auto';
-            const height = box.offsetHeight;
-            if (height > maxHeight) {
-                maxHeight = height;
+    const deleteBtn = document.getElementById('deleteBtn');
+    if (deleteBtn) {
+        deleteBtn.addEventListener('click', function() {
+            if (confirm('¿Estás seguro de que deseas eliminar esta solicitud?')) {
+                document.getElementById('deleteForm').submit();
             }
         });
+    }
+
+    if ('ontouchstart' in window) {
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(button => {
+            button.addEventListener('touchstart', function() {
+                this.style.opacity = '0.8';
+            });
+            
+            button.addEventListener('touchend', function() {
+                this.style.opacity = '1';
+            });
+        });
         
-        // Aplicar altura máxima si hay más de un content-box
-        if (contentBoxes.length > 1 && maxHeight > 0) {
+        document.body.classList.add('touch-device');
+    }
+
+    function adjustContentBoxHeight() {
+        if (window.innerWidth >= 768) {
+            const contentBoxes = document.querySelectorAll('.content-box');
+            let maxHeight = 0;
+            
             contentBoxes.forEach(box => {
-                box.style.minHeight = maxHeight + 'px';
+                box.style.height = 'auto';
+                const height = box.offsetHeight;
+                if (height > maxHeight) {
+                    maxHeight = height;
+                }
+            });
+            
+            if (contentBoxes.length > 1 && maxHeight > 0) {
+                contentBoxes.forEach(box => {
+                    box.style.minHeight = maxHeight + 'px';
+                });
+            }
+        } else {
+            const contentBoxes = document.querySelectorAll('.content-box');
+            contentBoxes.forEach(box => {
+                box.style.height = 'auto';
+                box.style.minHeight = 'auto';
             });
         }
-    } else {
-        // En móvil, resetear las alturas
-        const contentBoxes = document.querySelectorAll('.content-box');
-        contentBoxes.forEach(box => {
-            box.style.height = 'auto';
-            box.style.minHeight = 'auto';
-        });
     }
-}
 
-// Ejecutar al cargar y al cambiar tamaño
-adjustContentBoxHeight();
-window.addEventListener('resize', adjustContentBoxHeight);
+    adjustContentBoxHeight();
+    window.addEventListener('resize', adjustContentBoxHeight);
 });
 </script>
 @endsection

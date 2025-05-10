@@ -17,9 +17,6 @@ use Illuminate\Support\Str;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
     public function edit(Request $request): View
     {
         return view('profile.edit', [
@@ -27,9 +24,6 @@ class ProfileController extends Controller
         ]);
     }
 
-    /**
-     * Update the user's profile information.
-     */
     public function update(Request $request): RedirectResponse
     {
         $user = $request->user();
@@ -42,13 +36,13 @@ class ProfileController extends Controller
                     'required', 
                     'string', 
                     'max:20',
-                    'regex:/^[A-Z0-9]{9}$/', // Formato NIF/CIF español (simplificado)
+                    'regex:/^[A-Z0-9]{9}$/',
                     'unique:users,company_nif,' . $user->id
                 ],
                 'phone' => [
                     'required', 
                     'string', 
-                    'regex:/^[0-9]{9}$/' // Formato teléfono español (9 dígitos)
+                    'regex:/^[0-9]{9}$/'
                 ],
             ], [
                 'name.required' => 'El nombre es obligatorio.',
@@ -59,7 +53,6 @@ class ProfileController extends Controller
                 'phone.regex' => 'El teléfono debe tener 9 dígitos.',
             ]);
             
-            // Convertir nombre de empresa a Title Case y NIF a mayúsculas
             $name = Str::title($validatedData['name']);
             $companyName = Str::title($validatedData['company_name']);
             $companyNif = strtoupper($validatedData['company_nif']);
@@ -75,7 +68,6 @@ class ProfileController extends Controller
                 'phone' => ['nullable', 'string', 'max:20'],
             ]);
             
-            // Convertir nombre y apellidos a Title Case y DNI a mayúsculas
             $name = Str::title($validatedData['name']);
             $lastname = isset($validatedData['lastname']) ? Str::title($validatedData['lastname']) : null;
             $dni = isset($validatedData['dni']) ? strtoupper($validatedData['dni']) : null;
@@ -91,9 +83,6 @@ class ProfileController extends Controller
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
-    /**
-     * Update the user's logo.
-     */
     public function updateLogo(Request $request): RedirectResponse
     {
         $request->validate([
@@ -103,20 +92,17 @@ class ProfileController extends Controller
         try {
             $user = $request->user();
             
-            // Información de depuración
             Log::info('Iniciando actualización de logo', [
                 'user_id' => $user->id,
                 'user_role' => $user->role,
                 'old_logo' => $user->logo
             ]);
 
-            // Verificar si el archivo se subió correctamente
             if (!$request->hasFile('logo') || !$request->file('logo')->isValid()) {
                 Log::error('Archivo de logo no válido o no subido');
                 return back()->withErrors(['logo' => 'El archivo no es válido o no se pudo subir.']);
             }
 
-            // Información sobre el archivo subido
             $logoFile = $request->file('logo');
             Log::info('Archivo de logo recibido', [
                 'original_name' => $logoFile->getClientOriginalName(),
@@ -124,7 +110,6 @@ class ProfileController extends Controller
                 'size' => $logoFile->getSize()
             ]);
 
-            // Eliminar el logo anterior si existe
             if ($user->logo && File::exists(public_path('storage/' . $user->logo))) {
                 File::delete(public_path('storage/' . $user->logo));
                 Log::info('Logo anterior eliminado: ' . $user->logo);
@@ -132,30 +117,25 @@ class ProfileController extends Controller
                 Log::warning('Logo anterior no encontrado en el almacenamiento: ' . $user->logo);
             }
 
-            // Asegurarse de que el directorio existe
             $logosDir = public_path('storage/logos');
             if (!File::exists($logosDir)) {
                 File::makeDirectory($logosDir, 0755, true);
             }
 
-            // Guardar el nuevo logo con un nombre único basado en timestamp
             $timestamp = time();
             $extension = $logoFile->getClientOriginalExtension();
             $fileName = 'logo_' . $user->id . '_' . $timestamp . '.' . $extension;
             
-            // Guardar directamente en public/storage/logos
             $logoFile->move($logosDir, $fileName);
             $logoPath = 'logos/' . $fileName;
             
             Log::info('Nuevo logo guardado en: ' . $logoPath);
 
-            // Actualizar el usuario
             $user->logo = $logoPath;
             $user->save();
 
             Log::info('Logo actualizado en la base de datos');
 
-            // Verificar que el archivo existe después de guardarlo
             if (File::exists(public_path('storage/' . $logoPath))) {
                 Log::info('Verificación: el archivo existe en el almacenamiento');
             } else {
@@ -175,9 +155,6 @@ class ProfileController extends Controller
         }
     }
 
-    /**
-     * Update the user's password.
-     */
     public function updatePassword(Request $request): RedirectResponse
     {
         $validated = $request->validateWithBag('updatePassword', [
@@ -204,9 +181,6 @@ class ProfileController extends Controller
         return back()->with('status', 'password-updated');
     }
 
-    /**
-     * Delete the user's account.
-     */
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
@@ -215,7 +189,6 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
-        // Eliminar el logo si existe
         if ($user->logo && File::exists(public_path('storage/' . $user->logo))) {
             File::delete(public_path('storage/' . $user->logo));
             Log::info('Logo eliminado al borrar usuario: ' . $user->logo);

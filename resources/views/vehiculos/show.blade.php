@@ -7,20 +7,15 @@
     
     <title>Detalles del Vehículo - {{ config('app.name', 'MiraCar') }}</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
@@ -118,7 +113,6 @@
             margin-right: 0.5rem;
         }
         
-        /* Estilos para la tarjeta de vehículo */
         .vehicle-header {
             display: flex;
             align-items: center;
@@ -151,7 +145,6 @@
             font-size: 0.875rem;
         }
         
-        /* Estilos para la barra de acciones */
         .action-bar {
             display: flex;
             gap: 0.5rem;
@@ -164,7 +157,6 @@
             justify-content: center;
         }
         
-        /* Estilos para la información de contacto */
         .contact-link {
             display: inline-flex;
             align-items: center;
@@ -182,7 +174,6 @@
             color: var(--secondary-color);
         }
         
-        /* Estilos para la tarjeta de color */
         .color-preview {
             width: 24px;
             height: 24px;
@@ -193,7 +184,6 @@
             vertical-align: middle;
         }
         
-        /* Estilos para el badge de visualización */
         .view-badge {
             position: absolute;
             top: -10px;
@@ -209,12 +199,10 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
-        /* Contenedor con posición relativa para el badge */
         .card-container {
             position: relative;
         }
         
-        /* Estilos responsivos */
         @media (max-width: 767.98px) {
             .container {
                 padding-left: 15px;
@@ -267,7 +255,6 @@
                 font-size: 0.9375rem;
             }
             
-            /* Ajustes para la visualización en móvil */
             .mobile-info-item {
                 margin-bottom: 1rem;
             }
@@ -297,7 +284,6 @@
             }
         }
         
-        /* Ajustes para tablets */
         @media (min-width: 768px) and (max-width: 991.98px) {
             .card-body {
                 padding: 1.5rem;
@@ -318,10 +304,9 @@
             }
         }
         
-        /* Optimización para dispositivos táctiles */
         @media (hover: none) and (pointer: coarse) {
             .btn {
-                min-height: 44px; /* Área táctil mínima recomendada */
+                min-height: 44px;
             }
             
             .btn:active {
@@ -333,7 +318,6 @@
             }
         }
         
-        /* Animaciones y efectos */
         .btn {
             position: relative;
             overflow: hidden;
@@ -372,13 +356,11 @@
             }
         }
         
-        /* Mejoras de accesibilidad */
         .btn:focus, a:focus {
             outline: 2px solid var(--secondary-color);
             outline-offset: 2px;
         }
         
-        /* Estilos para la impresión */
         @media print {
             .btn, .action-bar {
                 display: none !important;
@@ -399,7 +381,6 @@
     </style>
 </head>
 <body>
-    <!-- Incluir la barra de navegación -->
     @include('layouts.navigation')
 
     <div class="container py-3 py-md-4">
@@ -411,12 +392,10 @@
                             <i class="bi bi-eye-fill"></i>
                         </div>
                         <div class="card-body">
-                            <!-- Encabezado para pantallas medianas y grandes -->
                             <div class="d-none d-md-block mb-4">
                                 <h2 class="card-title">Detalles del Vehículo</h2>
                             </div>
                             
-                            <!-- Encabezado del vehículo (visible en todas las pantallas) -->
                             <div class="vehicle-header">
                                 <div class="vehicle-icon">
                                     <i class="bi bi-car-front"></i>
@@ -427,7 +406,6 @@
                                 </div>
                             </div>
                             
-                            <!-- Barra de acciones -->
                             <div class="action-bar">
                                 <a href="{{ route('vehiculos.index') }}" class="btn btn-outline-secondary">
                                     <i class="bi bi-arrow-left me-2"></i> Volver
@@ -437,11 +415,9 @@
                                 </a>
                             </div>
                             
-                            <!-- Información del vehículo -->
                             <div class="info-section">
                                 <h5><i class="bi bi-info-circle"></i> Información del Vehículo</h5>
                                 
-                                <!-- Vista para pantallas medianas y grandes -->
                                 <div class="d-none d-md-block">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -492,7 +468,6 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Vista para móviles -->
                                 <div class="d-md-none">
                                     <div class="mobile-info-item">
                                         <span class="info-label">Marca</span>
@@ -529,11 +504,9 @@
                                 </div>
                             </div>
                             
-                            <!-- Información del propietario -->
                             <div class="info-section mb-0">
                                 <h5><i class="bi bi-person"></i> Información del Propietario</h5>
                                 
-                                <!-- Vista para pantallas medianas y grandes -->
                                 <div class="d-none d-md-block">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -570,7 +543,6 @@
                                     @endif
                                 </div>
                                 
-                                <!-- Vista para móviles -->
                                 <div class="d-md-none">
                                     <div class="mobile-info-item">
                                         <span class="info-label">Nombre Completo</span>
@@ -609,12 +581,10 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Mejorar la experiencia táctil
             if ('ontouchstart' in window) {
                 const buttons = document.querySelectorAll('.btn');
                 buttons.forEach(button => {
@@ -627,12 +597,10 @@
                     });
                 });
                 
-                // Añadir clase para dispositivos táctiles
                 document.body.classList.add('touch-device');
             }
         });
         
-        // Función para expandir/colapsar secciones en móvil
         function toggleSection(element) {
             const content = element.nextElementSibling;
             if (content.style.display === 'none') {
@@ -646,7 +614,6 @@
     </script>
     
     <?php
-    // Función para obtener el código hexadecimal del color
     function getColorHex($colorName) {
         $colorMap = [
             'blanco' => '#FFFFFF',

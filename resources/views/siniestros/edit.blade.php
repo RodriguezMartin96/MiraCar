@@ -7,20 +7,16 @@
     
     <title>{{ config('app.name', 'MiraCar') }} - Editar Siniestro</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
@@ -59,7 +55,6 @@
             box-shadow: 0 0 0 0.25rem rgba(79, 140, 255, 0.25);
         }
         
-        /* Estilos para campos válidos e inválidos */
         .form-control.is-valid {
             border-color: var(--success-color);
             padding-right: calc(1.5em + 0.75rem);
@@ -132,7 +127,7 @@
         .was-validated .form-control:valid ~ .valid-tooltip, 
         .form-control.is-valid ~ .valid-feedback,
         .form-control.is-valid ~ .valid-tooltip {
-            display: none; /* Ocultar mensajes de "correcto" */
+            display: none;
         }
         
         .was-validated .form-control:invalid ~ .invalid-feedback,
@@ -171,7 +166,6 @@
             border-color: #f5c2c7;
         }
         
-        /* Estilos para el badge de edición */
         .edit-badge {
             position: absolute;
             top: -10px;
@@ -187,7 +181,6 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
-        /* Contenedor con posición relativa para el badge */
         .card-container {
             position: relative;
         }
@@ -218,13 +211,11 @@
             letter-spacing: 0.5px;
         }
         
-        /* Estilos responsivos */
         .container {
             padding-left: 1rem;
             padding-right: 1rem;
         }
         
-        /* Media queries para dispositivos móviles */
         @media (max-width: 767.98px) {
             .container {
                 padding-left: 0.75rem;
@@ -293,7 +284,6 @@
                 margin-bottom: 0;
             }
             
-            /* Ajustes para el número de siniestro en móviles */
             .numero-siniestro {
                 flex-direction: column;
                 gap: 0.5rem;
@@ -306,19 +296,16 @@
             }
         }
         
-        /* Ajustes para los campos de fecha */
         input[type="date"] {
             position: relative;
         }
         
-        /* Posición del icono de validación para campos de fecha */
         input[type="date"].is-valid,
         input[type="date"].is-invalid {
             background-position: right 0.75rem center;
             padding-right: 2.5rem;
         }
         
-        /* Media queries para tablets */
         @media (min-width: 768px) and (max-width: 991.98px) {
             .card-body {
                 padding: 1.75rem !important;
@@ -329,11 +316,10 @@
             }
         }
         
-        /* Mejoras para dispositivos táctiles */
         @media (hover: none) and (pointer: coarse) {
             .form-control, .form-select {
                 padding: 0.5rem 0.75rem;
-                font-size: 16px; /* Evita zoom en iOS */
+                font-size: 16px;
             }
             
             .btn {
@@ -341,14 +327,12 @@
                 padding-bottom: 0.625rem;
             }
             
-            /* Mejorar la experiencia de selección en dispositivos táctiles */
             select.form-select {
                 background-position: right 0.75rem center;
                 padding-right: 2.25rem;
             }
         }
         
-        /* Animaciones y transiciones */
         .btn {
             transition: all 0.2s ease;
         }
@@ -357,7 +341,6 @@
             transform: scale(0.97);
         }
         
-        /* Mejoras para orientación landscape en móviles */
         @media (max-height: 500px) and (orientation: landscape) {
             .container {
                 padding-top: 0.5rem;
@@ -393,7 +376,6 @@
             }
         }
         
-        /* Mejoras para pantallas muy pequeñas */
         @media (max-width: 375px) {
             .card-body {
                 padding: 1rem !important;
@@ -422,14 +404,12 @@
             }
         }
         
-        /* Estilos para campos requeridos */
         .required-field::after {
             content: "*";
             color: red;
             margin-left: 4px;
         }
         
-        /* Estilos para los iconos en los campos */
         .input-icon {
             position: relative;
         }
@@ -447,7 +427,6 @@
             padding-left: 2.5rem;
         }
         
-        /* Estilos para el encabezado del formulario */
         .form-header {
             display: flex;
             align-items: center;
@@ -473,7 +452,6 @@
             }
         }
         
-        /* Estilos para los grupos de botones */
         .btn-group-responsive {
             display: flex;
             gap: 0.5rem;
@@ -490,7 +468,6 @@
             }
         }
         
-        /* Estilos para el estado del siniestro */
         .estado-badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
@@ -514,14 +491,12 @@
             color: #1b5e20;
         }
         
-        /* Mejoras para el textarea en móviles */
         @media (max-width: 767.98px) {
             textarea.form-control {
                 min-height: 100px;
             }
         }
         
-        /* Estilos para campos modificados */
         .field-modified {
             background-color: rgba(79, 140, 255, 0.1);
             border-color: var(--secondary-color);
@@ -529,7 +504,6 @@
     </style>
 </head>
 <body>
-    <!-- Incluir la barra de navegación -->
     @include('layouts.navigation')
 
     <div class="container py-3 py-md-4">
@@ -683,17 +657,13 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Script para validación en tiempo real
         document.addEventListener('DOMContentLoaded', function() {
-            // Obtener todos los campos del formulario
             const form = document.getElementById('siniestroForm');
             const inputs = form.querySelectorAll('input, textarea, select');
             
-            // Elementos específicos
             const clienteSelect = document.getElementById('cliente_id');
             const vehiculoSelect = document.getElementById('vehiculo_id');
             const fechaEntrada = document.getElementById('fecha_entrada');
@@ -701,14 +671,11 @@
             const descripcion = document.getElementById('descripcion');
             const estadoSelect = document.getElementById('estado');
             
-            // Guardar valores originales
             const originalValues = {};
             
-            // Guardar valores originales
             inputs.forEach(input => {
                 originalValues[input.id] = input.value;
                 
-                // Detectar cambios
                 input.addEventListener('input', function() {
                     if (this.value !== originalValues[this.id]) {
                         this.classList.add('field-modified');
@@ -726,15 +693,11 @@
                 });
             });
             
-            // Establecer la fecha mínima para la fecha de entrada (hoy)
             const today = new Date().toISOString().split('T')[0];
             
-            // Función para validar la descripción (al menos una palabra de más de un carácter)
             function validarDescripcion(texto) {
-                // Eliminar espacios en blanco al inicio y al final
                 const textoLimpio = texto.trim();
                 
-                // Verificar si hay al menos una palabra de más de un carácter
                 const palabras = textoLimpio.split(/\s+/);
                 for (let i = 0; i < palabras.length; i++) {
                     if (palabras[i].length > 1) {
@@ -745,11 +708,9 @@
                 return false;
             }
             
-            // Función para validar un campo
             function validateField(input) {
                 let isValid = true;
                 
-                // Validar según el tipo de campo
                 switch(input.id) {
                     case 'cliente_id':
                         isValid = input.value !== '';
@@ -764,11 +725,9 @@
                         break;
                         
                     case 'fecha_salida':
-                        // Si está vacío, es válido (no es obligatorio)
                         if (input.value === '') {
                             return true;
                         }
-                        // Si tiene valor, debe ser igual o posterior a la fecha de entrada
                         isValid = input.value >= fechaEntrada.value;
                         break;
                         
@@ -777,11 +736,10 @@
                         break;
                         
                     case 'estado':
-                        isValid = true; // Siempre tiene un valor seleccionado
+                        isValid = true;
                         break;
                 }
                 
-                // Actualizar clases y feedback según validación
                 if (input.required && input.value.trim() === '') {
                     input.classList.remove('is-valid');
                     input.classList.add('is-invalid');
@@ -797,7 +755,6 @@
                 }
             }
             
-            // Validar todos los campos al enviar el formulario
             form.addEventListener('submit', function(event) {
                 let formValid = true;
                 
@@ -816,7 +773,6 @@
                 form.classList.add('was-validated');
             });
             
-            // Validar cada campo cuando cambia su valor
             inputs.forEach(function(input) {
                 input.addEventListener('input', function() {
                     validateField(this);
@@ -826,45 +782,37 @@
                     validateField(this);
                 });
                 
-                // Validar campos con valores iniciales
                 if (input.value.trim() !== '') {
                     validateField(input);
                 }
             });
             
-            // Validar fecha de entrada al cambiar
             fechaEntrada.addEventListener('change', function() {
                 validateField(this);
                 
-                // Actualizar la fecha mínima de salida
                 if (fechaSalida) {
                     fechaSalida.setAttribute('min', this.value);
                     
-                    // Si la fecha de salida es anterior a la nueva fecha de entrada, limpiarla
                     if (fechaSalida.value && fechaSalida.value < this.value) {
                         fechaSalida.value = '';
                         fechaSalida.classList.remove('is-valid');
                         fechaSalida.classList.remove('is-invalid');
                     } else if (fechaSalida.value) {
-                        // Revalidar la fecha de salida
                         validateField(fechaSalida);
                     }
                 }
             });
             
-            // Validar fecha de salida al cambiar
             if (fechaSalida) {
                 fechaSalida.addEventListener('change', function() {
                     validateField(this);
                 });
                 
-                // Establecer la fecha mínima inicial para la fecha de salida
                 if (fechaEntrada.value) {
                     fechaSalida.setAttribute('min', fechaEntrada.value);
                 }
             }
             
-            // Cambiar el color del badge según el estado seleccionado
             estadoSelect.addEventListener('change', function() {
                 const numeroBadge = document.querySelector('.numero-badge');
                 if (numeroBadge) {
@@ -882,9 +830,7 @@
                 }
             });
             
-            // Detectar si es un dispositivo táctil
             if ('ontouchstart' in window) {
-                // Mejorar la experiencia táctil para los botones
                 const buttons = document.querySelectorAll('.btn');
                 buttons.forEach(button => {
                     button.addEventListener('touchstart', function() {
@@ -896,7 +842,6 @@
                     });
                 });
                 
-                // Detectar orientación landscape en móviles
                 function adjustForLandscape() {
                     if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
                         document.body.classList.add('landscape-mode');
@@ -905,15 +850,12 @@
                     }
                 }
                 
-                // Ejecutar al cargar y al cambiar orientación
                 adjustForLandscape();
                 window.addEventListener('resize', adjustForLandscape);
                 window.addEventListener('orientationchange', adjustForLandscape);
                 
-                // Mejorar la experiencia con selects en dispositivos móviles
                 const selects = document.querySelectorAll('select.form-select');
                 selects.forEach(select => {
-                    // Asegurarse de que el texto no se corte en dispositivos móviles
                     select.addEventListener('change', function() {
                         const selectedOption = this.options[this.selectedIndex];
                         if (selectedOption.textContent.length > 30) {

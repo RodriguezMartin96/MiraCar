@@ -21,7 +21,6 @@ class RegisterController extends Controller
     
     public function store(Request $request)
     {
-        // Validar tipo de usuario
         $request->validate([
             'user_type' => 'required|in:user,taller',
         ]);
@@ -33,20 +32,17 @@ class RegisterController extends Controller
                 return $this->registerUser($request);
             }
         } catch (\Exception $e) {
-            // Registrar el error para depuración
             Log::error('Error en el registro: ' . $e->getMessage(), [
                 'exception' => get_class($e),
                 'trace' => $e->getTraceAsString()
             ]);
             
-            // Devolver al formulario con un mensaje de error
             return back()->withInput()->with('error', 'Ha ocurrido un error al procesar el registro: ' . $e->getMessage());
         }
     }
     
     protected function registerTaller(Request $request)
     {
-        // Validar datos del taller
         $validated = $request->validate([
             'company_name' => 'required|string|max:255',
             'company_nif' => 'required|string|max:20|unique:users,company_nif',
@@ -57,11 +53,9 @@ class RegisterController extends Controller
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         
-        // Convertir nombre de empresa a Title Case y NIF a mayúsculas
         $companyName = Str::title($validated['company_name']);
         $companyNif = strtoupper($validated['company_nif']);
         
-        // Procesar y guardar el logo si se ha subido
         $logoPath = null;
         if ($request->hasFile('logo') && $request->file('logo')->isValid()) {
             try {
@@ -70,13 +64,11 @@ class RegisterController extends Controller
                 $extension = $logoFile->getClientOriginalExtension();
                 $fileName = 'logo_' . $timestamp . '_' . uniqid() . '.' . $extension;
                 
-                // Asegurarse de que el directorio existe
                 $logosDir = public_path('storage/logos');
                 if (!File::exists($logosDir)) {
                     File::makeDirectory($logosDir, 0755, true);
                 }
                 
-                // Guardar directamente en public/storage/logos
                 $logoFile->move($logosDir, $fileName);
                 $logoPath = 'logos/' . $fileName;
                 
@@ -85,7 +77,6 @@ class RegisterController extends Controller
                     'full_path' => $logosDir . '/' . $fileName
                 ]);
                 
-                // Verificar que el archivo se guardó correctamente
                 if (!File::exists($logosDir . '/' . $fileName)) {
                     Log::warning('El logo no se guardó correctamente', [
                         'path' => $logoPath
@@ -101,7 +92,6 @@ class RegisterController extends Controller
             }
         }
         
-        // Crear usuario taller
         $user = User::create([
             'name' => $companyName,
             'email' => $validated['company_email'],
@@ -119,16 +109,13 @@ class RegisterController extends Controller
             'has_logo' => !is_null($logoPath)
         ]);
         
-        // Iniciar sesión automáticamente
         Auth::login($user);
         
-        // Redirigir a la página principal
         return redirect('/dashboard')->with('success', '¡Registro completado con éxito!');
     }
     
     protected function registerUser(Request $request)
     {
-        // Validar datos del usuario
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
@@ -140,12 +127,10 @@ class RegisterController extends Controller
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         
-        // Convertir nombre y apellidos a Title Case y DNI a mayúsculas
         $name = Str::title($validated['name']);
         $lastname = Str::title($validated['lastname']);
         $dni = strtoupper($validated['dni']);
         
-        // Procesar y guardar el avatar si se ha subido
         $avatarPath = null;
         if ($request->hasFile('avatar') && $request->file('avatar')->isValid()) {
             try {
@@ -154,13 +139,11 @@ class RegisterController extends Controller
                 $extension = $avatarFile->getClientOriginalExtension();
                 $fileName = 'avatar_' . $timestamp . '_' . uniqid() . '.' . $extension;
                 
-                // Asegurarse de que el directorio existe
                 $avatarsDir = public_path('storage/avatars');
                 if (!File::exists($avatarsDir)) {
                     File::makeDirectory($avatarsDir, 0755, true);
                 }
                 
-                // Guardar directamente en public/storage/avatars
                 $avatarFile->move($avatarsDir, $fileName);
                 $avatarPath = 'avatars/' . $fileName;
                 
@@ -169,7 +152,6 @@ class RegisterController extends Controller
                     'full_path' => $avatarsDir . '/' . $fileName
                 ]);
                 
-                // Verificar que el archivo se guardó correctamente
                 if (!File::exists($avatarsDir . '/' . $fileName)) {
                     Log::warning('El avatar no se guardó correctamente', [
                         'path' => $avatarPath
@@ -185,7 +167,6 @@ class RegisterController extends Controller
             }
         }
         
-        // Crear usuario normal
         $user = User::create([
             'name' => $name,
             'lastname' => $lastname,
@@ -203,10 +184,8 @@ class RegisterController extends Controller
             'has_avatar' => !is_null($avatarPath)
         ]);
         
-        // Iniciar sesión automáticamente
         Auth::login($user);
         
-        // Redirigir a la página principal
         return redirect('/dashboard')->with('success', '¡Registro completado con éxito!');
     }
 }

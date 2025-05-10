@@ -5,8 +5,9 @@
         padding: 0.7rem 2rem;
         border-bottom-left-radius: 18px;
         border-bottom-right-radius: 18px;
-        margin-bottom: 32px; /* Añadido para separar la barra del contenido */
+        margin-bottom: 32px;
     }
+    
     .taller-logo {
         height: 40px;
         width: 40px;
@@ -14,8 +15,9 @@
         box-shadow: 0 2px 8px rgba(79,140,255,0.10);
         background: #fff;
         padding: 2px;
-        object-fit: cover; /* Cambiado para que funcione mejor con avatares */
+        object-fit: cover;
     }
+    
     .logo-container {
         display: inline-block;
         background: white;
@@ -29,6 +31,7 @@
         justify-content: center;
         overflow: hidden;
     }
+    
     .navbar-nav .nav-link {
         color: #fff !important;
         font-weight: 500;
@@ -39,12 +42,14 @@
         transition: background 0.18s, color 0.18s, box-shadow 0.18s;
         position: relative;
     }
+    
     .navbar-nav .nav-link.active, .navbar-nav .nav-link:hover {
         background: #fff;
         color: #235390 !important;
         box-shadow: 0 2px 10px rgba(79,140,255,0.10);
         text-shadow: 0 1px 2px #e3ecff;
     }
+    
     .navbar-toggler {
         border: none;
         color: #fff;
@@ -53,11 +58,13 @@
         border-radius: 8px;
         transition: background 0.18s;
     }
+    
     .navbar-toggler:focus {
         outline: none;
         background: #e3ecff;
         color: #235390;
     }
+    
     .user-dropdown-toggle {
         color: #fff !important;
         font-weight: 500;
@@ -67,26 +74,30 @@
         display: flex;
         align-items: center;
     }
+    
     .user-dropdown-toggle:hover, .user-dropdown-toggle:focus {
         background: #fff;
         color: #235390 !important;
     }
+    
     .dropdown-menu {
         border-radius: 10px;
         box-shadow: 0 4px 18px rgba(79,140,255,0.13);
         min-width: 180px;
     }
+    
     .dropdown-item {
         font-weight: 500;
         color: #235390;
         border-radius: 6px;
         transition: background 0.15s, color 0.15s;
     }
+    
     .dropdown-item:hover, .dropdown-item:focus {
         background: #e3ecff;
         color: #4f8cff;
     }
-    /* Estilo para avatar de usuario en el menú */
+    
     .user-avatar {
         width: 32px;
         height: 32px;
@@ -95,6 +106,7 @@
         margin-right: 8px;
         border: 2px solid white;
     }
+    
     @media (max-width: 991px) {
         .taller-navbar {
             padding: 0.7rem 0.7rem;
@@ -107,7 +119,7 @@
             padding: 10px 12px;
         }
     }
-    /* Espacio superior para el contenido principal */
+    
     main, .main-content, .container, .dashboard-content {
         margin-top: 80px !important;
     }
@@ -115,36 +127,29 @@
 
 <nav class="navbar navbar-expand-lg fixed-top taller-navbar">
     <div class="container-fluid">
-        <!-- Logo del taller o avatar del usuario -->
         <a class="navbar-brand" href="{{ route('dashboard') }}">
             <div class="logo-container">
                 @if(Auth::check())
                     @if(Auth::user()->role === 'taller' && Auth::user()->logo)
-                        <!-- Logo del taller si es un taller con logo -->
                         <img src="{{ asset('storage/' . Auth::user()->logo) }}" alt="{{ Auth::user()->name }} Logo" class="taller-logo" 
                              onerror="this.onerror=null; this.src='{{ asset('galeria/logo.png') }}'; console.log('Error cargando logo personalizado');">
                     @elseif(Auth::user()->role === 'user' && Auth::user()->avatar)
-                        <!-- Avatar del usuario si tiene uno -->
                         <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="{{ Auth::user()->name }}" class="taller-logo" 
                              onerror="this.onerror=null; this.src='{{ asset('galeria/logo.png') }}'; console.log('Error cargando avatar');">
                     @else
-                        <!-- Logo por defecto si no hay avatar ni logo -->
                         <img src="{{ asset('galeria/logo.png') }}" alt="MiraCar Logo" class="taller-logo">
                     @endif
                 @else
-                    <!-- Logo por defecto para usuarios no autenticados -->
                     <img src="{{ asset('galeria/logo.png') }}" alt="MiraCar Logo" class="taller-logo">
                 @endif
             </div>
         </a>
         
-        <!-- Botón de hamburguesa para móviles -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" 
                 aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-list"></i>
         </button>
         
-        <!-- Menú principal -->
         <div class="collapse navbar-collapse justify-content-center" id="navbarMain">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -187,7 +192,6 @@
             </ul>
         </div>
         
-        <!-- Menú de usuario y cierre de sesión -->
         <div class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle user-dropdown-toggle" href="#" id="userDropdown" role="button" 

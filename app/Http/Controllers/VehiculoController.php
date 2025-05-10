@@ -10,15 +10,10 @@ use Illuminate\Support\Facades\Log;
 
 class VehiculoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     {
-        // Solo mostrar vehículos del usuario autenticado
         $query = Vehiculo::where('user_id', Auth::id())->with('cliente');
         
-        // Búsqueda
         if ($request->has('search') && $request->search) {
             $search = $request->search;
             $query->where(function($q) use ($search) {
@@ -37,19 +32,12 @@ class VehiculoController extends Controller
         return view('vehiculos.index', compact('vehiculos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        // Solo mostrar clientes del usuario autenticado
         $clientes = Cliente::where('user_id', Auth::id())->get();
         return view('vehiculos.create', compact('clientes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -72,7 +60,7 @@ class VehiculoController extends Controller
                 'string',
                 'max:20',
                 'regex:/^([A-Z]{2}\d{4}[A-Z]{2}|\d{4}[A-Z]{3}|[A-Z]{3}\d{4})$/',
-                'unique:vehiculos'
+                'unique:vehiculos,matricula,NULL,id,user_id,' . Auth::id()
             ],
             'color' => [
                 'required',
@@ -87,7 +75,7 @@ class VehiculoController extends Controller
                 'min:1',
                 'max:255',
                 'regex:/^[A-Z0-9]+$/',
-                'unique:vehiculos'
+                'unique:vehiculos,bastidor,NULL,id,user_id,' . Auth::id()
             ],
             'fecha_matriculacion' => [
                 'nullable',
@@ -105,14 +93,14 @@ class VehiculoController extends Controller
             
             'matricula.required' => 'La matrícula es obligatoria.',
             'matricula.regex' => 'La matrícula debe tener uno de estos formatos: AA0000AA, 0000AAA o AAA0000.',
-            'matricula.unique' => 'Esta matrícula ya está registrada.',
+            'matricula.unique' => 'Esta matrícula ya está registrada en su taller.',
             
             'color.required' => 'El color es obligatorio.',
             'color.min' => 'El color debe tener al menos 1 carácter.',
             
             'bastidor.min' => 'El bastidor debe tener al menos 1 carácter.',
             'bastidor.regex' => 'El bastidor solo puede contener letras y números.',
-            'bastidor.unique' => 'Este bastidor ya está registrado.',
+            'bastidor.unique' => 'Este bastidor ya está registrado en su taller.',
             
             'fecha_matriculacion.before_or_equal' => 'La fecha de matriculación no puede ser posterior a hoy.',
             
@@ -121,13 +109,11 @@ class VehiculoController extends Controller
         ]);
 
         try {
-            // Verificar que el cliente pertenece al usuario autenticado
             $cliente = Cliente::findOrFail($request->cliente_id);
             if ($cliente->user_id !== Auth::id()) {
                 return back()->withErrors(['cliente_id' => 'El cliente seleccionado no es válido.'])->withInput();
             }
 
-            // Asociar el vehículo al usuario autenticado
             $vehiculo = new Vehiculo($request->all());
             $vehiculo->user_id = Auth::id();
             $vehiculo->save();
@@ -144,12 +130,8 @@ class VehiculoController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Vehiculo $vehiculo)
     {
-        // Verificar que el vehículo pertenece al usuario autenticado
         if ($vehiculo->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para ver este vehículo.');
         }
@@ -157,27 +139,18 @@ class VehiculoController extends Controller
         return view('vehiculos.show', compact('vehiculo'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Vehiculo $vehiculo)
     {
-        // Verificar que el vehículo pertenece al usuario autenticado
         if ($vehiculo->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para editar este vehículo.');
         }
 
-        // Solo mostrar clientes del usuario autenticado
         $clientes = Cliente::where('user_id', Auth::id())->get();
         return view('vehiculos.edit', compact('vehiculo', 'clientes'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Vehiculo $vehiculo)
     {
-        // Verificar que el vehículo pertenece al usuario autenticado
         if ($vehiculo->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para actualizar este vehículo.');
         }
@@ -202,7 +175,7 @@ class VehiculoController extends Controller
                 'string',
                 'max:20',
                 'regex:/^([A-Z]{2}\d{4}[A-Z]{2}|\d{4}[A-Z]{3}|[A-Z]{3}\d{4})$/',
-                'unique:vehiculos,matricula,' . $vehiculo->id
+                'unique:vehiculos,matricula,' . $vehiculo->id . ',id,user_id,' . Auth::id()
             ],
             'color' => [
                 'required',
@@ -217,7 +190,7 @@ class VehiculoController extends Controller
                 'min:1',
                 'max:255',
                 'regex:/^[A-Z0-9]+$/',
-                'unique:vehiculos,bastidor,' . $vehiculo->id
+                'unique:vehiculos,bastidor,' . $vehiculo->id . ',id,user_id,' . Auth::id()
             ],
             'fecha_matriculacion' => [
                 'nullable',
@@ -235,14 +208,14 @@ class VehiculoController extends Controller
             
             'matricula.required' => 'La matrícula es obligatoria.',
             'matricula.regex' => 'La matrícula debe tener uno de estos formatos: AA0000AA, 0000AAA o AAA0000.',
-            'matricula.unique' => 'Esta matrícula ya está registrada.',
+            'matricula.unique' => 'Esta matrícula ya está registrada en su taller.',
             
             'color.required' => 'El color es obligatorio.',
             'color.min' => 'El color debe tener al menos 1 carácter.',
             
             'bastidor.min' => 'El bastidor debe tener al menos 1 carácter.',
             'bastidor.regex' => 'El bastidor solo puede contener letras y números.',
-            'bastidor.unique' => 'Este bastidor ya está registrado.',
+            'bastidor.unique' => 'Este bastidor ya está registrado en su taller.',
             
             'fecha_matriculacion.before_or_equal' => 'La fecha de matriculación no puede ser posterior a hoy.',
             
@@ -251,7 +224,6 @@ class VehiculoController extends Controller
         ]);
 
         try {
-            // Verificar que el cliente pertenece al usuario autenticado
             $cliente = Cliente::findOrFail($request->cliente_id);
             if ($cliente->user_id !== Auth::id()) {
                 return back()->withErrors(['cliente_id' => 'El cliente seleccionado no es válido.'])->withInput();
@@ -271,12 +243,8 @@ class VehiculoController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Vehiculo $vehiculo)
     {
-        // Verificar que el vehículo pertenece al usuario autenticado
         if ($vehiculo->user_id !== Auth::id()) {
             abort(403, 'No tienes permiso para eliminar este vehículo.');
         }

@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Log;
 
 class UserDashboardController extends Controller
 {
-    /**
-     * Verificar que el usuario tiene el rol correcto
-     */
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
@@ -23,20 +20,15 @@ class UserDashboardController extends Controller
         });
     }
 
-    /**
-     * Mostrar el dashboard para usuarios normales.
-     */
     public function index()
     {
         try {
             $user = Auth::user();
             
-            // Buscar vehículos asociados al DNI del usuario
             $vehiculos = Vehiculo::whereHas('cliente', function ($query) use ($user) {
                 $query->where('dni', $user->dni);
             })->with(['siniestros', 'cliente.user'])->get();
             
-            // Agrupar siniestros por taller
             $siniestrosPorTaller = [];
             
             foreach ($vehiculos as $vehiculo) {
@@ -78,7 +70,6 @@ class UserDashboardController extends Controller
                 'talleres_con_siniestros' => count($siniestrosPorTaller)
             ]);
             
-            // Actualizado: Cambio de 'user.dashboard' a 'usuario.inicio'
             return view('usuario.inicio', compact('siniestrosPorTaller'));
         } catch (\Exception $e) {
             Log::error('Error al cargar dashboard de usuario: ' . $e->getMessage(), [
@@ -86,27 +77,21 @@ class UserDashboardController extends Controller
                 'trace' => $e->getTraceAsString()
             ]);
             
-            // Actualizado: Cambio de 'user.dashboard' a 'usuario.inicio'
             return view('usuario.inicio', ['error' => 'Ha ocurrido un error al cargar tus siniestros.']);
         }
     }
     
-    /**
-     * Mostrar detalles de un siniestro específico.
-     */
     public function showSiniestro($id)
     {
         try {
             $user = Auth::user();
             
-            // Buscar el siniestro y verificar que pertenece a un vehículo del usuario
             $siniestro = Siniestro::with(['vehiculo.cliente', 'user', 'recambios'])
                 ->whereHas('vehiculo.cliente', function ($query) use ($user) {
                     $query->where('dni', $user->dni);
                 })
                 ->findOrFail($id);
             
-            // Obtener los recambios asociados al siniestro
             $recambios = $siniestro->recambios;
             
             Log::info('Detalles de siniestro cargados', [
@@ -114,7 +99,6 @@ class UserDashboardController extends Controller
                 'siniestro_id' => $siniestro->id
             ]);
             
-            // Actualizado: Cambio de 'user.siniestro' a 'usuario.siniestro'
             return view('usuario.siniestro', compact('siniestro', 'recambios'));
         } catch (\Exception $e) {
             Log::error('Error al cargar detalles de siniestro: ' . $e->getMessage(), [

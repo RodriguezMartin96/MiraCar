@@ -7,21 +7,17 @@
 
     <title>{{ config('app.name', 'MiraCar') }}</title>
 
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
 
-    <!-- Bootstrap CSS y Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <!-- Vite Assets -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
@@ -149,13 +145,11 @@
             font-size: 0.8rem;
         }
         
-        /* Estilos específicos para el logo */
         .logo-img {
-            max-height: 120px; /* Tamaño para móvil */
+            max-height: 120px;
             width: auto;
         }
         
-        /* Estilos para tablets */
         @media (min-width: 768px) and (max-width: 991px) {
             .welcome-title {
                 font-size: 2.5rem;
@@ -185,11 +179,10 @@
             }
             
             .logo-img {
-                max-height: 140px; /* Tamaño para tablet */
+                max-height: 140px;
             }
         }
         
-        /* Estilos para desktop */
         @media (min-width: 992px) {
             .welcome-title {
                 font-size: 3rem;
@@ -228,14 +221,13 @@
                 margin-bottom: 1.5rem;
             }
             
-            /* Alineación del logo en desktop */
             .logo-container {
                 justify-content: center;
                 margin-bottom: 2rem;
             }
             
             .logo-img {
-                max-height: 180px; /* Tamaño más grande para monitor */
+                max-height: 180px;
             }
             
             .content-wrapper {
@@ -248,10 +240,9 @@
             }
         }
         
-        /* Estilos para pantallas grandes */
         @media (min-width: 1200px) {
             .logo-img {
-                max-height: 200px; /* Aún más grande para pantallas grandes */
+                max-height: 200px;
             }
         }
     </style>
@@ -338,7 +329,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Animación de entrada
             const elements = document.querySelectorAll('.welcome-title, .welcome-subtitle, .btn-welcome, .welcome-card, .feature-item');
             
             elements.forEach((element, index) => {

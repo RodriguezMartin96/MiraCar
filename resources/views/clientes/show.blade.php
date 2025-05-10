@@ -7,20 +7,15 @@
     
     <title>{{ config('app.name', 'MiraCar') }} - Cliente</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('galeria/logo.png') }}">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
@@ -96,7 +91,6 @@
             margin-right: 0.5rem;
         }
         
-        /* Estilos para el badge de visualización */
         .view-badge {
             position: absolute;
             top: -10px;
@@ -113,12 +107,10 @@
             z-index: 10;
         }
         
-        /* Contenedor con posición relativa para el badge */
         .card-container {
             position: relative;
         }
         
-        /* Estilos responsivos */
         .container {
             padding-left: 1rem;
             padding-right: 1rem;
@@ -128,7 +120,6 @@
             padding: 1.5rem;
         }
         
-        /* Estilos para los botones de acción */
         .action-buttons {
             display: flex;
             gap: 0.5rem;
@@ -145,7 +136,6 @@
             transition: var(--transition);
         }
         
-        /* Estilos para la información del cliente */
         .client-info-item {
             padding: 0.75rem;
             margin-bottom: 0.75rem;
@@ -173,7 +163,6 @@
             font-weight: 400;
         }
         
-        /* Media queries para dispositivos móviles */
         @media (max-width: 767.98px) {
             .container {
                 padding-left: 0.75rem;
@@ -212,10 +201,9 @@
             .btn {
                 padding: 0.5rem 0.75rem;
                 font-size: 0.95rem;
-                height: 44px; /* Altura mínima para área táctil */
+                height: 44px;
             }
             
-            /* Botones en móvil */
             .action-buttons {
                 flex-direction: column;
                 width: 100%;
@@ -226,7 +214,6 @@
                 justify-content: center;
             }
             
-            /* Mostrar el badge en móviles */
             .view-badge.d-none.d-md-flex {
                 display: flex !important;
                 width: 30px;
@@ -236,7 +223,6 @@
                 font-size: 0.9rem;
             }
             
-            /* Información del cliente en móvil */
             .client-info-item {
                 padding: 0.75rem;
                 margin-bottom: 0.75rem;
@@ -256,7 +242,6 @@
                 font-size: 1rem;
             }
             
-            /* Mejorar la visualización de enlaces en móvil */
             .client-info-item a {
                 color: var(--primary-color);
                 text-decoration: none;
@@ -269,7 +254,6 @@
             }
         }
         
-        /* Media queries para tablets */
         @media (min-width: 768px) and (max-width: 991.98px) {
             .card-body {
                 padding: 1.75rem;
@@ -287,7 +271,6 @@
                 min-width: 120px;
             }
             
-            /* Ajustes para la información en tablets */
             .row {
                 margin-left: -0.5rem;
                 margin-right: -0.5rem;
@@ -298,7 +281,6 @@
                 padding-right: 0.5rem;
             }
             
-            /* Mejorar la visualización de enlaces en tablet */
             a[href^="tel:"], a[href^="mailto:"] {
                 color: var(--primary-color);
                 text-decoration: none;
@@ -309,32 +291,27 @@
             }
         }
         
-        /* Mejoras para dispositivos táctiles */
         @media (hover: none) and (pointer: coarse) {
             .btn {
                 padding-top: 0.5rem;
                 padding-bottom: 0.5rem;
-                min-height: 44px; /* Área táctil mínima recomendada */
+                min-height: 44px;
             }
             
-            /* Mejorar la experiencia táctil */
             .btn, a {
                 touch-action: manipulation;
             }
             
-            /* Efecto de toque para elementos interactivos */
             .client-info-item:active {
                 background-color: #f8f9fa;
             }
             
-            /* Mejorar la visualización de enlaces en dispositivos táctiles */
             a[href^="tel:"], a[href^="mailto:"] {
                 display: inline-block;
                 padding: 0.25rem 0;
             }
         }
         
-        /* Animaciones y transiciones */
         .btn {
             transition: all 0.2s ease;
         }
@@ -343,7 +320,6 @@
             transform: scale(0.97);
         }
         
-        /* Mejoras para orientación landscape en móviles */
         @media (max-height: 500px) and (orientation: landscape) {
             .container {
                 padding-top: 0.5rem;
@@ -375,7 +351,6 @@
                 padding-bottom: 1rem !important;
             }
             
-            /* Ajustes específicos para landscape */
             .action-buttons {
                 flex-direction: row;
             }
@@ -384,7 +359,6 @@
                 width: auto;
             }
             
-            /* Mostrar información en dos columnas en landscape */
             .d-md-none {
                 display: flex !important;
                 flex-wrap: wrap;
@@ -398,7 +372,6 @@
             }
         }
         
-        /* Mejoras para pantallas muy pequeñas */
         @media (max-width: 375px) {
             .card-body {
                 padding: 1rem;
@@ -436,7 +409,6 @@
             }
         }
         
-        /* Mejoras para accesibilidad */
         @media (prefers-reduced-motion: reduce) {
             * {
                 transition: none !important;
@@ -444,7 +416,6 @@
             }
         }
         
-        /* Mejoras para alto contraste */
         @media (prefers-contrast: more) {
             .info-label {
                 color: #000;
@@ -468,7 +439,6 @@
             }
         }
         
-        /* Animación para el badge */
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -492,7 +462,6 @@
     </style>
 </head>
 <body>
-    <!-- Incluir la barra de navegación -->
     @include('layouts.navigation')
 
     <div class="container py-3 py-md-4">
@@ -522,7 +491,6 @@
                                     <i class="bi bi-person-fill"></i>Información Personal
                                 </h5>
                                 
-                                <!-- Versión para pantallas medianas y grandes -->
                                 <div class="d-none d-md-block">
                                     <div class="row mb-3">
                                         <div class="col-md-6">
@@ -557,7 +525,6 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Versión para móviles -->
                                 <div class="d-md-none">
                                     <div class="client-info-item">
                                         <p>
@@ -609,7 +576,6 @@
                                         <i class="bi bi-building"></i>Información Jurídica
                                     </h5>
                                     
-                                    <!-- Versión para pantallas medianas y grandes -->
                                     <div class="d-none d-md-block">
                                         <div class="row mb-0">
                                             <div class="col-md-6">
@@ -621,7 +587,6 @@
                                         </div>
                                     </div>
                                     
-                                    <!-- Versión para móviles -->
                                     <div class="d-md-none">
                                         <div class="client-info-item">
                                             <p>
@@ -646,13 +611,10 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Script para mejorar la experiencia en dispositivos móviles
         document.addEventListener('DOMContentLoaded', function() {
-            // Detectar orientación landscape en móviles
             function adjustForLandscape() {
                 if (window.innerHeight < 500 && window.innerWidth > window.innerHeight) {
                     document.body.classList.add('landscape-mode');
@@ -661,12 +623,10 @@
                 }
             }
             
-            // Ejecutar al cargar y al cambiar orientación
             adjustForLandscape();
             window.addEventListener('resize', adjustForLandscape);
             window.addEventListener('orientationchange', adjustForLandscape);
             
-            // Mejorar la experiencia táctil
             if ('ontouchstart' in window) {
                 const buttons = document.querySelectorAll('.btn');
                 buttons.forEach(button => {
@@ -679,7 +639,6 @@
                     });
                 });
                 
-                // Mejorar la experiencia con los elementos de información
                 const infoItems = document.querySelectorAll('.client-info-item');
                 infoItems.forEach(item => {
                     item.addEventListener('touchstart', function() {
@@ -692,14 +651,11 @@
                 });
             }
             
-            // Añadir soporte para compartir en dispositivos móviles
             if (navigator.share) {
-                // Crear botón de compartir
                 const shareButton = document.createElement('a');
                 shareButton.className = 'btn btn-outline-primary';
                 shareButton.innerHTML = '<i class="bi bi-share me-1"></i> Compartir';
                 
-                // Añadir evento de compartir
                 shareButton.addEventListener('click', async () => {
                     try {
                         await navigator.share({
@@ -712,7 +668,6 @@
                     }
                 });
                 
-                // Añadir botón al contenedor de acciones
                 const actionButtons = document.querySelector('.action-buttons');
                 if (actionButtons) {
                     actionButtons.appendChild(shareButton);

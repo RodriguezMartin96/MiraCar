@@ -19,7 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Redirecciones de rutas antiguas a nuevas
 Route::redirect('/dashboard', '/taller/inicio');
 Route::redirect('/clientes/create', '/taller/clientes/crear');
 Route::redirect('/taller/siniestros/create', '/taller/siniestros/crear');
@@ -32,9 +31,7 @@ Route::redirect('/login', '/acceder');
 Route::redirect('/user/dashboard', '/usuario/inicio');
 Route::redirect('/user/siniestro', '/usuario/siniestro');
 
-// Nueva ruta para el dashboard
 Route::get('/taller/inicio', function () {
-    // Redirigir a los usuarios normales a su dashboard específico
     if (Auth::check() && Auth::user()->isUser()) {
         return redirect()->route('user.dashboard');
     }
@@ -42,7 +39,6 @@ Route::get('/taller/inicio', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::middleware('guest')->group(function () {
-    // Ruta de registro personalizada
     Route::get('registrarse', [RegisteredUserController::class, 'create'])
         ->name('registrarse');
 
@@ -51,13 +47,11 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    // Rutas de perfil en español
     Route::get('/perfil', [UserProfileController::class, 'show'])->name('user.profile');
     Route::patch('/perfil', [UserProfileController::class, 'update'])->name('user.profile.update');
     Route::patch('/perfil/logo', [UserProfileController::class, 'updateLogo'])->name('user.profile.logo');
     Route::delete('/perfil', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    // Rutas de soporte accesibles para todos los usuarios autenticados
     Route::get('/soporte', [SoporteController::class, 'create'])->name('soporte.create');
     Route::post('/soporte', [SoporteController::class, 'store'])->name('soporte.store');
     Route::get('/soporte/{soporte}', [SoporteController::class, 'show'])->name('soporte.show');
@@ -66,17 +60,13 @@ Route::middleware('auth')->group(function () {
     Route::put('/soporte/{soporte}', [SoporteController::class, 'update'])->name('soporte.update');
     Route::delete('/soporte/{soporte}', [SoporteController::class, 'destroy'])->name('soporte.destroy');
     
-    // Rutas específicas para usuarios normales
     Route::middleware([CheckUserRole::class])->group(function () {
         Route::get('/usuario/inicio', [UserDashboardController::class, 'index'])->name('user.dashboard');
         Route::get('/usuario/siniestro/{id}', [UserDashboardController::class, 'showSiniestro'])->name('user.siniestro');
     });
     
-    // Rutas protegidas para talleres
     Route::middleware([CheckTallerRole::class])->group(function () {
-        // Prefijo para todas las rutas del taller
         Route::prefix('taller')->group(function () {
-            // Rutas para clientes con nombres personalizados en español
             Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes.index');
             Route::get('/clientes/crear', [ClienteController::class, 'create'])->name('clientes.create');
             Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store');
@@ -85,7 +75,6 @@ Route::middleware('auth')->group(function () {
             Route::put('/clientes/{cliente}', [ClienteController::class, 'update'])->name('clientes.update');
             Route::delete('/clientes/{cliente}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
             
-            // Rutas para vehículos con nombres personalizados en español
             Route::get('/vehiculos', [VehiculoController::class, 'index'])->name('vehiculos.index');
             Route::get('/vehiculos/crear', [VehiculoController::class, 'create'])->name('vehiculos.create');
             Route::post('/vehiculos', [VehiculoController::class, 'store'])->name('vehiculos.store');
@@ -94,7 +83,6 @@ Route::middleware('auth')->group(function () {
             Route::put('/vehiculos/{vehiculo}', [VehiculoController::class, 'update'])->name('vehiculos.update');
             Route::delete('/vehiculos/{vehiculo}', [VehiculoController::class, 'destroy'])->name('vehiculos.destroy');
             
-            // Rutas para siniestros con nombres personalizados en español
             Route::get('/siniestros', [SiniestroController::class, 'index'])->name('siniestros.index');
             Route::get('/siniestros/crear', [SiniestroController::class, 'create'])->name('siniestros.create');
             Route::post('/siniestros', [SiniestroController::class, 'store'])->name('siniestros.store');
@@ -103,7 +91,6 @@ Route::middleware('auth')->group(function () {
             Route::put('/siniestros/{siniestro}', [SiniestroController::class, 'update'])->name('siniestros.update');
             Route::delete('/siniestros/{siniestro}', [SiniestroController::class, 'destroy'])->name('siniestros.destroy');
             
-            // Rutas para recambios con nombres personalizados en español
             Route::get('/recambios', [RecambioController::class, 'index'])->name('recambios.index');
             Route::get('/recambios/crear', [RecambioController::class, 'create'])->name('recambios.create');
             Route::post('/recambios', [RecambioController::class, 'store'])->name('recambios.store');
@@ -112,7 +99,6 @@ Route::middleware('auth')->group(function () {
             Route::put('/recambios/{recambio}', [RecambioController::class, 'update'])->name('recambios.update');
             Route::delete('/recambios/{recambio}', [RecambioController::class, 'destroy'])->name('recambios.destroy');
             
-            // Rutas para documentos con nombres personalizados en español
             Route::get('/documentos', [DocumentoController::class, 'index'])->name('documentos.index');
             Route::get('/documentos/crear', [DocumentoController::class, 'create'])->name('documentos.create');
             Route::post('/documentos', [DocumentoController::class, 'store'])->name('documentos.store');

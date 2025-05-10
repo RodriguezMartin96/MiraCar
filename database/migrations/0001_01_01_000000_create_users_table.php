@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
@@ -21,7 +18,6 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('avatar')->nullable();
             $table->enum('role', ['user', 'taller', 'admin'])->default('user');
-            // Campos específicos para talleres
             $table->string('company_name')->nullable();
             $table->string('company_nif')->nullable()->unique();
             $table->string('logo')->nullable();
@@ -46,9 +42,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('sessions');

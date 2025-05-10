@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Favicon -->
     <link rel="icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
     <link rel="shortcut icon" href="{{ asset('galeria/logo.png') }}" type="image/png">
     <link rel="apple-touch-icon" href="{{ asset('galeria/logo.png') }}">
@@ -13,15 +12,12 @@
 
     <title>{{ config('app.name', 'MiraCar') }} - Perfil de Usuario</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     
-    <!-- Estilos personalizados -->
     <style>
         body {
             background: linear-gradient(120deg, #e3ecff 0%, #f4f6f8 60%, #d0e2ff 100%);
@@ -125,7 +121,6 @@
             filter: brightness(0) invert(1);
         }
         
-        /* Estilos para el campo de contraseña con icono de ojo */
         .password-container {
             position: relative;
         }
@@ -152,12 +147,10 @@
             outline: none;
         }
         
-        /* Ajuste para el icono dentro del input */
         .password-input {
             padding-right: 40px;
         }
         
-        /* Estilos para formularios */
         .form-label {
             color: #235390;
             font-weight: 600;
@@ -198,7 +191,6 @@
             padding-right: calc(1.5em + 0.75rem);
         }
         
-        /* Ajuste para los iconos en campos de contraseña */
         .password-input.is-valid, .password-input.is-invalid {
             background-position: right calc(2.5em + 0.1875rem) center;
         }
@@ -234,19 +226,17 @@
             font-size: 0.9rem;
         }
         
-        /* Estilos para campos requeridos */
         .required-field::after {
             content: "*";
             color: #dc3545;
             margin-left: 4px;
         }
         
-        /* Estilos para requisitos de contraseña */
         .password-requirements {
             font-size: 0.8rem;
             color: #6c757d;
             margin-top: 0.25rem;
-            display: none; /* Oculto por defecto */
+            display: none;
             transition: opacity 0.2s ease-in-out;
         }
         
@@ -254,13 +244,12 @@
             display: block;
         }
         
-        /* Estilos para feedback de coincidencia de contraseñas */
         .password-match-feedback {
             font-size: 0.8rem;
             margin-top: 0.25rem;
             display: none;
-            margin-right: 50px; /* Espacio para evitar superposición con el icono */
-            padding-left: 5px; /* Espacio a la izquierda */
+            margin-right: 50px;
+            padding-left: 5px;
         }
         
         .password-match-feedback.valid {
@@ -273,7 +262,6 @@
             display: block;
         }
         
-        /* Estilos para el modal */
         .modal-content {
             border-radius: 1rem;
             border: none;
@@ -300,7 +288,6 @@
             padding: 1rem 1.5rem;
         }
         
-        /* Estilos para la imagen de perfil */
         .profile-image-container {
             border: 2px dashed #b6d0ff;
             background: #fafdff;
@@ -320,10 +307,8 @@
     </style>
 </head>
 <body>
-    <!-- Fondo con degradado y blur -->
     <div class="auth-bg-blur"></div>
     
-    <!-- Incluir la barra de navegación -->
     @include('layouts.navigation')
     
     <div class="container mt-5">
@@ -416,7 +401,6 @@
                         </button>
                     </div>
                     
-                    <!-- Nueva sección para eliminar cuenta -->
                     <div class="profile-section danger-section">
                         <h5 class="section-title text-danger">Eliminar Cuenta</h5>
                         <p class="text-muted mb-4">Una vez que elimines tu cuenta, todos tus recursos y datos serán eliminados permanentemente. Esta acción no se puede deshacer.</p>
@@ -462,7 +446,6 @@
         </div>
     </div>
 
-    <!-- Modal para editar perfil -->
     <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -563,7 +546,6 @@
         </div>
     </div>
 
-    <!-- Modal para cambiar imagen (logo o avatar) -->
     <div class="modal fade" id="editImageModal" tabindex="-1" aria-labelledby="editImageModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -610,7 +592,6 @@
         </div>
     </div>
 
-    <!-- Modal para cambiar contraseña -->
     <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -683,7 +664,6 @@
         </div>
     </div>
     
-    <!-- Modal para eliminar cuenta -->
     <div class="modal fade modal-danger" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -724,13 +704,10 @@
         </div>
     </div>
 
-    <!-- Scripts de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Scripts personalizados -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Previsualización de imagen
             document.getElementById('logo').onchange = function(evt) {
                 const [file] = this.files;
                 if (file) {
@@ -740,7 +717,6 @@
                 }
             };
             
-            // Mostrar los modales si hay errores de validación
             @if($errors->has('updatePassword') && $errors->updatePassword->any())
                 new bootstrap.Modal(document.getElementById('changePasswordModal')).show();
             @endif
@@ -757,7 +733,6 @@
                 new bootstrap.Modal(document.getElementById('deleteAccountModal')).show();
             @endif
             
-            // Validación de campos de texto
             const textFields = document.querySelectorAll('input[type="text"]');
             textFields.forEach(function(input) {
                 input.addEventListener('input', function() {
@@ -765,7 +740,6 @@
                 });
             });
             
-            // Validación de teléfono
             const phoneFields = document.querySelectorAll('input[type="tel"]');
             phoneFields.forEach(function(input) {
                 input.addEventListener('input', function() {
@@ -773,7 +747,6 @@
                 });
             });
             
-            // Validación de NIF/DNI
             const dniField = document.getElementById('dni');
             if (dniField) {
                 dniField.addEventListener('input', function() {
@@ -804,7 +777,6 @@
                 });
             }
             
-            // Validación de contraseñas
             const passwordField = document.getElementById('password');
             const passwordConfirmField = document.getElementById('password_confirmation');
             
@@ -831,13 +803,11 @@
                 });
             }
             
-            // Validación del formulario de edición de perfil
             const editProfileForm = document.getElementById('editProfileForm');
             if (editProfileForm) {
                 editProfileForm.addEventListener('submit', function(event) {
                     let isValid = true;
                     
-                    // Validar campos de texto
                     const requiredFields = this.querySelectorAll('input[required]');
                     requiredFields.forEach(function(field) {
                         if (field.type === 'text') {
@@ -861,7 +831,6 @@
                 });
             }
             
-            // Validación del formulario de cambio de contraseña
             const changePasswordForm = document.getElementById('changePasswordForm');
             if (changePasswordForm) {
                 changePasswordForm.addEventListener('submit', function(event) {
@@ -884,13 +853,11 @@
                 });
             }
             
-            // Función para validar campos de texto
             function validateTextField(input) {
                 const value = input.value.trim();
                 const feedbackId = input.id + '_feedback';
                 const feedbackElement = document.getElementById(feedbackId);
                 
-                // Si está vacío y es requerido
                 if (value === '' && input.hasAttribute('required')) {
                     input.classList.remove('is-valid');
                     input.classList.add('is-invalid');
@@ -900,7 +867,6 @@
                     return false;
                 }
                 
-                // Si está vacío pero no es requerido
                 if (value === '' && !input.hasAttribute('required')) {
                     input.classList.remove('is-valid', 'is-invalid');
                     if (feedbackElement) {
@@ -909,7 +875,6 @@
                     return true;
                 }
                 
-                // Validar que tenga al menos 2 caracteres
                 if (value.length < 2) {
                     input.classList.remove('is-valid');
                     input.classList.add('is-invalid');
@@ -927,13 +892,11 @@
                 return true;
             }
             
-            // Función para validar teléfono
             function validatePhone(input) {
                 const value = input.value.trim();
                 const feedbackId = input.id + '_feedback';
                 const feedbackElement = document.getElementById(feedbackId);
                 
-                // Si está vacío y es requerido
                 if (value === '' && input.hasAttribute('required')) {
                     input.classList.remove('is-valid');
                     input.classList.add('is-invalid');
@@ -943,7 +906,6 @@
                     return false;
                 }
                 
-                // Si está vacío pero no es requerido
                 if (value === '' && !input.hasAttribute('required')) {
                     input.classList.remove('is-valid', 'is-invalid');
                     if (feedbackElement) {
@@ -952,7 +914,6 @@
                     return true;
                 }
                 
-                // Validar formato de teléfono (9 dígitos para España o formato internacional)
                 const phoneRegex = /^(\+\d{1,3})?[0-9]{9,15}$/;
                 
                 if (!phoneRegex.test(value)) {
@@ -972,13 +933,11 @@
                 return true;
             }
             
-            // Función para validar NIF/CIF español
             function validateSpanishNIF(input) {
                 const value = input.value.toUpperCase().trim();
                 const feedbackId = input.id + '_feedback';
                 const feedbackElement = document.getElementById(feedbackId);
                 
-                // Si está vacío y es requerido
                 if (value === '' && input.hasAttribute('required')) {
                     input.classList.remove('is-valid');
                     input.classList.add('is-invalid');
@@ -988,7 +947,6 @@
                     return false;
                 }
                 
-                // Si está vacío pero no es requerido
                 if (value === '' && !input.hasAttribute('required')) {
                     input.classList.remove('is-valid', 'is-invalid');
                     if (feedbackElement) {
@@ -997,14 +955,12 @@
                     return true;
                 }
                 
-                // Expresiones regulares para diferentes tipos de documentos
                 const dniRegex = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/;
                 const nieRegex = /^[XYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/;
                 const cifRegex = /^[ABCDEFGHJKLMNPQRSUVW][0-9]{7}[0-9A-J]$/;
                 
                 let isValid = false;
                 
-                // Validar DNI
                 if (dniRegex.test(value)) {
                     const numero = value.substr(0, 8);
                     const letra = value.substr(8, 1);
@@ -1014,13 +970,11 @@
                         isValid = true;
                     }
                 }
-                // Validar NIE
                 else if (nieRegex.test(value)) {
                     const primeraLetra = value.charAt(0);
                     let numero = value.substr(1, 7);
                     const letra = value.substr(8, 1);
                     
-                    // Convertir la primera letra a número según normativa
                     if (primeraLetra === 'X') numero = '0' + numero;
                     else if (primeraLetra === 'Y') numero = '1' + numero;
                     else if (primeraLetra === 'Z') numero = '2' + numero;
@@ -1031,7 +985,6 @@
                         isValid = true;
                     }
                 }
-                // Validar CIF
                 else if (cifRegex.test(value)) {
                     isValid = validarCIF(value);
                 }
@@ -1053,14 +1006,12 @@
                 return isValid;
             }
             
-            // Función para calcular la letra del DNI
             function calcularLetraDNI(numero) {
                 const letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
                 const indice = parseInt(numero) % 23;
                 return letras.charAt(indice);
             }
             
-            // Función para validar CIF
             function validarCIF(cif) {
                 const match = cif.match(/^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/);
                 if (!match) return false;
@@ -1069,13 +1020,11 @@
                 const numero = match[2];
                 const control = match[3];
                 
-                // Cálculo del dígito de control
                 let suma = 0;
                 
                 for (let i = 0; i < numero.length; i++) {
                     let digito = parseInt(numero[i]);
                     
-                    // Posiciones pares (0, 2, 4, 6)
                     if (i % 2 === 0) {
                         digito *= 2;
                         if (digito > 9) {
@@ -1094,7 +1043,6 @@
                     controlCalculado = (10 - resto).toString();
                 }
                 
-                // Para entidades que usan letra como dígito de control
                 if (/[ABCDEFGHJUV]/.test(letra)) {
                     const letrasControl = 'JABCDEFGHI';
                     if (control === letrasControl.charAt(parseInt(controlCalculado))) {
@@ -1103,11 +1051,9 @@
                     return control === controlCalculado;
                 }
                 
-                // Para el resto de entidades
                 return control === controlCalculado;
             }
             
-            // Función para validar contraseña
             function validatePassword(input) {
                 const value = input.value;
                 const feedbackElement = document.getElementById('password_feedback');
@@ -1159,7 +1105,6 @@
                 return isValid;
             }
             
-            // Función para verificar que las contraseñas coinciden
             function checkPasswordsMatch() {
                 const passwordField = document.getElementById('password');
                 const passwordConfirmField = document.getElementById('password_confirmation');
@@ -1187,7 +1132,6 @@
             }
         });
         
-        // Función para mostrar/ocultar contraseña
         function togglePasswordVisibility(inputId) {
             const passwordInput = document.getElementById(inputId);
             const toggleIcon = document.getElementById(inputId + '_toggle_icon');
