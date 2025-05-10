@@ -170,7 +170,7 @@ miracar/
 
 ## 🖼️ Capturas de Pantalla
 
-### 🔐📱 Panel de Inicio de Sesión & Registro
+### 🔐 Panel de Inicio de Sesión & Registro
 
 #### 🖥️ Monitor
 <div align="center">
