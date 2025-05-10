@@ -261,12 +261,6 @@ miracar/
 
 ---
 
-## 📜 Licencia
-
-Este proyecto está bajo la [Licencia MIT](LICENSE).
-
----
-
 ## ✉️ Contacto
 
 **Román Rodríguez Martín**  
