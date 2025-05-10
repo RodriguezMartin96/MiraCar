@@ -266,4 +266,3 @@ miracar/
 **Román Rodríguez Martín**  
 📧 [adm.96.rrm@gmail.com](mailto:adm.96.rrm@gmail.com)  
 🌐 [www.miracar.com](https://miracar-production-2d55.up.railway.app/) *(en construcción)*
-```
