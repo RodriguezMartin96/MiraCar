@@ -15,11 +15,6 @@ use App\Http\Middleware\CheckUserRole;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-// Añade esta ruta para el healthcheck de Railway
-Route::get('/health', function () {
-    return response()->json(['status' => 'ok']);
-});
-
 Route::get('/', function () {
     return view('welcome');
 });
