@@ -3,9 +3,9 @@
     "builder": "nixpacks"
   },
   "deploy": {
-    "startCommand": "vendor/bin/heroku-php-apache2 public/",
-    "healthcheckPath": "/health.php",
-    "healthcheckTimeout": 100,
+    "startCommand": "vendor/bin/heroku-php-apache2 -p ${PORT:-3000} public/",
+    "healthcheckPath": "/",
+    "healthcheckTimeout": 200,
     "restartPolicyType": "on_failure"
   }
 }
