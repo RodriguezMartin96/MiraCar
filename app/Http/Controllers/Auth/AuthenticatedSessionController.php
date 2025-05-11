@@ -28,25 +28,20 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         try {
-            // Registrar intento de inicio de sesión para depuración
             $login = $request->input('login');
             $loginType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'dni';
             Log::info("Intento de inicio de sesión con {$loginType}: {$login}");
             
-            // Intentar autenticar
             $request->authenticate();
             
-            // Si la autenticación es exitosa, registrar el éxito
             Log::info("Inicio de sesión exitoso para {$loginType}: {$login}");
             
             $request->session()->regenerate();
             
-            // Usar RouteServiceProvider::HOME para mantener consistencia
             return redirect()->intended(RouteServiceProvider::HOME);
         } catch (ValidationException $e) {
-            throw $e; // Manejar errores de validación normalmente
+            throw $e;
         } catch (\Exception $e) {
-            // Registrar el error para depuración
             Log::error('Error de autenticación: ' . $e->getMessage(), [
                 'login' => $request->input('login'),
                 'exception' => get_class($e),

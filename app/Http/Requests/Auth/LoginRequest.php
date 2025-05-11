@@ -43,7 +43,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
             
             throw ValidationException::withMessages([
-                'login' => 'DNI, Email o Contraseña. Errónea inténtelo de nuevo.',
+                'login' => 'Email o Contraseña. Errónea inténtelo de nuevo.',
             ]);
         }
 
