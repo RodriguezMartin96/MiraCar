@@ -54,7 +54,7 @@ class AuthenticatedSessionController extends Controller
             ]);
             
             return back()->withErrors([
-                'login' => 'DNI, Email o Contraseña. Errónea inténtelo de nuevo.',
+                'login' => 'Email o Contraseña. Errónea inténtelo de nuevo.',
             ])->withInput();
         }
     }
