@@ -220,7 +220,6 @@
                 const videoTitle = button.getAttribute('data-video-title');
                 const videoId = button.getAttribute('data-video-id');
                 
-                // Construir la URL de incrustación de YouTube
                 const embedUrl = 'https://www.youtube.com/embed/' + videoId;
                 
                 videoModalLabel.textContent = 'Tutorial: ' + videoTitle;
