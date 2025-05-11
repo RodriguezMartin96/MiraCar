@@ -281,14 +281,14 @@
                             @csrf
                             
                             <div class="mb-3">
-                                <label for="login" class="form-label">Email o DNI</label>
+                                <label for="login" class="form-label">Email</label>
                                 <div class="input-group">
                                     <span class="input-group-text bg-light">
                                         <i class="bi bi-person-fill text-primary"></i>
                                     </span>
                                     <input id="login" type="text" class="form-control @error('login') is-invalid @enderror" 
                                         name="login" value="{{ old('login') }}" required autofocus
-                                        placeholder="Introduce tu email o DNI">
+                                        placeholder="Introduce tu Email">
                                 </div>
                             </div>
                             
