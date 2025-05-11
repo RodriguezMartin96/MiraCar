@@ -263,6 +263,18 @@
             display: block;
         }
         
+        /* Estilos para el indicador de compresión */
+        .compression-indicator {
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            color: #6c757d;
+            display: none;
+        }
+        
+        .compression-indicator.visible {
+            display: block;
+        }
+        
         @media (min-width: 768px) {
             .auth-card {
                 padding: 2rem 1.5rem;
@@ -383,6 +395,9 @@
                             <i class="bi bi-upload me-1"></i> Insertar Logo
                             <input id="logo" type="file" name="logo" accept="image/*" class="d-none" />
                         </label>
+                        <div id="logo_compression_indicator" class="compression-indicator">
+                            Comprimiendo imagen...
+                        </div>
                         @error('logo')
                             <div class="text-danger mt-1 small">{{ $message }}</div>
                         @enderror
@@ -469,6 +484,9 @@
                             <i class="bi bi-upload me-1"></i> Insertar Avatar
                             <input id="avatar" type="file" name="avatar" accept="image/*" class="d-none" />
                         </label>
+                        <div id="avatar_compression_indicator" class="compression-indicator">
+                            Comprimiendo imagen...
+                        </div>
                         @error('avatar')
                             <div class="text-danger mt-1 small">{{ $message }}</div>
                         @enderror
@@ -621,6 +639,9 @@
             const passwordMatch = document.getElementById('password_match');
             const passwordMismatch = document.getElementById('password_mismatch');
             
+            const logoCompressionIndicator = document.getElementById('logo_compression_indicator');
+            const avatarCompressionIndicator = document.getElementById('avatar_compression_indicator');
+            
             userTypeSelect.addEventListener('change', function() {
                 if (this.value === 'taller') {
                     tallerSection.classList.remove('d-none');
@@ -679,32 +700,114 @@
                 setRequiredFields('taller', false);
             }
             
+            // Función para comprimir imágenes
+            function compressImage(file, callback, indicator) {
+                if (!file || !file.type.match(/image.*/)) {
+                    callback(file);
+                    return;
+                }
+                
+                // Mostrar indicador de compresión
+                if (indicator) {
+                    indicator.classList.add('visible');
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        // Calcular dimensiones manteniendo la proporción
+                        let width = img.width;
+                        let height = img.height;
+                        const maxDimension = 800;
+                        
+                        if (width > maxDimension || height > maxDimension) {
+                            if (width > height) {
+                                height = Math.round(height * maxDimension / width);
+                                width = maxDimension;
+                            } else {
+                                width = Math.round(width * maxDimension / height);
+                                height = maxDimension;
+                            }
+                        }
+                        
+                        // Crear canvas para redimensionar
+                        const canvas = document.createElement('canvas');
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        
+                        // Convertir a blob con calidad reducida
+                        canvas.toBlob(function(blob) {
+                            // Crear un nuevo archivo
+                            const compressedFile = new File([blob], file.name, {
+                                type: 'image/jpeg',
+                                lastModified: Date.now()
+                            });
+                            
+                            // Actualizar el indicador con información de compresión
+                            if (indicator) {
+                                const originalSize = (file.size / 1024).toFixed(2);
+                                const compressedSize = (blob.size / 1024).toFixed(2);
+                                const reduction = (100 - (blob.size / file.size * 100)).toFixed(0);
+                                
+                                indicator.textContent = `Imagen comprimida: ${originalSize}KB → ${compressedSize}KB (${reduction}% menos)`;
+                                indicator.classList.add('visible');
+                                
+                                // Ocultar el indicador después de 5 segundos
+                                setTimeout(() => {
+                                    indicator.classList.remove('visible');
+                                }, 5000);
+                            }
+                            
+                            callback(compressedFile);
+                        }, 'image/jpeg', 0.7); // 70% de calidad
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+            
+            // Función para manejar la vista previa de la imagen
+            function handleImagePreview(input, container, indicator) {
+                if (input.files && input.files[0]) {
+                    compressImage(input.files[0], function(compressedFile) {
+                        // Crear un objeto FileReader para mostrar la vista previa
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            // Limpiar el contenedor
+                            while (container.firstChild) {
+                                container.removeChild(container.firstChild);
+                            }
+                            
+                            // Crear y añadir la imagen
+                            const img = document.createElement('img');
+                            img.src = e.target.result;
+                            img.className = 'img-fluid';
+                            img.style.width = '100%';
+                            img.style.height = '100%';
+                            img.style.objectFit = 'cover';
+                            container.appendChild(img);
+                            
+                            // Reemplazar el archivo original con el comprimido
+                            const dataTransfer = new DataTransfer();
+                            dataTransfer.items.add(compressedFile);
+                            input.files = dataTransfer.files;
+                        };
+                        reader.readAsDataURL(compressedFile);
+                    }, indicator);
+                }
+            }
+            
+            // Manejar la subida y compresión de imágenes
             logoInput.addEventListener('change', function() {
-                handleImagePreview(this, logoContainer);
+                handleImagePreview(this, logoContainer, logoCompressionIndicator);
             });
             
             avatarInput.addEventListener('change', function() {
-                handleImagePreview(this, avatarContainer);
+                handleImagePreview(this, avatarContainer, avatarCompressionIndicator);
             });
-            
-            function handleImagePreview(input, container) {
-                if (input.files && input.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        while (container.firstChild) {
-                            container.removeChild(container.firstChild);
-                        }
-                        const img = document.createElement('img');
-                        img.src = e.target.result;
-                        img.className = 'img-fluid';
-                        img.style.width = '100%';
-                        img.style.height = '100%';
-                        img.style.objectFit = 'cover';
-                        container.appendChild(img);
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
             
             if (companyName) {
                 companyName.addEventListener('input', function() {
