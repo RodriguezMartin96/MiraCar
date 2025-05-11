@@ -117,7 +117,7 @@
     
     <div class="row g-3 g-md-4 mb-3 mb-md-4">
         <div class="col-12 col-sm-6 col-lg-4">
-            <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Cliente" data-video-src="https://player.vimeo.com/video/76979871" role="button">
+            <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Cliente" data-video-id="jRk04dubF_0" role="button">
                 <div class="card-body text-center">
                     <div class="icon-lg bg-primary-light text-primary">
                         <i class="bi bi-people"></i>
@@ -129,7 +129,7 @@
         </div>
         
         <div class="col-12 col-sm-6 col-lg-4">
-            <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Vehículo" data-video-src="https://player.vimeo.com/video/76979871" role="button">
+            <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Vehículo" data-video-id="jRk04dubF_0" role="button">
                 <div class="card-body text-center">
                     <div class="icon-lg bg-success-subtle text-success">
                         <i class="bi bi-car-front"></i>
@@ -141,7 +141,7 @@
         </div>
         
         <div class="col-12 col-sm-6 col-lg-4">
-            <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Siniestro" data-video-src="https://player.vimeo.com/video/76979871" role="button">
+            <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Siniestro" data-video-id="jRk04dubF_0" role="button">
                 <div class="card-body text-center">
                     <div class="icon-lg bg-danger-subtle text-danger">
                         <i class="bi bi-tools"></i>
@@ -153,7 +153,7 @@
         </div>
     
         <div class="col-12 col-sm-6 col-lg-4">
-            <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Recambios" data-video-src="https://player.vimeo.com/video/76979871" role="button">
+            <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Recambios" data-video-id="jRk04dubF_0" role="button">
                 <div class="card-body text-center">
                     <div class="icon-lg bg-warning-subtle text-warning">
                         <i class="bi bi-box-seam"></i>
@@ -165,7 +165,7 @@
         </div>
         
         <div class="col-12 col-sm-6 col-lg-4">
-            <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Documentación" data-video-src="https://player.vimeo.com/video/76979871" role="button">
+            <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Documentación" data-video-id="jRk04dubF_0" role="button">
                 <div class="card-body text-center">
                     <div class="icon-lg bg-info-subtle text-info">
                         <i class="bi bi-file-earmark-text"></i>
@@ -177,7 +177,7 @@
         </div>
         
         <div class="col-12 col-sm-6 col-lg-4">
-            <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Soporte" data-video-src="https://player.vimeo.com/video/76979871" role="button">
+            <div class="card h-100 shadow-sm rounded-4 p-2 p-md-3" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-title="Soporte" data-video-id="jRk04dubF_0" role="button">
                 <div class="card-body text-center">
                     <div class="icon-lg bg-secondary-subtle text-secondary">
                         <i class="bi bi-headset"></i>
@@ -199,7 +199,7 @@
             </div>
             <div class="modal-body pt-0">
                 <div class="ratio ratio-16x9 rounded-4 overflow-hidden">
-                    <iframe id="videoFrame" src="/placeholder.svg" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                    <iframe id="videoFrame" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -218,10 +218,13 @@
             videoModal.addEventListener('show.bs.modal', function(event) {
                 const button = event.relatedTarget;
                 const videoTitle = button.getAttribute('data-video-title');
-                const videoSrc = button.getAttribute('data-video-src');
+                const videoId = button.getAttribute('data-video-id');
+                
+                // Construir la URL de incrustación de YouTube
+                const embedUrl = 'https://www.youtube.com/embed/' + videoId;
                 
                 videoModalLabel.textContent = 'Tutorial: ' + videoTitle;
-                videoFrame.src = videoSrc;
+                videoFrame.src = embedUrl;
             });
             
             videoModal.addEventListener('hidden.bs.modal', function() {
